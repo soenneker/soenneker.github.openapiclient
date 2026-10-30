@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSummaryStats>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSummaryStats.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSummaryStats>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSummaryStats.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.

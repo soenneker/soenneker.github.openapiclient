@@ -12,19 +12,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("branch") is { } nullNodeBranch && nullNodeBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branch = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The repository branch used to publish your site&apos;s source files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Branch { get; set; }
+        public string? Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        private string? _explicitNullValueBranch = default!;
 #nullable restore
 #else
-        public string Branch { get; set; }
+        public string Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        private string _explicitNullValueBranch = default!;
 #endif
         /// <summary>The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2Path? Path { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2Path? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2Path? _explicitNullValuePath = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("branch", Branch);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2Path>("path", Path);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

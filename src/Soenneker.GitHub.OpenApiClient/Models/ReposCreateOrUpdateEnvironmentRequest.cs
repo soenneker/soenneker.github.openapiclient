@@ -11,27 +11,44 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposCreateOrUpdateEnvironmentRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deployment_branch_policy") is { } nullNodeDeploymentBranchPolicy && nullNodeDeploymentBranchPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentBranchPolicy = null;
+            if (parseNode.GetChildNode("prevent_self_review") is { } nullNodePreventSelfReview && nullNodePreventSelfReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreventSelfReview = null;
+            if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
+            if (parseNode.GetChildNode("wait_timer") is { } nullNodeWaitTimer && nullNodeWaitTimer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimer = null;
+        }
+
         /// <summary>The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings? DeploymentBranchPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings? DeploymentBranchPolicy { get => _explicitNullValueDeploymentBranchPolicy; set { _explicitNullValueDeploymentBranchPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_branch_policy"); else _explicitNullProperties?.Remove("deployment_branch_policy"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings? _explicitNullValueDeploymentBranchPolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings DeploymentBranchPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings DeploymentBranchPolicy { get => _explicitNullValueDeploymentBranchPolicy; set { _explicitNullValueDeploymentBranchPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_branch_policy"); else _explicitNullProperties?.Remove("deployment_branch_policy"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings _explicitNullValueDeploymentBranchPolicy = default!;
 #endif
         /// <summary>Whether or not a user who created the job is prevented from approving their own job.</summary>
-        public bool? PreventSelfReview { get; set; }
+        public bool? PreventSelfReview { get => _explicitNullValuePreventSelfReview; set { _explicitNullValuePreventSelfReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_self_review"); else _explicitNullProperties?.Remove("prevent_self_review"); } }
+        private bool? _explicitNullValuePreventSelfReview = default!;
         /// <summary>The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem>? Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem>? _explicitNullValueReviewers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem> Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem> _explicitNullValueReviewers = default!;
 #endif
         /// <summary>The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).</summary>
-        public int? WaitTimer { get; set; }
+        public int? WaitTimer { get => _explicitNullValueWaitTimer; set { _explicitNullValueWaitTimer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timer"); else _explicitNullProperties?.Remove("wait_timer"); } }
+        private int? _explicitNullValueWaitTimer = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +57,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequest();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings>("deployment_branch_policy", DeploymentBranchPolicy);
             writer.WriteBoolValue("prevent_self_review", PreventSelfReview);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateEnvironmentRequestReviewersItem>("reviewers", Reviewers);
-            writer.WriteIntValue("wait_timer", WaitTimer);
+            writer.WriteIntValue("wait_timer", WaitTimer);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

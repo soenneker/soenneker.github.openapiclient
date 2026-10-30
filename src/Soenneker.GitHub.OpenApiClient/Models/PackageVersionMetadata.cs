@@ -11,27 +11,42 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PackageVersionMetadata : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("container") is { } nullNodeContainer && nullNodeContainer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Container = null;
+            if (parseNode.GetChildNode("docker") is { } nullNodeDocker && nullNodeDocker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Docker = null;
+            if (parseNode.GetChildNode("package_type") is { } nullNodePackageType && nullNodePackageType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PackageType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The container property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer? Container { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer? Container { get => _explicitNullValueContainer; set { _explicitNullValueContainer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container"); else _explicitNullProperties?.Remove("container"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer? _explicitNullValueContainer = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer Container { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer Container { get => _explicitNullValueContainer; set { _explicitNullValueContainer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("container"); else _explicitNullProperties?.Remove("container"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer _explicitNullValueContainer = default!;
 #endif
         /// <summary>The docker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker? Docker { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker? Docker { get => _explicitNullValueDocker; set { _explicitNullValueDocker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docker"); else _explicitNullProperties?.Remove("docker"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker? _explicitNullValueDocker = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker Docker { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker Docker { get => _explicitNullValueDocker; set { _explicitNullValueDocker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docker"); else _explicitNullProperties?.Remove("docker"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker _explicitNullValueDocker = default!;
 #endif
         /// <summary>The package_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType? PackageType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType? PackageType { get => _explicitNullValuePackageType; set { _explicitNullValuePackageType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_type"); else _explicitNullProperties?.Remove("package_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType? _explicitNullValuePackageType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer>("container", Container);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker>("docker", Docker);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType>("package_type", PackageType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

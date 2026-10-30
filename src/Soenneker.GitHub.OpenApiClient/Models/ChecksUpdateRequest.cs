@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChecksUpdateRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequestAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,9 +43,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequest();
-            result.ChecksUpdateRequestAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequestAnyOf1();
-            result.ChecksUpdateRequestAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequestAnyOf2();
-            return result;
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("conclusion") != null && (parseNode.GetChildNode("status") == null || (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag1 && ("completed".Equals(optionalTag1.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.ChecksUpdateRequestAnyOf1 == null && result.ChecksUpdateRequestAnyOf2 == null && matchesUnionBranch0) result.ChecksUpdateRequestAnyOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequestAnyOf1(), parseNode);
+            if (result.ChecksUpdateRequestAnyOf1 == null && result.ChecksUpdateRequestAnyOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +70,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ChecksUpdateRequestAnyOf1 == null && ChecksUpdateRequestAnyOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ChecksUpdateRequestAnyOf1 != null && ChecksUpdateRequestAnyOf2 == null) { if (ChecksUpdateRequestAnyOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ChecksUpdateRequestAnyOf1); return; }
+            if (ChecksUpdateRequestAnyOf2 != null && ChecksUpdateRequestAnyOf1 == null) { if (ChecksUpdateRequestAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ChecksUpdateRequestAnyOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksUpdateRequestAnyOf1>(null, ChecksUpdateRequestAnyOf1, ChecksUpdateRequestAnyOf2);
         }

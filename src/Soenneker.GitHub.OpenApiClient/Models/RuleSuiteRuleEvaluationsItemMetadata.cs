@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RuleSuiteRuleEvaluationsItemMetadata : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata();
             if("pull_request".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RuleSuitePullRequest = new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequest();
+                
             }
             else if("required_status_checks".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RuleSuiteRequiredStatusChecks = new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.RuleSuitePullRequest == null && result.RuleSuiteRequiredStatusChecks == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +79,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (RuleSuitePullRequest == null && RuleSuiteRequiredStatusChecks == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (RuleSuitePullRequest != null && RuleSuiteRequiredStatusChecks == null) { if (RuleSuitePullRequest is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RuleSuitePullRequest); return; }
+            if (RuleSuiteRequiredStatusChecks != null && RuleSuitePullRequest == null) { if (RuleSuiteRequiredStatusChecks is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RuleSuiteRequiredStatusChecks); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(RuleSuitePullRequest != null)
             {
+                if (RuleSuitePullRequest is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequest>(null, RuleSuitePullRequest);
             }
             else if(RuleSuiteRequiredStatusChecks != null)
             {
+                if (RuleSuiteRequiredStatusChecks is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks>(null, RuleSuiteRequiredStatusChecks);
             }
         }

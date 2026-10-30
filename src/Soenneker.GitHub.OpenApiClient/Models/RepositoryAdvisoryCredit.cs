@@ -12,18 +12,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryAdvisoryCredit : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>The state of the user&apos;s acceptance of the credit.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState? _explicitNullValueState = default!;
         /// <summary>The type of credit the user is receiving.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes? _explicitNullValueType = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -33,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +71,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

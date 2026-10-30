@@ -11,13 +11,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsArtifactAndLogRetentionResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
+            if (parseNode.GetChildNode("maximum_allowed_days") is { } nullNodeMaximumAllowedDays && nullNodeMaximumAllowedDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumAllowedDays = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of days checks, workflow runs, commit statuses, artifacts, and logs are retained</summary>
-        public int? Days { get; set; }
+        public int? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        private int? _explicitNullValueDays = default!;
         /// <summary>The maximum number of days that can be configured</summary>
-        public int? MaximumAllowedDays { get; set; }
+        public int? MaximumAllowedDays { get => _explicitNullValueMaximumAllowedDays; set { _explicitNullValueMaximumAllowedDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_allowed_days"); else _explicitNullProperties?.Remove("maximum_allowed_days"); } }
+        private int? _explicitNullValueMaximumAllowedDays = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsArtifactAndLogRetentionResponse"/> and sets the default values.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsArtifactAndLogRetentionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsArtifactAndLogRetentionResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsArtifactAndLogRetentionResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("days", Days);
             writer.WriteIntValue("maximum_allowed_days", MaximumAllowedDays);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

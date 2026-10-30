@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a check run for a specific commit in a repository.&gt; [!NOTE]&gt; The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.OAuth apps and personal access tokens (classic) cannot use this endpoint.
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets a single check run using its `id`.&gt; [!NOTE]&gt; The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint on a private repository.

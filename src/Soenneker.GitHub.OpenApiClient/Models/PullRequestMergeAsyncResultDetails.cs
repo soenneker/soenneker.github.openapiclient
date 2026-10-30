@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestMergeAsyncResultDetails : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,11 +59,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetails();
-            result.PullRequestMergeAsyncResultDetailsAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1();
-            result.PullRequestMergeAsyncResultDetailsAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2();
-            result.PullRequestMergeAsyncResultDetailsAnyOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3();
-            result.PullRequestMergeAsyncResultDetailsAnyOf4 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4();
-            return result;
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("message") != null && parseNode.GetChildNode("uuid") != null && parseNode.GetChildNode("merge_method") != null && (parseNode.GetChildNode("merge_method")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("default".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "merge".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "squash".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "rebase".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("merge_action") != null && (parseNode.GetChildNode("merge_action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("default".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "merge_queue".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "direct_merge".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("expected_head_sha") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("message") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("message") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("message") != null && parseNode.GetChildNode("sha") != null))();
+            if (result.PullRequestMergeAsyncResultDetailsAnyOf1 == null && result.PullRequestMergeAsyncResultDetailsAnyOf2 == null && result.PullRequestMergeAsyncResultDetailsAnyOf3 == null && result.PullRequestMergeAsyncResultDetailsAnyOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.PullRequestMergeAsyncResultDetailsAnyOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1(), parseNode);
+            if (result.PullRequestMergeAsyncResultDetailsAnyOf1 == null && result.PullRequestMergeAsyncResultDetailsAnyOf2 == null && result.PullRequestMergeAsyncResultDetailsAnyOf3 == null && result.PullRequestMergeAsyncResultDetailsAnyOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.PullRequestMergeAsyncResultDetailsAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2(), parseNode);
+            if (result.PullRequestMergeAsyncResultDetailsAnyOf1 == null && result.PullRequestMergeAsyncResultDetailsAnyOf2 == null && result.PullRequestMergeAsyncResultDetailsAnyOf3 == null && result.PullRequestMergeAsyncResultDetailsAnyOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.PullRequestMergeAsyncResultDetailsAnyOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3(), parseNode);
+            if (result.PullRequestMergeAsyncResultDetailsAnyOf1 == null && result.PullRequestMergeAsyncResultDetailsAnyOf2 == null && result.PullRequestMergeAsyncResultDetailsAnyOf3 == null && result.PullRequestMergeAsyncResultDetailsAnyOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.PullRequestMergeAsyncResultDetailsAnyOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4(), parseNode);
+            if (result.PullRequestMergeAsyncResultDetailsAnyOf1 == null && result.PullRequestMergeAsyncResultDetailsAnyOf2 == null && result.PullRequestMergeAsyncResultDetailsAnyOf3 == null && result.PullRequestMergeAsyncResultDetailsAnyOf4 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PullRequestMergeAsyncResultDetailsAnyOf1 == null && PullRequestMergeAsyncResultDetailsAnyOf2 == null && PullRequestMergeAsyncResultDetailsAnyOf3 == null && PullRequestMergeAsyncResultDetailsAnyOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PullRequestMergeAsyncResultDetailsAnyOf1 != null && PullRequestMergeAsyncResultDetailsAnyOf2 == null && PullRequestMergeAsyncResultDetailsAnyOf3 == null && PullRequestMergeAsyncResultDetailsAnyOf4 == null) { if (PullRequestMergeAsyncResultDetailsAnyOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestMergeAsyncResultDetailsAnyOf1); return; }
+            if (PullRequestMergeAsyncResultDetailsAnyOf2 != null && PullRequestMergeAsyncResultDetailsAnyOf1 == null && PullRequestMergeAsyncResultDetailsAnyOf3 == null && PullRequestMergeAsyncResultDetailsAnyOf4 == null) { if (PullRequestMergeAsyncResultDetailsAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestMergeAsyncResultDetailsAnyOf2); return; }
+            if (PullRequestMergeAsyncResultDetailsAnyOf3 != null && PullRequestMergeAsyncResultDetailsAnyOf1 == null && PullRequestMergeAsyncResultDetailsAnyOf2 == null && PullRequestMergeAsyncResultDetailsAnyOf4 == null) { if (PullRequestMergeAsyncResultDetailsAnyOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestMergeAsyncResultDetailsAnyOf3); return; }
+            if (PullRequestMergeAsyncResultDetailsAnyOf4 != null && PullRequestMergeAsyncResultDetailsAnyOf1 == null && PullRequestMergeAsyncResultDetailsAnyOf2 == null && PullRequestMergeAsyncResultDetailsAnyOf3 == null) { if (PullRequestMergeAsyncResultDetailsAnyOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestMergeAsyncResultDetailsAnyOf4); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1>(null, PullRequestMergeAsyncResultDetailsAnyOf1, PullRequestMergeAsyncResultDetailsAnyOf2, PullRequestMergeAsyncResultDetailsAnyOf3, PullRequestMergeAsyncResultDetailsAnyOf4);
         }

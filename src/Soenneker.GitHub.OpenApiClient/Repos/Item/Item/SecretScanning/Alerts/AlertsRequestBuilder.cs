@@ -67,6 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

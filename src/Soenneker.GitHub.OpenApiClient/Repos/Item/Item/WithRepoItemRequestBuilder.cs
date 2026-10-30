@@ -266,6 +266,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases.ImmutableReleasesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The import property</summary>
+        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.ImportRequestBuilder Import
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.ImportRequestBuilder(PathParameters, RequestAdapter);
@@ -495,6 +496,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.ReposDelete403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -521,6 +524,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.FullRepository.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -551,6 +556,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.FullRepository.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

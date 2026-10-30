@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DependencyGraphSpdxSbomSbomRelationshipsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("relatedSpdxElement") is { } nullNodeRelatedSpdxElement && nullNodeRelatedSpdxElement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedSpdxElement = null;
+            if (parseNode.GetChildNode("relationshipType") is { } nullNodeRelationshipType && nullNodeRelationshipType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipType = null;
+            if (parseNode.GetChildNode("spdxElementId") is { } nullNodeSpdxElementId && nullNodeSpdxElementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpdxElementId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The SPDX identifier of the package that is the target of the relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelatedSpdxElement { get; set; }
+        public string? RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
+        private string? _explicitNullValueRelatedSpdxElement = default!;
 #nullable restore
 #else
-        public string RelatedSpdxElement { get; set; }
+        public string RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
+        private string _explicitNullValueRelatedSpdxElement = default!;
 #endif
         /// <summary>The type of relationship between the two SPDX elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelationshipType { get; set; }
+        public string? RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
+        private string? _explicitNullValueRelationshipType = default!;
 #nullable restore
 #else
-        public string RelationshipType { get; set; }
+        public string RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
+        private string _explicitNullValueRelationshipType = default!;
 #endif
         /// <summary>The SPDX identifier of the package that is the source of the relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpdxElementId { get; set; }
+        public string? SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
+        private string? _explicitNullValueSpdxElementId = default!;
 #nullable restore
 #else
-        public string SpdxElementId { get; set; }
+        public string SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
+        private string _explicitNullValueSpdxElementId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("relatedSpdxElement", RelatedSpdxElement);
             writer.WriteStringValue("relationshipType", RelationshipType);
             writer.WriteStringValue("spdxElementId", SpdxElementId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

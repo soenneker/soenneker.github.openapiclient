@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Config
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates the webhook configuration for an organization. To update more information about the webhook, including the `active` state and `events`, use &quot;[Update an organization webhook ](/rest/orgs/webhooks#update-an-organization-webhook).&quot;You must be an organization owner to use this endpoint.OAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or editwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Config
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the webhook configuration for an organization. To get more information about the webhook, including the `active` state and `events`, use &quot;[Get an organization webhook ](/rest/orgs/webhooks#get-an-organization-webhook).&quot;You must be an organization owner to use this endpoint.OAuth app tokens and personal access tokens (classic) need `admin:org_hook` scope. OAuth apps cannot list, view, or editwebhooks that they did not create and users cannot list, view, or edit webhooks that were created by OAuth apps.

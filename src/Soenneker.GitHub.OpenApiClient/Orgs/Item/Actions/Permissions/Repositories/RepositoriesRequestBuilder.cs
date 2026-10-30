@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.Repositor
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces the list of selected repositories that are enabled for GitHub Actions in an organization. To use this endpoint, the organization permission policy for `enabled_repositories` must be configured to `selected`. For more information, see &quot;[Set GitHub Actions permissions for an organization](#set-github-actions-permissions-for-an-organization).&quot;OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.Repositor
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the selected repositories that are enabled for GitHub Actions in an organization. To use this endpoint, the organization permission policy for `enabled_repositories` must be configured to `selected`. For more information, see &quot;[Set GitHub Actions permissions for an organization](#set-github-actions-permissions-for-an-organization).&quot;OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

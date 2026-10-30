@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Acc
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.This endpoint only applies to private repositories.For more information, see &quot;[Allowing access to components in a private repository](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)&quot;.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Acc
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.This endpoint only applies to private repositories.For more information, see &quot;[Allowing access to components in a private repository](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).&quot;OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.

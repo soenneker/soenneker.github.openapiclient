@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsersListAttestationsBulk200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attestations_subject_digests") is { } nullNodeAttestationsSubjectDigests && nullNodeAttestationsSubjectDigests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttestationsSubjectDigests = null;
+            if (parseNode.GetChildNode("page_info") is { } nullNodePageInfo && nullNodePageInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageInfo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Mapping of subject digest to bundles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests? AttestationsSubjectDigests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests? AttestationsSubjectDigests { get => _explicitNullValueAttestationsSubjectDigests; set { _explicitNullValueAttestationsSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations_subject_digests"); else _explicitNullProperties?.Remove("attestations_subject_digests"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests? _explicitNullValueAttestationsSubjectDigests = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests AttestationsSubjectDigests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests AttestationsSubjectDigests { get => _explicitNullValueAttestationsSubjectDigests; set { _explicitNullValueAttestationsSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations_subject_digests"); else _explicitNullProperties?.Remove("attestations_subject_digests"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests _explicitNullValueAttestationsSubjectDigests = default!;
 #endif
         /// <summary>Information about the current page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo? PageInfo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo? PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo? _explicitNullValuePageInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo PageInfo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo PageInfo { get => _explicitNullValuePageInfo; set { _explicitNullValuePageInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_info"); else _explicitNullProperties?.Remove("page_info"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo _explicitNullValuePageInfo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200Response"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponseAttestationsSubjectDigests>("attestations_subject_digests", AttestationsSubjectDigests);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestationsBulk200ResponsePageInfo>("page_info", PageInfo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,36 +11,56 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullRequestMinimal : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("base") is { } nullNodeBase && nullNodeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Base = null;
+            if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase? Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase? Base { get => _explicitNullValueBase; set { _explicitNullValueBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base"); else _explicitNullProperties?.Remove("base"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase? _explicitNullValueBase = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase Base { get => _explicitNullValueBase; set { _explicitNullValueBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base"); else _explicitNullProperties?.Remove("base"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase _explicitNullValueBase = default!;
 #endif
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead? Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead? _explicitNullValueHead = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead _explicitNullValueHead = default!;
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The number property</summary>
-        public int? Number { get; set; }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        private int? _explicitNullValueNumber = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal"/> and sets the default values.
@@ -57,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

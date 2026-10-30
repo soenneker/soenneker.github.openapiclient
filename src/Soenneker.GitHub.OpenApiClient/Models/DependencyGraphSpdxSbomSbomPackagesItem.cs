@@ -11,82 +11,118 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DependencyGraphSpdxSbomSbomPackagesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("copyrightText") is { } nullNodeCopyrightText && nullNodeCopyrightText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopyrightText = null;
+            if (parseNode.GetChildNode("downloadLocation") is { } nullNodeDownloadLocation && nullNodeDownloadLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadLocation = null;
+            if (parseNode.GetChildNode("externalRefs") is { } nullNodeExternalRefs && nullNodeExternalRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalRefs = null;
+            if (parseNode.GetChildNode("filesAnalyzed") is { } nullNodeFilesAnalyzed && nullNodeFilesAnalyzed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilesAnalyzed = null;
+            if (parseNode.GetChildNode("licenseConcluded") is { } nullNodeLicenseConcluded && nullNodeLicenseConcluded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseConcluded = null;
+            if (parseNode.GetChildNode("licenseDeclared") is { } nullNodeLicenseDeclared && nullNodeLicenseDeclared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseDeclared = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("SPDXID") is { } nullNodeSPDXID && nullNodeSPDXID.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SPDXID = null;
+            if (parseNode.GetChildNode("supplier") is { } nullNodeSupplier && nullNodeSupplier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supplier = null;
+            if (parseNode.GetChildNode("versionInfo") is { } nullNodeVersionInfo && nullNodeVersionInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionInfo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The copyright holders of the package, and any dates present with those notices, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CopyrightText { get; set; }
+        public string? CopyrightText { get => _explicitNullValueCopyrightText; set { _explicitNullValueCopyrightText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copyrightText"); else _explicitNullProperties?.Remove("copyrightText"); } }
+        private string? _explicitNullValueCopyrightText = default!;
 #nullable restore
 #else
-        public string CopyrightText { get; set; }
+        public string CopyrightText { get => _explicitNullValueCopyrightText; set { _explicitNullValueCopyrightText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copyrightText"); else _explicitNullProperties?.Remove("copyrightText"); } }
+        private string _explicitNullValueCopyrightText = default!;
 #endif
         /// <summary>The location where the package can be downloaded,or NOASSERTION if this has not been determined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DownloadLocation { get; set; }
+        public string? DownloadLocation { get => _explicitNullValueDownloadLocation; set { _explicitNullValueDownloadLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downloadLocation"); else _explicitNullProperties?.Remove("downloadLocation"); } }
+        private string? _explicitNullValueDownloadLocation = default!;
 #nullable restore
 #else
-        public string DownloadLocation { get; set; }
+        public string DownloadLocation { get => _explicitNullValueDownloadLocation; set { _explicitNullValueDownloadLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("downloadLocation"); else _explicitNullProperties?.Remove("downloadLocation"); } }
+        private string _explicitNullValueDownloadLocation = default!;
 #endif
         /// <summary>The externalRefs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem>? ExternalRefs { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem>? ExternalRefs { get => _explicitNullValueExternalRefs; set { _explicitNullValueExternalRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRefs"); else _explicitNullProperties?.Remove("externalRefs"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem>? _explicitNullValueExternalRefs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem> ExternalRefs { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem> ExternalRefs { get => _explicitNullValueExternalRefs; set { _explicitNullValueExternalRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRefs"); else _explicitNullProperties?.Remove("externalRefs"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItemExternalRefsItem> _explicitNullValueExternalRefs = default!;
 #endif
         /// <summary>Whether the package&apos;s file content has been subjected toanalysis during the creation of the SPDX document.</summary>
-        public bool? FilesAnalyzed { get; set; }
+        public bool? FilesAnalyzed { get => _explicitNullValueFilesAnalyzed; set { _explicitNullValueFilesAnalyzed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filesAnalyzed"); else _explicitNullProperties?.Remove("filesAnalyzed"); } }
+        private bool? _explicitNullValueFilesAnalyzed = default!;
         /// <summary>The license of the package as determined while creating the SPDX document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LicenseConcluded { get; set; }
+        public string? LicenseConcluded { get => _explicitNullValueLicenseConcluded; set { _explicitNullValueLicenseConcluded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("licenseConcluded"); else _explicitNullProperties?.Remove("licenseConcluded"); } }
+        private string? _explicitNullValueLicenseConcluded = default!;
 #nullable restore
 #else
-        public string LicenseConcluded { get; set; }
+        public string LicenseConcluded { get => _explicitNullValueLicenseConcluded; set { _explicitNullValueLicenseConcluded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("licenseConcluded"); else _explicitNullProperties?.Remove("licenseConcluded"); } }
+        private string _explicitNullValueLicenseConcluded = default!;
 #endif
         /// <summary>The license of the package as declared by its author, or NOASSERTION if this informationwas not available when the SPDX document was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LicenseDeclared { get; set; }
+        public string? LicenseDeclared { get => _explicitNullValueLicenseDeclared; set { _explicitNullValueLicenseDeclared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("licenseDeclared"); else _explicitNullProperties?.Remove("licenseDeclared"); } }
+        private string? _explicitNullValueLicenseDeclared = default!;
 #nullable restore
 #else
-        public string LicenseDeclared { get; set; }
+        public string LicenseDeclared { get => _explicitNullValueLicenseDeclared; set { _explicitNullValueLicenseDeclared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("licenseDeclared"); else _explicitNullProperties?.Remove("licenseDeclared"); } }
+        private string _explicitNullValueLicenseDeclared = default!;
 #endif
         /// <summary>The name of the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>A unique SPDX identifier for the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SPDXID { get; set; }
+        public string? SPDXID { get => _explicitNullValueSPDXID; set { _explicitNullValueSPDXID = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SPDXID"); else _explicitNullProperties?.Remove("SPDXID"); } }
+        private string? _explicitNullValueSPDXID = default!;
 #nullable restore
 #else
-        public string SPDXID { get; set; }
+        public string SPDXID { get => _explicitNullValueSPDXID; set { _explicitNullValueSPDXID = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SPDXID"); else _explicitNullProperties?.Remove("SPDXID"); } }
+        private string _explicitNullValueSPDXID = default!;
 #endif
         /// <summary>The distribution source of this package, or NOASSERTION if this was not determined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Supplier { get; set; }
+        public string? Supplier { get => _explicitNullValueSupplier; set { _explicitNullValueSupplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supplier"); else _explicitNullProperties?.Remove("supplier"); } }
+        private string? _explicitNullValueSupplier = default!;
 #nullable restore
 #else
-        public string Supplier { get; set; }
+        public string Supplier { get => _explicitNullValueSupplier; set { _explicitNullValueSupplier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supplier"); else _explicitNullProperties?.Remove("supplier"); } }
+        private string _explicitNullValueSupplier = default!;
 #endif
         /// <summary>The version of the package. If the package does not have an exact version specified,a version range is given.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VersionInfo { get; set; }
+        public string? VersionInfo { get => _explicitNullValueVersionInfo; set { _explicitNullValueVersionInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versionInfo"); else _explicitNullProperties?.Remove("versionInfo"); } }
+        private string? _explicitNullValueVersionInfo = default!;
 #nullable restore
 #else
-        public string VersionInfo { get; set; }
+        public string VersionInfo { get => _explicitNullValueVersionInfo; set { _explicitNullValueVersionInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versionInfo"); else _explicitNullProperties?.Remove("versionInfo"); } }
+        private string _explicitNullValueVersionInfo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem"/> and sets the default values.
@@ -103,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,6 +178,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("SPDXID", SPDXID);
             writer.WriteStringValue("supplier", Supplier);
             writer.WriteStringValue("versionInfo", VersionInfo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,6 +13,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgRulesetConditions : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName"/></summary>
@@ -90,17 +94,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions();
             if("OrgRulesetConditionsRepositoryIdAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OrgRulesetConditionsRepositoryIdAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName();
+                
             }
             else if("OrgRulesetConditionsRepositoryNameAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OrgRulesetConditionsRepositoryNameAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName();
+                
             }
             else if("OrgRulesetConditionsRepositoryPropertyAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OrgRulesetConditionsRepositoryPropertyAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_name") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_id") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_property") != null))();
+            if (result.OrgRulesetConditionsRepositoryIdAndRefName == null && result.OrgRulesetConditionsRepositoryNameAndRefName == null && result.OrgRulesetConditionsRepositoryPropertyAndRefName == null && result.RefName == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.OrgRulesetConditionsRepositoryNameAndRefName = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName(), parseNode);
+            if (result.OrgRulesetConditionsRepositoryIdAndRefName == null && result.OrgRulesetConditionsRepositoryNameAndRefName == null && result.OrgRulesetConditionsRepositoryPropertyAndRefName == null && result.RefName == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.OrgRulesetConditionsRepositoryIdAndRefName = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName(), parseNode);
+            if (result.OrgRulesetConditionsRepositoryIdAndRefName == null && result.OrgRulesetConditionsRepositoryNameAndRefName == null && result.OrgRulesetConditionsRepositoryPropertyAndRefName == null && result.RefName == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.OrgRulesetConditionsRepositoryPropertyAndRefName = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName(), parseNode);
+            if (result.OrgRulesetConditionsRepositoryIdAndRefName == null && result.OrgRulesetConditionsRepositoryNameAndRefName == null && result.OrgRulesetConditionsRepositoryPropertyAndRefName == null && result.RefName == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,36 +157,49 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (OrgRulesetConditionsRepositoryIdAndRefName == null && OrgRulesetConditionsRepositoryNameAndRefName == null && OrgRulesetConditionsRepositoryPropertyAndRefName == null && RefName == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (OrgRulesetConditionsRepositoryIdAndRefName != null && OrgRulesetConditionsRepositoryNameAndRefName == null && OrgRulesetConditionsRepositoryPropertyAndRefName == null && RefName == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null) { if (OrgRulesetConditionsRepositoryIdAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OrgRulesetConditionsRepositoryIdAndRefName); return; }
+            if (OrgRulesetConditionsRepositoryNameAndRefName != null && OrgRulesetConditionsRepositoryIdAndRefName == null && OrgRulesetConditionsRepositoryPropertyAndRefName == null && RefName == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null) { if (OrgRulesetConditionsRepositoryNameAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OrgRulesetConditionsRepositoryNameAndRefName); return; }
+            if (OrgRulesetConditionsRepositoryPropertyAndRefName != null && OrgRulesetConditionsRepositoryIdAndRefName == null && OrgRulesetConditionsRepositoryNameAndRefName == null && RefName == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null) { if (OrgRulesetConditionsRepositoryPropertyAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OrgRulesetConditionsRepositoryPropertyAndRefName); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(OrgRulesetConditionsRepositoryIdAndRefName != null)
             {
+                if (OrgRulesetConditionsRepositoryIdAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName>(null, OrgRulesetConditionsRepositoryIdAndRefName);
             }
             else if(OrgRulesetConditionsRepositoryNameAndRefName != null)
             {
+                if (OrgRulesetConditionsRepositoryNameAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName>(null, OrgRulesetConditionsRepositoryNameAndRefName);
             }
             else if(OrgRulesetConditionsRepositoryPropertyAndRefName != null)
             {
+                if (OrgRulesetConditionsRepositoryPropertyAndRefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName>(null, OrgRulesetConditionsRepositoryPropertyAndRefName);
             }
             else if(RefName != null)
             {
+                if (RefName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName>(null, RefName);
             }
             else if(RepositoryId != null)
             {
+                if (RepositoryId is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(null, RepositoryId);
             }
             else if(RepositoryName != null)
             {
+                if (RepositoryName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(null, RepositoryName);
             }
             else if(RepositoryProperty != null)
             {
+                if (RepositoryProperty is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(null, RepositoryProperty);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

@@ -58,6 +58,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.Item
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks401Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks422Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -96,6 +98,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.Item
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask422Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

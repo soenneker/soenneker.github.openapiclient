@@ -12,58 +12,85 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CombinedCommitStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("commit_url") is { } nullNodeCommitUrl && nullNodeCommitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitUrl = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+            if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("statuses") is { } nullNodeStatuses && nullNodeStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Statuses = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The commit_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitUrl { get; set; }
+        public string? CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
+        private string? _explicitNullValueCommitUrl = default!;
 #nullable restore
 #else
-        public string CommitUrl { get; set; }
+        public string CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
+        private string _explicitNullValueCommitUrl = default!;
 #endif
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository _explicitNullValueRepository = default!;
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha { get; set; }
+        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string? _explicitNullValueSha = default!;
 #nullable restore
 #else
-        public string Sha { get; set; }
+        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string _explicitNullValueSha = default!;
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get; set; }
+        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public string State { get; set; }
+        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string _explicitNullValueState = default!;
 #endif
         /// <summary>The statuses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus>? Statuses { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus>? Statuses { get => _explicitNullValueStatuses; set { _explicitNullValueStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statuses"); else _explicitNullProperties?.Remove("statuses"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus>? _explicitNullValueStatuses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus> Statuses { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus> Statuses { get => _explicitNullValueStatuses; set { _explicitNullValueStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statuses"); else _explicitNullProperties?.Remove("statuses"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus> _explicitNullValueStatuses = default!;
 #endif
         /// <summary>The total_count property</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CombinedCommitStatus"/> and sets the default values.
@@ -80,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CombinedCommitStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CombinedCommitStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CombinedCommitStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitStatus>("statuses", Statuses);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

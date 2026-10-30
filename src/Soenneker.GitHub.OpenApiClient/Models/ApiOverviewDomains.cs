@@ -11,72 +11,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiOverviewDomains : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actions") is { } nullNodeActions && nullNodeActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actions = null;
+            if (parseNode.GetChildNode("actions_inbound") is { } nullNodeActionsInbound && nullNodeActionsInbound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionsInbound = null;
+            if (parseNode.GetChildNode("artifact_attestations") is { } nullNodeArtifactAttestations && nullNodeArtifactAttestations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArtifactAttestations = null;
+            if (parseNode.GetChildNode("codespaces") is { } nullNodeCodespaces && nullNodeCodespaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Codespaces = null;
+            if (parseNode.GetChildNode("copilot") is { } nullNodeCopilot && nullNodeCopilot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Copilot = null;
+            if (parseNode.GetChildNode("packages") is { } nullNodePackages && nullNodePackages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Packages = null;
+            if (parseNode.GetChildNode("storage") is { } nullNodeStorage && nullNodeStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Storage = null;
+            if (parseNode.GetChildNode("website") is { } nullNodeWebsite && nullNodeWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Website = null;
+        }
+
         /// <summary>The actions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Actions { get; set; }
+        public List<string>? Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<string>? _explicitNullValueActions = default!;
 #nullable restore
 #else
-        public List<string> Actions { get; set; }
+        public List<string> Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<string> _explicitNullValueActions = default!;
 #endif
         /// <summary>The actions_inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound? ActionsInbound { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound? ActionsInbound { get => _explicitNullValueActionsInbound; set { _explicitNullValueActionsInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_inbound"); else _explicitNullProperties?.Remove("actions_inbound"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound? _explicitNullValueActionsInbound = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound ActionsInbound { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound ActionsInbound { get => _explicitNullValueActionsInbound; set { _explicitNullValueActionsInbound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_inbound"); else _explicitNullProperties?.Remove("actions_inbound"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsActionsInbound _explicitNullValueActionsInbound = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The artifact_attestations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations? ArtifactAttestations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations? ArtifactAttestations { get => _explicitNullValueArtifactAttestations; set { _explicitNullValueArtifactAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_attestations"); else _explicitNullProperties?.Remove("artifact_attestations"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations? _explicitNullValueArtifactAttestations = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations ArtifactAttestations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations ArtifactAttestations { get => _explicitNullValueArtifactAttestations; set { _explicitNullValueArtifactAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_attestations"); else _explicitNullProperties?.Remove("artifact_attestations"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomainsArtifactAttestations _explicitNullValueArtifactAttestations = default!;
 #endif
         /// <summary>The codespaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Codespaces { get; set; }
+        public List<string>? Codespaces { get => _explicitNullValueCodespaces; set { _explicitNullValueCodespaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("codespaces"); else _explicitNullProperties?.Remove("codespaces"); } }
+        private List<string>? _explicitNullValueCodespaces = default!;
 #nullable restore
 #else
-        public List<string> Codespaces { get; set; }
+        public List<string> Codespaces { get => _explicitNullValueCodespaces; set { _explicitNullValueCodespaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("codespaces"); else _explicitNullProperties?.Remove("codespaces"); } }
+        private List<string> _explicitNullValueCodespaces = default!;
 #endif
         /// <summary>The copilot property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Copilot { get; set; }
+        public List<string>? Copilot { get => _explicitNullValueCopilot; set { _explicitNullValueCopilot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot"); else _explicitNullProperties?.Remove("copilot"); } }
+        private List<string>? _explicitNullValueCopilot = default!;
 #nullable restore
 #else
-        public List<string> Copilot { get; set; }
+        public List<string> Copilot { get => _explicitNullValueCopilot; set { _explicitNullValueCopilot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot"); else _explicitNullProperties?.Remove("copilot"); } }
+        private List<string> _explicitNullValueCopilot = default!;
 #endif
         /// <summary>The packages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Packages { get; set; }
+        public List<string>? Packages { get => _explicitNullValuePackages; set { _explicitNullValuePackages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packages"); else _explicitNullProperties?.Remove("packages"); } }
+        private List<string>? _explicitNullValuePackages = default!;
 #nullable restore
 #else
-        public List<string> Packages { get; set; }
+        public List<string> Packages { get => _explicitNullValuePackages; set { _explicitNullValuePackages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("packages"); else _explicitNullProperties?.Remove("packages"); } }
+        private List<string> _explicitNullValuePackages = default!;
 #endif
         /// <summary>The storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Storage { get; set; }
+        public List<string>? Storage { get => _explicitNullValueStorage; set { _explicitNullValueStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage"); else _explicitNullProperties?.Remove("storage"); } }
+        private List<string>? _explicitNullValueStorage = default!;
 #nullable restore
 #else
-        public List<string> Storage { get; set; }
+        public List<string> Storage { get => _explicitNullValueStorage; set { _explicitNullValueStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage"); else _explicitNullProperties?.Remove("storage"); } }
+        private List<string> _explicitNullValueStorage = default!;
 #endif
         /// <summary>The website property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Website { get; set; }
+        public List<string>? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private List<string>? _explicitNullValueWebsite = default!;
 #nullable restore
 #else
-        public List<string> Website { get; set; }
+        public List<string> Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private List<string> _explicitNullValueWebsite = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains"/> and sets the default values.
@@ -93,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("packages", Packages);
             writer.WriteCollectionOfPrimitiveValues<string>("storage", Storage);
             writer.WriteCollectionOfPrimitiveValues<string>("website", Website);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

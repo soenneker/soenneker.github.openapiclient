@@ -12,71 +12,110 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CampaignSummary : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alert_stats") is { } nullNodeAlertStats && nullNodeAlertStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertStats = null;
+            if (parseNode.GetChildNode("closed_at") is { } nullNodeClosedAt && nullNodeClosedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosedAt = null;
+            if (parseNode.GetChildNode("contact_link") is { } nullNodeContactLink && nullNodeContactLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactLink = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("ends_at") is { } nullNodeEndsAt && nullNodeEndsAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndsAt = null;
+            if (parseNode.GetChildNode("managers") is { } nullNodeManagers && nullNodeManagers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Managers = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("published_at") is { } nullNodePublishedAt && nullNodePublishedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublishedAt = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("team_managers") is { } nullNodeTeamManagers && nullNodeTeamManagers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamManagers = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The alert_stats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats? AlertStats { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats? AlertStats { get => _explicitNullValueAlertStats; set { _explicitNullValueAlertStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_stats"); else _explicitNullProperties?.Remove("alert_stats"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats? _explicitNullValueAlertStats = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats AlertStats { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats AlertStats { get => _explicitNullValueAlertStats; set { _explicitNullValueAlertStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_stats"); else _explicitNullProperties?.Remove("alert_stats"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats _explicitNullValueAlertStats = default!;
 #endif
         /// <summary>The date and time the campaign was closed, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.</summary>
-        public DateTimeOffset? ClosedAt { get; set; }
+        public DateTimeOffset? ClosedAt { get => _explicitNullValueClosedAt; set { _explicitNullValueClosedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closed_at"); else _explicitNullProperties?.Remove("closed_at"); } }
+        private DateTimeOffset? _explicitNullValueClosedAt = default!;
         /// <summary>The contact link of the campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContactLink { get; set; }
+        public string? ContactLink { get => _explicitNullValueContactLink; set { _explicitNullValueContactLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_link"); else _explicitNullProperties?.Remove("contact_link"); } }
+        private string? _explicitNullValueContactLink = default!;
 #nullable restore
 #else
-        public string ContactLink { get; set; }
+        public string ContactLink { get => _explicitNullValueContactLink; set { _explicitNullValueContactLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact_link"); else _explicitNullProperties?.Remove("contact_link"); } }
+        private string _explicitNullValueContactLink = default!;
 #endif
         /// <summary>The date and time the campaign was created, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The campaign description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The date and time the campaign has ended, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? EndsAt { get; set; }
+        public DateTimeOffset? EndsAt { get => _explicitNullValueEndsAt; set { _explicitNullValueEndsAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ends_at"); else _explicitNullProperties?.Remove("ends_at"); } }
+        private DateTimeOffset? _explicitNullValueEndsAt = default!;
         /// <summary>The campaign managers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Managers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Managers { get => _explicitNullValueManagers; set { _explicitNullValueManagers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managers"); else _explicitNullProperties?.Remove("managers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? _explicitNullValueManagers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Managers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Managers { get => _explicitNullValueManagers; set { _explicitNullValueManagers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managers"); else _explicitNullProperties?.Remove("managers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> _explicitNullValueManagers = default!;
 #endif
         /// <summary>The campaign name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The number of the newly created campaign</summary>
-        public int? Number { get; set; }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        private int? _explicitNullValueNumber = default!;
         /// <summary>The date and time the campaign was published, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? PublishedAt { get; set; }
+        public DateTimeOffset? PublishedAt { get => _explicitNullValuePublishedAt; set { _explicitNullValuePublishedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("published_at"); else _explicitNullProperties?.Remove("published_at"); } }
+        private DateTimeOffset? _explicitNullValuePublishedAt = default!;
         /// <summary>Indicates whether a campaign is open or closed</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CampaignState? _explicitNullValueState = default!;
         /// <summary>The campaign team managers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? TeamManagers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? TeamManagers { get => _explicitNullValueTeamManagers; set { _explicitNullValueTeamManagers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_managers"); else _explicitNullProperties?.Remove("team_managers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? _explicitNullValueTeamManagers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> TeamManagers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> TeamManagers { get => _explicitNullValueTeamManagers; set { _explicitNullValueTeamManagers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_managers"); else _explicitNullProperties?.Remove("team_managers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team> _explicitNullValueTeamManagers = default!;
 #endif
         /// <summary>The date and time the campaign was last updated, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary"/> and sets the default values.
         /// </summary>
@@ -92,7 +131,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -137,6 +176,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignState>("state", State);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("team_managers", TeamManagers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

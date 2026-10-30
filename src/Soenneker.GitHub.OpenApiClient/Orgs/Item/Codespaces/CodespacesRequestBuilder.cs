@@ -20,6 +20,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces
     public partial class CodespacesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The access property</summary>
+        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access.AccessRequestBuilder Access
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access.AccessRequestBuilder(PathParameters, RequestAdapter);
@@ -72,6 +73,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListInOrganization200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListInOrganization200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

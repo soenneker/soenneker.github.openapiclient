@@ -11,56 +11,91 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningPatternOverride : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alert_total") is { } nullNodeAlertTotal && nullNodeAlertTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertTotal = null;
+            if (parseNode.GetChildNode("alert_total_percentage") is { } nullNodeAlertTotalPercentage && nullNodeAlertTotalPercentage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertTotalPercentage = null;
+            if (parseNode.GetChildNode("bypass_rate") is { } nullNodeBypassRate && nullNodeBypassRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassRate = null;
+            if (parseNode.GetChildNode("custom_pattern_version") is { } nullNodeCustomPatternVersion && nullNodeCustomPatternVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternVersion = null;
+            if (parseNode.GetChildNode("default_setting") is { } nullNodeDefaultSetting && nullNodeDefaultSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultSetting = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("enterprise_setting") is { } nullNodeEnterpriseSetting && nullNodeEnterpriseSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseSetting = null;
+            if (parseNode.GetChildNode("false_positive_rate") is { } nullNodeFalsePositiveRate && nullNodeFalsePositiveRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FalsePositiveRate = null;
+            if (parseNode.GetChildNode("false_positives") is { } nullNodeFalsePositives && nullNodeFalsePositives.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FalsePositives = null;
+            if (parseNode.GetChildNode("setting") is { } nullNodeSetting && nullNodeSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Setting = null;
+            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total number of alerts generated by this pattern.</summary>
-        public int? AlertTotal { get; set; }
+        public int? AlertTotal { get => _explicitNullValueAlertTotal; set { _explicitNullValueAlertTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_total"); else _explicitNullProperties?.Remove("alert_total"); } }
+        private int? _explicitNullValueAlertTotal = default!;
         /// <summary>The percentage of all alerts that this pattern represents, rounded to the nearest integer.</summary>
-        public int? AlertTotalPercentage { get; set; }
+        public int? AlertTotalPercentage { get => _explicitNullValueAlertTotalPercentage; set { _explicitNullValueAlertTotalPercentage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_total_percentage"); else _explicitNullProperties?.Remove("alert_total_percentage"); } }
+        private int? _explicitNullValueAlertTotalPercentage = default!;
         /// <summary>The percentage of blocks for this pattern that were bypassed, rounded to the nearest integer.</summary>
-        public int? BypassRate { get; set; }
+        public int? BypassRate { get => _explicitNullValueBypassRate; set { _explicitNullValueBypassRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_rate"); else _explicitNullProperties?.Remove("bypass_rate"); } }
+        private int? _explicitNullValueBypassRate = default!;
         /// <summary>The version of this pattern if it&apos;s a custom pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPatternVersion { get; set; }
+        public string? CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        private string? _explicitNullValueCustomPatternVersion = default!;
 #nullable restore
 #else
-        public string CustomPatternVersion { get; set; }
+        public string CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        private string _explicitNullValueCustomPatternVersion = default!;
 #endif
         /// <summary>The default push protection setting for this pattern.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideDefaultSetting? DefaultSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideDefaultSetting? DefaultSetting { get => _explicitNullValueDefaultSetting; set { _explicitNullValueDefaultSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_setting"); else _explicitNullProperties?.Remove("default_setting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideDefaultSetting? _explicitNullValueDefaultSetting = default!;
         /// <summary>The user-friendly name for the pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The push protection setting for this pattern set at the enterprise level. Only present for partner patterns when the organization has a parent enterprise.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideEnterpriseSetting? EnterpriseSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideEnterpriseSetting? EnterpriseSetting { get => _explicitNullValueEnterpriseSetting; set { _explicitNullValueEnterpriseSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_setting"); else _explicitNullProperties?.Remove("enterprise_setting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideEnterpriseSetting? _explicitNullValueEnterpriseSetting = default!;
         /// <summary>The percentage of alerts from this pattern that are false positives, rounded to the nearest integer.</summary>
-        public int? FalsePositiveRate { get; set; }
+        public int? FalsePositiveRate { get => _explicitNullValueFalsePositiveRate; set { _explicitNullValueFalsePositiveRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("false_positive_rate"); else _explicitNullProperties?.Remove("false_positive_rate"); } }
+        private int? _explicitNullValueFalsePositiveRate = default!;
         /// <summary>The number of false positive alerts generated by this pattern.</summary>
-        public int? FalsePositives { get; set; }
+        public int? FalsePositives { get => _explicitNullValueFalsePositives; set { _explicitNullValueFalsePositives = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("false_positives"); else _explicitNullProperties?.Remove("false_positives"); } }
+        private int? _explicitNullValueFalsePositives = default!;
         /// <summary>The current push protection setting for this pattern. If this is `not-set`, then it inherits either the enterprise setting if it exists or the default setting.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideSetting? Setting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideSetting? Setting { get => _explicitNullValueSetting; set { _explicitNullValueSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("setting"); else _explicitNullProperties?.Remove("setting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideSetting? _explicitNullValueSetting = default!;
         /// <summary>The slug of the pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get; set; }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get; set; }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>The ID of the pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenType { get; set; }
+        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        private string? _explicitNullValueTokenType = default!;
 #nullable restore
 #else
-        public string TokenType { get; set; }
+        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        private string _explicitNullValueTokenType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride"/> and sets the default values.
@@ -77,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,6 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverrideSetting>("setting", Setting);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("token_type", TokenType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

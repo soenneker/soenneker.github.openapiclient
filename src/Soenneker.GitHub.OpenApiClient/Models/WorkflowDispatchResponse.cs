@@ -12,27 +12,42 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowDispatchResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("run_url") is { } nullNodeRunUrl && nullNodeRunUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunUrl = null;
+            if (parseNode.GetChildNode("workflow_run_id") is { } nullNodeWorkflowRunId && nullNodeWorkflowRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRunId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The URL to the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunUrl { get; set; }
+        public string? RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        private string? _explicitNullValueRunUrl = default!;
 #nullable restore
 #else
-        public string RunUrl { get; set; }
+        public string RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        private string _explicitNullValueRunUrl = default!;
 #endif
         /// <summary>The ID of the workflow run.</summary>
-        public long? WorkflowRunId { get; set; }
+        public long? WorkflowRunId { get => _explicitNullValueWorkflowRunId; set { _explicitNullValueWorkflowRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_run_id"); else _explicitNullProperties?.Remove("workflow_run_id"); } }
+        private long? _explicitNullValueWorkflowRunId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowDispatchResponse"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.WorkflowDispatchResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowDispatchResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowDispatchResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("run_url", RunUrl);
             writer.WriteLongValue("workflow_run_id", WorkflowRunId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

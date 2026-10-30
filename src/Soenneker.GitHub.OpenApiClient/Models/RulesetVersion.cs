@@ -12,21 +12,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RulesetVersion : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actor") is { } nullNodeActor && nullNodeActor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actor = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("version_id") is { } nullNodeVersionId && nullNodeVersionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionId = null;
+        }
+
         /// <summary>The actor who updated the ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor? Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor? Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor? _explicitNullValueActor = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor _explicitNullValueActor = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The ID of the previous version of the ruleset</summary>
-        public long? VersionId { get; set; }
+        public long? VersionId { get => _explicitNullValueVersionId; set { _explicitNullValueVersionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version_id"); else _explicitNullProperties?.Remove("version_id"); } }
+        private long? _explicitNullValueVersionId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>("actor", Actor);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteLongValue("version_id", VersionId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

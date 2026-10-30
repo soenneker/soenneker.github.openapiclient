@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.PublicKey
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesUserPublicKey>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesUserPublicKey.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesUserPublicKey>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesUserPublicKey.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets your public key, which you need to encrypt secrets. You need to encrypt a secret before you can create or update secrets.The authenticated user must have Codespaces access to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `codespace` or `codespace:secrets` scope to use this endpoint.

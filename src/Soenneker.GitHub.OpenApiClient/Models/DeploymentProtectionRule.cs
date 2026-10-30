@@ -12,28 +12,45 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeploymentProtectionRule : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("app") is { } nullNodeApp && nullNodeApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) App = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A GitHub App that is providing a custom deployment protection rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp? App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp? App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp? _explicitNullValueApp = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp _explicitNullValueApp = default!;
 #endif
         /// <summary>Whether the deployment protection rule is enabled for the environment.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The unique identifier for the deployment protection rule.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The node ID for the deployment protection rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeploymentProtectionRule"/> and sets the default values.
@@ -50,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DeploymentProtectionRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DeploymentProtectionRule();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DeploymentProtectionRule(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

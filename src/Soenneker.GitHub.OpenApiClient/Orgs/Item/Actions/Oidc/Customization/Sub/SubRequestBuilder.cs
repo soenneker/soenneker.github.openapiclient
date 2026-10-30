@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Su
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
@@ -77,6 +77,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Su
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

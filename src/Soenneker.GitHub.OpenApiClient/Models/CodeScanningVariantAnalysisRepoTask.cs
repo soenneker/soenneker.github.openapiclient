@@ -11,54 +11,82 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningVariantAnalysisRepoTask : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("analysis_status") is { } nullNodeAnalysisStatus && nullNodeAnalysisStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisStatus = null;
+            if (parseNode.GetChildNode("artifact_size_in_bytes") is { } nullNodeArtifactSizeInBytes && nullNodeArtifactSizeInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArtifactSizeInBytes = null;
+            if (parseNode.GetChildNode("artifact_url") is { } nullNodeArtifactUrl && nullNodeArtifactUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArtifactUrl = null;
+            if (parseNode.GetChildNode("database_commit_sha") is { } nullNodeDatabaseCommitSha && nullNodeDatabaseCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseCommitSha = null;
+            if (parseNode.GetChildNode("failure_message") is { } nullNodeFailureMessage && nullNodeFailureMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureMessage = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+            if (parseNode.GetChildNode("result_count") is { } nullNodeResultCount && nullNodeResultCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultCount = null;
+            if (parseNode.GetChildNode("source_location_prefix") is { } nullNodeSourceLocationPrefix && nullNodeSourceLocationPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLocationPrefix = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The new status of the CodeQL variant analysis repository task.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatus? AnalysisStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatus? AnalysisStatus { get => _explicitNullValueAnalysisStatus; set { _explicitNullValueAnalysisStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_status"); else _explicitNullProperties?.Remove("analysis_status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatus? _explicitNullValueAnalysisStatus = default!;
         /// <summary>The size of the artifact. This is only available for successful analyses.</summary>
-        public int? ArtifactSizeInBytes { get; set; }
+        public int? ArtifactSizeInBytes { get => _explicitNullValueArtifactSizeInBytes; set { _explicitNullValueArtifactSizeInBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_size_in_bytes"); else _explicitNullProperties?.Remove("artifact_size_in_bytes"); } }
+        private int? _explicitNullValueArtifactSizeInBytes = default!;
         /// <summary>The URL of the artifact. This is only available for successful analyses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ArtifactUrl { get; set; }
+        public string? ArtifactUrl { get => _explicitNullValueArtifactUrl; set { _explicitNullValueArtifactUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_url"); else _explicitNullProperties?.Remove("artifact_url"); } }
+        private string? _explicitNullValueArtifactUrl = default!;
 #nullable restore
 #else
-        public string ArtifactUrl { get; set; }
+        public string ArtifactUrl { get => _explicitNullValueArtifactUrl; set { _explicitNullValueArtifactUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_url"); else _explicitNullProperties?.Remove("artifact_url"); } }
+        private string _explicitNullValueArtifactUrl = default!;
 #endif
         /// <summary>The SHA of the commit the CodeQL database was built against. This is only available for successful analyses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatabaseCommitSha { get; set; }
+        public string? DatabaseCommitSha { get => _explicitNullValueDatabaseCommitSha; set { _explicitNullValueDatabaseCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_commit_sha"); else _explicitNullProperties?.Remove("database_commit_sha"); } }
+        private string? _explicitNullValueDatabaseCommitSha = default!;
 #nullable restore
 #else
-        public string DatabaseCommitSha { get; set; }
+        public string DatabaseCommitSha { get => _explicitNullValueDatabaseCommitSha; set { _explicitNullValueDatabaseCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_commit_sha"); else _explicitNullProperties?.Remove("database_commit_sha"); } }
+        private string _explicitNullValueDatabaseCommitSha = default!;
 #endif
         /// <summary>The reason of the failure of this repo task. This is only available if the repository task has failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailureMessage { get; set; }
+        public string? FailureMessage { get => _explicitNullValueFailureMessage; set { _explicitNullValueFailureMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_message"); else _explicitNullProperties?.Remove("failure_message"); } }
+        private string? _explicitNullValueFailureMessage = default!;
 #nullable restore
 #else
-        public string FailureMessage { get; set; }
+        public string FailureMessage { get => _explicitNullValueFailureMessage; set { _explicitNullValueFailureMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_message"); else _explicitNullProperties?.Remove("failure_message"); } }
+        private string _explicitNullValueFailureMessage = default!;
 #endif
         /// <summary>A GitHub repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository _explicitNullValueRepository = default!;
 #endif
         /// <summary>The number of results in the case of a successful analysis. This is only available for successful analyses.</summary>
-        public int? ResultCount { get; set; }
+        public int? ResultCount { get => _explicitNullValueResultCount; set { _explicitNullValueResultCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_count"); else _explicitNullProperties?.Remove("result_count"); } }
+        private int? _explicitNullValueResultCount = default!;
         /// <summary>The source location prefix to use. This is only available for successful analyses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceLocationPrefix { get; set; }
+        public string? SourceLocationPrefix { get => _explicitNullValueSourceLocationPrefix; set { _explicitNullValueSourceLocationPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_location_prefix"); else _explicitNullProperties?.Remove("source_location_prefix"); } }
+        private string? _explicitNullValueSourceLocationPrefix = default!;
 #nullable restore
 #else
-        public string SourceLocationPrefix { get; set; }
+        public string SourceLocationPrefix { get => _explicitNullValueSourceLocationPrefix; set { _explicitNullValueSourceLocationPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_location_prefix"); else _explicitNullProperties?.Remove("source_location_prefix"); } }
+        private string _explicitNullValueSourceLocationPrefix = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepoTask"/> and sets the default values.
@@ -75,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepoTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepoTask();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepoTask(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,6 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);
             writer.WriteIntValue("result_count", ResultCount);
             writer.WriteStringValue("source_location_prefix", SourceLocationPrefix);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

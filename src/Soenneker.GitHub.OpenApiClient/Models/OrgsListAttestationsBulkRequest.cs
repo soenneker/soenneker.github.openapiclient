@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgsListAttestationsBulkRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("predicate_type") is { } nullNodePredicateType && nullNodePredicateType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PredicateType = null;
+            if (parseNode.GetChildNode("subject_digests") is { } nullNodeSubjectDigests && nullNodeSubjectDigests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDigests = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional filter for fetching attestations with a given predicate type.This option accepts `provenance`, `sbom`, `release`, or freeform textfor custom predicate types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PredicateType { get; set; }
+        public string? PredicateType { get => _explicitNullValuePredicateType; set { _explicitNullValuePredicateType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("predicate_type"); else _explicitNullProperties?.Remove("predicate_type"); } }
+        private string? _explicitNullValuePredicateType = default!;
 #nullable restore
 #else
-        public string PredicateType { get; set; }
+        public string PredicateType { get => _explicitNullValuePredicateType; set { _explicitNullValuePredicateType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("predicate_type"); else _explicitNullProperties?.Remove("predicate_type"); } }
+        private string _explicitNullValuePredicateType = default!;
 #endif
         /// <summary>List of subject digests to fetch attestations for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SubjectDigests { get; set; }
+        public List<string>? SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
+        private List<string>? _explicitNullValueSubjectDigests = default!;
 #nullable restore
 #else
-        public List<string> SubjectDigests { get; set; }
+        public List<string> SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
+        private List<string> _explicitNullValueSubjectDigests = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulkRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulkRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulkRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulkRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("predicate_type", PredicateType);
             writer.WriteCollectionOfPrimitiveValues<string>("subject_digests", SubjectDigests);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

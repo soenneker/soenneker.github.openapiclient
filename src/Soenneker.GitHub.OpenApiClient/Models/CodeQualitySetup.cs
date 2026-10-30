@@ -12,35 +12,58 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeQualitySetup : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ai_findings_option") is { } nullNodeAiFindingsOption && nullNodeAiFindingsOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiFindingsOption = null;
+            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
+            if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
+            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The AI findings configuration for the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? AiFindingsOption { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? AiFindingsOption { get => _explicitNullValueAiFindingsOption; set { _explicitNullValueAiFindingsOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_findings_option"); else _explicitNullProperties?.Remove("ai_findings_option"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? _explicitNullValueAiFindingsOption = default!;
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> _explicitNullValueLanguages = default!;
 #endif
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerLabel { get; set; }
+        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        private string? _explicitNullValueRunnerLabel = default!;
 #nullable restore
 #else
-        public string RunnerLabel { get; set; }
+        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        private string _explicitNullValueRunnerLabel = default!;
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? _explicitNullValueRunnerType = default!;
         /// <summary>The frequency of the periodic analysis.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? _explicitNullValueSchedule = default!;
         /// <summary>Code quality setup has been configured or not.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? _explicitNullValueState = default!;
         /// <summary>Timestamp of latest configuration update.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup"/> and sets the default values.
         /// </summary>
@@ -56,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>("schedule", Schedule);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

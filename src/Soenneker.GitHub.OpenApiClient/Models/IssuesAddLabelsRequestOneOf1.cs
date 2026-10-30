@@ -11,16 +11,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class IssuesAddLabelsRequestOneOf1 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The labels to add to the issue&apos;s existing labels. You can also pass an `array` of labels directly, but GitHub recommends passing an object with the `labels` key. To replace all of the labels for an issue, use &quot;[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Labels { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueLabels = default!;
 #nullable restore
 #else
-        public List<string> Labels { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueLabels = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("labels", Labels);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

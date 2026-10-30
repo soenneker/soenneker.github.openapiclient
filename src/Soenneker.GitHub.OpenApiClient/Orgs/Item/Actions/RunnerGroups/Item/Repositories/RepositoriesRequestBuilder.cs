@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Rep
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces the list of repositories that have access to a self-hosted runner group configured in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Rep
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the repositories with access to a self-hosted runner group configured in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

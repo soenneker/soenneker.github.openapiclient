@@ -13,52 +13,83 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSeatDetails : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assignee") is { } nullNodeAssignee && nullNodeAssignee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignee = null;
+            if (parseNode.GetChildNode("assigning_team") is { } nullNodeAssigningTeam && nullNodeAssigningTeam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssigningTeam = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("last_activity_at") is { } nullNodeLastActivityAt && nullNodeLastActivityAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastActivityAt = null;
+            if (parseNode.GetChildNode("last_activity_editor") is { } nullNodeLastActivityEditor && nullNodeLastActivityEditor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastActivityEditor = null;
+            if (parseNode.GetChildNode("last_authenticated_at") is { } nullNodeLastAuthenticatedAt && nullNodeLastAuthenticatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastAuthenticatedAt = null;
+            if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
+            if (parseNode.GetChildNode("pending_cancellation_date") is { } nullNodePendingCancellationDate && nullNodePendingCancellationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCancellationDate = null;
+            if (parseNode.GetChildNode("plan_type") is { } nullNodePlanType && nullNodePlanType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanType = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueAssignee = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueAssignee = default!;
 #endif
         /// <summary>The team through which the assignee is granted access to GitHub Copilot, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam? AssigningTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam? AssigningTeam { get => _explicitNullValueAssigningTeam; set { _explicitNullValueAssigningTeam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigning_team"); else _explicitNullProperties?.Remove("assigning_team"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam? _explicitNullValueAssigningTeam = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam AssigningTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam AssigningTeam { get => _explicitNullValueAssigningTeam; set { _explicitNullValueAssigningTeam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigning_team"); else _explicitNullProperties?.Remove("assigning_team"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam _explicitNullValueAssigningTeam = default!;
 #endif
         /// <summary>Timestamp of when the assignee was last granted access to GitHub Copilot, in ISO 8601 format.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Timestamp of user&apos;s last GitHub Copilot activity, in ISO 8601 format.</summary>
-        public DateTimeOffset? LastActivityAt { get; set; }
+        public DateTimeOffset? LastActivityAt { get => _explicitNullValueLastActivityAt; set { _explicitNullValueLastActivityAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_activity_at"); else _explicitNullProperties?.Remove("last_activity_at"); } }
+        private DateTimeOffset? _explicitNullValueLastActivityAt = default!;
         /// <summary>Last editor that was used by the user for a GitHub Copilot completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastActivityEditor { get; set; }
+        public string? LastActivityEditor { get => _explicitNullValueLastActivityEditor; set { _explicitNullValueLastActivityEditor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_activity_editor"); else _explicitNullProperties?.Remove("last_activity_editor"); } }
+        private string? _explicitNullValueLastActivityEditor = default!;
 #nullable restore
 #else
-        public string LastActivityEditor { get; set; }
+        public string LastActivityEditor { get => _explicitNullValueLastActivityEditor; set { _explicitNullValueLastActivityEditor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_activity_editor"); else _explicitNullProperties?.Remove("last_activity_editor"); } }
+        private string _explicitNullValueLastActivityEditor = default!;
 #endif
         /// <summary>Timestamp of the last time the user authenticated with GitHub Copilot, in ISO 8601 format.</summary>
-        public DateTimeOffset? LastAuthenticatedAt { get; set; }
+        public DateTimeOffset? LastAuthenticatedAt { get => _explicitNullValueLastAuthenticatedAt; set { _explicitNullValueLastAuthenticatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_authenticated_at"); else _explicitNullProperties?.Remove("last_authenticated_at"); } }
+        private DateTimeOffset? _explicitNullValueLastAuthenticatedAt = default!;
         /// <summary>A GitHub organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple? Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple? _explicitNullValueOrganization = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple _explicitNullValueOrganization = default!;
 #endif
         /// <summary>The pending cancellation date for the seat, in `YYYY-MM-DD` format. This will be null unless the assignee&apos;s Copilot access has been canceled during the current billing cycle. If the seat has been cancelled, this corresponds to the start of the organization&apos;s next billing cycle.</summary>
-        public Date? PendingCancellationDate { get; set; }
+        public Date? PendingCancellationDate { get => _explicitNullValuePendingCancellationDate; set { _explicitNullValuePendingCancellationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_cancellation_date"); else _explicitNullProperties?.Remove("pending_cancellation_date"); } }
+        private Date? _explicitNullValuePendingCancellationDate = default!;
         /// <summary>The Copilot plan of the organization, or the parent enterprise, when applicable.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsPlanType? PlanType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsPlanType? PlanType { get => _explicitNullValuePlanType; set { _explicitNullValuePlanType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_type"); else _explicitNullProperties?.Remove("plan_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsPlanType? _explicitNullValuePlanType = default!;
         /// <summary>**Closing down notice:** This field is no longer relevant and is closing down. Use the `created_at` field to determine when the assignee was last granted access to GitHub Copilot. Timestamp of when the assignee&apos;s GitHub Copilot access was last updated, in ISO 8601 format.</summary>
         [Obsolete("")]
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,7 +136,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple>("organization", Organization);
             writer.WriteDateValue("pending_cancellation_date", PendingCancellationDate);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsPlanType>("plan_type", PlanType);
-            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

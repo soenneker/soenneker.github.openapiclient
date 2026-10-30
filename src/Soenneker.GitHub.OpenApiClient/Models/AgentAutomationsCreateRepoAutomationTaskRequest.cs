@@ -12,19 +12,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsCreateRepoAutomationTaskRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Additional context for this automation run, up to 10,000 characters. Supported only when `event` is `manual`. The context supplements the automation&apos;s configured instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Context { get; set; }
+        public string? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private string? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public string Context { get; set; }
+        public string Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private string _explicitNullValueContext = default!;
 #endif
         /// <summary>The event to trigger. Only `manual` is supported.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? _explicitNullValueEvent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTaskRequest"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTaskRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTaskRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTaskRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("context", Context);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent>("event", Event);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

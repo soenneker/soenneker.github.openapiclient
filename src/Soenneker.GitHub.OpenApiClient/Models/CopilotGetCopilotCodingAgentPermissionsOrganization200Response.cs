@@ -11,18 +11,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CopilotGetCopilotCodingAgentPermissionsOrganization200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enabled_repositories") is { } nullNodeEnabledRepositories && nullNodeEnabledRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledRepositories = null;
+            if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy for which repositories can use Copilot cloud agent. Can be one of `all`, `selected`, or `none`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200ResponseEnabledRepositories? EnabledRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200ResponseEnabledRepositories? EnabledRepositories { get => _explicitNullValueEnabledRepositories; set { _explicitNullValueEnabledRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_repositories"); else _explicitNullProperties?.Remove("enabled_repositories"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200ResponseEnabledRepositories? _explicitNullValueEnabledRepositories = default!;
         /// <summary>The URL for the selected repositories endpoint. Only present when `enabled_repositories` is `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedRepositoriesUrl { get; set; }
+        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string? _explicitNullValueSelectedRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string SelectedRepositoriesUrl { get; set; }
+        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string _explicitNullValueSelectedRepositoriesUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200Response"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200ResponseEnabledRepositories>("enabled_repositories", EnabledRepositories);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

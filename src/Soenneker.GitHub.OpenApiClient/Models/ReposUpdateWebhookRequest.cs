@@ -11,42 +11,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposUpdateWebhookRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("add_events") is { } nullNodeAddEvents && nullNodeAddEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddEvents = null;
+            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("events") is { } nullNodeEvents && nullNodeEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Events = null;
+            if (parseNode.GetChildNode("remove_events") is { } nullNodeRemoveEvents && nullNodeRemoveEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveEvents = null;
+        }
+
         /// <summary>Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.</summary>
-        public bool? Active { get; set; }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private bool? _explicitNullValueActive = default!;
         /// <summary>Determines a list of events to be added to the list of events that the Hook triggers for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddEvents { get; set; }
+        public List<string>? AddEvents { get => _explicitNullValueAddEvents; set { _explicitNullValueAddEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_events"); else _explicitNullProperties?.Remove("add_events"); } }
+        private List<string>? _explicitNullValueAddEvents = default!;
 #nullable restore
 #else
-        public List<string> AddEvents { get; set; }
+        public List<string> AddEvents { get => _explicitNullValueAddEvents; set { _explicitNullValueAddEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_events"); else _explicitNullProperties?.Remove("add_events"); } }
+        private List<string> _explicitNullValueAddEvents = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration object of the webhook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig? Config { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig Config { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Events { get; set; }
+        public List<string>? Events { get => _explicitNullValueEvents; set { _explicitNullValueEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events"); else _explicitNullProperties?.Remove("events"); } }
+        private List<string>? _explicitNullValueEvents = default!;
 #nullable restore
 #else
-        public List<string> Events { get; set; }
+        public List<string> Events { get => _explicitNullValueEvents; set { _explicitNullValueEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events"); else _explicitNullProperties?.Remove("events"); } }
+        private List<string> _explicitNullValueEvents = default!;
 #endif
         /// <summary>Determines a list of events to be removed from the list of events that the Hook triggers for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RemoveEvents { get; set; }
+        public List<string>? RemoveEvents { get => _explicitNullValueRemoveEvents; set { _explicitNullValueRemoveEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_events"); else _explicitNullProperties?.Remove("remove_events"); } }
+        private List<string>? _explicitNullValueRemoveEvents = default!;
 #nullable restore
 #else
-        public List<string> RemoveEvents { get; set; }
+        public List<string> RemoveEvents { get => _explicitNullValueRemoveEvents; set { _explicitNullValueRemoveEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_events"); else _explicitNullProperties?.Remove("remove_events"); } }
+        private List<string> _explicitNullValueRemoveEvents = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateWebhookRequest"/> and sets the default values.
@@ -64,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateWebhookRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateWebhookRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateWebhookRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>("config", Config);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
             writer.WriteCollectionOfPrimitiveValues<string>("remove_events", RemoveEvents);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,35 +11,53 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullsCreateReviewRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("comments") is { } nullNodeComments && nullNodeComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comments = null;
+            if (parseNode.GetChildNode("commit_id") is { } nullNodeCommitId && nullNodeCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitId = null;
+            if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>**Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>Use the following table to specify the location, destination, and contents of the draft review comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem>? Comments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem>? Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem>? _explicitNullValueComments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem> Comments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem> Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem> _explicitNullValueComments = default!;
 #endif
         /// <summary>The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitId { get; set; }
+        public string? CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string? _explicitNullValueCommitId = default!;
 #nullable restore
 #else
-        public string CommitId { get; set; }
+        public string CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string _explicitNullValueCommitId = default!;
 #endif
         /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request) when you are ready.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestEvent? Event { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestEvent? _explicitNullValueEvent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequest"/> and sets the default values.
         /// </summary>
@@ -55,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestCommentsItem>("comments", Comments);
             writer.WriteStringValue("commit_id", CommitId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestEvent>("event", Event);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

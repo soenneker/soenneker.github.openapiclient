@@ -11,16 +11,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("organization_ids") is { } nullNodeOrganizationIds && nullNodeOrganizationIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The organization IDs that the ruleset applies to. One of these IDs must match for the condition to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? OrganizationIds { get; set; }
+        public List<int?>? OrganizationIds { get => _explicitNullValueOrganizationIds; set { _explicitNullValueOrganizationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_ids"); else _explicitNullProperties?.Remove("organization_ids"); } }
+        private List<int?>? _explicitNullValueOrganizationIds = default!;
 #nullable restore
 #else
-        public List<int?> OrganizationIds { get; set; }
+        public List<int?> OrganizationIds { get => _explicitNullValueOrganizationIds; set { _explicitNullValueOrganizationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_ids"); else _explicitNullProperties?.Remove("organization_ids"); } }
+        private List<int?> _explicitNullValueOrganizationIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("organization_ids", OrganizationIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

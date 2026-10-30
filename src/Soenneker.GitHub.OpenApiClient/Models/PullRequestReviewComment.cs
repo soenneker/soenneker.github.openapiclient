@@ -12,150 +12,229 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestReviewComment : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("author_association") is { } nullNodeAuthorAssociation && nullNodeAuthorAssociation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorAssociation = null;
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("body_html") is { } nullNodeBodyHtml && nullNodeBodyHtml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BodyHtml = null;
+            if (parseNode.GetChildNode("body_text") is { } nullNodeBodyText && nullNodeBodyText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BodyText = null;
+            if (parseNode.GetChildNode("commit_id") is { } nullNodeCommitId && nullNodeCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitId = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("diff_hunk") is { } nullNodeDiffHunk && nullNodeDiffHunk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiffHunk = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("in_reply_to_id") is { } nullNodeInReplyToId && nullNodeInReplyToId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InReplyToId = null;
+            if (parseNode.GetChildNode("line") is { } nullNodeLine && nullNodeLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Line = null;
+            if (parseNode.GetChildNode("_links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("original_commit_id") is { } nullNodeOriginalCommitId && nullNodeOriginalCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalCommitId = null;
+            if (parseNode.GetChildNode("original_line") is { } nullNodeOriginalLine && nullNodeOriginalLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalLine = null;
+            if (parseNode.GetChildNode("original_position") is { } nullNodeOriginalPosition && nullNodeOriginalPosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalPosition = null;
+            if (parseNode.GetChildNode("original_start_line") is { } nullNodeOriginalStartLine && nullNodeOriginalStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalStartLine = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
+            if (parseNode.GetChildNode("pull_request_review_id") is { } nullNodePullRequestReviewId && nullNodePullRequestReviewId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewId = null;
+            if (parseNode.GetChildNode("pull_request_url") is { } nullNodePullRequestUrl && nullNodePullRequestUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestUrl = null;
+            if (parseNode.GetChildNode("reactions") is { } nullNodeReactions && nullNodeReactions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reactions = null;
+            if (parseNode.GetChildNode("side") is { } nullNodeSide && nullNodeSide.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Side = null;
+            if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
+            if (parseNode.GetChildNode("start_side") is { } nullNodeStartSide && nullNodeStartSide.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartSide = null;
+            if (parseNode.GetChildNode("subject_type") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How the author is associated with the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation? AuthorAssociation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation? AuthorAssociation { get => _explicitNullValueAuthorAssociation; set { _explicitNullValueAuthorAssociation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("author_association"); else _explicitNullProperties?.Remove("author_association"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation? _explicitNullValueAuthorAssociation = default!;
         /// <summary>The text of the comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>The body_html property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BodyHtml { get; set; }
+        public string? BodyHtml { get => _explicitNullValueBodyHtml; set { _explicitNullValueBodyHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_html"); else _explicitNullProperties?.Remove("body_html"); } }
+        private string? _explicitNullValueBodyHtml = default!;
 #nullable restore
 #else
-        public string BodyHtml { get; set; }
+        public string BodyHtml { get => _explicitNullValueBodyHtml; set { _explicitNullValueBodyHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_html"); else _explicitNullProperties?.Remove("body_html"); } }
+        private string _explicitNullValueBodyHtml = default!;
 #endif
         /// <summary>The body_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BodyText { get; set; }
+        public string? BodyText { get => _explicitNullValueBodyText; set { _explicitNullValueBodyText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_text"); else _explicitNullProperties?.Remove("body_text"); } }
+        private string? _explicitNullValueBodyText = default!;
 #nullable restore
 #else
-        public string BodyText { get; set; }
+        public string BodyText { get => _explicitNullValueBodyText; set { _explicitNullValueBodyText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_text"); else _explicitNullProperties?.Remove("body_text"); } }
+        private string _explicitNullValueBodyText = default!;
 #endif
         /// <summary>The SHA of the commit to which the comment applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitId { get; set; }
+        public string? CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string? _explicitNullValueCommitId = default!;
 #nullable restore
 #else
-        public string CommitId { get; set; }
+        public string CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string _explicitNullValueCommitId = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The diff of the line that the comment refers to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiffHunk { get; set; }
+        public string? DiffHunk { get => _explicitNullValueDiffHunk; set { _explicitNullValueDiffHunk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diff_hunk"); else _explicitNullProperties?.Remove("diff_hunk"); } }
+        private string? _explicitNullValueDiffHunk = default!;
 #nullable restore
 #else
-        public string DiffHunk { get; set; }
+        public string DiffHunk { get => _explicitNullValueDiffHunk; set { _explicitNullValueDiffHunk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diff_hunk"); else _explicitNullProperties?.Remove("diff_hunk"); } }
+        private string _explicitNullValueDiffHunk = default!;
 #endif
         /// <summary>HTML URL for the pull request review comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The ID of the pull request review comment.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The comment ID to reply to.</summary>
-        public long? InReplyToId { get; set; }
+        public long? InReplyToId { get => _explicitNullValueInReplyToId; set { _explicitNullValueInReplyToId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_reply_to_id"); else _explicitNullProperties?.Remove("in_reply_to_id"); } }
+        private long? _explicitNullValueInReplyToId = default!;
         /// <summary>The line of the blob to which the comment applies. The last line of the range for a multi-line comment</summary>
-        public int? Line { get; set; }
+        public int? Line { get => _explicitNullValueLine; set { _explicitNullValueLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line"); else _explicitNullProperties?.Remove("line"); } }
+        private int? _explicitNullValueLine = default!;
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>The node ID of the pull request review comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>The SHA of the original commit to which the comment applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OriginalCommitId { get; set; }
+        public string? OriginalCommitId { get => _explicitNullValueOriginalCommitId; set { _explicitNullValueOriginalCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_commit_id"); else _explicitNullProperties?.Remove("original_commit_id"); } }
+        private string? _explicitNullValueOriginalCommitId = default!;
 #nullable restore
 #else
-        public string OriginalCommitId { get; set; }
+        public string OriginalCommitId { get => _explicitNullValueOriginalCommitId; set { _explicitNullValueOriginalCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_commit_id"); else _explicitNullProperties?.Remove("original_commit_id"); } }
+        private string _explicitNullValueOriginalCommitId = default!;
 #endif
         /// <summary>The line of the blob to which the comment applies. The last line of the range for a multi-line comment</summary>
-        public int? OriginalLine { get; set; }
+        public int? OriginalLine { get => _explicitNullValueOriginalLine; set { _explicitNullValueOriginalLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_line"); else _explicitNullProperties?.Remove("original_line"); } }
+        private int? _explicitNullValueOriginalLine = default!;
         /// <summary>The index of the original line in the diff to which the comment applies. This field is closing down; use `original_line` instead.</summary>
-        public int? OriginalPosition { get; set; }
+        public int? OriginalPosition { get => _explicitNullValueOriginalPosition; set { _explicitNullValueOriginalPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_position"); else _explicitNullProperties?.Remove("original_position"); } }
+        private int? _explicitNullValueOriginalPosition = default!;
         /// <summary>The first line of the range for a multi-line comment.</summary>
-        public int? OriginalStartLine { get; set; }
+        public int? OriginalStartLine { get => _explicitNullValueOriginalStartLine; set { _explicitNullValueOriginalStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_start_line"); else _explicitNullProperties?.Remove("original_start_line"); } }
+        private int? _explicitNullValueOriginalStartLine = default!;
         /// <summary>The relative path of the file to which the comment applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The line index in the diff to which the comment applies. This field is closing down; use `line` instead.</summary>
-        public int? Position { get; set; }
+        public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
+        private int? _explicitNullValuePosition = default!;
         /// <summary>The ID of the pull request review to which the comment belongs.</summary>
-        public long? PullRequestReviewId { get; set; }
+        public long? PullRequestReviewId { get => _explicitNullValuePullRequestReviewId; set { _explicitNullValuePullRequestReviewId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_id"); else _explicitNullProperties?.Remove("pull_request_review_id"); } }
+        private long? _explicitNullValuePullRequestReviewId = default!;
         /// <summary>URL for the pull request that the review comment belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PullRequestUrl { get; set; }
+        public string? PullRequestUrl { get => _explicitNullValuePullRequestUrl; set { _explicitNullValuePullRequestUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_url"); else _explicitNullProperties?.Remove("pull_request_url"); } }
+        private string? _explicitNullValuePullRequestUrl = default!;
 #nullable restore
 #else
-        public string PullRequestUrl { get; set; }
+        public string PullRequestUrl { get => _explicitNullValuePullRequestUrl; set { _explicitNullValuePullRequestUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_url"); else _explicitNullProperties?.Remove("pull_request_url"); } }
+        private string _explicitNullValuePullRequestUrl = default!;
 #endif
         /// <summary>The reactions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup? Reactions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup? Reactions { get => _explicitNullValueReactions; set { _explicitNullValueReactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reactions"); else _explicitNullProperties?.Remove("reactions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup? _explicitNullValueReactions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup Reactions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup Reactions { get => _explicitNullValueReactions; set { _explicitNullValueReactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reactions"); else _explicitNullProperties?.Remove("reactions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup _explicitNullValueReactions = default!;
 #endif
         /// <summary>The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSide? Side { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSide? Side { get => _explicitNullValueSide; set { _explicitNullValueSide = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("side"); else _explicitNullProperties?.Remove("side"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSide? _explicitNullValueSide = default!;
         /// <summary>The first line of the range for a multi-line comment.</summary>
-        public int? StartLine { get; set; }
+        public int? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
+        private int? _explicitNullValueStartLine = default!;
         /// <summary>The side of the first line of the range for a multi-line comment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentStartSide? StartSide { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentStartSide? StartSide { get => _explicitNullValueStartSide; set { _explicitNullValueStartSide = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_side"); else _explicitNullProperties?.Remove("start_side"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentStartSide? _explicitNullValueStartSide = default!;
         /// <summary>The level at which the comment is targeted, can be a diff line or a file.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSubjectType? SubjectType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSubjectType? SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_type"); else _explicitNullProperties?.Remove("subject_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentSubjectType? _explicitNullValueSubjectType = default!;
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>URL for the pull request review comment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewComment"/> and sets the default values.
@@ -172,7 +251,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewComment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewComment();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewComment(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -249,6 +328,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodespacesPreFlightWithRepoForAuthenticatedUser200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billable_owner") is { } nullNodeBillableOwner && nullNodeBillableOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillableOwner = null;
+            if (parseNode.GetChildNode("defaults") is { } nullNodeDefaults && nullNodeDefaults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Defaults = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? BillableOwner { get => _explicitNullValueBillableOwner; set { _explicitNullValueBillableOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable_owner"); else _explicitNullProperties?.Remove("billable_owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueBillableOwner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser BillableOwner { get => _explicitNullValueBillableOwner; set { _explicitNullValueBillableOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable_owner"); else _explicitNullProperties?.Remove("billable_owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueBillableOwner = default!;
 #endif
         /// <summary>The defaults property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults? Defaults { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults? Defaults { get => _explicitNullValueDefaults; set { _explicitNullValueDefaults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaults"); else _explicitNullProperties?.Remove("defaults"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults? _explicitNullValueDefaults = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults Defaults { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults Defaults { get => _explicitNullValueDefaults; set { _explicitNullValueDefaults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaults"); else _explicitNullProperties?.Remove("defaults"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults _explicitNullValueDefaults = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200Response"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("billable_owner", BillableOwner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPreFlightWithRepoForAuthenticatedUser200ResponseDefaults>("defaults", Defaults);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

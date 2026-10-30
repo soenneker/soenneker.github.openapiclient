@@ -55,6 +55,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.Large_files
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.PorterLargeFile>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.PorterLargeFile.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

@@ -11,44 +11,67 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningScanHistoryCustomPatternBackfillScansItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("pattern_name") is { } nullNodePatternName && nullNodePatternName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternName = null;
+            if (parseNode.GetChildNode("pattern_scope") is { } nullNodePatternScope && nullNodePatternScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternScope = null;
+            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time that the scan was completed. Empty if the scan is running</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>Name of the custom pattern for custom pattern scans</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternName { get; set; }
+        public string? PatternName { get => _explicitNullValuePatternName; set { _explicitNullValuePatternName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_name"); else _explicitNullProperties?.Remove("pattern_name"); } }
+        private string? _explicitNullValuePatternName = default!;
 #nullable restore
 #else
-        public string PatternName { get; set; }
+        public string PatternName { get => _explicitNullValuePatternName; set { _explicitNullValuePatternName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_name"); else _explicitNullProperties?.Remove("pattern_name"); } }
+        private string _explicitNullValuePatternName = default!;
 #endif
         /// <summary>Level at which the custom pattern is defined, one of &quot;repository&quot;, &quot;organization&quot;, or &quot;enterprise&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternScope { get; set; }
+        public string? PatternScope { get => _explicitNullValuePatternScope; set { _explicitNullValuePatternScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_scope"); else _explicitNullProperties?.Remove("pattern_scope"); } }
+        private string? _explicitNullValuePatternScope = default!;
 #nullable restore
 #else
-        public string PatternScope { get; set; }
+        public string PatternScope { get => _explicitNullValuePatternScope; set { _explicitNullValuePatternScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_scope"); else _explicitNullProperties?.Remove("pattern_scope"); } }
+        private string _explicitNullValuePatternScope = default!;
 #endif
         /// <summary>The time that the scan was started. Empty if the scan is pending</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The state of the scan. Either &quot;completed&quot;, &quot;running&quot;, &quot;pending&quot;, &quot;failed&quot;, or &quot;unknown&quot;.&quot;failed&quot;: this scan type has hit its retry limit and has been marked permanently failed.This usually resolves on its own at the next scheduled scan attempt. If &quot;failed&quot; persists, contact Support.&quot;unknown&quot;: the scan is in an unrecognized or currently unhandled state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The type of scan</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem"/> and sets the default values.
@@ -65,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

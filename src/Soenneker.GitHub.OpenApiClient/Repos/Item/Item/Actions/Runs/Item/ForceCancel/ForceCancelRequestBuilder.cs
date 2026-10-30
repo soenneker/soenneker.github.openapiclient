@@ -54,6 +54,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Force
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

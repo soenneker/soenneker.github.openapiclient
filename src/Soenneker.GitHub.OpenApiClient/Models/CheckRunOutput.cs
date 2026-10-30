@@ -11,42 +11,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CheckRunOutput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annotations_count") is { } nullNodeAnnotationsCount && nullNodeAnnotationsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnotationsCount = null;
+            if (parseNode.GetChildNode("annotations_url") is { } nullNodeAnnotationsUrl && nullNodeAnnotationsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnotationsUrl = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annotations_count property</summary>
-        public int? AnnotationsCount { get; set; }
+        public int? AnnotationsCount { get => _explicitNullValueAnnotationsCount; set { _explicitNullValueAnnotationsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations_count"); else _explicitNullProperties?.Remove("annotations_count"); } }
+        private int? _explicitNullValueAnnotationsCount = default!;
         /// <summary>The annotations_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnnotationsUrl { get; set; }
+        public string? AnnotationsUrl { get => _explicitNullValueAnnotationsUrl; set { _explicitNullValueAnnotationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations_url"); else _explicitNullProperties?.Remove("annotations_url"); } }
+        private string? _explicitNullValueAnnotationsUrl = default!;
 #nullable restore
 #else
-        public string AnnotationsUrl { get; set; }
+        public string AnnotationsUrl { get => _explicitNullValueAnnotationsUrl; set { _explicitNullValueAnnotationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotations_url"); else _explicitNullProperties?.Remove("annotations_url"); } }
+        private string _explicitNullValueAnnotationsUrl = default!;
 #endif
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get; set; }
+        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public string Summary { get; set; }
+        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string _explicitNullValueSummary = default!;
 #endif
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("title", Title);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

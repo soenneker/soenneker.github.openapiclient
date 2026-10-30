@@ -12,85 +12,126 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsEditRepoAutomation200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("continuous_history") is { } nullNodeContinuousHistory && nullNodeContinuousHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContinuousHistory = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+            if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
+            if (parseNode.GetChildNode("require_actor_write_permission") is { } nullNodeRequireActorWritePermission && nullNodeRequireActorWritePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireActorWritePermission = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("triggers") is { } nullNodeTriggers && nullNodeTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggers = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, runs of this automation build on the session history of its previous runs, and runs of the same automation are serialized. Not tracked in revision history.</summary>
-        public bool? ContinuousHistory { get; set; }
+        public bool? ContinuousHistory { get => _explicitNullValueContinuousHistory; set { _explicitNullValueContinuousHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("continuous_history"); else _explicitNullProperties?.Remove("continuous_history"); } }
+        private bool? _explicitNullValueContinuousHistory = default!;
         /// <summary>When the automation was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>A GitHub user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy? CreatedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy? _explicitNullValueCreatedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy CreatedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseCreatedBy _explicitNullValueCreatedBy = default!;
 #endif
         /// <summary>Whether the automation is currently enabled.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The unique identifier of the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The model override for sessions triggered by this automation. Absent when the platform selects the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The name of the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The prompt for the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>The reasoning effort override for sessions triggered by this automation. Absent when the model&apos;s default is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReasoningEffort { get; set; }
+        public string? ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private string? _explicitNullValueReasoningEffort = default!;
 #nullable restore
 #else
-        public string ReasoningEffort { get; set; }
+        public string ReasoningEffort { get => _explicitNullValueReasoningEffort; set { _explicitNullValueReasoningEffort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reasoning_effort"); else _explicitNullProperties?.Remove("reasoning_effort"); } }
+        private string _explicitNullValueReasoningEffort = default!;
 #endif
         /// <summary>When true, event-triggered runs require the event actor to have repo write permission, even when the org&apos;s allow_read_access_triggers policy is enabled. Does not apply to interval-scheduled runs, which always run as the automation owner.</summary>
-        public bool? RequireActorWritePermission { get; set; }
+        public bool? RequireActorWritePermission { get => _explicitNullValueRequireActorWritePermission; set { _explicitNullValueRequireActorWritePermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_actor_write_permission"); else _explicitNullProperties?.Remove("require_actor_write_permission"); } }
+        private bool? _explicitNullValueRequireActorWritePermission = default!;
         /// <summary>The tools available to the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tools { get; set; }
+        public List<string>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<string>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<string> Tools { get; set; }
+        public List<string> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<string> _explicitNullValueTools = default!;
 #endif
         /// <summary>Trigger configuration for the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers? Triggers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers? Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers? _explicitNullValueTriggers = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers Triggers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers _explicitNullValueTriggers = default!;
 #endif
         /// <summary>The type of automation. `personal` keeps it private to its creator and its runs act as that user. `shared` makes it belong to the repository, visible to anyone with read access to the repository, and its runs act as the Copilot app rather than as a person.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseType? Type { get; private set; }
         /// <summary>When the automation was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200Response"/> and sets the default values.
         /// </summary>
@@ -108,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -154,6 +195,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomation200ResponseTriggers>("triggers", Triggers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

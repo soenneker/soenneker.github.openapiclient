@@ -67,6 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Secrets.Item.Repos
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListSelectedReposForOrgSecret200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListSelectedReposForOrgSecret200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -92,6 +94,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Secrets.Item.Repos
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

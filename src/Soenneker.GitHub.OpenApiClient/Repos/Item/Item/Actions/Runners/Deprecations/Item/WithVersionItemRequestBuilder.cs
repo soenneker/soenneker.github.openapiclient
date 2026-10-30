@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners.Depreca
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetRunnerVersionDeprecationForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetRunnerVersionDeprecationForRepo200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetRunnerVersionDeprecationForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetRunnerVersionDeprecationForRepo200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the end-of-life schedule for a specific runner version in a repository. Returns the runner versionand the dates when registration and runtime support will end.Authenticated users must have admin access to the repository to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.

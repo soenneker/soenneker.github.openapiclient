@@ -11,48 +11,78 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullsCreateReviewCommentRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("commit_id") is { } nullNodeCommitId && nullNodeCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitId = null;
+            if (parseNode.GetChildNode("in_reply_to") is { } nullNodeInReplyTo && nullNodeInReplyTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InReplyTo = null;
+            if (parseNode.GetChildNode("line") is { } nullNodeLine && nullNodeLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Line = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
+            if (parseNode.GetChildNode("side") is { } nullNodeSide && nullNodeSide.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Side = null;
+            if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
+            if (parseNode.GetChildNode("start_side") is { } nullNodeStartSide && nullNodeStartSide.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartSide = null;
+            if (parseNode.GetChildNode("subject_type") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The text of the review comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>The SHA of the commit needing a comment. Not using the latest commit SHA may render your comment outdated if a subsequent commit modifies the line you specify as the `position`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitId { get; set; }
+        public string? CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string? _explicitNullValueCommitId = default!;
 #nullable restore
 #else
-        public string CommitId { get; set; }
+        public string CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
+        private string _explicitNullValueCommitId = default!;
 #endif
         /// <summary>The ID of the review comment to reply to. To find the ID of a review comment with [&quot;List review comments on a pull request&quot;](#list-review-comments-on-a-pull-request). When specified, all parameters other than `body` in the request body are ignored.</summary>
-        public int? InReplyTo { get; set; }
+        public int? InReplyTo { get => _explicitNullValueInReplyTo; set { _explicitNullValueInReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_reply_to"); else _explicitNullProperties?.Remove("in_reply_to"); } }
+        private int? _explicitNullValueInReplyTo = default!;
         /// <summary>**Required unless using `subject_type:file`**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.</summary>
-        public int? Line { get; set; }
+        public int? Line { get => _explicitNullValueLine; set { _explicitNullValueLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line"); else _explicitNullProperties?.Remove("line"); } }
+        private int? _explicitNullValueLine = default!;
         /// <summary>The relative path to the file that necessitates a comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>**This parameter is closing down. Use `line` instead**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. The position value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</summary>
         [Obsolete("")]
-        public int? Position { get; set; }
+        public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
+        private int? _explicitNullValuePosition = default!;
         /// <summary>In a split diff view, the side of the diff that the pull request&apos;s changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see &quot;[Diff view options](https://docs.github.com/articles/about-comparing-branches-in-pull-requests#diff-view-options)&quot; in the GitHub Help documentation.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSide? Side { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSide? Side { get => _explicitNullValueSide; set { _explicitNullValueSide = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("side"); else _explicitNullProperties?.Remove("side"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSide? _explicitNullValueSide = default!;
         /// <summary>**Required when using multi-line comments unless using `in_reply_to`**. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see &quot;[Commenting on a pull request](https://docs.github.com/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)&quot; in the GitHub Help documentation.</summary>
-        public int? StartLine { get; set; }
+        public int? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
+        private int? _explicitNullValueStartLine = default!;
         /// <summary>**Required when using multi-line comments unless using `in_reply_to`**. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see &quot;[Commenting on a pull request](https://docs.github.com/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)&quot; in the GitHub Help documentation. See `side` in this table for additional context.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestStartSide? StartSide { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestStartSide? StartSide { get => _explicitNullValueStartSide; set { _explicitNullValueStartSide = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_side"); else _explicitNullProperties?.Remove("start_side"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestStartSide? _explicitNullValueStartSide = default!;
         /// <summary>The level at which the comment is targeted.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSubjectType? SubjectType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSubjectType? SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_type"); else _explicitNullProperties?.Remove("subject_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSubjectType? _explicitNullValueSubjectType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequest"/> and sets the default values.
         /// </summary>
@@ -68,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,6 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("start_line", StartLine);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestStartSide>("start_side", StartSide);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewCommentRequestSubjectType>("subject_type", SubjectType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

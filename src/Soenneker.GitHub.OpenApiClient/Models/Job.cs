@@ -12,132 +12,198 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Job : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("check_run_url") is { } nullNodeCheckRunUrl && nullNodeCheckRunUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckRunUrl = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("conclusion") is { } nullNodeConclusion && nullNodeConclusion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conclusion = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("head_branch") is { } nullNodeHeadBranch && nullNodeHeadBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadBranch = null;
+            if (parseNode.GetChildNode("head_sha") is { } nullNodeHeadSha && nullNodeHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadSha = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("run_attempt") is { } nullNodeRunAttempt && nullNodeRunAttempt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunAttempt = null;
+            if (parseNode.GetChildNode("run_id") is { } nullNodeRunId && nullNodeRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunId = null;
+            if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
+            if (parseNode.GetChildNode("runner_group_name") is { } nullNodeRunnerGroupName && nullNodeRunnerGroupName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupName = null;
+            if (parseNode.GetChildNode("runner_id") is { } nullNodeRunnerId && nullNodeRunnerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerId = null;
+            if (parseNode.GetChildNode("runner_name") is { } nullNodeRunnerName && nullNodeRunnerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerName = null;
+            if (parseNode.GetChildNode("run_url") is { } nullNodeRunUrl && nullNodeRunUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunUrl = null;
+            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("workflow_name") is { } nullNodeWorkflowName && nullNodeWorkflowName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The check_run_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CheckRunUrl { get; set; }
+        public string? CheckRunUrl { get => _explicitNullValueCheckRunUrl; set { _explicitNullValueCheckRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_run_url"); else _explicitNullProperties?.Remove("check_run_url"); } }
+        private string? _explicitNullValueCheckRunUrl = default!;
 #nullable restore
 #else
-        public string CheckRunUrl { get; set; }
+        public string CheckRunUrl { get => _explicitNullValueCheckRunUrl; set { _explicitNullValueCheckRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_run_url"); else _explicitNullProperties?.Remove("check_run_url"); } }
+        private string _explicitNullValueCheckRunUrl = default!;
 #endif
         /// <summary>The time that the job finished, in ISO 8601 format.</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The outcome of the job.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion? Conclusion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion? Conclusion { get => _explicitNullValueConclusion; set { _explicitNullValueConclusion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conclusion"); else _explicitNullProperties?.Remove("conclusion"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion? _explicitNullValueConclusion = default!;
         /// <summary>The time that the job created, in ISO 8601 format.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The name of the current branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadBranch { get; set; }
+        public string? HeadBranch { get => _explicitNullValueHeadBranch; set { _explicitNullValueHeadBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_branch"); else _explicitNullProperties?.Remove("head_branch"); } }
+        private string? _explicitNullValueHeadBranch = default!;
 #nullable restore
 #else
-        public string HeadBranch { get; set; }
+        public string HeadBranch { get => _explicitNullValueHeadBranch; set { _explicitNullValueHeadBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_branch"); else _explicitNullProperties?.Remove("head_branch"); } }
+        private string _explicitNullValueHeadBranch = default!;
 #endif
         /// <summary>The SHA of the commit that is being run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadSha { get; set; }
+        public string? HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string? _explicitNullValueHeadSha = default!;
 #nullable restore
 #else
-        public string HeadSha { get; set; }
+        public string HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string _explicitNullValueHeadSha = default!;
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The id of the job.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>Labels for the workflow job. Specified by the &quot;runs_on&quot; attribute in the action&apos;s workflow file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Labels { get; set; }
+        public List<string>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<string>? _explicitNullValueLabels = default!;
 #nullable restore
 #else
-        public List<string> Labels { get; set; }
+        public List<string> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<string> _explicitNullValueLabels = default!;
 #endif
         /// <summary>The name of the job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run.</summary>
-        public int? RunAttempt { get; set; }
+        public int? RunAttempt { get => _explicitNullValueRunAttempt; set { _explicitNullValueRunAttempt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_attempt"); else _explicitNullProperties?.Remove("run_attempt"); } }
+        private int? _explicitNullValueRunAttempt = default!;
         /// <summary>The id of the associated workflow run.</summary>
-        public long? RunId { get; set; }
+        public long? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
+        private long? _explicitNullValueRunId = default!;
         /// <summary>The ID of the runner group to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
-        public int? RunnerGroupId { get; set; }
+        public int? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
+        private int? _explicitNullValueRunnerGroupId = default!;
         /// <summary>The name of the runner group to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerGroupName { get; set; }
+        public string? RunnerGroupName { get => _explicitNullValueRunnerGroupName; set { _explicitNullValueRunnerGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_name"); else _explicitNullProperties?.Remove("runner_group_name"); } }
+        private string? _explicitNullValueRunnerGroupName = default!;
 #nullable restore
 #else
-        public string RunnerGroupName { get; set; }
+        public string RunnerGroupName { get => _explicitNullValueRunnerGroupName; set { _explicitNullValueRunnerGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_name"); else _explicitNullProperties?.Remove("runner_group_name"); } }
+        private string _explicitNullValueRunnerGroupName = default!;
 #endif
         /// <summary>The ID of the runner to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
-        public int? RunnerId { get; set; }
+        public int? RunnerId { get => _explicitNullValueRunnerId; set { _explicitNullValueRunnerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_id"); else _explicitNullProperties?.Remove("runner_id"); } }
+        private int? _explicitNullValueRunnerId = default!;
         /// <summary>The name of the runner to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerName { get; set; }
+        public string? RunnerName { get => _explicitNullValueRunnerName; set { _explicitNullValueRunnerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_name"); else _explicitNullProperties?.Remove("runner_name"); } }
+        private string? _explicitNullValueRunnerName = default!;
 #nullable restore
 #else
-        public string RunnerName { get; set; }
+        public string RunnerName { get => _explicitNullValueRunnerName; set { _explicitNullValueRunnerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_name"); else _explicitNullProperties?.Remove("runner_name"); } }
+        private string _explicitNullValueRunnerName = default!;
 #endif
         /// <summary>The run_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunUrl { get; set; }
+        public string? RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        private string? _explicitNullValueRunUrl = default!;
 #nullable restore
 #else
-        public string RunUrl { get; set; }
+        public string RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        private string _explicitNullValueRunUrl = default!;
 #endif
         /// <summary>The time that the job started, in ISO 8601 format.</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The phase of the lifecycle that the job is currently in.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.JobStatus? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.JobStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.JobStatus? _explicitNullValueStatus = default!;
         /// <summary>Steps in this job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>? Steps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>? _explicitNullValueSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem> Steps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem> _explicitNullValueSteps = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The name of the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkflowName { get; set; }
+        public string? WorkflowName { get => _explicitNullValueWorkflowName; set { _explicitNullValueWorkflowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_name"); else _explicitNullProperties?.Remove("workflow_name"); } }
+        private string? _explicitNullValueWorkflowName = default!;
 #nullable restore
 #else
-        public string WorkflowName { get; set; }
+        public string WorkflowName { get => _explicitNullValueWorkflowName; set { _explicitNullValueWorkflowName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_name"); else _explicitNullProperties?.Remove("workflow_name"); } }
+        private string _explicitNullValueWorkflowName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Job"/> and sets the default values.
@@ -154,7 +220,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.Job CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.Job();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.Job(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -219,6 +285,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>("steps", Steps);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("workflow_name", WorkflowName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

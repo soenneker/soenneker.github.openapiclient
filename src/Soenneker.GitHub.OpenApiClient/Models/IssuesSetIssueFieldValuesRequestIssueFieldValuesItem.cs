@@ -11,16 +11,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class IssuesSetIssueFieldValuesRequestIssueFieldValuesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("field_id") is { } nullNodeFieldId && nullNodeFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldId = null;
+            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+        }
+
         /// <summary>The ID of the issue field to set</summary>
-        public long? FieldId { get; set; }
+        public long? FieldId { get => _explicitNullValueFieldId; set { _explicitNullValueFieldId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_id"); else _explicitNullProperties?.Remove("field_id"); } }
+        private long? _explicitNullValueFieldId = default!;
         /// <summary>The value to set for the field. The type depends on the field&apos;s data type:- For text fields: provide a string value- For single_select fields: provide the option name as a string (must match an existing option)- For number fields: provide a numeric value- For date fields: provide an ISO 8601 date string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -30,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("field_id", FieldId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetIssueFieldValuesRequestIssueFieldValuesItemValue>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

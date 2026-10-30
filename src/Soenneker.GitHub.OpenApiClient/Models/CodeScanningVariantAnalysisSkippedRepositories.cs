@@ -12,40 +12,59 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeScanningVariantAnalysisSkippedRepositories : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("access_mismatch_repos") is { } nullNodeAccessMismatchRepos && nullNodeAccessMismatchRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessMismatchRepos = null;
+            if (parseNode.GetChildNode("no_codeql_db_repos") is { } nullNodeNoCodeqlDbRepos && nullNodeNoCodeqlDbRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoCodeqlDbRepos = null;
+            if (parseNode.GetChildNode("not_found_repos") is { } nullNodeNotFoundRepos && nullNodeNotFoundRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotFoundRepos = null;
+            if (parseNode.GetChildNode("over_limit_repos") is { } nullNodeOverLimitRepos && nullNodeOverLimitRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverLimitRepos = null;
+        }
+
         /// <summary>The access_mismatch_repos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? AccessMismatchRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? AccessMismatchRepos { get => _explicitNullValueAccessMismatchRepos; set { _explicitNullValueAccessMismatchRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_mismatch_repos"); else _explicitNullProperties?.Remove("access_mismatch_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? _explicitNullValueAccessMismatchRepos = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup AccessMismatchRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup AccessMismatchRepos { get => _explicitNullValueAccessMismatchRepos; set { _explicitNullValueAccessMismatchRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_mismatch_repos"); else _explicitNullProperties?.Remove("access_mismatch_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup _explicitNullValueAccessMismatchRepos = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The no_codeql_db_repos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? NoCodeqlDbRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? NoCodeqlDbRepos { get => _explicitNullValueNoCodeqlDbRepos; set { _explicitNullValueNoCodeqlDbRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_codeql_db_repos"); else _explicitNullProperties?.Remove("no_codeql_db_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? _explicitNullValueNoCodeqlDbRepos = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup NoCodeqlDbRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup NoCodeqlDbRepos { get => _explicitNullValueNoCodeqlDbRepos; set { _explicitNullValueNoCodeqlDbRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_codeql_db_repos"); else _explicitNullProperties?.Remove("no_codeql_db_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup _explicitNullValueNoCodeqlDbRepos = default!;
 #endif
         /// <summary>The not_found_repos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos? NotFoundRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos? NotFoundRepos { get => _explicitNullValueNotFoundRepos; set { _explicitNullValueNotFoundRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found_repos"); else _explicitNullProperties?.Remove("not_found_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos? _explicitNullValueNotFoundRepos = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos NotFoundRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos NotFoundRepos { get => _explicitNullValueNotFoundRepos; set { _explicitNullValueNotFoundRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_found_repos"); else _explicitNullProperties?.Remove("not_found_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos _explicitNullValueNotFoundRepos = default!;
 #endif
         /// <summary>The over_limit_repos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? OverLimitRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? OverLimitRepos { get => _explicitNullValueOverLimitRepos; set { _explicitNullValueOverLimitRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("over_limit_repos"); else _explicitNullProperties?.Remove("over_limit_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup? _explicitNullValueOverLimitRepos = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup OverLimitRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup OverLimitRepos { get => _explicitNullValueOverLimitRepos; set { _explicitNullValueOverLimitRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("over_limit_repos"); else _explicitNullProperties?.Remove("over_limit_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup _explicitNullValueOverLimitRepos = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup>("no_codeql_db_repos", NoCodeqlDbRepos);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositoriesNotFoundRepos>("not_found_repos", NotFoundRepos);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup>("over_limit_repos", OverLimitRepos);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

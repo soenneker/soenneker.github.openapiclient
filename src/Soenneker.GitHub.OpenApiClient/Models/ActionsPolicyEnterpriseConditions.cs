@@ -12,56 +12,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsPolicyEnterpriseConditions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("organization_id") is { } nullNodeOrganizationId && nullNodeOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationId = null;
+            if (parseNode.GetChildNode("organization_name") is { } nullNodeOrganizationName && nullNodeOrganizationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationName = null;
+            if (parseNode.GetChildNode("organization_property") is { } nullNodeOrganizationProperty && nullNodeOrganizationProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationProperty = null;
+            if (parseNode.GetChildNode("repository_name") is { } nullNodeRepositoryName && nullNodeRepositoryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryName = null;
+            if (parseNode.GetChildNode("repository_property") is { } nullNodeRepositoryProperty && nullNodeRepositoryProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryProperty = null;
+            if (parseNode.GetChildNode("workflow_path") is { } nullNodeWorkflowPath && nullNodeWorkflowPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowPath = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The organization_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId? OrganizationId { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId? OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId? _explicitNullValueOrganizationId = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId OrganizationId { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId _explicitNullValueOrganizationId = default!;
 #endif
         /// <summary>The organization_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName? OrganizationName { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName? OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_name"); else _explicitNullProperties?.Remove("organization_name"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName? _explicitNullValueOrganizationName = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName OrganizationName { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_name"); else _explicitNullProperties?.Remove("organization_name"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName _explicitNullValueOrganizationName = default!;
 #endif
         /// <summary>The organization_property property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty? OrganizationProperty { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty? OrganizationProperty { get => _explicitNullValueOrganizationProperty; set { _explicitNullValueOrganizationProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_property"); else _explicitNullProperties?.Remove("organization_property"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty? _explicitNullValueOrganizationProperty = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty OrganizationProperty { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty OrganizationProperty { get => _explicitNullValueOrganizationProperty; set { _explicitNullValueOrganizationProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_property"); else _explicitNullProperties?.Remove("organization_property"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty _explicitNullValueOrganizationProperty = default!;
 #endif
         /// <summary>The repository_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName? RepositoryName { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName? RepositoryName { get => _explicitNullValueRepositoryName; set { _explicitNullValueRepositoryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_name"); else _explicitNullProperties?.Remove("repository_name"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName? _explicitNullValueRepositoryName = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName RepositoryName { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName RepositoryName { get => _explicitNullValueRepositoryName; set { _explicitNullValueRepositoryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_name"); else _explicitNullProperties?.Remove("repository_name"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName _explicitNullValueRepositoryName = default!;
 #endif
         /// <summary>The repository_property property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? RepositoryProperty { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? _explicitNullValueRepositoryProperty = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty RepositoryProperty { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty _explicitNullValueRepositoryProperty = default!;
 #endif
         /// <summary>The workflow_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? WorkflowPath { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? _explicitNullValueWorkflowPath = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath WorkflowPath { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath _explicitNullValueWorkflowPath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyEnterpriseConditions"/> and sets the default values.
@@ -78,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyEnterpriseConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyEnterpriseConditions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyEnterpriseConditions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>("repository_name", RepositoryName);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>("repository_property", RepositoryProperty);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath>("workflow_path", WorkflowPath);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

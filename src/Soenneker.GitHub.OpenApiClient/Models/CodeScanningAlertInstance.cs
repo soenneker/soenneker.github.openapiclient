@@ -11,83 +11,119 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningAlertInstance : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("analysis_key") is { } nullNodeAnalysisKey && nullNodeAnalysisKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisKey = null;
+            if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
+            if (parseNode.GetChildNode("classifications") is { } nullNodeClassifications && nullNodeClassifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Classifications = null;
+            if (parseNode.GetChildNode("commit_sha") is { } nullNodeCommitSha && nullNodeCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitSha = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnalysisKey { get; set; }
+        public string? AnalysisKey { get => _explicitNullValueAnalysisKey; set { _explicitNullValueAnalysisKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_key"); else _explicitNullProperties?.Remove("analysis_key"); } }
+        private string? _explicitNullValueAnalysisKey = default!;
 #nullable restore
 #else
-        public string AnalysisKey { get; set; }
+        public string AnalysisKey { get => _explicitNullValueAnalysisKey; set { _explicitNullValueAnalysisKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_key"); else _explicitNullProperties?.Remove("analysis_key"); } }
+        private string _explicitNullValueAnalysisKey = default!;
 #endif
         /// <summary>Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Category { get; set; }
+        public string? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        private string? _explicitNullValueCategory = default!;
 #nullable restore
 #else
-        public string Category { get; set; }
+        public string Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        private string _explicitNullValueCategory = default!;
 #endif
         /// <summary>Classifications that have been applied to the file that triggered the alert.For example identifying it as documentation, or a generated file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?>? Classifications { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?>? Classifications { get => _explicitNullValueClassifications; set { _explicitNullValueClassifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classifications"); else _explicitNullProperties?.Remove("classifications"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?>? _explicitNullValueClassifications = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?> Classifications { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?> Classifications { get => _explicitNullValueClassifications; set { _explicitNullValueClassifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("classifications"); else _explicitNullProperties?.Remove("classifications"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertClassification?> _explicitNullValueClassifications = default!;
 #endif
         /// <summary>The commit_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitSha { get; set; }
+        public string? CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string? _explicitNullValueCommitSha = default!;
 #nullable restore
 #else
-        public string CommitSha { get; set; }
+        public string CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string _explicitNullValueCommitSha = default!;
 #endif
         /// <summary>Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Environment { get; set; }
+        public string? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public string Environment { get; set; }
+        public string Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>Describe a region within a file for the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation? Location { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation Location { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation _explicitNullValueLocation = default!;
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage? Message { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage Message { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage _explicitNullValueMessage = default!;
 #endif
         /// <summary>The Git reference, formatted as `refs/pull/&lt;number&gt;/merge`, `refs/pull/&lt;number&gt;/head`,`refs/heads/&lt;branch name&gt;` or simply `&lt;branch name&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>State of a code scanning alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? _explicitNullValueState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance"/> and sets the default values.
         /// </summary>
@@ -103,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,6 +178,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage>("message", Message);
             writer.WriteStringValue("ref", Ref);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>("state", State);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

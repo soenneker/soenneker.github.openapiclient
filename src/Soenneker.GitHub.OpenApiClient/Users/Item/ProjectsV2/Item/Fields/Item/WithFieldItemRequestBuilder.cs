@@ -56,6 +56,8 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.Item
             {
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

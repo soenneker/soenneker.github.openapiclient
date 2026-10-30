@@ -11,66 +11,101 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BillingUsageReportUsageItemsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("discountAmount") is { } nullNodeDiscountAmount && nullNodeDiscountAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscountAmount = null;
+            if (parseNode.GetChildNode("grossAmount") is { } nullNodeGrossAmount && nullNodeGrossAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrossAmount = null;
+            if (parseNode.GetChildNode("netAmount") is { } nullNodeNetAmount && nullNodeNetAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetAmount = null;
+            if (parseNode.GetChildNode("organizationName") is { } nullNodeOrganizationName && nullNodeOrganizationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationName = null;
+            if (parseNode.GetChildNode("pricePerUnit") is { } nullNodePricePerUnit && nullNodePricePerUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerUnit = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("quantity") is { } nullNodeQuantity && nullNodeQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quantity = null;
+            if (parseNode.GetChildNode("repositoryName") is { } nullNodeRepositoryName && nullNodeRepositoryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryName = null;
+            if (parseNode.GetChildNode("sku") is { } nullNodeSku && nullNodeSku.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sku = null;
+            if (parseNode.GetChildNode("unitType") is { } nullNodeUnitType && nullNodeUnitType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnitType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Date of the usage line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Date { get; set; }
+        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        private string? _explicitNullValueDate = default!;
 #nullable restore
 #else
-        public string Date { get; set; }
+        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        private string _explicitNullValueDate = default!;
 #endif
         /// <summary>Discount amount of the usage line item.</summary>
-        public double? DiscountAmount { get; set; }
+        public double? DiscountAmount { get => _explicitNullValueDiscountAmount; set { _explicitNullValueDiscountAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discountAmount"); else _explicitNullProperties?.Remove("discountAmount"); } }
+        private double? _explicitNullValueDiscountAmount = default!;
         /// <summary>Gross amount of the usage line item.</summary>
-        public double? GrossAmount { get; set; }
+        public double? GrossAmount { get => _explicitNullValueGrossAmount; set { _explicitNullValueGrossAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grossAmount"); else _explicitNullProperties?.Remove("grossAmount"); } }
+        private double? _explicitNullValueGrossAmount = default!;
         /// <summary>Net amount of the usage line item.</summary>
-        public double? NetAmount { get; set; }
+        public double? NetAmount { get => _explicitNullValueNetAmount; set { _explicitNullValueNetAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("netAmount"); else _explicitNullProperties?.Remove("netAmount"); } }
+        private double? _explicitNullValueNetAmount = default!;
         /// <summary>Name of the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationName { get; set; }
+        public string? OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizationName"); else _explicitNullProperties?.Remove("organizationName"); } }
+        private string? _explicitNullValueOrganizationName = default!;
 #nullable restore
 #else
-        public string OrganizationName { get; set; }
+        public string OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizationName"); else _explicitNullProperties?.Remove("organizationName"); } }
+        private string _explicitNullValueOrganizationName = default!;
 #endif
         /// <summary>Price per unit of the usage line item.</summary>
-        public double? PricePerUnit { get; set; }
+        public double? PricePerUnit { get => _explicitNullValuePricePerUnit; set { _explicitNullValuePricePerUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pricePerUnit"); else _explicitNullProperties?.Remove("pricePerUnit"); } }
+        private double? _explicitNullValuePricePerUnit = default!;
         /// <summary>Product name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Product { get; set; }
+        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string? _explicitNullValueProduct = default!;
 #nullable restore
 #else
-        public string Product { get; set; }
+        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string _explicitNullValueProduct = default!;
 #endif
         /// <summary>Quantity of the usage line item.</summary>
-        public int? Quantity { get; set; }
+        public int? Quantity { get => _explicitNullValueQuantity; set { _explicitNullValueQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quantity"); else _explicitNullProperties?.Remove("quantity"); } }
+        private int? _explicitNullValueQuantity = default!;
         /// <summary>Name of the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositoryName { get; set; }
+        public string? RepositoryName { get => _explicitNullValueRepositoryName; set { _explicitNullValueRepositoryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositoryName"); else _explicitNullProperties?.Remove("repositoryName"); } }
+        private string? _explicitNullValueRepositoryName = default!;
 #nullable restore
 #else
-        public string RepositoryName { get; set; }
+        public string RepositoryName { get => _explicitNullValueRepositoryName; set { _explicitNullValueRepositoryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositoryName"); else _explicitNullProperties?.Remove("repositoryName"); } }
+        private string _explicitNullValueRepositoryName = default!;
 #endif
         /// <summary>SKU name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sku { get; set; }
+        public string? Sku { get => _explicitNullValueSku; set { _explicitNullValueSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sku"); else _explicitNullProperties?.Remove("sku"); } }
+        private string? _explicitNullValueSku = default!;
 #nullable restore
 #else
-        public string Sku { get; set; }
+        public string Sku { get => _explicitNullValueSku; set { _explicitNullValueSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sku"); else _explicitNullProperties?.Remove("sku"); } }
+        private string _explicitNullValueSku = default!;
 #endif
         /// <summary>Unit type of the usage line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UnitType { get; set; }
+        public string? UnitType { get => _explicitNullValueUnitType; set { _explicitNullValueUnitType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unitType"); else _explicitNullProperties?.Remove("unitType"); } }
+        private string? _explicitNullValueUnitType = default!;
 #nullable restore
 #else
-        public string UnitType { get; set; }
+        public string UnitType { get => _explicitNullValueUnitType; set { _explicitNullValueUnitType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unitType"); else _explicitNullProperties?.Remove("unitType"); } }
+        private string _explicitNullValueUnitType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUsageItemsItem"/> and sets the default values.
@@ -87,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUsageItemsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUsageItemsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUsageItemsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +163,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("repositoryName", RepositoryName);
             writer.WriteStringValue("sku", Sku);
             writer.WriteStringValue("unitType", UnitType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

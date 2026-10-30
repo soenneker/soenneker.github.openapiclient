@@ -12,72 +12,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RuleSuitePullRequestPullRequestProofOfPresence : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("base_sha") is { } nullNodeBaseSha && nullNodeBaseSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseSha = null;
+            if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
+            if (parseNode.GetChildNode("head_sha") is { } nullNodeHeadSha && nullNodeHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadSha = null;
+            if (parseNode.GetChildNode("required_level") is { } nullNodeRequiredLevel && nullNodeRequiredLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredLevel = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("verified_at") is { } nullNodeVerifiedAt && nullNodeVerifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAt = null;
+            if (parseNode.GetChildNode("verified_level") is { } nullNodeVerifiedLevel && nullNodeVerifiedLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedLevel = null;
+            if (parseNode.GetChildNode("verifier") is { } nullNodeVerifier && nullNodeVerifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verifier = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base commit SHA the proof of presence evaluation applies to. Empty if unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseSha { get; set; }
+        public string? BaseSha { get => _explicitNullValueBaseSha; set { _explicitNullValueBaseSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_sha"); else _explicitNullProperties?.Remove("base_sha"); } }
+        private string? _explicitNullValueBaseSha = default!;
 #nullable restore
 #else
-        public string BaseSha { get; set; }
+        public string BaseSha { get => _explicitNullValueBaseSha; set { _explicitNullValueBaseSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_sha"); else _explicitNullProperties?.Remove("base_sha"); } }
+        private string _explicitNullValueBaseSha = default!;
 #endif
         /// <summary>A code describing the reason for the proof of presence state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code { get; set; }
+        public string? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private string? _explicitNullValueCode = default!;
 #nullable restore
 #else
-        public string Code { get; set; }
+        public string Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private string _explicitNullValueCode = default!;
 #endif
         /// <summary>The head commit SHA the proof of presence evaluation applies to. Empty if unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadSha { get; set; }
+        public string? HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string? _explicitNullValueHeadSha = default!;
 #nullable restore
 #else
-        public string HeadSha { get; set; }
+        public string HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string _explicitNullValueHeadSha = default!;
 #endif
         /// <summary>The authentication level required by the rule. Empty if unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequiredLevel { get; set; }
+        public string? RequiredLevel { get => _explicitNullValueRequiredLevel; set { _explicitNullValueRequiredLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_level"); else _explicitNullProperties?.Remove("required_level"); } }
+        private string? _explicitNullValueRequiredLevel = default!;
 #nullable restore
 #else
-        public string RequiredLevel { get; set; }
+        public string RequiredLevel { get => _explicitNullValueRequiredLevel; set { _explicitNullValueRequiredLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_level"); else _explicitNullProperties?.Remove("required_level"); } }
+        private string _explicitNullValueRequiredLevel = default!;
 #endif
         /// <summary>The state of the proof of presence evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get; set; }
+        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public string State { get; set; }
+        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private string _explicitNullValueState = default!;
 #endif
         /// <summary>The time proof of presence was verified, in ISO 8601 format. Empty if proof of presence has not been completed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerifiedAt { get; set; }
+        public string? VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_at"); else _explicitNullProperties?.Remove("verified_at"); } }
+        private string? _explicitNullValueVerifiedAt = default!;
 #nullable restore
 #else
-        public string VerifiedAt { get; set; }
+        public string VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_at"); else _explicitNullProperties?.Remove("verified_at"); } }
+        private string _explicitNullValueVerifiedAt = default!;
 #endif
         /// <summary>The authentication level that was verified. Empty if proof of presence has not been completed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerifiedLevel { get; set; }
+        public string? VerifiedLevel { get => _explicitNullValueVerifiedLevel; set { _explicitNullValueVerifiedLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_level"); else _explicitNullProperties?.Remove("verified_level"); } }
+        private string? _explicitNullValueVerifiedLevel = default!;
 #nullable restore
 #else
-        public string VerifiedLevel { get; set; }
+        public string VerifiedLevel { get => _explicitNullValueVerifiedLevel; set { _explicitNullValueVerifiedLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_level"); else _explicitNullProperties?.Remove("verified_level"); } }
+        private string _explicitNullValueVerifiedLevel = default!;
 #endif
         /// <summary>The user who provided proof of presence. Null if no proof of presence was recorded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier? Verifier { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier? Verifier { get => _explicitNullValueVerifier; set { _explicitNullValueVerifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifier"); else _explicitNullProperties?.Remove("verifier"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier? _explicitNullValueVerifier = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier Verifier { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier Verifier { get => _explicitNullValueVerifier; set { _explicitNullValueVerifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifier"); else _explicitNullProperties?.Remove("verifier"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier _explicitNullValueVerifier = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence"/> and sets the default values.
@@ -94,7 +125,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("verified_at", VerifiedAt);
             writer.WriteStringValue("verified_level", VerifiedLevel);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresenceVerifier>("verifier", Verifier);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

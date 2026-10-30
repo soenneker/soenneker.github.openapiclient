@@ -11,23 +11,44 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleMergeQueueParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("check_response_timeout_minutes") is { } nullNodeCheckResponseTimeoutMinutes && nullNodeCheckResponseTimeoutMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckResponseTimeoutMinutes = null;
+            if (parseNode.GetChildNode("grouping_strategy") is { } nullNodeGroupingStrategy && nullNodeGroupingStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupingStrategy = null;
+            if (parseNode.GetChildNode("max_entries_to_build") is { } nullNodeMaxEntriesToBuild && nullNodeMaxEntriesToBuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxEntriesToBuild = null;
+            if (parseNode.GetChildNode("max_entries_to_merge") is { } nullNodeMaxEntriesToMerge && nullNodeMaxEntriesToMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxEntriesToMerge = null;
+            if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
+            if (parseNode.GetChildNode("min_entries_to_merge") is { } nullNodeMinEntriesToMerge && nullNodeMinEntriesToMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinEntriesToMerge = null;
+            if (parseNode.GetChildNode("min_entries_to_merge_wait_minutes") is { } nullNodeMinEntriesToMergeWaitMinutes && nullNodeMinEntriesToMergeWaitMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinEntriesToMergeWaitMinutes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed</summary>
-        public int? CheckResponseTimeoutMinutes { get; set; }
+        public int? CheckResponseTimeoutMinutes { get => _explicitNullValueCheckResponseTimeoutMinutes; set { _explicitNullValueCheckResponseTimeoutMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_response_timeout_minutes"); else _explicitNullProperties?.Remove("check_response_timeout_minutes"); } }
+        private int? _explicitNullValueCheckResponseTimeoutMinutes = default!;
         /// <summary>When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy? GroupingStrategy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy? GroupingStrategy { get => _explicitNullValueGroupingStrategy; set { _explicitNullValueGroupingStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grouping_strategy"); else _explicitNullProperties?.Remove("grouping_strategy"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy? _explicitNullValueGroupingStrategy = default!;
         /// <summary>Limit the number of queued pull requests requesting checks and workflow runs at the same time.</summary>
-        public int? MaxEntriesToBuild { get; set; }
+        public int? MaxEntriesToBuild { get => _explicitNullValueMaxEntriesToBuild; set { _explicitNullValueMaxEntriesToBuild = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_entries_to_build"); else _explicitNullProperties?.Remove("max_entries_to_build"); } }
+        private int? _explicitNullValueMaxEntriesToBuild = default!;
         /// <summary>The maximum number of PRs that will be merged together in a group.</summary>
-        public int? MaxEntriesToMerge { get; set; }
+        public int? MaxEntriesToMerge { get => _explicitNullValueMaxEntriesToMerge; set { _explicitNullValueMaxEntriesToMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_entries_to_merge"); else _explicitNullProperties?.Remove("max_entries_to_merge"); } }
+        private int? _explicitNullValueMaxEntriesToMerge = default!;
         /// <summary>Method to use when merging changes from queued pull requests.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod? _explicitNullValueMergeMethod = default!;
         /// <summary>The minimum number of PRs that will be merged together in a group.</summary>
-        public int? MinEntriesToMerge { get; set; }
+        public int? MinEntriesToMerge { get => _explicitNullValueMinEntriesToMerge; set { _explicitNullValueMinEntriesToMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_entries_to_merge"); else _explicitNullProperties?.Remove("min_entries_to_merge"); } }
+        private int? _explicitNullValueMinEntriesToMerge = default!;
         /// <summary>The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.</summary>
-        public int? MinEntriesToMergeWaitMinutes { get; set; }
+        public int? MinEntriesToMergeWaitMinutes { get => _explicitNullValueMinEntriesToMergeWaitMinutes; set { _explicitNullValueMinEntriesToMergeWaitMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_entries_to_merge_wait_minutes"); else _explicitNullProperties?.Remove("min_entries_to_merge_wait_minutes"); } }
+        private int? _explicitNullValueMinEntriesToMergeWaitMinutes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters"/> and sets the default values.
         /// </summary>
@@ -43,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod>("merge_method", MergeMethod);
             writer.WriteIntValue("min_entries_to_merge", MinEntriesToMerge);
             writer.WriteIntValue("min_entries_to_merge_wait_minutes", MinEntriesToMergeWaitMinutes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

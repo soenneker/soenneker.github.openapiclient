@@ -11,23 +11,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("maxItems") is { } nullNodeMaxItems && nullNodeMaxItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxItems = null;
+            if (parseNode.GetChildNode("minItems") is { } nullNodeMinItems && nullNodeMinItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinItems = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("uniqueItems") is { } nullNodeUniqueItems && nullNodeUniqueItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueItems = null;
+        }
+
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items? Items { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items Items { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Items _explicitNullValueItems = default!;
 #endif
         /// <summary>The maximum accepted number of array items.</summary>
-        public int? MaxItems { get; set; }
+        public int? MaxItems { get => _explicitNullValueMaxItems; set { _explicitNullValueMaxItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxItems"); else _explicitNullProperties?.Remove("maxItems"); } }
+        private int? _explicitNullValueMaxItems = default!;
         /// <summary>The minimum accepted number of array items.</summary>
-        public int? MinItems { get; set; }
+        public int? MinItems { get => _explicitNullValueMinItems; set { _explicitNullValueMinItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minItems"); else _explicitNullProperties?.Remove("minItems"); } }
+        private int? _explicitNullValueMinItems = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ArrayType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ArrayType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ArrayType? _explicitNullValueType = default!;
         /// <summary>Whether duplicate array items are rejected.</summary>
-        public bool? UniqueItems { get; set; }
+        public bool? UniqueItems { get => _explicitNullValueUniqueItems; set { _explicitNullValueUniqueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniqueItems"); else _explicitNullProperties?.Remove("uniqueItems"); } }
+        private bool? _explicitNullValueUniqueItems = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -36,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,7 +82,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("maxItems", MaxItems);
             writer.WriteIntValue("minItems", MinItems);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ArrayType>("type", Type);
-            writer.WriteBoolValue("uniqueItems", UniqueItems);
+            writer.WriteBoolValue("uniqueItems", UniqueItems);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,31 +11,50 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningUpdateAlertRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("create_request") is { } nullNodeCreateRequest && nullNodeCreateRequest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateRequest = null;
+            if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
+            if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of users to assign to the code scanning alert. An empty array unassigns all previous assignees from the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Assignees { get; set; }
+        public List<string>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<string>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<string> Assignees { get; set; }
+        public List<string> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<string> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>If `true`, attempt to create an alert dismissal request.</summary>
-        public bool? CreateRequest { get; set; }
+        public bool? CreateRequest { get => _explicitNullValueCreateRequest; set { _explicitNullValueCreateRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("create_request"); else _explicitNullProperties?.Remove("create_request"); } }
+        private bool? _explicitNullValueCreateRequest = default!;
         /// <summary>The dismissal comment associated with the dismissal of the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissedComment { get; set; }
+        public string? DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string? _explicitNullValueDismissedComment = default!;
 #nullable restore
 #else
-        public string DismissedComment { get; set; }
+        public string DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string _explicitNullValueDismissedComment = default!;
 #endif
         /// <summary>**Required when the state is dismissed.** The reason for dismissing or closing the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? DismissedReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? DismissedReason { get => _explicitNullValueDismissedReason; set { _explicitNullValueDismissedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_reason"); else _explicitNullProperties?.Remove("dismissed_reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? _explicitNullValueDismissedReason = default!;
         /// <summary>Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSetState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSetState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSetState? _explicitNullValueState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUpdateAlertRequest"/> and sets the default values.
         /// </summary>
@@ -51,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUpdateAlertRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUpdateAlertRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUpdateAlertRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>("dismissed_reason", DismissedReason);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSetState>("state", State);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

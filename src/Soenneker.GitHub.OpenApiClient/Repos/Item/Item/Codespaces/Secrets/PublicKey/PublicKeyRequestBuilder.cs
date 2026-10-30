@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codespaces.Secrets.Publ
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPublicKey>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPublicKey.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPublicKey>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesPublicKey.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets your public key, which you need to encrypt secrets. You need toencrypt a secret before you can create or update secrets.If the repository is private, OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.

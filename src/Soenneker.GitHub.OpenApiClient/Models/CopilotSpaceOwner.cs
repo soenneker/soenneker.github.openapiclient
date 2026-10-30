@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSpaceOwner : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,9 +43,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner();
-            result.OrganizationSimple = new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple();
-            result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-            return result;
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("avatar_url") != null && parseNode.GetChildNode("events_url") != null && parseNode.GetChildNode("followers_url") != null && parseNode.GetChildNode("following_url") != null && parseNode.GetChildNode("gists_url") != null && parseNode.GetChildNode("gravatar_id") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("login") != null && parseNode.GetChildNode("organizations_url") != null && parseNode.GetChildNode("received_events_url") != null && parseNode.GetChildNode("repos_url") != null && parseNode.GetChildNode("site_admin") != null && parseNode.GetChildNode("starred_url") != null && parseNode.GetChildNode("subscriptions_url") != null && parseNode.GetChildNode("type") != null && parseNode.GetChildNode("url") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("login") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("repos_url") != null && parseNode.GetChildNode("events_url") != null && parseNode.GetChildNode("hooks_url") != null && parseNode.GetChildNode("issues_url") != null && parseNode.GetChildNode("members_url") != null && parseNode.GetChildNode("public_members_url") != null && parseNode.GetChildNode("avatar_url") != null && parseNode.GetChildNode("description") != null))();
+            if (result.OrganizationSimple == null && result.SimpleUser == null && matchesUnionBranch0 && !matchesUnionBranch1) result.SimpleUser = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser(), parseNode);
+            if (result.OrganizationSimple == null && result.SimpleUser == null && matchesUnionBranch1 && !matchesUnionBranch0) result.OrganizationSimple = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple(), parseNode);
+            if (result.OrganizationSimple == null && result.SimpleUser == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +72,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (OrganizationSimple == null && SimpleUser == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (OrganizationSimple != null && SimpleUser == null) { if (OrganizationSimple is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OrganizationSimple); return; }
+            if (SimpleUser != null && OrganizationSimple == null) { if (SimpleUser is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SimpleUser); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>(null, OrganizationSimple, SimpleUser);
         }

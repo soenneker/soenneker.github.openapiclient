@@ -58,6 +58,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Users
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,26 +12,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsCreateRepoAutomationTask202Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("automation_id") is { } nullNodeAutomationId && nullNodeAutomationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomationId = null;
+            if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
+            if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the automation that was triggered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutomationId { get; set; }
+        public string? AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
+        private string? _explicitNullValueAutomationId = default!;
 #nullable restore
 #else
-        public string AutomationId { get; set; }
+        public string AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
+        private string _explicitNullValueAutomationId = default!;
 #endif
         /// <summary>The event to trigger. Only `manual` is supported.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? _explicitNullValueEvent = default!;
         /// <summary>The preallocated ID of the accepted run. The task may not yet be readable, and downstream skips or failures can prevent its creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskId { get; set; }
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public string TaskId { get; set; }
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        private string _explicitNullValueTaskId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationTask202Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("automation_id", AutomationId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent>("event", Event);
             writer.WriteStringValue("task_id", TaskId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,26 +12,43 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentMergeGetAgentMergeEnrollment200Response : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>The set of actions which Copilot may perform on the pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?>? AllowedActions { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?>? AllowedActions { get => _explicitNullValueAllowedActions; set { _explicitNullValueAllowedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actions"); else _explicitNullProperties?.Remove("allowed_actions"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?>? _explicitNullValueAllowedActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?> AllowedActions { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?> AllowedActions { get => _explicitNullValueAllowedActions; set { _explicitNullValueAllowedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actions"); else _explicitNullProperties?.Remove("allowed_actions"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem?> _explicitNullValueAllowedActions = default!;
 #endif
         /// <summary>Timestamp when the pull request was enrolled for Agent Merge.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Timestamp when the Agent Merge enrollment was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The user who most recently enabled Agent Merge for the pull request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -41,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +84,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem>("allowed_actions", AllowedActions);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseUser>("user", User);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

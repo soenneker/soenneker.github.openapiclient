@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets the immutable releases policy for repositories in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the immutable releases policy for repositories in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

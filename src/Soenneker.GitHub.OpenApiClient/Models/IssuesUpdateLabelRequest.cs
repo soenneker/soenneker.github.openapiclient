@@ -11,34 +11,52 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class IssuesUpdateLabelRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("archived") is { } nullNodeArchived && nullNodeArchived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Archived = null;
+            if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("new_name") is { } nullNodeNewName && nullNodeNewName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to archive or unarchive the label. Archived labels cannot be added to issues or pull requests. For more information, see &quot;[Archiving labels](https://docs.github.com/issues/organizing-your-work-with-labels/managing-labels).&quot;</summary>
-        public bool? Archived { get; set; }
+        public bool? Archived { get => _explicitNullValueArchived; set { _explicitNullValueArchived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived"); else _explicitNullProperties?.Remove("archived"); } }
+        private bool? _explicitNullValueArchived = default!;
         /// <summary>The [hexadecimal color code](http://www.color-hex.com/) for the label, without the leading `#`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Color { get; set; }
+        public string? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        private string? _explicitNullValueColor = default!;
 #nullable restore
 #else
-        public string Color { get; set; }
+        public string Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        private string _explicitNullValueColor = default!;
 #endif
         /// <summary>A short description of the label. Must be 100 characters or fewer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The new name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://github.githubassets.com/images/icons/emoji/unicode/1f353.png &quot;:strawberry:&quot;). For a full list of available emoji and codes, see &quot;[Emoji cheat sheet](https://github.com/ikatyang/emoji-cheat-sheet).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewName { get; set; }
+        public string? NewName { get => _explicitNullValueNewName; set { _explicitNullValueNewName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_name"); else _explicitNullProperties?.Remove("new_name"); } }
+        private string? _explicitNullValueNewName = default!;
 #nullable restore
 #else
-        public string NewName { get; set; }
+        public string NewName { get => _explicitNullValueNewName; set { _explicitNullValueNewName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_name"); else _explicitNullProperties?.Remove("new_name"); } }
+        private string _explicitNullValueNewName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateLabelRequest"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateLabelRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateLabelRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateLabelRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("new_name", NewName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

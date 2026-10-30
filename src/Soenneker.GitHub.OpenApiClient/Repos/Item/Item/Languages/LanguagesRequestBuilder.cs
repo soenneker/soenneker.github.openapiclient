@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Languages
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.LanguageSchema>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.LanguageSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.LanguageSchema>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.LanguageSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language.

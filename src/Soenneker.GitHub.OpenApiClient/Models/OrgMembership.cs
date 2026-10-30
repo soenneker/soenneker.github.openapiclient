@@ -12,62 +12,93 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgMembership : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("direct_membership") is { } nullNodeDirectMembership && nullNodeDirectMembership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DirectMembership = null;
+            if (parseNode.GetChildNode("enterprise_teams_providing_indirect_membership") is { } nullNodeEnterpriseTeamsProvidingIndirectMembership && nullNodeEnterpriseTeamsProvidingIndirectMembership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnterpriseTeamsProvidingIndirectMembership = null;
+            if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
+            if (parseNode.GetChildNode("organization_url") is { } nullNodeOrganizationUrl && nullNodeOrganizationUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationUrl = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the user has direct membership in the organization.</summary>
-        public bool? DirectMembership { get; set; }
+        public bool? DirectMembership { get => _explicitNullValueDirectMembership; set { _explicitNullValueDirectMembership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direct_membership"); else _explicitNullProperties?.Remove("direct_membership"); } }
+        private bool? _explicitNullValueDirectMembership = default!;
         /// <summary>The slugs of the enterprise teams providing the user with indirect membership in the organization.A limit of 100 enterprise team slugs is returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EnterpriseTeamsProvidingIndirectMembership { get; set; }
+        public List<string>? EnterpriseTeamsProvidingIndirectMembership { get => _explicitNullValueEnterpriseTeamsProvidingIndirectMembership; set { _explicitNullValueEnterpriseTeamsProvidingIndirectMembership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_teams_providing_indirect_membership"); else _explicitNullProperties?.Remove("enterprise_teams_providing_indirect_membership"); } }
+        private List<string>? _explicitNullValueEnterpriseTeamsProvidingIndirectMembership = default!;
 #nullable restore
 #else
-        public List<string> EnterpriseTeamsProvidingIndirectMembership { get; set; }
+        public List<string> EnterpriseTeamsProvidingIndirectMembership { get => _explicitNullValueEnterpriseTeamsProvidingIndirectMembership; set { _explicitNullValueEnterpriseTeamsProvidingIndirectMembership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enterprise_teams_providing_indirect_membership"); else _explicitNullProperties?.Remove("enterprise_teams_providing_indirect_membership"); } }
+        private List<string> _explicitNullValueEnterpriseTeamsProvidingIndirectMembership = default!;
 #endif
         /// <summary>A GitHub organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple? Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple? _explicitNullValueOrganization = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple _explicitNullValueOrganization = default!;
 #endif
         /// <summary>The organization_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationUrl { get; set; }
+        public string? OrganizationUrl { get => _explicitNullValueOrganizationUrl; set { _explicitNullValueOrganizationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_url"); else _explicitNullProperties?.Remove("organization_url"); } }
+        private string? _explicitNullValueOrganizationUrl = default!;
 #nullable restore
 #else
-        public string OrganizationUrl { get; set; }
+        public string OrganizationUrl { get => _explicitNullValueOrganizationUrl; set { _explicitNullValueOrganizationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_url"); else _explicitNullProperties?.Remove("organization_url"); } }
+        private string _explicitNullValueOrganizationUrl = default!;
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The user&apos;s membership type in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole? Role { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole? _explicitNullValueRole = default!;
         /// <summary>The state of the member in the organization. The `pending` state indicates the user has not yet accepted an invitation.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState? _explicitNullValueState = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership"/> and sets the default values.
@@ -84,7 +115,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +152,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState>("state", State);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

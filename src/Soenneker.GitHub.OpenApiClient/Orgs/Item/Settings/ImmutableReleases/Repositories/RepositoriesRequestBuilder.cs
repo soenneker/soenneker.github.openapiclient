@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

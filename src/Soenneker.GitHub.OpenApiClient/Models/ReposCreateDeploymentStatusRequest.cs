@@ -11,52 +11,78 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposCreateDeploymentStatusRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_inactive") is { } nullNodeAutoInactive && nullNodeAutoInactive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoInactive = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("environment_url") is { } nullNodeEnvironmentUrl && nullNodeEnvironmentUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentUrl = null;
+            if (parseNode.GetChildNode("log_url") is { } nullNodeLogUrl && nullNodeLogUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogUrl = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("target_url") is { } nullNodeTargetUrl && nullNodeTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status&apos;s deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`</summary>
-        public bool? AutoInactive { get; set; }
+        public bool? AutoInactive { get => _explicitNullValueAutoInactive; set { _explicitNullValueAutoInactive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_inactive"); else _explicitNullProperties?.Remove("auto_inactive"); } }
+        private bool? _explicitNullValueAutoInactive = default!;
         /// <summary>A short description of the status. The maximum description length is 140 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Name for the target deployment environment, which can be changed when setting a deploy status. For example, `production`, `staging`, or `qa`. If not defined, the environment of the previous status on the deployment will be used, if it exists. Otherwise, the environment of the deployment will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Environment { get; set; }
+        public string? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public string Environment { get; set; }
+        public string Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>Sets the URL for accessing your environment. Default: `&quot;&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvironmentUrl { get; set; }
+        public string? EnvironmentUrl { get => _explicitNullValueEnvironmentUrl; set { _explicitNullValueEnvironmentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_url"); else _explicitNullProperties?.Remove("environment_url"); } }
+        private string? _explicitNullValueEnvironmentUrl = default!;
 #nullable restore
 #else
-        public string EnvironmentUrl { get; set; }
+        public string EnvironmentUrl { get => _explicitNullValueEnvironmentUrl; set { _explicitNullValueEnvironmentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_url"); else _explicitNullProperties?.Remove("environment_url"); } }
+        private string _explicitNullValueEnvironmentUrl = default!;
 #endif
         /// <summary>The full URL of the deployment&apos;s output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `&quot;&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogUrl { get; set; }
+        public string? LogUrl { get => _explicitNullValueLogUrl; set { _explicitNullValueLogUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_url"); else _explicitNullProperties?.Remove("log_url"); } }
+        private string? _explicitNullValueLogUrl = default!;
 #nullable restore
 #else
-        public string LogUrl { get; set; }
+        public string LogUrl { get => _explicitNullValueLogUrl; set { _explicitNullValueLogUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_url"); else _explicitNullProperties?.Remove("log_url"); } }
+        private string _explicitNullValueLogUrl = default!;
 #endif
         /// <summary>The state of the status. When you set a transient deployment to `inactive`, the deployment will be shown as `destroyed` in GitHub.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequestState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequestState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequestState? _explicitNullValueState = default!;
         /// <summary>The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.&gt; [!NOTE]&gt; It&apos;s recommended to use the `log_url` parameter, which replaces `target_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetUrl { get; set; }
+        public string? TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_url"); else _explicitNullProperties?.Remove("target_url"); } }
+        private string? _explicitNullValueTargetUrl = default!;
 #nullable restore
 #else
-        public string TargetUrl { get; set; }
+        public string TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_url"); else _explicitNullProperties?.Remove("target_url"); } }
+        private string _explicitNullValueTargetUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequest"/> and sets the default values.
@@ -73,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,6 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("log_url", LogUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentStatusRequestState>("state", State);
             writer.WriteStringValue("target_url", TargetUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

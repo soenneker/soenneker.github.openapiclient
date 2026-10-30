@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Hook.Config
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see &quot;[Creating a GitHub App](/developers/apps/creating-a-github-app).&quot;You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Hook.Config
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfig.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see &quot;[Creating a GitHub App](/developers/apps/creating-a-github-app).&quot;You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.

@@ -11,48 +11,70 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningScanHistory : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backfill_scans") is { } nullNodeBackfillScans && nullNodeBackfillScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackfillScans = null;
+            if (parseNode.GetChildNode("custom_pattern_backfill_scans") is { } nullNodeCustomPatternBackfillScans && nullNodeCustomPatternBackfillScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternBackfillScans = null;
+            if (parseNode.GetChildNode("generic_secrets_backfill_scans") is { } nullNodeGenericSecretsBackfillScans && nullNodeGenericSecretsBackfillScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenericSecretsBackfillScans = null;
+            if (parseNode.GetChildNode("incremental_scans") is { } nullNodeIncrementalScans && nullNodeIncrementalScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncrementalScans = null;
+            if (parseNode.GetChildNode("pattern_update_scans") is { } nullNodePatternUpdateScans && nullNodePatternUpdateScans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternUpdateScans = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The backfill_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? BackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? BackfillScans { get => _explicitNullValueBackfillScans; set { _explicitNullValueBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backfill_scans"); else _explicitNullProperties?.Remove("backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? _explicitNullValueBackfillScans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> BackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> BackfillScans { get => _explicitNullValueBackfillScans; set { _explicitNullValueBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backfill_scans"); else _explicitNullProperties?.Remove("backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> _explicitNullValueBackfillScans = default!;
 #endif
         /// <summary>The custom_pattern_backfill_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem>? CustomPatternBackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem>? CustomPatternBackfillScans { get => _explicitNullValueCustomPatternBackfillScans; set { _explicitNullValueCustomPatternBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_backfill_scans"); else _explicitNullProperties?.Remove("custom_pattern_backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem>? _explicitNullValueCustomPatternBackfillScans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem> CustomPatternBackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem> CustomPatternBackfillScans { get => _explicitNullValueCustomPatternBackfillScans; set { _explicitNullValueCustomPatternBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_backfill_scans"); else _explicitNullProperties?.Remove("custom_pattern_backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem> _explicitNullValueCustomPatternBackfillScans = default!;
 #endif
         /// <summary>The generic_secrets_backfill_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? GenericSecretsBackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? GenericSecretsBackfillScans { get => _explicitNullValueGenericSecretsBackfillScans; set { _explicitNullValueGenericSecretsBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generic_secrets_backfill_scans"); else _explicitNullProperties?.Remove("generic_secrets_backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? _explicitNullValueGenericSecretsBackfillScans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> GenericSecretsBackfillScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> GenericSecretsBackfillScans { get => _explicitNullValueGenericSecretsBackfillScans; set { _explicitNullValueGenericSecretsBackfillScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generic_secrets_backfill_scans"); else _explicitNullProperties?.Remove("generic_secrets_backfill_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> _explicitNullValueGenericSecretsBackfillScans = default!;
 #endif
         /// <summary>The incremental_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? IncrementalScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? IncrementalScans { get => _explicitNullValueIncrementalScans; set { _explicitNullValueIncrementalScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incremental_scans"); else _explicitNullProperties?.Remove("incremental_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? _explicitNullValueIncrementalScans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> IncrementalScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> IncrementalScans { get => _explicitNullValueIncrementalScans; set { _explicitNullValueIncrementalScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incremental_scans"); else _explicitNullProperties?.Remove("incremental_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> _explicitNullValueIncrementalScans = default!;
 #endif
         /// <summary>The pattern_update_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? PatternUpdateScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? PatternUpdateScans { get => _explicitNullValuePatternUpdateScans; set { _explicitNullValuePatternUpdateScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_update_scans"); else _explicitNullProperties?.Remove("pattern_update_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? _explicitNullValuePatternUpdateScans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> PatternUpdateScans { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> PatternUpdateScans { get => _explicitNullValuePatternUpdateScans; set { _explicitNullValuePatternUpdateScans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_update_scans"); else _explicitNullProperties?.Remove("pattern_update_scans"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> _explicitNullValuePatternUpdateScans = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("generic_secrets_backfill_scans", GenericSecretsBackfillScans);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("incremental_scans", IncrementalScans);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("pattern_update_scans", PatternUpdateScans);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

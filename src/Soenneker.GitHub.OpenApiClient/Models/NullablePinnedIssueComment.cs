@@ -12,18 +12,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NullablePinnedIssueComment : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pinned_at") is { } nullNodePinnedAt && nullNodePinnedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinnedAt = null;
+            if (parseNode.GetChildNode("pinned_by") is { } nullNodePinnedBy && nullNodePinnedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PinnedBy = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The pinned_at property</summary>
-        public DateTimeOffset? PinnedAt { get; set; }
+        public DateTimeOffset? PinnedAt { get => _explicitNullValuePinnedAt; set { _explicitNullValuePinnedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_at"); else _explicitNullProperties?.Remove("pinned_at"); } }
+        private DateTimeOffset? _explicitNullValuePinnedAt = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PinnedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PinnedBy { get => _explicitNullValuePinnedBy; set { _explicitNullValuePinnedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_by"); else _explicitNullProperties?.Remove("pinned_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValuePinnedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PinnedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PinnedBy { get => _explicitNullValuePinnedBy; set { _explicitNullValuePinnedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pinned_by"); else _explicitNullProperties?.Remove("pinned_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValuePinnedBy = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment"/> and sets the default values.
@@ -40,7 +52,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("pinned_at", PinnedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("pinned_by", PinnedBy);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

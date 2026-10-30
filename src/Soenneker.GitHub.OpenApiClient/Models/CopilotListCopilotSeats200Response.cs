@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CopilotListCopilotSeats200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
+            if (parseNode.GetChildNode("total_seats") is { } nullNodeTotalSeats && nullNodeTotalSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSeats = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The seats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? Seats { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? _explicitNullValueSeats = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> Seats { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> _explicitNullValueSeats = default!;
 #endif
         /// <summary>Total number of Copilot seats for the organization currently being billed.</summary>
-        public int? TotalSeats { get; set; }
+        public int? TotalSeats { get => _explicitNullValueTotalSeats; set { _explicitNullValueTotalSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_seats"); else _explicitNullProperties?.Remove("total_seats"); } }
+        private int? _explicitNullValueTotalSeats = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotListCopilotSeats200Response"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotListCopilotSeats200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotListCopilotSeats200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotListCopilotSeats200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>("seats", Seats);
             writer.WriteIntValue("total_seats", TotalSeats);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

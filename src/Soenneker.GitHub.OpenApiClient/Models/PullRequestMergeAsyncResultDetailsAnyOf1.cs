@@ -12,36 +12,58 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestMergeAsyncResultDetailsAnyOf1 : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bypass_rules") is { } nullNodeBypassRules && nullNodeBypassRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassRules = null;
+            if (parseNode.GetChildNode("expected_head_sha") is { } nullNodeExpectedHeadSha && nullNodeExpectedHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedHeadSha = null;
+            if (parseNode.GetChildNode("merge_action") is { } nullNodeMergeAction && nullNodeMergeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeAction = null;
+            if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("uuid") is { } nullNodeUuid && nullNodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uuid = null;
+        }
+
         /// <summary>Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass.</summary>
-        public bool? BypassRules { get; set; }
+        public bool? BypassRules { get => _explicitNullValueBypassRules; set { _explicitNullValueBypassRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_rules"); else _explicitNullProperties?.Remove("bypass_rules"); } }
+        private bool? _explicitNullValueBypassRules = default!;
         /// <summary>SHA that the pull request head must match for the enqueued merge to proceed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpectedHeadSha { get; set; }
+        public string? ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        private string? _explicitNullValueExpectedHeadSha = default!;
 #nullable restore
 #else
-        public string ExpectedHeadSha { get; set; }
+        public string ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        private string _explicitNullValueExpectedHeadSha = default!;
 #endif
         /// <summary>The merge_action property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction? MergeAction { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction? MergeAction { get => _explicitNullValueMergeAction; set { _explicitNullValueMergeAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_action"); else _explicitNullProperties?.Remove("merge_action"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction? _explicitNullValueMergeAction = default!;
         /// <summary>The merge_method property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod? _explicitNullValueMergeMethod = default!;
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uuid { get; set; }
+        public string? Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string? _explicitNullValueUuid = default!;
 #nullable restore
 #else
-        public string Uuid { get; set; }
+        public string Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string _explicitNullValueUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1"/> and sets the default values.
@@ -58,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +110,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction>("merge_action", MergeAction);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod>("merge_method", MergeMethod);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("uuid", Uuid);
+            writer.WriteStringValue("uuid", Uuid);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

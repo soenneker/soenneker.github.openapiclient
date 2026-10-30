@@ -35,7 +35,6 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item
             get => new global::Soenneker.GitHub.OpenApiClient.Teams.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The memberships property</summary>
-        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships.MembershipsRequestBuilder Memberships
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
@@ -91,6 +90,8 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -116,6 +117,8 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamFull.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -147,6 +150,8 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamFull.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Installations
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAppInstallations200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAppInstallations200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAppInstallations200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAppInstallations200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all GitHub Apps in an organization. The installation count includesall GitHub Apps installed on repositories in the organization.The authenticated user must be an organization owner to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:read` scope to use this endpoint.

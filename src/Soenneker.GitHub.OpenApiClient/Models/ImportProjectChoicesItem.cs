@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ImportProjectChoicesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("human_name") is { } nullNodeHumanName && nullNodeHumanName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HumanName = null;
+            if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
+            if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The human_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HumanName { get; set; }
+        public string? HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
+        private string? _explicitNullValueHumanName = default!;
 #nullable restore
 #else
-        public string HumanName { get; set; }
+        public string HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
+        private string _explicitNullValueHumanName = default!;
 #endif
         /// <summary>The tfvc_project property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TfvcProject { get; set; }
+        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        private string? _explicitNullValueTfvcProject = default!;
 #nullable restore
 #else
-        public string TfvcProject { get; set; }
+        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        private string _explicitNullValueTfvcProject = default!;
 #endif
         /// <summary>The vcs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Vcs { get; set; }
+        public string? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        private string? _explicitNullValueVcs = default!;
 #nullable restore
 #else
-        public string Vcs { get; set; }
+        public string Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        private string _explicitNullValueVcs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ImportProjectChoicesItem"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ImportProjectChoicesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ImportProjectChoicesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ImportProjectChoicesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("human_name", HumanName);
             writer.WriteStringValue("tfvc_project", TfvcProject);
             writer.WriteStringValue("vcs", Vcs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,42 +12,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposCreatePagesDeploymentRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("artifact_id") is { } nullNodeArtifactId && nullNodeArtifactId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArtifactId = null;
+            if (parseNode.GetChildNode("artifact_url") is { } nullNodeArtifactUrl && nullNodeArtifactUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArtifactUrl = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("oidc_token") is { } nullNodeOidcToken && nullNodeOidcToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OidcToken = null;
+            if (parseNode.GetChildNode("pages_build_version") is { } nullNodePagesBuildVersion && nullNodePagesBuildVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PagesBuildVersion = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository. Either `artifact_id` or `artifact_url` are required.</summary>
-        public double? ArtifactId { get; set; }
+        public double? ArtifactId { get => _explicitNullValueArtifactId; set { _explicitNullValueArtifactId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_id"); else _explicitNullProperties?.Remove("artifact_id"); } }
+        private double? _explicitNullValueArtifactId = default!;
         /// <summary>The URL of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository. Either `artifact_id` or `artifact_url` are required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ArtifactUrl { get; set; }
+        public string? ArtifactUrl { get => _explicitNullValueArtifactUrl; set { _explicitNullValueArtifactUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_url"); else _explicitNullProperties?.Remove("artifact_url"); } }
+        private string? _explicitNullValueArtifactUrl = default!;
 #nullable restore
 #else
-        public string ArtifactUrl { get; set; }
+        public string ArtifactUrl { get => _explicitNullValueArtifactUrl; set { _explicitNullValueArtifactUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact_url"); else _explicitNullProperties?.Remove("artifact_url"); } }
+        private string _explicitNullValueArtifactUrl = default!;
 #endif
         /// <summary>The target environment for this GitHub Pages deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Environment { get; set; }
+        public string? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public string Environment { get; set; }
+        public string Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The OIDC token issued by GitHub Actions certifying the origin of the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OidcToken { get; set; }
+        public string? OidcToken { get => _explicitNullValueOidcToken; set { _explicitNullValueOidcToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oidc_token"); else _explicitNullProperties?.Remove("oidc_token"); } }
+        private string? _explicitNullValueOidcToken = default!;
 #nullable restore
 #else
-        public string OidcToken { get; set; }
+        public string OidcToken { get => _explicitNullValueOidcToken; set { _explicitNullValueOidcToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oidc_token"); else _explicitNullProperties?.Remove("oidc_token"); } }
+        private string _explicitNullValueOidcToken = default!;
 #endif
         /// <summary>A unique string that represents the version of the build for this deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PagesBuildVersion { get; set; }
+        public string? PagesBuildVersion { get => _explicitNullValuePagesBuildVersion; set { _explicitNullValuePagesBuildVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pages_build_version"); else _explicitNullProperties?.Remove("pages_build_version"); } }
+        private string? _explicitNullValuePagesBuildVersion = default!;
 #nullable restore
 #else
-        public string PagesBuildVersion { get; set; }
+        public string PagesBuildVersion { get => _explicitNullValuePagesBuildVersion; set { _explicitNullValuePagesBuildVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pages_build_version"); else _explicitNullProperties?.Remove("pages_build_version"); } }
+        private string _explicitNullValuePagesBuildVersion = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesDeploymentRequest"/> and sets the default values.
@@ -66,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesDeploymentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesDeploymentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesDeploymentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("oidc_token", OidcToken);
             writer.WriteStringValue("pages_build_version", PagesBuildVersion);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

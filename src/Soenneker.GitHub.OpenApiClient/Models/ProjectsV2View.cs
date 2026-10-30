@@ -12,98 +12,145 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectsV2View : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
+            if (parseNode.GetChildNode("group_by") is { } nullNodeGroupBy && nullNodeGroupBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupBy = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("project_url") is { } nullNodeProjectUrl && nullNodeProjectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectUrl = null;
+            if (parseNode.GetChildNode("sort_by") is { } nullNodeSortBy && nullNodeSortBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SortBy = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("vertical_group_by") is { } nullNodeVerticalGroupBy && nullNodeVerticalGroupBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerticalGroupBy = null;
+            if (parseNode.GetChildNode("visible_fields") is { } nullNodeVisibleFields && nullNodeVisibleFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VisibleFields = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time when the view was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The creator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator? Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator? Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator? _explicitNullValueCreator = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator _explicitNullValueCreator = default!;
 #endif
         /// <summary>The filter query for the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filter { get; set; }
+        public string? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private string? _explicitNullValueFilter = default!;
 #nullable restore
 #else
-        public string Filter { get; set; }
+        public string Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private string _explicitNullValueFilter = default!;
 #endif
         /// <summary>The list of field IDs used for horizontal grouping.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? GroupBy { get; set; }
+        public List<int?>? GroupBy { get => _explicitNullValueGroupBy; set { _explicitNullValueGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by"); else _explicitNullProperties?.Remove("group_by"); } }
+        private List<int?>? _explicitNullValueGroupBy = default!;
 #nullable restore
 #else
-        public List<int?> GroupBy { get; set; }
+        public List<int?> GroupBy { get => _explicitNullValueGroupBy; set { _explicitNullValueGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by"); else _explicitNullProperties?.Remove("group_by"); } }
+        private List<int?> _explicitNullValueGroupBy = default!;
 #endif
         /// <summary>The web URL of the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The unique identifier of the view.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The layout of the view.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewLayout? Layout { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewLayout? _explicitNullValueLayout = default!;
         /// <summary>The name of the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The node ID of the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>The number of the view within the project.</summary>
-        public int? Number { get; set; }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        private int? _explicitNullValueNumber = default!;
         /// <summary>The API URL of the project that contains the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectUrl { get; set; }
+        public string? ProjectUrl { get => _explicitNullValueProjectUrl; set { _explicitNullValueProjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_url"); else _explicitNullProperties?.Remove("project_url"); } }
+        private string? _explicitNullValueProjectUrl = default!;
 #nullable restore
 #else
-        public string ProjectUrl { get; set; }
+        public string ProjectUrl { get => _explicitNullValueProjectUrl; set { _explicitNullValueProjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_url"); else _explicitNullProperties?.Remove("project_url"); } }
+        private string _explicitNullValueProjectUrl = default!;
 #endif
         /// <summary>The sorting configuration for the view. Each element is a tuple of [field_id, direction] where direction is &quot;asc&quot; or &quot;desc&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SortBy { get; set; }
+        public UntypedNode? SortBy { get => _explicitNullValueSortBy; set { _explicitNullValueSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_by"); else _explicitNullProperties?.Remove("sort_by"); } }
+        private UntypedNode? _explicitNullValueSortBy = default!;
 #nullable restore
 #else
-        public UntypedNode SortBy { get; set; }
+        public UntypedNode SortBy { get => _explicitNullValueSortBy; set { _explicitNullValueSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_by"); else _explicitNullProperties?.Remove("sort_by"); } }
+        private UntypedNode _explicitNullValueSortBy = default!;
 #endif
         /// <summary>The time when the view was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The list of field IDs used for vertical grouping (board layout).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? VerticalGroupBy { get; set; }
+        public List<int?>? VerticalGroupBy { get => _explicitNullValueVerticalGroupBy; set { _explicitNullValueVerticalGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical_group_by"); else _explicitNullProperties?.Remove("vertical_group_by"); } }
+        private List<int?>? _explicitNullValueVerticalGroupBy = default!;
 #nullable restore
 #else
-        public List<int?> VerticalGroupBy { get; set; }
+        public List<int?> VerticalGroupBy { get => _explicitNullValueVerticalGroupBy; set { _explicitNullValueVerticalGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical_group_by"); else _explicitNullProperties?.Remove("vertical_group_by"); } }
+        private List<int?> _explicitNullValueVerticalGroupBy = default!;
 #endif
         /// <summary>The list of field IDs that are visible in the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? VisibleFields { get; set; }
+        public List<int?>? VisibleFields { get => _explicitNullValueVisibleFields; set { _explicitNullValueVisibleFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visible_fields"); else _explicitNullProperties?.Remove("visible_fields"); } }
+        private List<int?>? _explicitNullValueVisibleFields = default!;
 #nullable restore
 #else
-        public List<int?> VisibleFields { get; set; }
+        public List<int?> VisibleFields { get => _explicitNullValueVisibleFields; set { _explicitNullValueVisibleFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visible_fields"); else _explicitNullProperties?.Remove("visible_fields"); } }
+        private List<int?> _explicitNullValueVisibleFields = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View"/> and sets the default values.
@@ -120,7 +167,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -169,6 +216,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<int?>("vertical_group_by", VerticalGroupBy);
             writer.WriteCollectionOfPrimitiveValues<int?>("visible_fields", VisibleFields);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

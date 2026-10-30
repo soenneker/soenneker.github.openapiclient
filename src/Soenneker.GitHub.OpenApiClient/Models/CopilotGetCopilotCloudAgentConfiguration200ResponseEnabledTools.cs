@@ -12,17 +12,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("codeql") is { } nullNodeCodeql && nullNodeCodeql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Codeql = null;
+            if (parseNode.GetChildNode("copilot_code_review") is { } nullNodeCopilotCodeReview && nullNodeCopilotCodeReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotCodeReview = null;
+            if (parseNode.GetChildNode("dependency_vulnerability_checks") is { } nullNodeDependencyVulnerabilityChecks && nullNodeDependencyVulnerabilityChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependencyVulnerabilityChecks = null;
+            if (parseNode.GetChildNode("secret_scanning") is { } nullNodeSecretScanning && nullNodeSecretScanning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanning = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the CodeQL tool is enabled for the Copilot cloud agent.</summary>
-        public bool? Codeql { get; set; }
+        public bool? Codeql { get => _explicitNullValueCodeql; set { _explicitNullValueCodeql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("codeql"); else _explicitNullProperties?.Remove("codeql"); } }
+        private bool? _explicitNullValueCodeql = default!;
         /// <summary>Whether the Copilot code review tool is enabled for the Copilot cloud agent.</summary>
-        public bool? CopilotCodeReview { get; set; }
+        public bool? CopilotCodeReview { get => _explicitNullValueCopilotCodeReview; set { _explicitNullValueCopilotCodeReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_code_review"); else _explicitNullProperties?.Remove("copilot_code_review"); } }
+        private bool? _explicitNullValueCopilotCodeReview = default!;
         /// <summary>Whether the dependency vulnerability checks tool is enabled for the Copilot cloud agent.</summary>
-        public bool? DependencyVulnerabilityChecks { get; set; }
+        public bool? DependencyVulnerabilityChecks { get => _explicitNullValueDependencyVulnerabilityChecks; set { _explicitNullValueDependencyVulnerabilityChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_vulnerability_checks"); else _explicitNullProperties?.Remove("dependency_vulnerability_checks"); } }
+        private bool? _explicitNullValueDependencyVulnerabilityChecks = default!;
         /// <summary>Whether the secret scanning tool is enabled for the Copilot cloud agent.</summary>
-        public bool? SecretScanning { get; set; }
+        public bool? SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
+        private bool? _explicitNullValueSecretScanning = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("copilot_code_review", CopilotCodeReview);
             writer.WriteBoolValue("dependency_vulnerability_checks", DependencyVulnerabilityChecks);
             writer.WriteBoolValue("secret_scanning", SecretScanning);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

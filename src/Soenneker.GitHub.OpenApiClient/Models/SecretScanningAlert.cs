@@ -11,53 +11,99 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningAlert : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
+            if (parseNode.GetChildNode("closure_request_comment") is { } nullNodeClosureRequestComment && nullNodeClosureRequestComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosureRequestComment = null;
+            if (parseNode.GetChildNode("closure_request_reviewer") is { } nullNodeClosureRequestReviewer && nullNodeClosureRequestReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosureRequestReviewer = null;
+            if (parseNode.GetChildNode("closure_request_reviewer_comment") is { } nullNodeClosureRequestReviewerComment && nullNodeClosureRequestReviewerComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosureRequestReviewerComment = null;
+            if (parseNode.GetChildNode("first_location_detected") is { } nullNodeFirstLocationDetected && nullNodeFirstLocationDetected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstLocationDetected = null;
+            if (parseNode.GetChildNode("has_more_locations") is { } nullNodeHasMoreLocations && nullNodeHasMoreLocations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMoreLocations = null;
+            if (parseNode.GetChildNode("is_base64_encoded") is { } nullNodeIsBase64Encoded && nullNodeIsBase64Encoded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsBase64Encoded = null;
+            if (parseNode.GetChildNode("locations_url") is { } nullNodeLocationsUrl && nullNodeLocationsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationsUrl = null;
+            if (parseNode.GetChildNode("multi_repo") is { } nullNodeMultiRepo && nullNodeMultiRepo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiRepo = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("provider_slug") is { } nullNodeProviderSlug && nullNodeProviderSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderSlug = null;
+            if (parseNode.GetChildNode("publicly_leaked") is { } nullNodePubliclyLeaked && nullNodePubliclyLeaked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PubliclyLeaked = null;
+            if (parseNode.GetChildNode("push_protection_bypassed") is { } nullNodePushProtectionBypassed && nullNodePushProtectionBypassed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassed = null;
+            if (parseNode.GetChildNode("push_protection_bypassed_at") is { } nullNodePushProtectionBypassedAt && nullNodePushProtectionBypassedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassedAt = null;
+            if (parseNode.GetChildNode("push_protection_bypassed_by") is { } nullNodePushProtectionBypassedBy && nullNodePushProtectionBypassedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassedBy = null;
+            if (parseNode.GetChildNode("push_protection_bypass_request_comment") is { } nullNodePushProtectionBypassRequestComment && nullNodePushProtectionBypassRequestComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassRequestComment = null;
+            if (parseNode.GetChildNode("push_protection_bypass_request_html_url") is { } nullNodePushProtectionBypassRequestHtmlUrl && nullNodePushProtectionBypassRequestHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassRequestHtmlUrl = null;
+            if (parseNode.GetChildNode("push_protection_bypass_request_reviewer") is { } nullNodePushProtectionBypassRequestReviewer && nullNodePushProtectionBypassRequestReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassRequestReviewer = null;
+            if (parseNode.GetChildNode("push_protection_bypass_request_reviewer_comment") is { } nullNodePushProtectionBypassRequestReviewerComment && nullNodePushProtectionBypassRequestReviewerComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionBypassRequestReviewerComment = null;
+            if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
+            if (parseNode.GetChildNode("resolution_comment") is { } nullNodeResolutionComment && nullNodeResolutionComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolutionComment = null;
+            if (parseNode.GetChildNode("resolved_at") is { } nullNodeResolvedAt && nullNodeResolvedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedAt = null;
+            if (parseNode.GetChildNode("resolved_by") is { } nullNodeResolvedBy && nullNodeResolvedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedBy = null;
+            if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
+            if (parseNode.GetChildNode("secret_type") is { } nullNodeSecretType && nullNodeSecretType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretType = null;
+            if (parseNode.GetChildNode("secret_type_display_name") is { } nullNodeSecretTypeDisplayName && nullNodeSecretTypeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretTypeDisplayName = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("validity") is { } nullNodeValidity && nullNodeValidity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Validity = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? AssignedTo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueAssignedTo = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser AssignedTo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueAssignedTo = default!;
 #endif
         /// <summary>An optional comment from the closure request author.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClosureRequestComment { get; set; }
+        public string? ClosureRequestComment { get => _explicitNullValueClosureRequestComment; set { _explicitNullValueClosureRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_comment"); else _explicitNullProperties?.Remove("closure_request_comment"); } }
+        private string? _explicitNullValueClosureRequestComment = default!;
 #nullable restore
 #else
-        public string ClosureRequestComment { get; set; }
+        public string ClosureRequestComment { get => _explicitNullValueClosureRequestComment; set { _explicitNullValueClosureRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_comment"); else _explicitNullProperties?.Remove("closure_request_comment"); } }
+        private string _explicitNullValueClosureRequestComment = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ClosureRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ClosureRequestReviewer { get => _explicitNullValueClosureRequestReviewer; set { _explicitNullValueClosureRequestReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_reviewer"); else _explicitNullProperties?.Remove("closure_request_reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueClosureRequestReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ClosureRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ClosureRequestReviewer { get => _explicitNullValueClosureRequestReviewer; set { _explicitNullValueClosureRequestReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_reviewer"); else _explicitNullProperties?.Remove("closure_request_reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueClosureRequestReviewer = default!;
 #endif
         /// <summary>An optional comment from the closure request reviewer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClosureRequestReviewerComment { get; set; }
+        public string? ClosureRequestReviewerComment { get => _explicitNullValueClosureRequestReviewerComment; set { _explicitNullValueClosureRequestReviewerComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_reviewer_comment"); else _explicitNullProperties?.Remove("closure_request_reviewer_comment"); } }
+        private string? _explicitNullValueClosureRequestReviewerComment = default!;
 #nullable restore
 #else
-        public string ClosureRequestReviewerComment { get; set; }
+        public string ClosureRequestReviewerComment { get => _explicitNullValueClosureRequestReviewerComment; set { _explicitNullValueClosureRequestReviewerComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closure_request_reviewer_comment"); else _explicitNullProperties?.Remove("closure_request_reviewer_comment"); } }
+        private string _explicitNullValueClosureRequestReviewerComment = default!;
 #endif
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation? FirstLocationDetected { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation? FirstLocationDetected { get => _explicitNullValueFirstLocationDetected; set { _explicitNullValueFirstLocationDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_location_detected"); else _explicitNullProperties?.Remove("first_location_detected"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation? _explicitNullValueFirstLocationDetected = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation FirstLocationDetected { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation FirstLocationDetected { get => _explicitNullValueFirstLocationDetected; set { _explicitNullValueFirstLocationDetected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_location_detected"); else _explicitNullProperties?.Remove("first_location_detected"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation _explicitNullValueFirstLocationDetected = default!;
 #endif
         /// <summary>A boolean value representing whether or not the token in the alert was detected in more than one location.</summary>
-        public bool? HasMoreLocations { get; set; }
+        public bool? HasMoreLocations { get => _explicitNullValueHasMoreLocations; set { _explicitNullValueHasMoreLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_more_locations"); else _explicitNullProperties?.Remove("has_more_locations"); } }
+        private bool? _explicitNullValueHasMoreLocations = default!;
         /// <summary>The GitHub URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,127 +113,161 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; private set; }
 #endif
         /// <summary>A boolean value representing whether or not alert is base64 encoded</summary>
-        public bool? IsBase64Encoded { get; set; }
+        public bool? IsBase64Encoded { get => _explicitNullValueIsBase64Encoded; set { _explicitNullValueIsBase64Encoded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_base64_encoded"); else _explicitNullProperties?.Remove("is_base64_encoded"); } }
+        private bool? _explicitNullValueIsBase64Encoded = default!;
         /// <summary>The REST API URL of the code locations for this alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocationsUrl { get; set; }
+        public string? LocationsUrl { get => _explicitNullValueLocationsUrl; set { _explicitNullValueLocationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations_url"); else _explicitNullProperties?.Remove("locations_url"); } }
+        private string? _explicitNullValueLocationsUrl = default!;
 #nullable restore
 #else
-        public string LocationsUrl { get; set; }
+        public string LocationsUrl { get => _explicitNullValueLocationsUrl; set { _explicitNullValueLocationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations_url"); else _explicitNullProperties?.Remove("locations_url"); } }
+        private string _explicitNullValueLocationsUrl = default!;
 #endif
         /// <summary>Whether the detected secret was found in multiple repositories under the same organization or enterprise.</summary>
-        public bool? MultiRepo { get; set; }
+        public bool? MultiRepo { get => _explicitNullValueMultiRepo; set { _explicitNullValueMultiRepo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_repo"); else _explicitNullProperties?.Remove("multi_repo"); } }
+        private bool? _explicitNullValueMultiRepo = default!;
         /// <summary>The security alert number.</summary>
         public int? Number { get; private set; }
         /// <summary>The provider of the secret that was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provider { get; set; }
+        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private string? _explicitNullValueProvider = default!;
 #nullable restore
 #else
-        public string Provider { get; set; }
+        public string Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private string _explicitNullValueProvider = default!;
 #endif
         /// <summary>The slug identifier for the provider of the secret that was detected. Use this value for filtering by provider with the `providers` or `exclude_providers` parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProviderSlug { get; set; }
+        public string? ProviderSlug { get => _explicitNullValueProviderSlug; set { _explicitNullValueProviderSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_slug"); else _explicitNullProperties?.Remove("provider_slug"); } }
+        private string? _explicitNullValueProviderSlug = default!;
 #nullable restore
 #else
-        public string ProviderSlug { get; set; }
+        public string ProviderSlug { get => _explicitNullValueProviderSlug; set { _explicitNullValueProviderSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_slug"); else _explicitNullProperties?.Remove("provider_slug"); } }
+        private string _explicitNullValueProviderSlug = default!;
 #endif
         /// <summary>Whether the detected secret was publicly leaked.</summary>
-        public bool? PubliclyLeaked { get; set; }
+        public bool? PubliclyLeaked { get => _explicitNullValuePubliclyLeaked; set { _explicitNullValuePubliclyLeaked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("publicly_leaked"); else _explicitNullProperties?.Remove("publicly_leaked"); } }
+        private bool? _explicitNullValuePubliclyLeaked = default!;
         /// <summary>Whether push protection was bypassed for the detected secret.</summary>
-        public bool? PushProtectionBypassed { get; set; }
+        public bool? PushProtectionBypassed { get => _explicitNullValuePushProtectionBypassed; set { _explicitNullValuePushProtectionBypassed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypassed"); else _explicitNullProperties?.Remove("push_protection_bypassed"); } }
+        private bool? _explicitNullValuePushProtectionBypassed = default!;
         /// <summary>The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? PushProtectionBypassedAt { get; set; }
+        public DateTimeOffset? PushProtectionBypassedAt { get => _explicitNullValuePushProtectionBypassedAt; set { _explicitNullValuePushProtectionBypassedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypassed_at"); else _explicitNullProperties?.Remove("push_protection_bypassed_at"); } }
+        private DateTimeOffset? _explicitNullValuePushProtectionBypassedAt = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassedBy { get => _explicitNullValuePushProtectionBypassedBy; set { _explicitNullValuePushProtectionBypassedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypassed_by"); else _explicitNullProperties?.Remove("push_protection_bypassed_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValuePushProtectionBypassedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassedBy { get => _explicitNullValuePushProtectionBypassedBy; set { _explicitNullValuePushProtectionBypassedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypassed_by"); else _explicitNullProperties?.Remove("push_protection_bypassed_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValuePushProtectionBypassedBy = default!;
 #endif
         /// <summary>An optional comment when requesting a push protection bypass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PushProtectionBypassRequestComment { get; set; }
+        public string? PushProtectionBypassRequestComment { get => _explicitNullValuePushProtectionBypassRequestComment; set { _explicitNullValuePushProtectionBypassRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_comment"); else _explicitNullProperties?.Remove("push_protection_bypass_request_comment"); } }
+        private string? _explicitNullValuePushProtectionBypassRequestComment = default!;
 #nullable restore
 #else
-        public string PushProtectionBypassRequestComment { get; set; }
+        public string PushProtectionBypassRequestComment { get => _explicitNullValuePushProtectionBypassRequestComment; set { _explicitNullValuePushProtectionBypassRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_comment"); else _explicitNullProperties?.Remove("push_protection_bypass_request_comment"); } }
+        private string _explicitNullValuePushProtectionBypassRequestComment = default!;
 #endif
         /// <summary>The URL to a push protection bypass request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PushProtectionBypassRequestHtmlUrl { get; set; }
+        public string? PushProtectionBypassRequestHtmlUrl { get => _explicitNullValuePushProtectionBypassRequestHtmlUrl; set { _explicitNullValuePushProtectionBypassRequestHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_html_url"); else _explicitNullProperties?.Remove("push_protection_bypass_request_html_url"); } }
+        private string? _explicitNullValuePushProtectionBypassRequestHtmlUrl = default!;
 #nullable restore
 #else
-        public string PushProtectionBypassRequestHtmlUrl { get; set; }
+        public string PushProtectionBypassRequestHtmlUrl { get => _explicitNullValuePushProtectionBypassRequestHtmlUrl; set { _explicitNullValuePushProtectionBypassRequestHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_html_url"); else _explicitNullProperties?.Remove("push_protection_bypass_request_html_url"); } }
+        private string _explicitNullValuePushProtectionBypassRequestHtmlUrl = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassRequestReviewer { get => _explicitNullValuePushProtectionBypassRequestReviewer; set { _explicitNullValuePushProtectionBypassRequestReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_reviewer"); else _explicitNullProperties?.Remove("push_protection_bypass_request_reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValuePushProtectionBypassRequestReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassRequestReviewer { get => _explicitNullValuePushProtectionBypassRequestReviewer; set { _explicitNullValuePushProtectionBypassRequestReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_reviewer"); else _explicitNullProperties?.Remove("push_protection_bypass_request_reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValuePushProtectionBypassRequestReviewer = default!;
 #endif
         /// <summary>An optional comment when reviewing a push protection bypass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PushProtectionBypassRequestReviewerComment { get; set; }
+        public string? PushProtectionBypassRequestReviewerComment { get => _explicitNullValuePushProtectionBypassRequestReviewerComment; set { _explicitNullValuePushProtectionBypassRequestReviewerComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_reviewer_comment"); else _explicitNullProperties?.Remove("push_protection_bypass_request_reviewer_comment"); } }
+        private string? _explicitNullValuePushProtectionBypassRequestReviewerComment = default!;
 #nullable restore
 #else
-        public string PushProtectionBypassRequestReviewerComment { get; set; }
+        public string PushProtectionBypassRequestReviewerComment { get => _explicitNullValuePushProtectionBypassRequestReviewerComment; set { _explicitNullValuePushProtectionBypassRequestReviewerComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_bypass_request_reviewer_comment"); else _explicitNullProperties?.Remove("push_protection_bypass_request_reviewer_comment"); } }
+        private string _explicitNullValuePushProtectionBypassRequestReviewerComment = default!;
 #endif
         /// <summary>**Required when the `state` is `resolved`.** The reason for resolving the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? Resolution { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? _explicitNullValueResolution = default!;
         /// <summary>An optional comment to resolve an alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResolutionComment { get; set; }
+        public string? ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
+        private string? _explicitNullValueResolutionComment = default!;
 #nullable restore
 #else
-        public string ResolutionComment { get; set; }
+        public string ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
+        private string _explicitNullValueResolutionComment = default!;
 #endif
         /// <summary>The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? ResolvedAt { get; set; }
+        public DateTimeOffset? ResolvedAt { get => _explicitNullValueResolvedAt; set { _explicitNullValueResolvedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_at"); else _explicitNullProperties?.Remove("resolved_at"); } }
+        private DateTimeOffset? _explicitNullValueResolvedAt = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ResolvedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ResolvedBy { get => _explicitNullValueResolvedBy; set { _explicitNullValueResolvedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_by"); else _explicitNullProperties?.Remove("resolved_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueResolvedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ResolvedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ResolvedBy { get => _explicitNullValueResolvedBy; set { _explicitNullValueResolvedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_by"); else _explicitNullProperties?.Remove("resolved_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueResolvedBy = default!;
 #endif
         /// <summary>The secret that was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Secret { get; set; }
+        public string? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private string? _explicitNullValueSecret = default!;
 #nullable restore
 #else
-        public string Secret { get; set; }
+        public string Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private string _explicitNullValueSecret = default!;
 #endif
         /// <summary>The type of secret that secret scanning detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretType { get; set; }
+        public string? SecretType { get => _explicitNullValueSecretType; set { _explicitNullValueSecretType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_type"); else _explicitNullProperties?.Remove("secret_type"); } }
+        private string? _explicitNullValueSecretType = default!;
 #nullable restore
 #else
-        public string SecretType { get; set; }
+        public string SecretType { get => _explicitNullValueSecretType; set { _explicitNullValueSecretType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_type"); else _explicitNullProperties?.Remove("secret_type"); } }
+        private string _explicitNullValueSecretType = default!;
 #endif
         /// <summary>User-friendly name for the detected secret, matching the `secret_type`.For a list of built-in patterns, see &quot;[Supported secret scanning patterns](https://docs.github.com/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretTypeDisplayName { get; set; }
+        public string? SecretTypeDisplayName { get => _explicitNullValueSecretTypeDisplayName; set { _explicitNullValueSecretTypeDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_type_display_name"); else _explicitNullProperties?.Remove("secret_type_display_name"); } }
+        private string? _explicitNullValueSecretTypeDisplayName = default!;
 #nullable restore
 #else
-        public string SecretTypeDisplayName { get; set; }
+        public string SecretTypeDisplayName { get => _explicitNullValueSecretTypeDisplayName; set { _explicitNullValueSecretTypeDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_type_display_name"); else _explicitNullProperties?.Remove("secret_type_display_name"); } }
+        private string _explicitNullValueSecretTypeDisplayName = default!;
 #endif
         /// <summary>Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? _explicitNullValueState = default!;
         /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The REST API URL of the alert resource.</summary>
@@ -199,7 +279,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Url { get; private set; }
 #endif
         /// <summary>The token status as of the latest validity check.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity? Validity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity? Validity { get => _explicitNullValueValidity; set { _explicitNullValueValidity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validity"); else _explicitNullProperties?.Remove("validity"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity? _explicitNullValueValidity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert"/> and sets the default values.
         /// </summary>
@@ -215,7 +296,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -295,6 +376,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("secret_type_display_name", SecretTypeDisplayName);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity>("validity", Validity);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.Repos
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListSelectedReposForOrgSecret200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListSelectedReposForOrgSecret200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListSelectedReposForOrgSecret200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListSelectedReposForOrgSecret200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces all repositories for an organization secret when the `visibility`for repository access is set to `selected`. The visibility is set when you [Createor update an organization secret](https://docs.github.com/rest/dependabot/secrets#create-or-update-an-organization-secret).OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.Repos
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all repositories that have been selected when the `visibility`for repository access to a secret is set to `selected`.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

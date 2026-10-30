@@ -12,21 +12,40 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotOrganizationSeatBreakdown : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_this_cycle") is { } nullNodeActiveThisCycle && nullNodeActiveThisCycle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveThisCycle = null;
+            if (parseNode.GetChildNode("added_this_cycle") is { } nullNodeAddedThisCycle && nullNodeAddedThisCycle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddedThisCycle = null;
+            if (parseNode.GetChildNode("inactive_this_cycle") is { } nullNodeInactiveThisCycle && nullNodeInactiveThisCycle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InactiveThisCycle = null;
+            if (parseNode.GetChildNode("pending_cancellation") is { } nullNodePendingCancellation && nullNodePendingCancellation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCancellation = null;
+            if (parseNode.GetChildNode("pending_invitation") is { } nullNodePendingInvitation && nullNodePendingInvitation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingInvitation = null;
+            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+        }
+
         /// <summary>The number of seats that have used Copilot during the current billing cycle.</summary>
-        public int? ActiveThisCycle { get; set; }
+        public int? ActiveThisCycle { get => _explicitNullValueActiveThisCycle; set { _explicitNullValueActiveThisCycle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_this_cycle"); else _explicitNullProperties?.Remove("active_this_cycle"); } }
+        private int? _explicitNullValueActiveThisCycle = default!;
         /// <summary>Seats added during the current billing cycle.</summary>
-        public int? AddedThisCycle { get; set; }
+        public int? AddedThisCycle { get => _explicitNullValueAddedThisCycle; set { _explicitNullValueAddedThisCycle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added_this_cycle"); else _explicitNullProperties?.Remove("added_this_cycle"); } }
+        private int? _explicitNullValueAddedThisCycle = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of seats that have not used Copilot during the current billing cycle.</summary>
-        public int? InactiveThisCycle { get; set; }
+        public int? InactiveThisCycle { get => _explicitNullValueInactiveThisCycle; set { _explicitNullValueInactiveThisCycle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inactive_this_cycle"); else _explicitNullProperties?.Remove("inactive_this_cycle"); } }
+        private int? _explicitNullValueInactiveThisCycle = default!;
         /// <summary>The number of seats that are pending cancellation at the end of the current billing cycle.</summary>
-        public int? PendingCancellation { get; set; }
+        public int? PendingCancellation { get => _explicitNullValuePendingCancellation; set { _explicitNullValuePendingCancellation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_cancellation"); else _explicitNullProperties?.Remove("pending_cancellation"); } }
+        private int? _explicitNullValuePendingCancellation = default!;
         /// <summary>The number of users who have been invited to receive a Copilot seat through this organization.</summary>
-        public int? PendingInvitation { get; set; }
+        public int? PendingInvitation { get => _explicitNullValuePendingInvitation; set { _explicitNullValuePendingInvitation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_invitation"); else _explicitNullProperties?.Remove("pending_invitation"); } }
+        private int? _explicitNullValuePendingInvitation = default!;
         /// <summary>The total number of seats being billed for the organization as of the current billing cycle.</summary>
-        public int? Total { get; set; }
+        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private int? _explicitNullValueTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("pending_cancellation", PendingCancellation);
             writer.WriteIntValue("pending_invitation", PendingInvitation);
             writer.WriteIntValue("total", Total);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

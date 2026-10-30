@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypePayload : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -153,65 +158,98 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.EventTypePayload();
             if("CommitCommentEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CommitCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent();
+                
             }
             else if("CreateEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateEvent = new global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent();
+                
             }
             else if("DeleteEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DeleteEvent = new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent();
+                
             }
             else if("DiscussionEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DiscussionEvent = new global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent();
+                
             }
             else if("ForkEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ForkEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent();
+                
             }
             else if("GollumEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GollumEvent = new global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent();
+                
             }
             else if("IssueCommentEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.IssueCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent();
+                
             }
             else if("IssuesEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.IssuesEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent();
+                
             }
             else if("MemberEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MemberEvent = new global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent();
+                
             }
             else if("PullRequestEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PullRequestEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent();
+                
             }
             else if("PullRequestReviewCommentEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PullRequestReviewCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent();
+                
             }
             else if("PullRequestReviewEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PullRequestReviewEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent();
+                
             }
             else if("PushEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PushEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PushEvent();
+                
             }
             else if("ReleaseEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReleaseEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent();
+                
             }
             else if("WatchEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WatchEvent = new global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("ref") != null && parseNode.GetChildNode("ref_type") != null && parseNode.GetChildNode("full_ref") != null && parseNode.GetChildNode("master_branch") != null && parseNode.GetChildNode("pusher_type") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("ref") != null && parseNode.GetChildNode("ref_type") != null && parseNode.GetChildNode("full_ref") != null && parseNode.GetChildNode("pusher_type") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("discussion") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("issue") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("issue") != null && parseNode.GetChildNode("comment") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("forkee") != null))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("pages") != null))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("member") != null))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_id") != null && parseNode.GetChildNode("push_id") != null && parseNode.GetChildNode("ref") != null && parseNode.GetChildNode("head") != null && parseNode.GetChildNode("before") != null))();
+            bool matchesUnionBranch9 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("number") != null && parseNode.GetChildNode("pull_request") != null))();
+            bool matchesUnionBranch10 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("comment") != null && parseNode.GetChildNode("pull_request") != null))();
+            bool matchesUnionBranch11 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("review") != null && parseNode.GetChildNode("pull_request") != null))();
+            bool matchesUnionBranch12 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("comment") != null))();
+            bool matchesUnionBranch13 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && parseNode.GetChildNode("release") != null))();
+            bool matchesUnionBranch14 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null))();
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.CreateEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.DeleteEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.DiscussionEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.IssuesEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.IssueCommentEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.ForkEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.GollumEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.MemberEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.PushEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PushEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch9 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.PullRequestEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch10 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.PullRequestReviewCommentEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch11 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14) result.PullRequestReviewEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch12 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch13 && !matchesUnionBranch14) result.CommitCommentEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch13 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch14) result.ReleaseEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null && matchesUnionBranch14 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13) result.WatchEvent = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent(), parseNode);
+            if (result.CommitCommentEvent == null && result.CreateEvent == null && result.DeleteEvent == null && result.DiscussionEvent == null && result.EventTypePayloadMember1 == null && result.ForkEvent == null && result.GollumEvent == null && result.IssueCommentEvent == null && result.IssuesEvent == null && result.MemberEvent == null && result.PullRequestEvent == null && result.PullRequestReviewCommentEvent == null && result.PullRequestReviewEvent == null && result.PushEvent == null && result.ReleaseEvent == null && result.WatchEvent == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -291,69 +329,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CommitCommentEvent != null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (CommitCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CommitCommentEvent); return; }
+            if (CreateEvent != null && CommitCommentEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (CreateEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateEvent); return; }
+            if (DeleteEvent != null && CommitCommentEvent == null && CreateEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (DeleteEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DeleteEvent); return; }
+            if (DiscussionEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (DiscussionEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DiscussionEvent); return; }
+            if (ForkEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (ForkEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ForkEvent); return; }
+            if (GollumEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (GollumEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GollumEvent); return; }
+            if (IssueCommentEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (IssueCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IssueCommentEvent); return; }
+            if (IssuesEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (IssuesEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IssuesEvent); return; }
+            if (MemberEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (MemberEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MemberEvent); return; }
+            if (PullRequestEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (PullRequestEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestEvent); return; }
+            if (PullRequestReviewCommentEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (PullRequestReviewCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestReviewCommentEvent); return; }
+            if (PullRequestReviewEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PushEvent == null && ReleaseEvent == null && WatchEvent == null) { if (PullRequestReviewEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestReviewEvent); return; }
+            if (PushEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && ReleaseEvent == null && WatchEvent == null) { if (PushEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PushEvent); return; }
+            if (ReleaseEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && WatchEvent == null) { if (ReleaseEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReleaseEvent); return; }
+            if (WatchEvent != null && CommitCommentEvent == null && CreateEvent == null && DeleteEvent == null && DiscussionEvent == null && EventTypePayloadMember1 == null && ForkEvent == null && GollumEvent == null && IssueCommentEvent == null && IssuesEvent == null && MemberEvent == null && PullRequestEvent == null && PullRequestReviewCommentEvent == null && PullRequestReviewEvent == null && PushEvent == null && ReleaseEvent == null) { if (WatchEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WatchEvent); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CommitCommentEvent != null)
             {
+                if (CommitCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent>(null, CommitCommentEvent);
             }
             else if(CreateEvent != null)
             {
+                if (CreateEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent>(null, CreateEvent);
             }
             else if(DeleteEvent != null)
             {
+                if (DeleteEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent>(null, DeleteEvent);
             }
             else if(DiscussionEvent != null)
             {
+                if (DiscussionEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent>(null, DiscussionEvent);
             }
             else if(EventTypePayloadMember1 != null)
             {
+                if (EventTypePayloadMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EventTypePayloadMember1>(null, EventTypePayloadMember1);
             }
             else if(ForkEvent != null)
             {
+                if (ForkEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent>(null, ForkEvent);
             }
             else if(GollumEvent != null)
             {
+                if (GollumEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent>(null, GollumEvent);
             }
             else if(IssueCommentEvent != null)
             {
+                if (IssueCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent>(null, IssueCommentEvent);
             }
             else if(IssuesEvent != null)
             {
+                if (IssuesEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent>(null, IssuesEvent);
             }
             else if(MemberEvent != null)
             {
+                if (MemberEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent>(null, MemberEvent);
             }
             else if(PullRequestEvent != null)
             {
+                if (PullRequestEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent>(null, PullRequestEvent);
             }
             else if(PullRequestReviewCommentEvent != null)
             {
+                if (PullRequestReviewCommentEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent>(null, PullRequestReviewCommentEvent);
             }
             else if(PullRequestReviewEvent != null)
             {
+                if (PullRequestReviewEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent>(null, PullRequestReviewEvent);
             }
             else if(PushEvent != null)
             {
+                if (PushEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PushEvent>(null, PushEvent);
             }
             else if(ReleaseEvent != null)
             {
+                if (ReleaseEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent>(null, ReleaseEvent);
             }
             else if(WatchEvent != null)
             {
+                if (WatchEvent is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent>(null, WatchEvent);
             }
         }

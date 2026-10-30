@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningUpdateOrgPatternConfigsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_pattern_settings") is { } nullNodeCustomPatternSettings && nullNodeCustomPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternSettings = null;
+            if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
+            if (parseNode.GetChildNode("provider_pattern_settings") is { } nullNodeProviderPatternSettings && nullNodeProviderPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderPatternSettings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Pattern settings for custom patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? CustomPatternSettings { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? _explicitNullValueCustomPatternSettings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> CustomPatternSettings { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> _explicitNullValueCustomPatternSettings = default!;
 #endif
         /// <summary>The version of the entity. This is used to confirm you&apos;re updating the current version of the entity and mitigate unintentionally overriding someone else&apos;s update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternConfigVersion { get; set; }
+        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        private string? _explicitNullValuePatternConfigVersion = default!;
 #nullable restore
 #else
-        public string PatternConfigVersion { get; set; }
+        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        private string _explicitNullValuePatternConfigVersion = default!;
 #endif
         /// <summary>Pattern settings for provider patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? ProviderPatternSettings { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? _explicitNullValueProviderPatternSettings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> ProviderPatternSettings { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> _explicitNullValueProviderPatternSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>("custom_pattern_settings", CustomPatternSettings);
             writer.WriteStringValue("pattern_config_version", PatternConfigVersion);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>("provider_pattern_settings", ProviderPatternSettings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

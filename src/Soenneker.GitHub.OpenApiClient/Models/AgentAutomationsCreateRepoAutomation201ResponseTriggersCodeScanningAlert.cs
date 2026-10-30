@@ -12,11 +12,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlert : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_copilot_triggers") is { } nullNodeAllowCopilotTriggers && nullNodeAllowCopilotTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCopilotTriggers = null;
+            if (parseNode.GetChildNode("write_scope") is { } nullNodeWriteScope && nullNodeWriteScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WriteScope = null;
+        }
+
         /// <summary>When true, events Copilot creates, including from other automations and Copilot sessions, can start this automation through this trigger. Defaults to false. The Copilot coding agent app cannot turn it on: creating a trigger with true, or changing it from false to true, returns 422.</summary>
-        public bool? AllowCopilotTriggers { get; set; }
+        public bool? AllowCopilotTriggers { get => _explicitNullValueAllowCopilotTriggers; set { _explicitNullValueAllowCopilotTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_copilot_triggers"); else _explicitNullProperties?.Remove("allow_copilot_triggers"); } }
+        private bool? _explicitNullValueAllowCopilotTriggers = default!;
         /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlertWriteScope? WriteScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlertWriteScope? WriteScope { get => _explicitNullValueWriteScope; set { _explicitNullValueWriteScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write_scope"); else _explicitNullProperties?.Remove("write_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlertWriteScope? _explicitNullValueWriteScope = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -25,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlert CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlert();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlert(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +58,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_copilot_triggers", AllowCopilotTriggers);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlertWriteScope>("write_scope", WriteScope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomation201ResponseTriggersCodeScanningAlertWriteScope>("write_scope", WriteScope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

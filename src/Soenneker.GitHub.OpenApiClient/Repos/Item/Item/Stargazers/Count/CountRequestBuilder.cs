@@ -54,6 +54,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.Count
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActivityGetStargazerCountForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActivityGetStargazerCountForRepo200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

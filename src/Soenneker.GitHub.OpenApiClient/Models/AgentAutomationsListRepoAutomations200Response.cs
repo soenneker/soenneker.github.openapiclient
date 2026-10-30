@@ -12,19 +12,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsListRepoAutomations200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("automations") is { } nullNodeAutomations && nullNodeAutomations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Automations = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of automations in the repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem>? Automations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem>? Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem>? _explicitNullValueAutomations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem> Automations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem> Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem> _explicitNullValueAutomations = default!;
 #endif
         /// <summary>Total count of caller-visible automations matching the supplied filters (across all pages)</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200Response"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem>("automations", Automations);
             writer.WriteIntValue("total_count", TotalCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,40 +11,59 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeleteEvent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("full_ref") is { } nullNodeFullRef && nullNodeFullRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullRef = null;
+            if (parseNode.GetChildNode("pusher_type") is { } nullNodePusherType && nullNodePusherType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherType = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("ref_type") is { } nullNodeRefType && nullNodeRefType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The full_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullRef { get; set; }
+        public string? FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
+        private string? _explicitNullValueFullRef = default!;
 #nullable restore
 #else
-        public string FullRef { get; set; }
+        public string FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
+        private string _explicitNullValueFullRef = default!;
 #endif
         /// <summary>The pusher_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PusherType { get; set; }
+        public string? PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
+        private string? _explicitNullValuePusherType = default!;
 #nullable restore
 #else
-        public string PusherType { get; set; }
+        public string PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
+        private string _explicitNullValuePusherType = default!;
 #endif
         /// <summary>The ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>The ref_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefType { get; set; }
+        public string? RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
+        private string? _explicitNullValueRefType = default!;
 #nullable restore
 #else
-        public string RefType { get; set; }
+        public string RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
+        private string _explicitNullValueRefType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("pusher_type", PusherType);
             writer.WriteStringValue("ref", Ref);
             writer.WriteStringValue("ref_type", RefType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,21 +11,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleRequiredStatusChecksParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("do_not_enforce_on_create") is { } nullNodeDoNotEnforceOnCreate && nullNodeDoNotEnforceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoNotEnforceOnCreate = null;
+            if (parseNode.GetChildNode("required_status_checks") is { } nullNodeRequiredStatusChecks && nullNodeRequiredStatusChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredStatusChecks = null;
+            if (parseNode.GetChildNode("strict_required_status_checks_policy") is { } nullNodeStrictRequiredStatusChecksPolicy && nullNodeStrictRequiredStatusChecksPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StrictRequiredStatusChecksPolicy = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Allow repositories and branches to be created if a check would otherwise prohibit it.</summary>
-        public bool? DoNotEnforceOnCreate { get; set; }
+        public bool? DoNotEnforceOnCreate { get => _explicitNullValueDoNotEnforceOnCreate; set { _explicitNullValueDoNotEnforceOnCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_not_enforce_on_create"); else _explicitNullProperties?.Remove("do_not_enforce_on_create"); } }
+        private bool? _explicitNullValueDoNotEnforceOnCreate = default!;
         /// <summary>Status checks that are required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration>? RequiredStatusChecks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration>? RequiredStatusChecks { get => _explicitNullValueRequiredStatusChecks; set { _explicitNullValueRequiredStatusChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_status_checks"); else _explicitNullProperties?.Remove("required_status_checks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration>? _explicitNullValueRequiredStatusChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration> RequiredStatusChecks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration> RequiredStatusChecks { get => _explicitNullValueRequiredStatusChecks; set { _explicitNullValueRequiredStatusChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_status_checks"); else _explicitNullProperties?.Remove("required_status_checks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration> _explicitNullValueRequiredStatusChecks = default!;
 #endif
         /// <summary>Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled.</summary>
-        public bool? StrictRequiredStatusChecksPolicy { get; set; }
+        public bool? StrictRequiredStatusChecksPolicy { get => _explicitNullValueStrictRequiredStatusChecksPolicy; set { _explicitNullValueStrictRequiredStatusChecksPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strict_required_status_checks_policy"); else _explicitNullProperties?.Remove("strict_required_status_checks_policy"); } }
+        private bool? _explicitNullValueStrictRequiredStatusChecksPolicy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecksParameters"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecksParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecksParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecksParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("do_not_enforce_on_create", DoNotEnforceOnCreate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration>("required_status_checks", RequiredStatusChecks);
             writer.WriteBoolValue("strict_required_status_checks_policy", StrictRequiredStatusChecksPolicy);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,25 +11,43 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullRequestStackMinimalPullRequestsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("draft") is { } nullNodeDraft && nullNodeDraft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Draft = null;
+            if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
+            if (parseNode.GetChildNode("merged_at") is { } nullNodeMergedAt && nullNodeMergedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergedAt = null;
+            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The draft property</summary>
-        public bool? Draft { get; set; }
+        public bool? Draft { get => _explicitNullValueDraft; set { _explicitNullValueDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft"); else _explicitNullProperties?.Remove("draft"); } }
+        private bool? _explicitNullValueDraft = default!;
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead? Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead? _explicitNullValueHead = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemHead _explicitNullValueHead = default!;
 #endif
         /// <summary>The merged_at property</summary>
-        public DateTimeOffset? MergedAt { get; set; }
+        public DateTimeOffset? MergedAt { get => _explicitNullValueMergedAt; set { _explicitNullValueMergedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merged_at"); else _explicitNullProperties?.Remove("merged_at"); } }
+        private DateTimeOffset? _explicitNullValueMergedAt = default!;
         /// <summary>The number property</summary>
-        public int? Number { get; set; }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        private int? _explicitNullValueNumber = default!;
         /// <summary>The state property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemState? _explicitNullValueState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItem"/> and sets the default values.
         /// </summary>
@@ -45,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("merged_at", MergedAt);
             writer.WriteIntValue("number", Number);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStackMinimalPullRequestsItemState>("state", State);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

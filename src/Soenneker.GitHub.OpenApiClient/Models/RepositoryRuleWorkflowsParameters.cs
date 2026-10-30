@@ -11,18 +11,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleWorkflowsParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("do_not_enforce_on_create") is { } nullNodeDoNotEnforceOnCreate && nullNodeDoNotEnforceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoNotEnforceOnCreate = null;
+            if (parseNode.GetChildNode("workflows") is { } nullNodeWorkflows && nullNodeWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflows = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Allow repositories and branches to be created if a check would otherwise prohibit it.</summary>
-        public bool? DoNotEnforceOnCreate { get; set; }
+        public bool? DoNotEnforceOnCreate { get => _explicitNullValueDoNotEnforceOnCreate; set { _explicitNullValueDoNotEnforceOnCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_not_enforce_on_create"); else _explicitNullProperties?.Remove("do_not_enforce_on_create"); } }
+        private bool? _explicitNullValueDoNotEnforceOnCreate = default!;
         /// <summary>Workflows that must pass for this rule to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? Workflows { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? _explicitNullValueWorkflows = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> Workflows { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> _explicitNullValueWorkflows = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("do_not_enforce_on_create", DoNotEnforceOnCreate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>("workflows", Workflows);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

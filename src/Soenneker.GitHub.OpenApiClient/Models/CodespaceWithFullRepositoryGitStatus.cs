@@ -12,24 +12,42 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodespaceWithFullRepositoryGitStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ahead") is { } nullNodeAhead && nullNodeAhead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ahead = null;
+            if (parseNode.GetChildNode("behind") is { } nullNodeBehind && nullNodeBehind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Behind = null;
+            if (parseNode.GetChildNode("has_uncommitted_changes") is { } nullNodeHasUncommittedChanges && nullNodeHasUncommittedChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasUncommittedChanges = null;
+            if (parseNode.GetChildNode("has_unpushed_changes") is { } nullNodeHasUnpushedChanges && nullNodeHasUnpushedChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasUnpushedChanges = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of commits the local repository is ahead of the remote.</summary>
-        public int? Ahead { get; set; }
+        public int? Ahead { get => _explicitNullValueAhead; set { _explicitNullValueAhead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ahead"); else _explicitNullProperties?.Remove("ahead"); } }
+        private int? _explicitNullValueAhead = default!;
         /// <summary>The number of commits the local repository is behind the remote.</summary>
-        public int? Behind { get; set; }
+        public int? Behind { get => _explicitNullValueBehind; set { _explicitNullValueBehind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("behind"); else _explicitNullProperties?.Remove("behind"); } }
+        private int? _explicitNullValueBehind = default!;
         /// <summary>Whether the local repository has uncommitted changes.</summary>
-        public bool? HasUncommittedChanges { get; set; }
+        public bool? HasUncommittedChanges { get => _explicitNullValueHasUncommittedChanges; set { _explicitNullValueHasUncommittedChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_uncommitted_changes"); else _explicitNullProperties?.Remove("has_uncommitted_changes"); } }
+        private bool? _explicitNullValueHasUncommittedChanges = default!;
         /// <summary>Whether the local repository has unpushed changes.</summary>
-        public bool? HasUnpushedChanges { get; set; }
+        public bool? HasUnpushedChanges { get => _explicitNullValueHasUnpushedChanges; set { _explicitNullValueHasUnpushedChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_unpushed_changes"); else _explicitNullProperties?.Remove("has_unpushed_changes"); } }
+        private bool? _explicitNullValueHasUnpushedChanges = default!;
         /// <summary>The current branch (or SHA if in detached HEAD state) of the local repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryGitStatus"/> and sets the default values.
@@ -46,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryGitStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryGitStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryGitStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,6 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("has_uncommitted_changes", HasUncommittedChanges);
             writer.WriteBoolValue("has_unpushed_changes", HasUnpushedChanges);
             writer.WriteStringValue("ref", Ref);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

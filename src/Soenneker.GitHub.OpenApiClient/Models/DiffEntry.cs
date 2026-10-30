@@ -12,73 +12,109 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DiffEntry : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("additions") is { } nullNodeAdditions && nullNodeAdditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Additions = null;
+            if (parseNode.GetChildNode("blob_url") is { } nullNodeBlobUrl && nullNodeBlobUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlobUrl = null;
+            if (parseNode.GetChildNode("changes") is { } nullNodeChanges && nullNodeChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Changes = null;
+            if (parseNode.GetChildNode("contents_url") is { } nullNodeContentsUrl && nullNodeContentsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentsUrl = null;
+            if (parseNode.GetChildNode("deletions") is { } nullNodeDeletions && nullNodeDeletions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deletions = null;
+            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("patch") is { } nullNodePatch && nullNodePatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patch = null;
+            if (parseNode.GetChildNode("previous_filename") is { } nullNodePreviousFilename && nullNodePreviousFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousFilename = null;
+            if (parseNode.GetChildNode("raw_url") is { } nullNodeRawUrl && nullNodeRawUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawUrl = null;
+            if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The additions property</summary>
-        public int? Additions { get; set; }
+        public int? Additions { get => _explicitNullValueAdditions; set { _explicitNullValueAdditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additions"); else _explicitNullProperties?.Remove("additions"); } }
+        private int? _explicitNullValueAdditions = default!;
         /// <summary>The blob_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlobUrl { get; set; }
+        public string? BlobUrl { get => _explicitNullValueBlobUrl; set { _explicitNullValueBlobUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_url"); else _explicitNullProperties?.Remove("blob_url"); } }
+        private string? _explicitNullValueBlobUrl = default!;
 #nullable restore
 #else
-        public string BlobUrl { get; set; }
+        public string BlobUrl { get => _explicitNullValueBlobUrl; set { _explicitNullValueBlobUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_url"); else _explicitNullProperties?.Remove("blob_url"); } }
+        private string _explicitNullValueBlobUrl = default!;
 #endif
         /// <summary>The changes property</summary>
-        public int? Changes { get; set; }
+        public int? Changes { get => _explicitNullValueChanges; set { _explicitNullValueChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changes"); else _explicitNullProperties?.Remove("changes"); } }
+        private int? _explicitNullValueChanges = default!;
         /// <summary>The contents_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContentsUrl { get; set; }
+        public string? ContentsUrl { get => _explicitNullValueContentsUrl; set { _explicitNullValueContentsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contents_url"); else _explicitNullProperties?.Remove("contents_url"); } }
+        private string? _explicitNullValueContentsUrl = default!;
 #nullable restore
 #else
-        public string ContentsUrl { get; set; }
+        public string ContentsUrl { get => _explicitNullValueContentsUrl; set { _explicitNullValueContentsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contents_url"); else _explicitNullProperties?.Remove("contents_url"); } }
+        private string _explicitNullValueContentsUrl = default!;
 #endif
         /// <summary>The deletions property</summary>
-        public int? Deletions { get; set; }
+        public int? Deletions { get => _explicitNullValueDeletions; set { _explicitNullValueDeletions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletions"); else _explicitNullProperties?.Remove("deletions"); } }
+        private int? _explicitNullValueDeletions = default!;
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get; set; }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get; set; }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>The patch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Patch { get; set; }
+        public string? Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
+        private string? _explicitNullValuePatch = default!;
 #nullable restore
 #else
-        public string Patch { get; set; }
+        public string Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
+        private string _explicitNullValuePatch = default!;
 #endif
         /// <summary>The previous_filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviousFilename { get; set; }
+        public string? PreviousFilename { get => _explicitNullValuePreviousFilename; set { _explicitNullValuePreviousFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_filename"); else _explicitNullProperties?.Remove("previous_filename"); } }
+        private string? _explicitNullValuePreviousFilename = default!;
 #nullable restore
 #else
-        public string PreviousFilename { get; set; }
+        public string PreviousFilename { get => _explicitNullValuePreviousFilename; set { _explicitNullValuePreviousFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_filename"); else _explicitNullProperties?.Remove("previous_filename"); } }
+        private string _explicitNullValuePreviousFilename = default!;
 #endif
         /// <summary>The raw_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RawUrl { get; set; }
+        public string? RawUrl { get => _explicitNullValueRawUrl; set { _explicitNullValueRawUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_url"); else _explicitNullProperties?.Remove("raw_url"); } }
+        private string? _explicitNullValueRawUrl = default!;
 #nullable restore
 #else
-        public string RawUrl { get; set; }
+        public string RawUrl { get => _explicitNullValueRawUrl; set { _explicitNullValueRawUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_url"); else _explicitNullProperties?.Remove("raw_url"); } }
+        private string _explicitNullValueRawUrl = default!;
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha { get; set; }
+        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string? _explicitNullValueSha = default!;
 #nullable restore
 #else
-        public string Sha { get; set; }
+        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string _explicitNullValueSha = default!;
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry"/> and sets the default values.
         /// </summary>
@@ -94,7 +130,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,6 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("raw_url", RawUrl);
             writer.WriteStringValue("sha", Sha);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

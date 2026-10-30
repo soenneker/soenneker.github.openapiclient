@@ -11,56 +11,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BillingUsageSummaryReportOrg : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+            if (parseNode.GetChildNode("sku") is { } nullNodeSku && nullNodeSku.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sku = null;
+            if (parseNode.GetChildNode("timePeriod") is { } nullNodeTimePeriod && nullNodeTimePeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimePeriod = null;
+            if (parseNode.GetChildNode("usageItems") is { } nullNodeUsageItems && nullNodeUsageItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageItems = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Organization { get; set; }
+        public string? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private string? _explicitNullValueOrganization = default!;
 #nullable restore
 #else
-        public string Organization { get; set; }
+        public string Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        private string _explicitNullValueOrganization = default!;
 #endif
         /// <summary>The product for the usage report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Product { get; set; }
+        public string? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string? _explicitNullValueProduct = default!;
 #nullable restore
 #else
-        public string Product { get; set; }
+        public string Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private string _explicitNullValueProduct = default!;
 #endif
         /// <summary>The name of the repository for the usage report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Repository { get; set; }
+        public string? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private string? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public string Repository { get; set; }
+        public string Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private string _explicitNullValueRepository = default!;
 #endif
         /// <summary>The SKU for the usage report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sku { get; set; }
+        public string? Sku { get => _explicitNullValueSku; set { _explicitNullValueSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sku"); else _explicitNullProperties?.Remove("sku"); } }
+        private string? _explicitNullValueSku = default!;
 #nullable restore
 #else
-        public string Sku { get; set; }
+        public string Sku { get => _explicitNullValueSku; set { _explicitNullValueSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sku"); else _explicitNullProperties?.Remove("sku"); } }
+        private string _explicitNullValueSku = default!;
 #endif
         /// <summary>The timePeriod property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod? TimePeriod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod? TimePeriod { get => _explicitNullValueTimePeriod; set { _explicitNullValueTimePeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timePeriod"); else _explicitNullProperties?.Remove("timePeriod"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod? _explicitNullValueTimePeriod = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod TimePeriod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod TimePeriod { get => _explicitNullValueTimePeriod; set { _explicitNullValueTimePeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timePeriod"); else _explicitNullProperties?.Remove("timePeriod"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod _explicitNullValueTimePeriod = default!;
 #endif
         /// <summary>The usageItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>? UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>? UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>? _explicitNullValueUsageItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem> UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem> UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem> _explicitNullValueUsageItems = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg"/> and sets the default values.
@@ -77,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +133,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("sku", Sku);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod>("timePeriod", TimePeriod);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>("usageItems", UsageItems);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

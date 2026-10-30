@@ -11,54 +11,82 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullsCreateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("base") is { } nullNodeBase && nullNodeBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Base = null;
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("draft") is { } nullNodeDraft && nullNodeDraft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Draft = null;
+            if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
+            if (parseNode.GetChildNode("head_repo") is { } nullNodeHeadRepo && nullNodeHeadRepo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadRepo = null;
+            if (parseNode.GetChildNode("issue") is { } nullNodeIssue && nullNodeIssue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issue = null;
+            if (parseNode.GetChildNode("maintainer_can_modify") is { } nullNodeMaintainerCanModify && nullNodeMaintainerCanModify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaintainerCanModify = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Base { get; set; }
+        public string? Base { get => _explicitNullValueBase; set { _explicitNullValueBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base"); else _explicitNullProperties?.Remove("base"); } }
+        private string? _explicitNullValueBase = default!;
 #nullable restore
 #else
-        public string Base { get; set; }
+        public string Base { get => _explicitNullValueBase; set { _explicitNullValueBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base"); else _explicitNullProperties?.Remove("base"); } }
+        private string _explicitNullValueBase = default!;
 #endif
         /// <summary>The contents of the pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://docs.github.com/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
-        public bool? Draft { get; set; }
+        public bool? Draft { get => _explicitNullValueDraft; set { _explicitNullValueDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft"); else _explicitNullProperties?.Remove("draft"); } }
+        private bool? _explicitNullValueDraft = default!;
         /// <summary>The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Head { get; set; }
+        public string? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private string? _explicitNullValueHead = default!;
 #nullable restore
 #else
-        public string Head { get; set; }
+        public string Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private string _explicitNullValueHead = default!;
 #endif
         /// <summary>The name of the repository where the changes in the pull request were made. This field is required for cross-repository pull requests if both repositories are owned by the same organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadRepo { get; set; }
+        public string? HeadRepo { get => _explicitNullValueHeadRepo; set { _explicitNullValueHeadRepo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_repo"); else _explicitNullProperties?.Remove("head_repo"); } }
+        private string? _explicitNullValueHeadRepo = default!;
 #nullable restore
 #else
-        public string HeadRepo { get; set; }
+        public string HeadRepo { get => _explicitNullValueHeadRepo; set { _explicitNullValueHeadRepo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_repo"); else _explicitNullProperties?.Remove("head_repo"); } }
+        private string _explicitNullValueHeadRepo = default!;
 #endif
         /// <summary>An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.</summary>
-        public long? Issue { get; set; }
+        public long? Issue { get => _explicitNullValueIssue; set { _explicitNullValueIssue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue"); else _explicitNullProperties?.Remove("issue"); } }
+        private long? _explicitNullValueIssue = default!;
         /// <summary>Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
-        public bool? MaintainerCanModify { get; set; }
+        public bool? MaintainerCanModify { get => _explicitNullValueMaintainerCanModify; set { _explicitNullValueMaintainerCanModify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintainer_can_modify"); else _explicitNullProperties?.Remove("maintainer_can_modify"); } }
+        private bool? _explicitNullValueMaintainerCanModify = default!;
         /// <summary>The title of the new pull request. Required unless `issue` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest"/> and sets the default values.
@@ -75,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,6 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("issue", Issue);
             writer.WriteBoolValue("maintainer_can_modify", MaintainerCanModify);
             writer.WriteStringValue("title", Title);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

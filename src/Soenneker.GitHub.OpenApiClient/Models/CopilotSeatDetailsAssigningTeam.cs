@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSeatDetailsAssigningTeam : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam();
             if("EnterpriseTeam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnterpriseTeam = new global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam();
+                
             }
             else if("Team".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Team = new global::Soenneker.GitHub.OpenApiClient.Models.Team();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("members_url") != null && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("description") != null && parseNode.GetChildNode("permission") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("repositories_url") != null && parseNode.GetChildNode("slug") != null && parseNode.GetChildNode("parent") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag12 && ("enterprise".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "organization".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("access_source") == null || (parseNode.GetChildNode("access_source")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag13 && ("direct".Equals(optionalTag13.GetValue(), global::System.StringComparison.Ordinal) || "organization".Equals(optionalTag13.GetValue(), global::System.StringComparison.Ordinal) || "enterprise".Equals(optionalTag13.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("members_url") != null && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("slug") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("updated_at") != null && parseNode.GetChildNode("group_id") != null && (parseNode.GetChildNode("notification_setting") == null || (parseNode.GetChildNode("notification_setting")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag9 && ("notifications_enabled".Equals(optionalTag9.GetValue(), global::System.StringComparison.Ordinal) || "notifications_disabled".Equals(optionalTag9.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.EnterpriseTeam == null && result.Team == null && matchesUnionBranch0 && !matchesUnionBranch1) result.Team = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.Team(), parseNode);
+            if (result.EnterpriseTeam == null && result.Team == null && matchesUnionBranch1 && !matchesUnionBranch0) result.EnterpriseTeam = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam(), parseNode);
+            if (result.EnterpriseTeam == null && result.Team == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EnterpriseTeam == null && Team == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EnterpriseTeam != null && Team == null) { if (EnterpriseTeam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EnterpriseTeam); return; }
+            if (Team != null && EnterpriseTeam == null) { if (Team is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Team); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EnterpriseTeam != null)
             {
+                if (EnterpriseTeam is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam>(null, EnterpriseTeam);
             }
             else if(Team != null)
             {
+                if (Team is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>(null, Team);
             }
         }

@@ -53,6 +53,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -73,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckImmutableReleases>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckImmutableReleases.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckImmutableReleases>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckImmutableReleases.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Enables immutable releases for a repository. The authenticated user must have admin access to the repository.
@@ -95,6 +97,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

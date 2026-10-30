@@ -11,25 +11,45 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentAutomationsListAutomations200ResponseItemTriggersInterval : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_copilot_triggers") is { } nullNodeAllowCopilotTriggers && nullNodeAllowCopilotTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCopilotTriggers = null;
+            if (parseNode.GetChildNode("cadence") is { } nullNodeCadence && nullNodeCadence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cadence = null;
+            if (parseNode.GetChildNode("day_of_week") is { } nullNodeDayOfWeek && nullNodeDayOfWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DayOfWeek = null;
+            if (parseNode.GetChildNode("hour_utc") is { } nullNodeHourUtc && nullNodeHourUtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HourUtc = null;
+            if (parseNode.GetChildNode("minute_utc") is { } nullNodeMinuteUtc && nullNodeMinuteUtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinuteUtc = null;
+            if (parseNode.GetChildNode("write_scope") is { } nullNodeWriteScope && nullNodeWriteScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WriteScope = null;
+        }
+
         /// <summary>When true, events Copilot creates, including from other automations and Copilot sessions, can start this automation through this trigger. Defaults to false. The Copilot coding agent app cannot turn it on: creating a trigger with true, or changing it from false to true, returns 422.</summary>
-        public bool? AllowCopilotTriggers { get; set; }
+        public bool? AllowCopilotTriggers { get => _explicitNullValueAllowCopilotTriggers; set { _explicitNullValueAllowCopilotTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_copilot_triggers"); else _explicitNullProperties?.Remove("allow_copilot_triggers"); } }
+        private bool? _explicitNullValueAllowCopilotTriggers = default!;
         /// <summary>One or more schedules on which the Automation runs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?>? Cadence { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?>? Cadence { get => _explicitNullValueCadence; set { _explicitNullValueCadence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cadence"); else _explicitNullProperties?.Remove("cadence"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?>? _explicitNullValueCadence = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?> Cadence { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?> Cadence { get => _explicitNullValueCadence; set { _explicitNullValueCadence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cadence"); else _explicitNullProperties?.Remove("cadence"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalCadenceItem?> _explicitNullValueCadence = default!;
 #endif
         /// <summary>UTC weekday anchor for weekly schedules, where `0` is Sunday and `6` is Saturday. Omitted weekly values default to Monday (`1`).</summary>
-        public int? DayOfWeek { get; set; }
+        public int? DayOfWeek { get => _explicitNullValueDayOfWeek; set { _explicitNullValueDayOfWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day_of_week"); else _explicitNullProperties?.Remove("day_of_week"); } }
+        private int? _explicitNullValueDayOfWeek = default!;
         /// <summary>UTC hour anchor (0 through 23) for daily and weekly schedules. Omitted daily and weekly values default to `0` (midnight UTC).</summary>
-        public int? HourUtc { get; set; }
+        public int? HourUtc { get => _explicitNullValueHourUtc; set { _explicitNullValueHourUtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hour_utc"); else _explicitNullProperties?.Remove("hour_utc"); } }
+        private int? _explicitNullValueHourUtc = default!;
         /// <summary>UTC minute anchor for daily and weekly schedules. Omitted daily and weekly values default to `0`. Must be omitted whenever `cadence` includes `hourly`.</summary>
-        public int? MinuteUtc { get; set; }
+        public int? MinuteUtc { get => _explicitNullValueMinuteUtc; set { _explicitNullValueMinuteUtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minute_utc"); else _explicitNullProperties?.Remove("minute_utc"); } }
+        private int? _explicitNullValueMinuteUtc = default!;
         /// <summary>Has no effect: scheduled runs can change any resource in the repository, and an organization or repository policy requiring trigger-scoped writes does not apply to them.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalWriteScope? WriteScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalWriteScope? WriteScope { get => _explicitNullValueWriteScope; set { _explicitNullValueWriteScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write_scope"); else _explicitNullProperties?.Remove("write_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalWriteScope? _explicitNullValueWriteScope = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval"/> and sets the default values.
         /// </summary>
@@ -45,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +95,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("day_of_week", DayOfWeek);
             writer.WriteIntValue("hour_utc", HourUtc);
             writer.WriteIntValue("minute_utc", MinuteUtc);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalWriteScope>("write_scope", WriteScope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIntervalWriteScope>("write_scope", WriteScope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

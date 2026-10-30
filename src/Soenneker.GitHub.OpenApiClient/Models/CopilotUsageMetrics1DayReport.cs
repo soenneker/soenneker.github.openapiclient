@@ -13,19 +13,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotUsageMetrics1DayReport : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("download_links") is { } nullNodeDownloadLinks && nullNodeDownloadLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadLinks = null;
+            if (parseNode.GetChildNode("report_day") is { } nullNodeReportDay && nullNodeReportDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportDay = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DownloadLinks { get; set; }
+        public List<string>? DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        private List<string>? _explicitNullValueDownloadLinks = default!;
 #nullable restore
 #else
-        public List<string> DownloadLinks { get; set; }
+        public List<string> DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        private List<string> _explicitNullValueDownloadLinks = default!;
 #endif
         /// <summary>The day of the report in `YYYY-MM-DD` format.</summary>
-        public Date? ReportDay { get; set; }
+        public Date? ReportDay { get => _explicitNullValueReportDay; set { _explicitNullValueReportDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_day"); else _explicitNullProperties?.Remove("report_day"); } }
+        private Date? _explicitNullValueReportDay = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport"/> and sets the default values.
         /// </summary>
@@ -41,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics1DayReport(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("download_links", DownloadLinks);
             writer.WriteDateValue("report_day", ReportDay);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

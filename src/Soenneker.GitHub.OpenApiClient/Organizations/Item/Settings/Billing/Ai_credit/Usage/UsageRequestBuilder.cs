@@ -62,6 +62,8 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Ai_
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.BillingAiCreditUsageReportOrg>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.BillingAiCreditUsageReportOrg.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -62,6 +62,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskByRepoAndId403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskByRepoAndId404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskByRepoAndId422Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskByRepoAndId200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskByRepoAndId200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

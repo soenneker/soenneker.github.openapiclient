@@ -11,37 +11,57 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgsSetClusterDeploymentRecordsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deployments") is { } nullNodeDeployments && nullNodeDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployments = null;
+            if (parseNode.GetChildNode("logical_environment") is { } nullNodeLogicalEnvironment && nullNodeLogicalEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalEnvironment = null;
+            if (parseNode.GetChildNode("partial_success") is { } nullNodePartialSuccess && nullNodePartialSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialSuccess = null;
+            if (parseNode.GetChildNode("physical_environment") is { } nullNodePhysicalEnvironment && nullNodePhysicalEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhysicalEnvironment = null;
+            if (parseNode.GetChildNode("return_records") is { } nullNodeReturnRecords && nullNodeReturnRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReturnRecords = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of deployments to record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem>? Deployments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem>? Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem>? _explicitNullValueDeployments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem> Deployments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem> Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequestDeploymentsItem> _explicitNullValueDeployments = default!;
 #endif
         /// <summary>The stage of the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogicalEnvironment { get; set; }
+        public string? LogicalEnvironment { get => _explicitNullValueLogicalEnvironment; set { _explicitNullValueLogicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_environment"); else _explicitNullProperties?.Remove("logical_environment"); } }
+        private string? _explicitNullValueLogicalEnvironment = default!;
 #nullable restore
 #else
-        public string LogicalEnvironment { get; set; }
+        public string LogicalEnvironment { get => _explicitNullValueLogicalEnvironment; set { _explicitNullValueLogicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_environment"); else _explicitNullProperties?.Remove("logical_environment"); } }
+        private string _explicitNullValueLogicalEnvironment = default!;
 #endif
         /// <summary>When enabled, deployments associated with repositories the actor can write to are processedwhile deployments associated with repositories that cannot be resolved or written to by the actorare skipped and reported in the `errors` array. When false (the default), the endpoint returnsan error if any targeted repository cannot be resolved, the actor lacks write access, or no matching attestation can be found.</summary>
-        public bool? PartialSuccess { get; set; }
+        public bool? PartialSuccess { get => _explicitNullValuePartialSuccess; set { _explicitNullValuePartialSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partial_success"); else _explicitNullProperties?.Remove("partial_success"); } }
+        private bool? _explicitNullValuePartialSuccess = default!;
         /// <summary>The physical region of the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhysicalEnvironment { get; set; }
+        public string? PhysicalEnvironment { get => _explicitNullValuePhysicalEnvironment; set { _explicitNullValuePhysicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("physical_environment"); else _explicitNullProperties?.Remove("physical_environment"); } }
+        private string? _explicitNullValuePhysicalEnvironment = default!;
 #nullable restore
 #else
-        public string PhysicalEnvironment { get; set; }
+        public string PhysicalEnvironment { get => _explicitNullValuePhysicalEnvironment; set { _explicitNullValuePhysicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("physical_environment"); else _explicitNullProperties?.Remove("physical_environment"); } }
+        private string _explicitNullValuePhysicalEnvironment = default!;
 #endif
         /// <summary>If true, the endpoint will return the set records in the response body</summary>
-        public bool? ReturnRecords { get; set; }
+        public bool? ReturnRecords { get => _explicitNullValueReturnRecords; set { _explicitNullValueReturnRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return_records"); else _explicitNullProperties?.Remove("return_records"); } }
+        private bool? _explicitNullValueReturnRecords = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest"/> and sets the default values.
         /// </summary>
@@ -59,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("partial_success", PartialSuccess);
             writer.WriteStringValue("physical_environment", PhysicalEnvironment);
             writer.WriteBoolValue("return_records", ReturnRecords);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,43 +12,69 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserMarketplacePurchase : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account") is { } nullNodeAccount && nullNodeAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Account = null;
+            if (parseNode.GetChildNode("billing_cycle") is { } nullNodeBillingCycle && nullNodeBillingCycle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingCycle = null;
+            if (parseNode.GetChildNode("free_trial_ends_on") is { } nullNodeFreeTrialEndsOn && nullNodeFreeTrialEndsOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FreeTrialEndsOn = null;
+            if (parseNode.GetChildNode("next_billing_date") is { } nullNodeNextBillingDate && nullNodeNextBillingDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextBillingDate = null;
+            if (parseNode.GetChildNode("on_free_trial") is { } nullNodeOnFreeTrial && nullNodeOnFreeTrial.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFreeTrial = null;
+            if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
+            if (parseNode.GetChildNode("unit_count") is { } nullNodeUnitCount && nullNodeUnitCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnitCount = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>The account property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount? Account { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount? _explicitNullValueAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount Account { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceAccount _explicitNullValueAccount = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The billing_cycle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingCycle { get; set; }
+        public string? BillingCycle { get => _explicitNullValueBillingCycle; set { _explicitNullValueBillingCycle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_cycle"); else _explicitNullProperties?.Remove("billing_cycle"); } }
+        private string? _explicitNullValueBillingCycle = default!;
 #nullable restore
 #else
-        public string BillingCycle { get; set; }
+        public string BillingCycle { get => _explicitNullValueBillingCycle; set { _explicitNullValueBillingCycle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_cycle"); else _explicitNullProperties?.Remove("billing_cycle"); } }
+        private string _explicitNullValueBillingCycle = default!;
 #endif
         /// <summary>The free_trial_ends_on property</summary>
-        public DateTimeOffset? FreeTrialEndsOn { get; set; }
+        public DateTimeOffset? FreeTrialEndsOn { get => _explicitNullValueFreeTrialEndsOn; set { _explicitNullValueFreeTrialEndsOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("free_trial_ends_on"); else _explicitNullProperties?.Remove("free_trial_ends_on"); } }
+        private DateTimeOffset? _explicitNullValueFreeTrialEndsOn = default!;
         /// <summary>The next_billing_date property</summary>
-        public DateTimeOffset? NextBillingDate { get; set; }
+        public DateTimeOffset? NextBillingDate { get => _explicitNullValueNextBillingDate; set { _explicitNullValueNextBillingDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_billing_date"); else _explicitNullProperties?.Remove("next_billing_date"); } }
+        private DateTimeOffset? _explicitNullValueNextBillingDate = default!;
         /// <summary>The on_free_trial property</summary>
-        public bool? OnFreeTrial { get; set; }
+        public bool? OnFreeTrial { get => _explicitNullValueOnFreeTrial; set { _explicitNullValueOnFreeTrial = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_free_trial"); else _explicitNullProperties?.Remove("on_free_trial"); } }
+        private bool? _explicitNullValueOnFreeTrial = default!;
         /// <summary>Marketplace Listing Plan</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? _explicitNullValuePlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan _explicitNullValuePlan = default!;
 #endif
         /// <summary>The unit_count property</summary>
-        public int? UnitCount { get; set; }
+        public int? UnitCount { get => _explicitNullValueUnitCount; set { _explicitNullValueUnitCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unit_count"); else _explicitNullProperties?.Remove("unit_count"); } }
+        private int? _explicitNullValueUnitCount = default!;
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UserMarketplacePurchase"/> and sets the default values.
         /// </summary>
@@ -64,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.UserMarketplacePurchase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.UserMarketplacePurchase();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.UserMarketplacePurchase(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan>("plan", Plan);
             writer.WriteIntValue("unit_count", UnitCount);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,13 +11,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CampaignSummaryAlertStats : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("closed_count") is { } nullNodeClosedCount && nullNodeClosedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosedCount = null;
+            if (parseNode.GetChildNode("in_progress_count") is { } nullNodeInProgressCount && nullNodeInProgressCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgressCount = null;
+            if (parseNode.GetChildNode("open_count") is { } nullNodeOpenCount && nullNodeOpenCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCount = null;
+        }
+
         /// <summary>The number of closed alerts</summary>
-        public int? ClosedCount { get; set; }
+        public int? ClosedCount { get => _explicitNullValueClosedCount; set { _explicitNullValueClosedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closed_count"); else _explicitNullProperties?.Remove("closed_count"); } }
+        private int? _explicitNullValueClosedCount = default!;
         /// <summary>The number of in-progress alerts</summary>
-        public int? InProgressCount { get; set; }
+        public int? InProgressCount { get => _explicitNullValueInProgressCount; set { _explicitNullValueInProgressCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress_count"); else _explicitNullProperties?.Remove("in_progress_count"); } }
+        private int? _explicitNullValueInProgressCount = default!;
         /// <summary>The number of open alerts</summary>
-        public int? OpenCount { get; set; }
+        public int? OpenCount { get => _explicitNullValueOpenCount; set { _explicitNullValueOpenCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_count"); else _explicitNullProperties?.Remove("open_count"); } }
+        private int? _explicitNullValueOpenCount = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -26,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +63,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("closed_count", ClosedCount);
             writer.WriteIntValue("in_progress_count", InProgressCount);
-            writer.WriteIntValue("open_count", OpenCount);
+            writer.WriteIntValue("open_count", OpenCount);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

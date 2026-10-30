@@ -11,52 +11,78 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodespacesCreateForAuthenticatedUserRequestOneOf2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("devcontainer_path") is { } nullNodeDevcontainerPath && nullNodeDevcontainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevcontainerPath = null;
+            if (parseNode.GetChildNode("geo") is { } nullNodeGeo && nullNodeGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geo = null;
+            if (parseNode.GetChildNode("idle_timeout_minutes") is { } nullNodeIdleTimeoutMinutes && nullNodeIdleTimeoutMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutMinutes = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("machine") is { } nullNodeMachine && nullNodeMachine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Machine = null;
+            if (parseNode.GetChildNode("pull_request") is { } nullNodePullRequest && nullNodePullRequest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequest = null;
+            if (parseNode.GetChildNode("working_directory") is { } nullNodeWorkingDirectory && nullNodeWorkingDirectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDirectory = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Path to devcontainer.json config to use for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevcontainerPath { get; set; }
+        public string? DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        private string? _explicitNullValueDevcontainerPath = default!;
 #nullable restore
 #else
-        public string DevcontainerPath { get; set; }
+        public string DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        private string _explicitNullValueDevcontainerPath = default!;
 #endif
         /// <summary>The geographic area for this codespace. If not specified, the value is assigned by IP. This property replaces `location`, which is closing down.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2Geo? Geo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2Geo? Geo { get => _explicitNullValueGeo; set { _explicitNullValueGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geo"); else _explicitNullProperties?.Remove("geo"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2Geo? _explicitNullValueGeo = default!;
         /// <summary>Time in minutes before codespace stops from inactivity</summary>
-        public int? IdleTimeoutMinutes { get; set; }
+        public int? IdleTimeoutMinutes { get => _explicitNullValueIdleTimeoutMinutes; set { _explicitNullValueIdleTimeoutMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_minutes"); else _explicitNullProperties?.Remove("idle_timeout_minutes"); } }
+        private int? _explicitNullValueIdleTimeoutMinutes = default!;
         /// <summary>The requested location for a new codespace. Best efforts are made to respect this upon creation. Assigned by IP if not provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get; set; }
+        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public string Location { get; set; }
+        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string _explicitNullValueLocation = default!;
 #endif
         /// <summary>Machine type to use for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Machine { get; set; }
+        public string? Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        private string? _explicitNullValueMachine = default!;
 #nullable restore
 #else
-        public string Machine { get; set; }
+        public string Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        private string _explicitNullValueMachine = default!;
 #endif
         /// <summary>Pull request number for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest? PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest? PullRequest { get => _explicitNullValuePullRequest; set { _explicitNullValuePullRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request"); else _explicitNullProperties?.Remove("pull_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest? _explicitNullValuePullRequest = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest PullRequest { get => _explicitNullValuePullRequest; set { _explicitNullValuePullRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request"); else _explicitNullProperties?.Remove("pull_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest _explicitNullValuePullRequest = default!;
 #endif
         /// <summary>Working directory for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkingDirectory { get; set; }
+        public string? WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
+        private string? _explicitNullValueWorkingDirectory = default!;
 #nullable restore
 #else
-        public string WorkingDirectory { get; set; }
+        public string WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
+        private string _explicitNullValueWorkingDirectory = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2"/> and sets the default values.
@@ -73,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,6 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("machine", Machine);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2PullRequest>("pull_request", PullRequest);
             writer.WriteStringValue("working_directory", WorkingDirectory);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

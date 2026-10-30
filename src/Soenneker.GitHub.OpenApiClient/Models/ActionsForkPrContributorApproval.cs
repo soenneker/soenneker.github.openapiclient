@@ -11,11 +11,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsForkPrContributorApproval : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("approval_policy") is { } nullNodeApprovalPolicy && nullNodeApprovalPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalPolicy = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls when fork PR workflows require approval from a maintainer.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? ApprovalPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? ApprovalPolicy { get => _explicitNullValueApprovalPolicy; set { _explicitNullValueApprovalPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval_policy"); else _explicitNullProperties?.Remove("approval_policy"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? _explicitNullValueApprovalPolicy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval"/> and sets the default values.
         /// </summary>
@@ -31,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,6 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy>("approval_policy", ApprovalPolicy);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

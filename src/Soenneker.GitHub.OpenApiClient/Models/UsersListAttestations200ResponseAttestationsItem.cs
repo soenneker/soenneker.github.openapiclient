@@ -11,35 +11,53 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UsersListAttestations200ResponseAttestationsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
+            if (parseNode.GetChildNode("bundle_url") is { } nullNodeBundleUrl && nullNodeBundleUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleUrl = null;
+            if (parseNode.GetChildNode("initiator") is { } nullNodeInitiator && nullNodeInitiator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Initiator = null;
+            if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attestation&apos;s Sigstore Bundle.Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle? Bundle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle? _explicitNullValueBundle = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle Bundle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItemBundle _explicitNullValueBundle = default!;
 #endif
         /// <summary>The bundle_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BundleUrl { get; set; }
+        public string? BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
+        private string? _explicitNullValueBundleUrl = default!;
 #nullable restore
 #else
-        public string BundleUrl { get; set; }
+        public string BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
+        private string _explicitNullValueBundleUrl = default!;
 #endif
         /// <summary>The initiator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Initiator { get; set; }
+        public string? Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
+        private string? _explicitNullValueInitiator = default!;
 #nullable restore
 #else
-        public string Initiator { get; set; }
+        public string Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
+        private string _explicitNullValueInitiator = default!;
 #endif
         /// <summary>The repository_id property</summary>
-        public long? RepositoryId { get; set; }
+        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        private long? _explicitNullValueRepositoryId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItem"/> and sets the default values.
         /// </summary>
@@ -55,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.UsersListAttestations200ResponseAttestationsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("bundle_url", BundleUrl);
             writer.WriteStringValue("initiator", Initiator);
             writer.WriteLongValue("repository_id", RepositoryId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

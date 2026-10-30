@@ -12,80 +12,119 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrganizationProgrammaticAccessGrantRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("repositories_url") is { } nullNodeRepositoriesUrl && nullNodeRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoriesUrl = null;
+            if (parseNode.GetChildNode("repository_selection") is { } nullNodeRepositorySelection && nullNodeRepositorySelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositorySelection = null;
+            if (parseNode.GetChildNode("token_expired") is { } nullNodeTokenExpired && nullNodeTokenExpired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenExpired = null;
+            if (parseNode.GetChildNode("token_expires_at") is { } nullNodeTokenExpiresAt && nullNodeTokenExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenExpiresAt = null;
+            if (parseNode.GetChildNode("token_id") is { } nullNodeTokenId && nullNodeTokenId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenId = null;
+            if (parseNode.GetChildNode("token_last_used_at") is { } nullNodeTokenLastUsedAt && nullNodeTokenLastUsedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenLastUsedAt = null;
+            if (parseNode.GetChildNode("token_name") is { } nullNodeTokenName && nullNodeTokenName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Date and time when the request for access was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Unique identifier of the request for access via fine-grained personal access token. The `pat_request_id` used to review PAT requests.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueOwner = default!;
 #endif
         /// <summary>Permissions requested, categorized by type of permission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions _explicitNullValuePermissions = default!;
 #endif
         /// <summary>Reason for requesting access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
         /// <summary>URL to the list of repositories requested to be accessed via fine-grained personal access token. Should only be followed when `repository_selection` is `subset`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositoriesUrl { get; set; }
+        public string? RepositoriesUrl { get => _explicitNullValueRepositoriesUrl; set { _explicitNullValueRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories_url"); else _explicitNullProperties?.Remove("repositories_url"); } }
+        private string? _explicitNullValueRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string RepositoriesUrl { get; set; }
+        public string RepositoriesUrl { get => _explicitNullValueRepositoriesUrl; set { _explicitNullValueRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories_url"); else _explicitNullProperties?.Remove("repositories_url"); } }
+        private string _explicitNullValueRepositoriesUrl = default!;
 #endif
         /// <summary>Type of repository selection requested.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection? RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection? _explicitNullValueRepositorySelection = default!;
         /// <summary>Whether the associated fine-grained personal access token has expired.</summary>
-        public bool? TokenExpired { get; set; }
+        public bool? TokenExpired { get => _explicitNullValueTokenExpired; set { _explicitNullValueTokenExpired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_expired"); else _explicitNullProperties?.Remove("token_expired"); } }
+        private bool? _explicitNullValueTokenExpired = default!;
         /// <summary>Date and time when the associated fine-grained personal access token expires.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenExpiresAt { get; set; }
+        public string? TokenExpiresAt { get => _explicitNullValueTokenExpiresAt; set { _explicitNullValueTokenExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_expires_at"); else _explicitNullProperties?.Remove("token_expires_at"); } }
+        private string? _explicitNullValueTokenExpiresAt = default!;
 #nullable restore
 #else
-        public string TokenExpiresAt { get; set; }
+        public string TokenExpiresAt { get => _explicitNullValueTokenExpiresAt; set { _explicitNullValueTokenExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_expires_at"); else _explicitNullProperties?.Remove("token_expires_at"); } }
+        private string _explicitNullValueTokenExpiresAt = default!;
 #endif
         /// <summary>Unique identifier of the user&apos;s token. This field can also be found in audit log events and the organization&apos;s settings for their PAT grants.</summary>
-        public long? TokenId { get; set; }
+        public long? TokenId { get => _explicitNullValueTokenId; set { _explicitNullValueTokenId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_id"); else _explicitNullProperties?.Remove("token_id"); } }
+        private long? _explicitNullValueTokenId = default!;
         /// <summary>Date and time when the associated fine-grained personal access token was last used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenLastUsedAt { get; set; }
+        public string? TokenLastUsedAt { get => _explicitNullValueTokenLastUsedAt; set { _explicitNullValueTokenLastUsedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_last_used_at"); else _explicitNullProperties?.Remove("token_last_used_at"); } }
+        private string? _explicitNullValueTokenLastUsedAt = default!;
 #nullable restore
 #else
-        public string TokenLastUsedAt { get; set; }
+        public string TokenLastUsedAt { get => _explicitNullValueTokenLastUsedAt; set { _explicitNullValueTokenLastUsedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_last_used_at"); else _explicitNullProperties?.Remove("token_last_used_at"); } }
+        private string _explicitNullValueTokenLastUsedAt = default!;
 #endif
         /// <summary>The name given to the user&apos;s token. This field can also be found in an organization&apos;s settings page for Active Tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenName { get; set; }
+        public string? TokenName { get => _explicitNullValueTokenName; set { _explicitNullValueTokenName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_name"); else _explicitNullProperties?.Remove("token_name"); } }
+        private string? _explicitNullValueTokenName = default!;
 #nullable restore
 #else
-        public string TokenName { get; set; }
+        public string TokenName { get => _explicitNullValueTokenName; set { _explicitNullValueTokenName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_name"); else _explicitNullProperties?.Remove("token_name"); } }
+        private string _explicitNullValueTokenName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest"/> and sets the default values.
@@ -102,7 +141,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -145,6 +184,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("token_id", TokenId);
             writer.WriteStringValue("token_last_used_at", TokenLastUsedAt);
             writer.WriteStringValue("token_name", TokenName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

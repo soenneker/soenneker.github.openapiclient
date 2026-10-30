@@ -12,21 +12,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectsV2FieldConfiguration : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("duration") is { } nullNodeDuration && nullNodeDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Duration = null;
+            if (parseNode.GetChildNode("iterations") is { } nullNodeIterations && nullNodeIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Iterations = null;
+            if (parseNode.GetChildNode("start_day") is { } nullNodeStartDay && nullNodeStartDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDay = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration of the iteration in days.</summary>
-        public int? Duration { get; set; }
+        public int? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
+        private int? _explicitNullValueDuration = default!;
         /// <summary>The iterations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings>? Iterations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings>? Iterations { get => _explicitNullValueIterations; set { _explicitNullValueIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterations"); else _explicitNullProperties?.Remove("iterations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings>? _explicitNullValueIterations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings> Iterations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings> Iterations { get => _explicitNullValueIterations; set { _explicitNullValueIterations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterations"); else _explicitNullProperties?.Remove("iterations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings> _explicitNullValueIterations = default!;
 #endif
         /// <summary>The day of the week when the iteration starts.</summary>
-        public int? StartDay { get; set; }
+        public int? StartDay { get => _explicitNullValueStartDay; set { _explicitNullValueStartDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_day"); else _explicitNullProperties?.Remove("start_day"); } }
+        private int? _explicitNullValueStartDay = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("duration", Duration);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings>("iterations", Iterations);
             writer.WriteIntValue("start_day", StartDay);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,55 +11,83 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsCreateSelfHostedRunnerGroupForOrgRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allows_public_repositories") is { } nullNodeAllowsPublicRepositories && nullNodeAllowsPublicRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowsPublicRepositories = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_configuration_id") is { } nullNodeNetworkConfigurationId && nullNodeNetworkConfigurationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkConfigurationId = null;
+            if (parseNode.GetChildNode("restricted_to_workflows") is { } nullNodeRestrictedToWorkflows && nullNodeRestrictedToWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedToWorkflows = null;
+            if (parseNode.GetChildNode("runners") is { } nullNodeRunners && nullNodeRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runners = null;
+            if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
+            if (parseNode.GetChildNode("selected_workflows") is { } nullNodeSelectedWorkflows && nullNodeSelectedWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedWorkflows = null;
+            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the runner group can be used by `public` repositories.</summary>
-        public bool? AllowsPublicRepositories { get; set; }
+        public bool? AllowsPublicRepositories { get => _explicitNullValueAllowsPublicRepositories; set { _explicitNullValueAllowsPublicRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allows_public_repositories"); else _explicitNullProperties?.Remove("allows_public_repositories"); } }
+        private bool? _explicitNullValueAllowsPublicRepositories = default!;
         /// <summary>Name of the runner group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The identifier of a hosted compute network configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NetworkConfigurationId { get; set; }
+        public string? NetworkConfigurationId { get => _explicitNullValueNetworkConfigurationId; set { _explicitNullValueNetworkConfigurationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_configuration_id"); else _explicitNullProperties?.Remove("network_configuration_id"); } }
+        private string? _explicitNullValueNetworkConfigurationId = default!;
 #nullable restore
 #else
-        public string NetworkConfigurationId { get; set; }
+        public string NetworkConfigurationId { get => _explicitNullValueNetworkConfigurationId; set { _explicitNullValueNetworkConfigurationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_configuration_id"); else _explicitNullProperties?.Remove("network_configuration_id"); } }
+        private string _explicitNullValueNetworkConfigurationId = default!;
 #endif
         /// <summary>If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array.</summary>
-        public bool? RestrictedToWorkflows { get; set; }
+        public bool? RestrictedToWorkflows { get => _explicitNullValueRestrictedToWorkflows; set { _explicitNullValueRestrictedToWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_to_workflows"); else _explicitNullProperties?.Remove("restricted_to_workflows"); } }
+        private bool? _explicitNullValueRestrictedToWorkflows = default!;
         /// <summary>List of runner IDs to add to the runner group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? Runners { get; set; }
+        public List<int?>? Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
+        private List<int?>? _explicitNullValueRunners = default!;
 #nullable restore
 #else
-        public List<int?> Runners { get; set; }
+        public List<int?> Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
+        private List<int?> _explicitNullValueRunners = default!;
 #endif
         /// <summary>List of repository IDs that can access the runner group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? SelectedRepositoryIds { get; set; }
+        public List<int?>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        private List<int?>? _explicitNullValueSelectedRepositoryIds = default!;
 #nullable restore
 #else
-        public List<int?> SelectedRepositoryIds { get; set; }
+        public List<int?> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        private List<int?> _explicitNullValueSelectedRepositoryIds = default!;
 #endif
         /// <summary>List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedWorkflows { get; set; }
+        public List<string>? SelectedWorkflows { get => _explicitNullValueSelectedWorkflows; set { _explicitNullValueSelectedWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_workflows"); else _explicitNullProperties?.Remove("selected_workflows"); } }
+        private List<string>? _explicitNullValueSelectedWorkflows = default!;
 #nullable restore
 #else
-        public List<string> SelectedWorkflows { get; set; }
+        public List<string> SelectedWorkflows { get => _explicitNullValueSelectedWorkflows; set { _explicitNullValueSelectedWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_workflows"); else _explicitNullProperties?.Remove("selected_workflows"); } }
+        private List<string> _explicitNullValueSelectedWorkflows = default!;
 #endif
         /// <summary>Visibility of a runner group. You can select all repositories, select individual repositories, or limit access to private repositories.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequestVisibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequest"/> and sets the default values.
         /// </summary>
@@ -77,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
             writer.WriteCollectionOfPrimitiveValues<string>("selected_workflows", SelectedWorkflows);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateSelfHostedRunnerGroupForOrgRequestVisibility>("visibility", Visibility);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

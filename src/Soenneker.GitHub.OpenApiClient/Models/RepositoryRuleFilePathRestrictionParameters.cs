@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleFilePathRestrictionParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
+            if (parseNode.GetChildNode("restricted_file_paths") is { } nullNodeRestrictedFilePaths && nullNodeRestrictedFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedFilePaths = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Files matching these patterns are allowed even when they also match a restricted path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IgnoredFilePaths { get; set; }
+        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        private List<string>? _explicitNullValueIgnoredFilePaths = default!;
 #nullable restore
 #else
-        public List<string> IgnoredFilePaths { get; set; }
+        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        private List<string> _explicitNullValueIgnoredFilePaths = default!;
 #endif
         /// <summary>The file paths that are restricted from being pushed to the commit graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictedFilePaths { get; set; }
+        public List<string>? RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
+        private List<string>? _explicitNullValueRestrictedFilePaths = default!;
 #nullable restore
 #else
-        public List<string> RestrictedFilePaths { get; set; }
+        public List<string> RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
+        private List<string> _explicitNullValueRestrictedFilePaths = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestrictionParameters"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestrictionParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestrictionParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestrictionParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("ignored_file_paths", IgnoredFilePaths);
             writer.WriteCollectionOfPrimitiveValues<string>("restricted_file_paths", RestrictedFilePaths);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

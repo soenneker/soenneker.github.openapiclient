@@ -11,64 +11,92 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CommunityProfileFiles : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("code_of_conduct") is { } nullNodeCodeOfConduct && nullNodeCodeOfConduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeOfConduct = null;
+            if (parseNode.GetChildNode("code_of_conduct_file") is { } nullNodeCodeOfConductFile && nullNodeCodeOfConductFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeOfConductFile = null;
+            if (parseNode.GetChildNode("contributing") is { } nullNodeContributing && nullNodeContributing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contributing = null;
+            if (parseNode.GetChildNode("issue_template") is { } nullNodeIssueTemplate && nullNodeIssueTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueTemplate = null;
+            if (parseNode.GetChildNode("license") is { } nullNodeLicense && nullNodeLicense.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) License = null;
+            if (parseNode.GetChildNode("pull_request_template") is { } nullNodePullRequestTemplate && nullNodePullRequestTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestTemplate = null;
+            if (parseNode.GetChildNode("readme") is { } nullNodeReadme && nullNodeReadme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Readme = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Code of Conduct Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple? CodeOfConduct { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple? CodeOfConduct { get => _explicitNullValueCodeOfConduct; set { _explicitNullValueCodeOfConduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_of_conduct"); else _explicitNullProperties?.Remove("code_of_conduct"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple? _explicitNullValueCodeOfConduct = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple CodeOfConduct { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple CodeOfConduct { get => _explicitNullValueCodeOfConduct; set { _explicitNullValueCodeOfConduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_of_conduct"); else _explicitNullProperties?.Remove("code_of_conduct"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple _explicitNullValueCodeOfConduct = default!;
 #endif
         /// <summary>The code_of_conduct_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? CodeOfConductFile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? CodeOfConductFile { get => _explicitNullValueCodeOfConductFile; set { _explicitNullValueCodeOfConductFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_of_conduct_file"); else _explicitNullProperties?.Remove("code_of_conduct_file"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? _explicitNullValueCodeOfConductFile = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile CodeOfConductFile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile CodeOfConductFile { get => _explicitNullValueCodeOfConductFile; set { _explicitNullValueCodeOfConductFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_of_conduct_file"); else _explicitNullProperties?.Remove("code_of_conduct_file"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile _explicitNullValueCodeOfConductFile = default!;
 #endif
         /// <summary>The contributing property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Contributing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Contributing { get => _explicitNullValueContributing; set { _explicitNullValueContributing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contributing"); else _explicitNullProperties?.Remove("contributing"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? _explicitNullValueContributing = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Contributing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Contributing { get => _explicitNullValueContributing; set { _explicitNullValueContributing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contributing"); else _explicitNullProperties?.Remove("contributing"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile _explicitNullValueContributing = default!;
 #endif
         /// <summary>The issue_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? IssueTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? IssueTemplate { get => _explicitNullValueIssueTemplate; set { _explicitNullValueIssueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_template"); else _explicitNullProperties?.Remove("issue_template"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? _explicitNullValueIssueTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile IssueTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile IssueTemplate { get => _explicitNullValueIssueTemplate; set { _explicitNullValueIssueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_template"); else _explicitNullProperties?.Remove("issue_template"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile _explicitNullValueIssueTemplate = default!;
 #endif
         /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get => _explicitNullValueLicense; set { _explicitNullValueLicense = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license"); else _explicitNullProperties?.Remove("license"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? _explicitNullValueLicense = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get => _explicitNullValueLicense; set { _explicitNullValueLicense = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license"); else _explicitNullProperties?.Remove("license"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple _explicitNullValueLicense = default!;
 #endif
         /// <summary>The pull_request_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? PullRequestTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? PullRequestTemplate { get => _explicitNullValuePullRequestTemplate; set { _explicitNullValuePullRequestTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_template"); else _explicitNullProperties?.Remove("pull_request_template"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? _explicitNullValuePullRequestTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile PullRequestTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile PullRequestTemplate { get => _explicitNullValuePullRequestTemplate; set { _explicitNullValuePullRequestTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_template"); else _explicitNullProperties?.Remove("pull_request_template"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile _explicitNullValuePullRequestTemplate = default!;
 #endif
         /// <summary>The readme property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Readme { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Readme { get => _explicitNullValueReadme; set { _explicitNullValueReadme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readme"); else _explicitNullProperties?.Remove("readme"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? _explicitNullValueReadme = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Readme { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Readme { get => _explicitNullValueReadme; set { _explicitNullValueReadme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readme"); else _explicitNullProperties?.Remove("readme"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile _explicitNullValueReadme = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles"/> and sets the default values.
@@ -85,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,6 +146,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("pull_request_template", PullRequestTemplate);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("readme", Readme);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

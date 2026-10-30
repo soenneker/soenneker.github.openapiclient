@@ -1914,7 +1914,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200Response"
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollmentSuccessResponse"
                 },
                 "examples": {
                   "default": {
@@ -1929,6 +1929,9 @@
                       }
                     }
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200Response"
                 }
               }
             }
@@ -1946,7 +1949,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201Response"
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollmentSuccessResponse"
                 },
                 "examples": {
                   "default": {
@@ -1961,6 +1964,9 @@
                       }
                     }
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201Response"
                 }
               }
             }
@@ -17483,12 +17489,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords200Response"
+                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecordsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/artifact-deployment-record-list"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords200Response"
                 }
               }
             }
@@ -17498,7 +17507,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207Response"
+                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecordsSuccessResponse"
                 },
                 "examples": {
                   "partial_success": {
@@ -17544,6 +17553,9 @@
                       ]
                     }
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207Response"
                 }
               }
             }
@@ -49355,12 +49367,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmptyObject"
+                  "$ref": "#/components/schemas/CodeQualityUpdateSetupSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "value": null
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
                 }
               }
             }
@@ -49370,12 +49385,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeQualitySetupUpdateResponse"
+                  "$ref": "#/components/schemas/CodeQualityUpdateSetupSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/code-quality-setup-update-response"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CodeQualitySetupUpdateResponse"
                 }
               }
             }
@@ -50376,22 +50394,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeScanningAnalysis"
+                  "$ref": "#/components/schemas/CodeScanningGetAnalysisSuccessResponse"
                 },
                 "examples": {
                   "response": {
                     "$ref": "#/components/examples/code-scanning-analysis-default"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CodeScanningAnalysis"
                 }
               },
               "application/sarif\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeScanningGetAnalysis200SarifJsonResponseSchema"
+                  "$ref": "#/components/schemas/CodeScanningGetAnalysisSuccessResponse"
                 },
                 "examples": {
                   "response": {
                     "$ref": "#/components/examples/code-scanning-analysis-sarif"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CodeScanningGetAnalysis200SarifJsonResponseSchema"
                 }
               }
             }
@@ -51126,12 +51150,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmptyObject"
+                  "$ref": "#/components/schemas/CodeScanningUpdateDefaultSetupSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "value": null
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
                 }
               }
             }
@@ -51141,12 +51168,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeScanningDefaultSetupUpdateResponse"
+                  "$ref": "#/components/schemas/CodeScanningUpdateDefaultSetupSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/code-scanning-default-setup-update-response"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CodeScanningDefaultSetupUpdateResponse"
                 }
               }
             }
@@ -53761,42 +53791,58 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Commit"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/commit"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/Commit"
                 }
               },
               "application/vnd.github.diff": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubDiffResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/diff-media-type"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubDiffResponseSchema"
                 }
               },
               "application/vnd.github.patch": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubPatchResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/patch-media-type"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubPatchResponseSchema"
                 }
               },
               "application/vnd.github.sha": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubShaResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "value": "ac3282a2725be3b1d4979169a7a311c89066af1c"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubShaResponseSchema"
                 }
               }
             }
@@ -54287,32 +54333,44 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CommitComparison"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/commit-comparison"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CommitComparison"
                 }
               },
               "application/vnd.github.diff": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposCompareCommits200GithubDiffResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/diff-media-type"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposCompareCommits200GithubDiffResponseSchema"
                 }
               },
               "application/vnd.github.patch": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposCompareCommits200GithubPatchResponseSchema"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/patch-media-type"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposCompareCommits200GithubPatchResponseSchema"
                 }
               }
             }
@@ -54423,7 +54481,8 @@
             "content": {
               "application/vnd.github.object": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentTree"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "response-if-content-is-a-file-github-object": {
@@ -54432,11 +54491,15 @@
                   "response-if-content-is-a-directory-github-object": {
                     "$ref": "#/components/examples/content-file-response-if-content-is-a-directory-object"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ContentTree"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetContent200Response"
+                  "type": "string",
+                  "format": "binary"
                 },
                 "examples": {
                   "response-if-content-is-a-file": {
@@ -54451,6 +54514,9 @@
                   "response-if-content-is-a-submodule": {
                     "$ref": "#/components/examples/content-file-response-if-content-is-a-submodule"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetContent200Response"
                 }
               }
             }
@@ -54602,7 +54668,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposCreateOrUpdateFileContents409Response"
+                  "$ref": "#/components/schemas/ReposCreateOrUpdateFileContents409ResponseError"
                 }
               }
             }
@@ -56091,12 +56157,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Deployment"
+                  "$ref": "#/components/schemas/ReposCreateDeploymentSuccessResponse"
                 },
                 "examples": {
                   "simple-example": {
                     "$ref": "#/components/examples/deployment-simple-example"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/Deployment"
                 }
               }
             }
@@ -56106,7 +56175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposCreateDeployment202Response"
+                  "$ref": "#/components/schemas/ReposCreateDeploymentSuccessResponse"
                 },
                 "examples": {
                   "merged-branch-response": {
@@ -56114,6 +56183,9 @@
                       "message": "Auto-merged master into topic-branch on deployment."
                     }
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposCreateDeployment202Response"
                 }
               }
             }
@@ -58730,7 +58802,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GitCreateBlob422Response"
+                  "$ref": "#/components/schemas/GitCreateBlob422ResponseError"
                 }
               }
             }
@@ -69858,12 +69930,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagesHealthCheck"
+                  "$ref": "#/components/schemas/ReposGetPagesHealthCheckSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/pages-health-check"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/PagesHealthCheck"
                 }
               }
             }
@@ -69873,12 +69948,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmptyObject"
+                  "$ref": "#/components/schemas/ReposGetPagesHealthCheckSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "value": null
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
                 }
               }
             }
@@ -78916,18 +78994,36 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetCodeFrequencyStats200ResponseSchema"
+                  "$ref": "#/components/schemas/ReposGetCodeFrequencyStatsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/code-frequency-stat-items"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetCodeFrequencyStats200ResponseSchema"
                 }
               }
             }
           },
           "202": {
-            "$ref": "#/components/responses/accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposGetCodeFrequencyStatsSuccessResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                }
+              }
+            }
           },
           "204": {
             "$ref": "#/components/responses/no_content"
@@ -78982,18 +79078,36 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetCommitActivityStats200ResponseSchema"
+                  "$ref": "#/components/schemas/ReposGetCommitActivityStatsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/commit-activity-items"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetCommitActivityStats200ResponseSchema"
                 }
               }
             }
           },
           "202": {
-            "$ref": "#/components/responses/accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposGetCommitActivityStatsSuccessResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                }
+              }
+            }
           },
           "204": {
             "$ref": "#/components/responses/no_content"
@@ -79045,18 +79159,36 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetContributorsStats200ResponseSchema"
+                  "$ref": "#/components/schemas/ReposGetContributorsStatsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/contributor-activity-items"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ReposGetContributorsStats200ResponseSchema"
                 }
               }
             }
           },
           "202": {
-            "$ref": "#/components/responses/accepted"
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposGetContributorsStatsSuccessResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                }
+              }
+            }
           },
           "204": {
             "$ref": "#/components/responses/no_content"
@@ -82118,7 +82250,7 @@
           "users"
         ],
         "summary": "Get the authenticated user",
-        "description": "OAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope, or the broader \u0060user\u0060 scope, for this endpoint to return the private user response. The private user response includes additional fields such as \u0060private_gists\u0060, \u0060total_private_repos\u0060, \u0060owned_private_repos\u0060, \u0060disk_usage\u0060, \u0060collaborators\u0060, and \u0060two_factor_authentication\u0060. Tokens without these scopes receive the public user response.\n\nThe private and public user response types are unrelated to the [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles) setting. A token without scopes still authenticates as the token\u0027s owner, so values subject to private profile visibility, such as \u0060followers\u0060 and \u0060following\u0060, may differ from an unauthenticated response.",
+        "description": "OAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope, or the broader \u0060user\u0060 scope, for this endpoint to return the private user response. The private user response includes additional fields such as \u0060private_gists\u0060, \u0060total_private_repos\u0060, \u0060owned_private_repos\u0060, \u0060disk_usage\u0060, \u0060collaborators\u0060, and \u0060two_factor_authentication\u0060. Tokens without these scopes receive the public user response.\n\nThe private and public user response types are unrelated to the [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles) setting. A token without scopes still authenticates as the token\u0027s owner, so values subject to private profile visibility, such as \u0060followers\u0060 and \u0060following\u0060, may differ from an unauthenticated response.\n\nFor enterprise-managed users, if their email is unverified, this endpoint will return a placeholder email in the format \u0060email\u002Bshortcode@domain.com\u0060 instead of their actual email. This placeholder email [may cause issues with some third-party apps](https://github.blog/changelog/2024-08-01-enterprise-managed-user-accounts-now-require-email-verification/). Once the user has [verified their email address](https://docs.github.com/account-and-profile/how-tos/email-preferences/verifying-your-email-address), the endpoint will return their real email.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/users/users#get-the-authenticated-user"
@@ -83762,7 +83894,7 @@
           "users"
         ],
         "summary": "List email addresses for the authenticated user",
-        "description": "Lists all of your email addresses, and specifies which one is visible\nto the public.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user:email\u0060 scope to use this endpoint.",
+        "description": "Lists all of your email addresses, and specifies which one is visible\nto the public.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user:email\u0060 scope to use this endpoint.\n\nFor enterprise-managed users, if their email is unverified, this endpoint will return a placeholder email in the format \u0060email\u002Bshortcode@domain.com\u0060 instead of their actual email. This placeholder email [may cause issues with some third-party apps](https://github.blog/changelog/2024-08-01-enterprise-managed-user-accounts-now-require-email-verification/). Once the user has [verified their email address](https://docs.github.com/account-and-profile/how-tos/email-preferences/verifying-your-email-address), the endpoint will return their real email.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/users/emails#list-email-addresses-for-the-authenticated-user"
@@ -87399,22 +87531,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200ResponseSchema"
+                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUserSuccessResponse"
                 },
                 "examples": {
                   "default-response": {
                     "$ref": "#/components/examples/repository-items-default-response"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200ResponseSchema"
                 }
               },
               "application/vnd.github.v3.star\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200GithubV3StarJsonResponseSchema"
+                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUserSuccessResponse"
                 },
                 "examples": {
                   "alternative-response-with-star-creation-timestamps": {
                     "$ref": "#/components/examples/starred-repository-items-alternative-response-with-star-creation-timestamps"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200GithubV3StarJsonResponseSchema"
                 }
               }
             }
@@ -88467,12 +88605,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersListAttestations200Response"
+                  "$ref": "#/components/schemas/UsersListAttestationsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/list-attestations"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/UsersListAttestations200Response"
                 }
               }
             }
@@ -88482,12 +88623,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmptyObject"
+                  "$ref": "#/components/schemas/UsersListAttestationsSuccessResponse"
                 },
                 "examples": {
                   "default": {
                     "value": null
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
                 }
               }
             }
@@ -291686,66 +291830,15 @@
         }
       },
       "ChecksCreateRequest": {
-        "required": [
-          "name",
-          "head_sha",
-          "status"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ChecksCreateRequestOneOf1"
+            "$ref": "#/components/schemas/ChecksCreateRequestOneOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/ChecksCreateRequestOneOf2"
+            "$ref": "#/components/schemas/ChecksCreateRequestOneOf2Branch"
           }
         ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the check. For example, \u0022code-coverage\u0022."
-          },
-          "head_sha": {
-            "type": "string",
-            "description": "The SHA of the commit."
-          },
-          "details_url": {
-            "type": "string",
-            "description": "The URL of the integrator\u0027s site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used."
-          },
-          "external_id": {
-            "type": "string",
-            "description": "A reference for the run on the integrator\u0027s system."
-          },
-          "status": {
-            "$ref": "#/components/schemas/ChecksCreateRequestStatus"
-          },
-          "started_at": {
-            "type": "string",
-            "description": "The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
-            "format": "date-time"
-          },
-          "conclusion": {
-            "$ref": "#/components/schemas/ChecksCreateRequestConclusion"
-          },
-          "completed_at": {
-            "type": "string",
-            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
-            "format": "date-time"
-          },
-          "output": {
-            "$ref": "#/components/schemas/ChecksCreateRequestOutput"
-          },
-          "actions": {
-            "maxItems": 3,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChecksCreateRequestActionsItem"
-            },
-            "description": "Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [\u0060check_run.requested_action\u0060 webhook](https://docs.github.com/webhooks/event-payloads/#check_run) to your app. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "status"
         }
       },
@@ -406899,6 +406992,313 @@
             }
           ]
         }
+      },
+      "ChecksCreateRequestOneOf1Branch": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "completed"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Status",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "completed",
+                  "name": "Completed"
+                }
+              ]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the check. For example, \u0022code-coverage\u0022."
+          },
+          "head_sha": {
+            "type": "string",
+            "description": "The SHA of the commit."
+          },
+          "details_url": {
+            "type": "string",
+            "description": "The URL of the integrator\u0027s site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A reference for the run on the integrator\u0027s system."
+          },
+          "started_at": {
+            "type": "string",
+            "description": "The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "conclusion": {
+            "$ref": "#/components/schemas/ChecksCreateRequestConclusion"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ChecksCreateRequestOutput"
+          },
+          "actions": {
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChecksCreateRequestActionsItem"
+            },
+            "description": "Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [\u0060check_run.requested_action\u0060 webhook](https://docs.github.com/webhooks/event-payloads/#check_run) to your app. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
+          }
+        },
+        "required": [
+          "status",
+          "conclusion",
+          "name",
+          "head_sha"
+        ]
+      },
+      "ChecksCreateRequestOneOf2Branch": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "queued",
+              "in_progress"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Status",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "queued",
+                  "name": "Queued"
+                },
+                {
+                  "value": "in_progress",
+                  "name": "InProgress"
+                }
+              ]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the check. For example, \u0022code-coverage\u0022."
+          },
+          "head_sha": {
+            "type": "string",
+            "description": "The SHA of the commit."
+          },
+          "details_url": {
+            "type": "string",
+            "description": "The URL of the integrator\u0027s site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A reference for the run on the integrator\u0027s system."
+          },
+          "started_at": {
+            "type": "string",
+            "description": "The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "conclusion": {
+            "$ref": "#/components/schemas/ChecksCreateRequestConclusion"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ChecksCreateRequestOutput"
+          },
+          "actions": {
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChecksCreateRequestActionsItem"
+            },
+            "description": "Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [\u0060check_run.requested_action\u0060 webhook](https://docs.github.com/webhooks/event-payloads/#check_run) to your app. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
+          }
+        },
+        "required": [
+          "name",
+          "head_sha",
+          "status"
+        ]
+      },
+      "ReposCreateOrUpdateFileContents409ResponseError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RepositoryRuleViolationErrorMetadata"
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ReposCreateOrUpdateFileContents409Response"
+        }
+      },
+      "GitCreateBlob422ResponseError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorErrorsItem"
+            }
+          },
+          "status": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RepositoryRuleViolationErrorMetadata"
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/GitCreateBlob422Response"
+        }
+      },
+      "AgentMergePutAgentMergeEnrollmentSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200Response"
+          },
+          {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201Response"
+          }
+        ]
+      },
+      "OrgsSetClusterDeploymentRecordsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords200Response"
+          },
+          {
+            "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207Response"
+          }
+        ]
+      },
+      "CodeQualityUpdateSetupSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EmptyObject"
+          },
+          {
+            "$ref": "#/components/schemas/CodeQualitySetupUpdateResponse"
+          }
+        ]
+      },
+      "CodeScanningGetAnalysisSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CodeScanningAnalysis"
+          },
+          {
+            "$ref": "#/components/schemas/CodeScanningGetAnalysis200SarifJsonResponseSchema"
+          }
+        ]
+      },
+      "CodeScanningUpdateDefaultSetupSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EmptyObject"
+          },
+          {
+            "$ref": "#/components/schemas/CodeScanningDefaultSetupUpdateResponse"
+          }
+        ]
+      },
+      "ReposCreateDeploymentSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Deployment"
+          },
+          {
+            "$ref": "#/components/schemas/ReposCreateDeployment202Response"
+          }
+        ]
+      },
+      "ReposGetPagesHealthCheckSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PagesHealthCheck"
+          },
+          {
+            "$ref": "#/components/schemas/EmptyObject"
+          }
+        ]
+      },
+      "ReposGetCodeFrequencyStatsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReposGetCodeFrequencyStats200ResponseSchema"
+          },
+          {
+            "$ref": "#/components/schemas/AcceptedResponseContent"
+          }
+        ]
+      },
+      "ReposGetCommitActivityStatsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReposGetCommitActivityStats200ResponseSchema"
+          },
+          {
+            "$ref": "#/components/schemas/AcceptedResponseContent"
+          }
+        ]
+      },
+      "ReposGetContributorsStatsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReposGetContributorsStats200ResponseSchema"
+          },
+          {
+            "$ref": "#/components/schemas/AcceptedResponseContent"
+          }
+        ]
+      },
+      "ActivityListReposStarredByAuthenticatedUserSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200ResponseSchema"
+          },
+          {
+            "$ref": "#/components/schemas/ActivityListReposStarredByAuthenticatedUser200GithubV3StarJsonResponseSchema"
+          }
+        ]
+      },
+      "UsersListAttestationsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/UsersListAttestations200Response"
+          },
+          {
+            "$ref": "#/components/schemas/EmptyObject"
+          }
+        ]
       }
     },
     "responses": {
@@ -420112,8 +420512,8 @@
                 "created_at": "2025-08-01T18:44:14Z",
                 "updated_at": "2025-08-01T18:48:38Z",
                 "pushed_at": "2025-08-01T18:44:50Z",
-                "git_url": "git://github.localhost/github/Hello-World.git",
-                "ssh_url": "ssh://git@localhost:3035/github/Hello-World.git",
+                "git_url": "git://github.example.com/github/Hello-World.git",
+                "ssh_url": "ssh://git@example.com:3035/github/Hello-World.git",
                 "clone_url": "https://github.com/github/Hello-World.git",
                 "svn_url": "https://github.com/github/Hello-World",
                 "homepage": null,
@@ -420239,8 +420639,8 @@
                 "created_at": "2025-08-01T18:44:14Z",
                 "updated_at": "2025-08-01T18:48:38Z",
                 "pushed_at": "2025-08-01T18:44:50Z",
-                "git_url": "git://github.localhost/github/Hello-World.git",
-                "ssh_url": "ssh://git@localhost:3035/github/Hello-World.git",
+                "git_url": "git://github.example.com/github/Hello-World.git",
+                "ssh_url": "ssh://git@example.com:3035/github/Hello-World.git",
                 "clone_url": "https://github.com/github/Hello-World.git",
                 "svn_url": "https://github.com/github/Hello-World",
                 "homepage": null,

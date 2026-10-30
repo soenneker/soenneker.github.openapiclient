@@ -12,65 +12,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeScanningVariantAnalysis : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actions_workflow_run_id") is { } nullNodeActionsWorkflowRunId && nullNodeActionsWorkflowRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionsWorkflowRunId = null;
+            if (parseNode.GetChildNode("actor") is { } nullNodeActor && nullNodeActor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actor = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("controller_repo") is { } nullNodeControllerRepo && nullNodeControllerRepo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ControllerRepo = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("failure_reason") is { } nullNodeFailureReason && nullNodeFailureReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureReason = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("query_language") is { } nullNodeQueryLanguage && nullNodeQueryLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryLanguage = null;
+            if (parseNode.GetChildNode("query_pack_url") is { } nullNodeQueryPackUrl && nullNodeQueryPackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryPackUrl = null;
+            if (parseNode.GetChildNode("scanned_repositories") is { } nullNodeScannedRepositories && nullNodeScannedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScannedRepositories = null;
+            if (parseNode.GetChildNode("skipped_repositories") is { } nullNodeSkippedRepositories && nullNodeSkippedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedRepositories = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>The GitHub Actions workflow run used to execute this variant analysis. This is only available if the workflow run has started.</summary>
-        public long? ActionsWorkflowRunId { get; set; }
+        public long? ActionsWorkflowRunId { get => _explicitNullValueActionsWorkflowRunId; set { _explicitNullValueActionsWorkflowRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_workflow_run_id"); else _explicitNullProperties?.Remove("actions_workflow_run_id"); } }
+        private long? _explicitNullValueActionsWorkflowRunId = default!;
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueActor = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Actor { get => _explicitNullValueActor; set { _explicitNullValueActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor"); else _explicitNullProperties?.Remove("actor"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueActor = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time at which the variant analysis was completed, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ. Will be null if the variant analysis has not yet completed or this information is not available.</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>A GitHub repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? ControllerRepo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? ControllerRepo { get => _explicitNullValueControllerRepo; set { _explicitNullValueControllerRepo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("controller_repo"); else _explicitNullProperties?.Remove("controller_repo"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? _explicitNullValueControllerRepo = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository ControllerRepo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository ControllerRepo { get => _explicitNullValueControllerRepo; set { _explicitNullValueControllerRepo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("controller_repo"); else _explicitNullProperties?.Remove("controller_repo"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository _explicitNullValueControllerRepo = default!;
 #endif
         /// <summary>The date and time at which the variant analysis was created, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The reason for a failure of the variant analysis. This is only available if the variant analysis has failed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason? FailureReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason? FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_reason"); else _explicitNullProperties?.Remove("failure_reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason? _explicitNullValueFailureReason = default!;
         /// <summary>The ID of the variant analysis.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The language targeted by the CodeQL query</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? QueryLanguage { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? QueryLanguage { get => _explicitNullValueQueryLanguage; set { _explicitNullValueQueryLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_language"); else _explicitNullProperties?.Remove("query_language"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? _explicitNullValueQueryLanguage = default!;
         /// <summary>The download url for the query pack.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? QueryPackUrl { get; set; }
+        public string? QueryPackUrl { get => _explicitNullValueQueryPackUrl; set { _explicitNullValueQueryPackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_pack_url"); else _explicitNullProperties?.Remove("query_pack_url"); } }
+        private string? _explicitNullValueQueryPackUrl = default!;
 #nullable restore
 #else
-        public string QueryPackUrl { get; set; }
+        public string QueryPackUrl { get => _explicitNullValueQueryPackUrl; set { _explicitNullValueQueryPackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_pack_url"); else _explicitNullProperties?.Remove("query_pack_url"); } }
+        private string _explicitNullValueQueryPackUrl = default!;
 #endif
         /// <summary>The scanned_repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>? ScannedRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>? ScannedRepositories { get => _explicitNullValueScannedRepositories; set { _explicitNullValueScannedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scanned_repositories"); else _explicitNullProperties?.Remove("scanned_repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>? _explicitNullValueScannedRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem> ScannedRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem> ScannedRepositories { get => _explicitNullValueScannedRepositories; set { _explicitNullValueScannedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scanned_repositories"); else _explicitNullProperties?.Remove("scanned_repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem> _explicitNullValueScannedRepositories = default!;
 #endif
         /// <summary>Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories? SkippedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories? SkippedRepositories { get => _explicitNullValueSkippedRepositories; set { _explicitNullValueSkippedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_repositories"); else _explicitNullProperties?.Remove("skipped_repositories"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories? _explicitNullValueSkippedRepositories = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories SkippedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories SkippedRepositories { get => _explicitNullValueSkippedRepositories; set { _explicitNullValueSkippedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_repositories"); else _explicitNullProperties?.Remove("skipped_repositories"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories _explicitNullValueSkippedRepositories = default!;
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum? _explicitNullValueStatus = default!;
         /// <summary>The date and time at which the variant analysis was last updated, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis"/> and sets the default values.
         /// </summary>
@@ -86,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -131,6 +169,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories>("skipped_repositories", SkippedRepositories);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,9 +11,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeSecurityAttachEnterpriseConfigurationRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+        }
+
         /// <summary>The type of repositories to attach the configuration to.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequestScope? Scope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequestScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequestScope? _explicitNullValueScope = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -22,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +51,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequestScope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequestScope>("scope", Scope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,26 +12,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("supports_wildcard") is { } nullNodeSupportsWildcard && nullNodeSupportsWildcard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsWildcard = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The server name from the repository MCP configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Whether the effective repository configuration permits selecting all tools on this server using [&quot;*&quot;], including future tools. Mutually exclusive with a non-empty tools list.</summary>
-        public bool? SupportsWildcard { get; set; }
+        public bool? SupportsWildcard { get => _explicitNullValueSupportsWildcard; set { _explicitNullValueSupportsWildcard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_wildcard"); else _explicitNullProperties?.Remove("supports_wildcard"); } }
+        private bool? _explicitNullValueSupportsWildcard = default!;
         /// <summary>Explicitly configured tools with server-qualified IDs, in configuration order. Empty when the server&apos;s allowlist is [&quot;*&quot;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem>? Tools { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem> Tools { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem> _explicitNullValueTools = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItem"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("supports_wildcard", SupportsWildcard);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseMcpServersItemToolsItem>("tools", Tools);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

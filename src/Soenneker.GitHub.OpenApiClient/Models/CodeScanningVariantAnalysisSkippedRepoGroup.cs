@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningVariantAnalysisSkippedRepoGroup : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_count") is { } nullNodeRepositoryCount && nullNodeRepositoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of repositories that were skipped. This list may not include all repositories that were skipped. This is only available when the repository was found and the user has access to it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>The total number of repositories that were skipped for this reason.</summary>
-        public int? RepositoryCount { get; set; }
+        public int? RepositoryCount { get => _explicitNullValueRepositoryCount; set { _explicitNullValueRepositoryCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_count"); else _explicitNullProperties?.Remove("repository_count"); } }
+        private int? _explicitNullValueRepositoryCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>("repositories", Repositories);
             writer.WriteIntValue("repository_count", RepositoryCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

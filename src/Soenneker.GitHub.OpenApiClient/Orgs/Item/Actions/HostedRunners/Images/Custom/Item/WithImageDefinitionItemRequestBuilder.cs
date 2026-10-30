@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a custom image definition for GitHub Actions Hosted Runners.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCustomImage>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCustomImage.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCustomImage>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCustomImage.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a custom image from the organization.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.

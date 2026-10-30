@@ -13,21 +13,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotUsageMetrics28DayReport : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("download_links") is { } nullNodeDownloadLinks && nullNodeDownloadLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadLinks = null;
+            if (parseNode.GetChildNode("report_end_day") is { } nullNodeReportEndDay && nullNodeReportEndDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportEndDay = null;
+            if (parseNode.GetChildNode("report_start_day") is { } nullNodeReportStartDay && nullNodeReportStartDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportStartDay = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The URLs to download the latest Copilot usage metrics report for the enterprise/organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DownloadLinks { get; set; }
+        public List<string>? DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        private List<string>? _explicitNullValueDownloadLinks = default!;
 #nullable restore
 #else
-        public List<string> DownloadLinks { get; set; }
+        public List<string> DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        private List<string> _explicitNullValueDownloadLinks = default!;
 #endif
         /// <summary>The end date of the report period in `YYYY-MM-DD` format.</summary>
-        public Date? ReportEndDay { get; set; }
+        public Date? ReportEndDay { get => _explicitNullValueReportEndDay; set { _explicitNullValueReportEndDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_end_day"); else _explicitNullProperties?.Remove("report_end_day"); } }
+        private Date? _explicitNullValueReportEndDay = default!;
         /// <summary>The start date of the report period in `YYYY-MM-DD` format.</summary>
-        public Date? ReportStartDay { get; set; }
+        public Date? ReportStartDay { get => _explicitNullValueReportStartDay; set { _explicitNullValueReportStartDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_start_day"); else _explicitNullProperties?.Remove("report_start_day"); } }
+        private Date? _explicitNullValueReportStartDay = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics28DayReport"/> and sets the default values.
         /// </summary>
@@ -43,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics28DayReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics28DayReport();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics28DayReport(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("download_links", DownloadLinks);
             writer.WriteDateValue("report_end_day", ReportEndDay);
             writer.WriteDateValue("report_start_day", ReportStartDay);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

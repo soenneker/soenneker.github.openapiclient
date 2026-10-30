@@ -11,40 +11,59 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiOverviewSshKeyFingerprints : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("SHA256_DSA") is { } nullNodeSHA256DSA && nullNodeSHA256DSA.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SHA256DSA = null;
+            if (parseNode.GetChildNode("SHA256_ECDSA") is { } nullNodeSHA256ECDSA && nullNodeSHA256ECDSA.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SHA256ECDSA = null;
+            if (parseNode.GetChildNode("SHA256_ED25519") is { } nullNodeSHA256ED25519 && nullNodeSHA256ED25519.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SHA256ED25519 = null;
+            if (parseNode.GetChildNode("SHA256_RSA") is { } nullNodeSHA256RSA && nullNodeSHA256RSA.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SHA256RSA = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The SHA256_DSA property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SHA256DSA { get; set; }
+        public string? SHA256DSA { get => _explicitNullValueSHA256DSA; set { _explicitNullValueSHA256DSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_DSA"); else _explicitNullProperties?.Remove("SHA256_DSA"); } }
+        private string? _explicitNullValueSHA256DSA = default!;
 #nullable restore
 #else
-        public string SHA256DSA { get; set; }
+        public string SHA256DSA { get => _explicitNullValueSHA256DSA; set { _explicitNullValueSHA256DSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_DSA"); else _explicitNullProperties?.Remove("SHA256_DSA"); } }
+        private string _explicitNullValueSHA256DSA = default!;
 #endif
         /// <summary>The SHA256_ECDSA property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SHA256ECDSA { get; set; }
+        public string? SHA256ECDSA { get => _explicitNullValueSHA256ECDSA; set { _explicitNullValueSHA256ECDSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_ECDSA"); else _explicitNullProperties?.Remove("SHA256_ECDSA"); } }
+        private string? _explicitNullValueSHA256ECDSA = default!;
 #nullable restore
 #else
-        public string SHA256ECDSA { get; set; }
+        public string SHA256ECDSA { get => _explicitNullValueSHA256ECDSA; set { _explicitNullValueSHA256ECDSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_ECDSA"); else _explicitNullProperties?.Remove("SHA256_ECDSA"); } }
+        private string _explicitNullValueSHA256ECDSA = default!;
 #endif
         /// <summary>The SHA256_ED25519 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SHA256ED25519 { get; set; }
+        public string? SHA256ED25519 { get => _explicitNullValueSHA256ED25519; set { _explicitNullValueSHA256ED25519 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_ED25519"); else _explicitNullProperties?.Remove("SHA256_ED25519"); } }
+        private string? _explicitNullValueSHA256ED25519 = default!;
 #nullable restore
 #else
-        public string SHA256ED25519 { get; set; }
+        public string SHA256ED25519 { get => _explicitNullValueSHA256ED25519; set { _explicitNullValueSHA256ED25519 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_ED25519"); else _explicitNullProperties?.Remove("SHA256_ED25519"); } }
+        private string _explicitNullValueSHA256ED25519 = default!;
 #endif
         /// <summary>The SHA256_RSA property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SHA256RSA { get; set; }
+        public string? SHA256RSA { get => _explicitNullValueSHA256RSA; set { _explicitNullValueSHA256RSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_RSA"); else _explicitNullProperties?.Remove("SHA256_RSA"); } }
+        private string? _explicitNullValueSHA256RSA = default!;
 #nullable restore
 #else
-        public string SHA256RSA { get; set; }
+        public string SHA256RSA { get => _explicitNullValueSHA256RSA; set { _explicitNullValueSHA256RSA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("SHA256_RSA"); else _explicitNullProperties?.Remove("SHA256_RSA"); } }
+        private string _explicitNullValueSHA256RSA = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("SHA256_ECDSA", SHA256ECDSA);
             writer.WriteStringValue("SHA256_ED25519", SHA256ED25519);
             writer.WriteStringValue("SHA256_RSA", SHA256RSA);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

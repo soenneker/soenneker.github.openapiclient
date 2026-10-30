@@ -12,59 +12,91 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSpaceResourcesAttributesItemMetadata : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("copilot_chat_attachment_id") is { } nullNodeCopilotChatAttachmentId && nullNodeCopilotChatAttachmentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotChatAttachmentId = null;
+            if (parseNode.GetChildNode("file_path") is { } nullNodeFilePath && nullNodeFilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilePath = null;
+            if (parseNode.GetChildNode("height") is { } nullNodeHeight && nullNodeHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Height = null;
+            if (parseNode.GetChildNode("media_type") is { } nullNodeMediaType && nullNodeMediaType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaType = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
+            if (parseNode.GetChildNode("text") is { } nullNodeText && nullNodeText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Text = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("width") is { } nullNodeWidth && nullNodeWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Width = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Chat attachment ID for uploaded files or media.</summary>
-        public long? CopilotChatAttachmentId { get; set; }
+        public long? CopilotChatAttachmentId { get => _explicitNullValueCopilotChatAttachmentId; set { _explicitNullValueCopilotChatAttachmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_chat_attachment_id"); else _explicitNullProperties?.Remove("copilot_chat_attachment_id"); } }
+        private long? _explicitNullValueCopilotChatAttachmentId = default!;
         /// <summary>File path for file resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FilePath { get; set; }
+        public string? FilePath { get => _explicitNullValueFilePath; set { _explicitNullValueFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_path"); else _explicitNullProperties?.Remove("file_path"); } }
+        private string? _explicitNullValueFilePath = default!;
 #nullable restore
 #else
-        public string FilePath { get; set; }
+        public string FilePath { get => _explicitNullValueFilePath; set { _explicitNullValueFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_path"); else _explicitNullProperties?.Remove("file_path"); } }
+        private string _explicitNullValueFilePath = default!;
 #endif
         /// <summary>Height for media content resources.</summary>
-        public int? Height { get; set; }
+        public int? Height { get => _explicitNullValueHeight; set { _explicitNullValueHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("height"); else _explicitNullProperties?.Remove("height"); } }
+        private int? _explicitNullValueHeight = default!;
         /// <summary>Media type for media content resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MediaType { get; set; }
+        public string? MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_type"); else _explicitNullProperties?.Remove("media_type"); } }
+        private string? _explicitNullValueMediaType = default!;
 #nullable restore
 #else
-        public string MediaType { get; set; }
+        public string MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("media_type"); else _explicitNullProperties?.Remove("media_type"); } }
+        private string _explicitNullValueMediaType = default!;
 #endif
         /// <summary>Name for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Issue or PR number.</summary>
-        public int? Number { get; set; }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        private int? _explicitNullValueNumber = default!;
         /// <summary>Repository ID for repository or file resources.</summary>
-        public long? RepositoryId { get; set; }
+        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        private long? _explicitNullValueRepositoryId = default!;
         /// <summary>Text content for free text resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Text { get; set; }
+        public string? Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string? _explicitNullValueText = default!;
 #nullable restore
 #else
-        public string Text { get; set; }
+        public string Text { get => _explicitNullValueText; set { _explicitNullValueText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text"); else _explicitNullProperties?.Remove("text"); } }
+        private string _explicitNullValueText = default!;
 #endif
         /// <summary>URL for media content resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>Width for media content resources.</summary>
-        public int? Width { get; set; }
+        public int? Width { get => _explicitNullValueWidth; set { _explicitNullValueWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("width"); else _explicitNullProperties?.Remove("width"); } }
+        private int? _explicitNullValueWidth = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItemMetadata"/> and sets the default values.
         /// </summary>
@@ -80,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItemMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItemMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItemMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,6 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("url", Url);
             writer.WriteIntValue("width", Width);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

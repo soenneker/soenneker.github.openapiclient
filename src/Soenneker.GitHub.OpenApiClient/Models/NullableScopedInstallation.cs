@@ -11,52 +11,78 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NullableScopedInstallation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account") is { } nullNodeAccount && nullNodeAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Account = null;
+            if (parseNode.GetChildNode("has_multiple_single_files") is { } nullNodeHasMultipleSingleFiles && nullNodeHasMultipleSingleFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMultipleSingleFiles = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("repositories_url") is { } nullNodeRepositoriesUrl && nullNodeRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoriesUrl = null;
+            if (parseNode.GetChildNode("repository_selection") is { } nullNodeRepositorySelection && nullNodeRepositorySelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositorySelection = null;
+            if (parseNode.GetChildNode("single_file_name") is { } nullNodeSingleFileName && nullNodeSingleFileName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SingleFileName = null;
+            if (parseNode.GetChildNode("single_file_paths") is { } nullNodeSingleFilePaths && nullNodeSingleFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SingleFilePaths = null;
+        }
+
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Account { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Account { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueAccount = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The has_multiple_single_files property</summary>
-        public bool? HasMultipleSingleFiles { get; set; }
+        public bool? HasMultipleSingleFiles { get => _explicitNullValueHasMultipleSingleFiles; set { _explicitNullValueHasMultipleSingleFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_multiple_single_files"); else _explicitNullProperties?.Remove("has_multiple_single_files"); } }
+        private bool? _explicitNullValueHasMultipleSingleFiles = default!;
         /// <summary>The permissions granted to the fine-grained access token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The repositories_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositoriesUrl { get; set; }
+        public string? RepositoriesUrl { get => _explicitNullValueRepositoriesUrl; set { _explicitNullValueRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories_url"); else _explicitNullProperties?.Remove("repositories_url"); } }
+        private string? _explicitNullValueRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string RepositoriesUrl { get; set; }
+        public string RepositoriesUrl { get => _explicitNullValueRepositoriesUrl; set { _explicitNullValueRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories_url"); else _explicitNullProperties?.Remove("repositories_url"); } }
+        private string _explicitNullValueRepositoriesUrl = default!;
 #endif
         /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallationRepositorySelection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallationRepositorySelection? RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallationRepositorySelection? _explicitNullValueRepositorySelection = default!;
         /// <summary>The single_file_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SingleFileName { get; set; }
+        public string? SingleFileName { get => _explicitNullValueSingleFileName; set { _explicitNullValueSingleFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file_name"); else _explicitNullProperties?.Remove("single_file_name"); } }
+        private string? _explicitNullValueSingleFileName = default!;
 #nullable restore
 #else
-        public string SingleFileName { get; set; }
+        public string SingleFileName { get => _explicitNullValueSingleFileName; set { _explicitNullValueSingleFileName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file_name"); else _explicitNullProperties?.Remove("single_file_name"); } }
+        private string _explicitNullValueSingleFileName = default!;
 #endif
         /// <summary>The single_file_paths property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SingleFilePaths { get; set; }
+        public List<string>? SingleFilePaths { get => _explicitNullValueSingleFilePaths; set { _explicitNullValueSingleFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file_paths"); else _explicitNullProperties?.Remove("single_file_paths"); } }
+        private List<string>? _explicitNullValueSingleFilePaths = default!;
 #nullable restore
 #else
-        public List<string> SingleFilePaths { get; set; }
+        public List<string> SingleFilePaths { get => _explicitNullValueSingleFilePaths; set { _explicitNullValueSingleFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file_paths"); else _explicitNullProperties?.Remove("single_file_paths"); } }
+        private List<string> _explicitNullValueSingleFilePaths = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation"/> and sets the default values.
@@ -73,7 +99,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,6 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallationRepositorySelection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file_name", SingleFileName);
             writer.WriteCollectionOfPrimitiveValues<string>("single_file_paths", SingleFilePaths);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

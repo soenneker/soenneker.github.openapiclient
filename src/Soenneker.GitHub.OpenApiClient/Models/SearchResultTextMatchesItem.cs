@@ -11,48 +11,70 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SearchResultTextMatchesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fragment") is { } nullNodeFragment && nullNodeFragment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fragment = null;
+            if (parseNode.GetChildNode("matches") is { } nullNodeMatches && nullNodeMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matches = null;
+            if (parseNode.GetChildNode("object_type") is { } nullNodeObjectType && nullNodeObjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectType = null;
+            if (parseNode.GetChildNode("object_url") is { } nullNodeObjectUrl && nullNodeObjectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectUrl = null;
+            if (parseNode.GetChildNode("property") is { } nullNodeProperty && nullNodeProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Property = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fragment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fragment { get; set; }
+        public string? Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
+        private string? _explicitNullValueFragment = default!;
 #nullable restore
 #else
-        public string Fragment { get; set; }
+        public string Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
+        private string _explicitNullValueFragment = default!;
 #endif
         /// <summary>The matches property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? Matches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? _explicitNullValueMatches = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> Matches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> _explicitNullValueMatches = default!;
 #endif
         /// <summary>The object_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ObjectType { get; set; }
+        public string? ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
+        private string? _explicitNullValueObjectType = default!;
 #nullable restore
 #else
-        public string ObjectType { get; set; }
+        public string ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
+        private string _explicitNullValueObjectType = default!;
 #endif
         /// <summary>The object_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ObjectUrl { get; set; }
+        public string? ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
+        private string? _explicitNullValueObjectUrl = default!;
 #nullable restore
 #else
-        public string ObjectUrl { get; set; }
+        public string ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
+        private string _explicitNullValueObjectUrl = default!;
 #endif
         /// <summary>The property property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Property { get; set; }
+        public string? Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
+        private string? _explicitNullValueProperty = default!;
 #nullable restore
 #else
-        public string Property { get; set; }
+        public string Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
+        private string _explicitNullValueProperty = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("object_type", ObjectType);
             writer.WriteStringValue("object_url", ObjectUrl);
             writer.WriteStringValue("property", Property);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,20 +12,34 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryRuleParamsCodeScanningTool : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alerts_threshold") is { } nullNodeAlertsThreshold && nullNodeAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertsThreshold = null;
+            if (parseNode.GetChildNode("security_alerts_threshold") is { } nullNodeSecurityAlertsThreshold && nullNodeSecurityAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAlertsThreshold = null;
+            if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see &quot;[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? AlertsThreshold { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? AlertsThreshold { get => _explicitNullValueAlertsThreshold; set { _explicitNullValueAlertsThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alerts_threshold"); else _explicitNullProperties?.Remove("alerts_threshold"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? _explicitNullValueAlertsThreshold = default!;
         /// <summary>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see &quot;[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? SecurityAlertsThreshold { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? SecurityAlertsThreshold { get => _explicitNullValueSecurityAlertsThreshold; set { _explicitNullValueSecurityAlertsThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_alerts_threshold"); else _explicitNullProperties?.Remove("security_alerts_threshold"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? _explicitNullValueSecurityAlertsThreshold = default!;
         /// <summary>The name of a code scanning tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tool { get; set; }
+        public string? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private string? _explicitNullValueTool = default!;
 #nullable restore
 #else
-        public string Tool { get; set; }
+        public string Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private string _explicitNullValueTool = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool"/> and sets the default values.
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold>("alerts_threshold", AlertsThreshold);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold>("security_alerts_threshold", SecurityAlertsThreshold);
             writer.WriteStringValue("tool", Tool);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

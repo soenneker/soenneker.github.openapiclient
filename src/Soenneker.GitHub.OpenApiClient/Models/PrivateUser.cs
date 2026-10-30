@@ -12,256 +12,376 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PrivateUser : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("avatar_url") is { } nullNodeAvatarUrl && nullNodeAvatarUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvatarUrl = null;
+            if (parseNode.GetChildNode("bio") is { } nullNodeBio && nullNodeBio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bio = null;
+            if (parseNode.GetChildNode("blog") is { } nullNodeBlog && nullNodeBlog.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blog = null;
+            if (parseNode.GetChildNode("business_plus") is { } nullNodeBusinessPlus && nullNodeBusinessPlus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessPlus = null;
+            if (parseNode.GetChildNode("collaborators") is { } nullNodeCollaborators && nullNodeCollaborators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collaborators = null;
+            if (parseNode.GetChildNode("company") is { } nullNodeCompany && nullNodeCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Company = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("disk_usage") is { } nullNodeDiskUsage && nullNodeDiskUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiskUsage = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("events_url") is { } nullNodeEventsUrl && nullNodeEventsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventsUrl = null;
+            if (parseNode.GetChildNode("followers") is { } nullNodeFollowers && nullNodeFollowers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Followers = null;
+            if (parseNode.GetChildNode("followers_url") is { } nullNodeFollowersUrl && nullNodeFollowersUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowersUrl = null;
+            if (parseNode.GetChildNode("following") is { } nullNodeFollowing && nullNodeFollowing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Following = null;
+            if (parseNode.GetChildNode("following_url") is { } nullNodeFollowingUrl && nullNodeFollowingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowingUrl = null;
+            if (parseNode.GetChildNode("gists_url") is { } nullNodeGistsUrl && nullNodeGistsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GistsUrl = null;
+            if (parseNode.GetChildNode("gravatar_id") is { } nullNodeGravatarId && nullNodeGravatarId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GravatarId = null;
+            if (parseNode.GetChildNode("hireable") is { } nullNodeHireable && nullNodeHireable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hireable = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("ldap_dn") is { } nullNodeLdapDn && nullNodeLdapDn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LdapDn = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("login") is { } nullNodeLogin && nullNodeLogin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Login = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("notification_email") is { } nullNodeNotificationEmail && nullNodeNotificationEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationEmail = null;
+            if (parseNode.GetChildNode("organizations_url") is { } nullNodeOrganizationsUrl && nullNodeOrganizationsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationsUrl = null;
+            if (parseNode.GetChildNode("owned_private_repos") is { } nullNodeOwnedPrivateRepos && nullNodeOwnedPrivateRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnedPrivateRepos = null;
+            if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
+            if (parseNode.GetChildNode("private_gists") is { } nullNodePrivateGists && nullNodePrivateGists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateGists = null;
+            if (parseNode.GetChildNode("public_gists") is { } nullNodePublicGists && nullNodePublicGists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicGists = null;
+            if (parseNode.GetChildNode("public_repos") is { } nullNodePublicRepos && nullNodePublicRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicRepos = null;
+            if (parseNode.GetChildNode("received_events_url") is { } nullNodeReceivedEventsUrl && nullNodeReceivedEventsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedEventsUrl = null;
+            if (parseNode.GetChildNode("repos_url") is { } nullNodeReposUrl && nullNodeReposUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReposUrl = null;
+            if (parseNode.GetChildNode("site_admin") is { } nullNodeSiteAdmin && nullNodeSiteAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SiteAdmin = null;
+            if (parseNode.GetChildNode("starred_url") is { } nullNodeStarredUrl && nullNodeStarredUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StarredUrl = null;
+            if (parseNode.GetChildNode("subscriptions_url") is { } nullNodeSubscriptionsUrl && nullNodeSubscriptionsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionsUrl = null;
+            if (parseNode.GetChildNode("total_private_repos") is { } nullNodeTotalPrivateRepos && nullNodeTotalPrivateRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPrivateRepos = null;
+            if (parseNode.GetChildNode("twitter_username") is { } nullNodeTwitterUsername && nullNodeTwitterUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TwitterUsername = null;
+            if (parseNode.GetChildNode("two_factor_authentication") is { } nullNodeTwoFactorAuthentication && nullNodeTwoFactorAuthentication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TwoFactorAuthentication = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("user_view_type") is { } nullNodeUserViewType && nullNodeUserViewType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserViewType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The avatar_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AvatarUrl { get; set; }
+        public string? AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_url"); else _explicitNullProperties?.Remove("avatar_url"); } }
+        private string? _explicitNullValueAvatarUrl = default!;
 #nullable restore
 #else
-        public string AvatarUrl { get; set; }
+        public string AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatar_url"); else _explicitNullProperties?.Remove("avatar_url"); } }
+        private string _explicitNullValueAvatarUrl = default!;
 #endif
         /// <summary>The bio property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Bio { get; set; }
+        public string? Bio { get => _explicitNullValueBio; set { _explicitNullValueBio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bio"); else _explicitNullProperties?.Remove("bio"); } }
+        private string? _explicitNullValueBio = default!;
 #nullable restore
 #else
-        public string Bio { get; set; }
+        public string Bio { get => _explicitNullValueBio; set { _explicitNullValueBio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bio"); else _explicitNullProperties?.Remove("bio"); } }
+        private string _explicitNullValueBio = default!;
 #endif
         /// <summary>The blog property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Blog { get; set; }
+        public string? Blog { get => _explicitNullValueBlog; set { _explicitNullValueBlog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blog"); else _explicitNullProperties?.Remove("blog"); } }
+        private string? _explicitNullValueBlog = default!;
 #nullable restore
 #else
-        public string Blog { get; set; }
+        public string Blog { get => _explicitNullValueBlog; set { _explicitNullValueBlog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blog"); else _explicitNullProperties?.Remove("blog"); } }
+        private string _explicitNullValueBlog = default!;
 #endif
         /// <summary>The business_plus property</summary>
-        public bool? BusinessPlus { get; set; }
+        public bool? BusinessPlus { get => _explicitNullValueBusinessPlus; set { _explicitNullValueBusinessPlus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_plus"); else _explicitNullProperties?.Remove("business_plus"); } }
+        private bool? _explicitNullValueBusinessPlus = default!;
         /// <summary>The collaborators property</summary>
-        public int? Collaborators { get; set; }
+        public int? Collaborators { get => _explicitNullValueCollaborators; set { _explicitNullValueCollaborators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collaborators"); else _explicitNullProperties?.Remove("collaborators"); } }
+        private int? _explicitNullValueCollaborators = default!;
         /// <summary>The company property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Company { get; set; }
+        public string? Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        private string? _explicitNullValueCompany = default!;
 #nullable restore
 #else
-        public string Company { get; set; }
+        public string Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        private string _explicitNullValueCompany = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The disk_usage property</summary>
-        public int? DiskUsage { get; set; }
+        public int? DiskUsage { get => _explicitNullValueDiskUsage; set { _explicitNullValueDiskUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disk_usage"); else _explicitNullProperties?.Remove("disk_usage"); } }
+        private int? _explicitNullValueDiskUsage = default!;
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>The events_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventsUrl { get; set; }
+        public string? EventsUrl { get => _explicitNullValueEventsUrl; set { _explicitNullValueEventsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events_url"); else _explicitNullProperties?.Remove("events_url"); } }
+        private string? _explicitNullValueEventsUrl = default!;
 #nullable restore
 #else
-        public string EventsUrl { get; set; }
+        public string EventsUrl { get => _explicitNullValueEventsUrl; set { _explicitNullValueEventsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events_url"); else _explicitNullProperties?.Remove("events_url"); } }
+        private string _explicitNullValueEventsUrl = default!;
 #endif
         /// <summary>The followers property</summary>
-        public int? Followers { get; set; }
+        public int? Followers { get => _explicitNullValueFollowers; set { _explicitNullValueFollowers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followers"); else _explicitNullProperties?.Remove("followers"); } }
+        private int? _explicitNullValueFollowers = default!;
         /// <summary>The followers_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FollowersUrl { get; set; }
+        public string? FollowersUrl { get => _explicitNullValueFollowersUrl; set { _explicitNullValueFollowersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followers_url"); else _explicitNullProperties?.Remove("followers_url"); } }
+        private string? _explicitNullValueFollowersUrl = default!;
 #nullable restore
 #else
-        public string FollowersUrl { get; set; }
+        public string FollowersUrl { get => _explicitNullValueFollowersUrl; set { _explicitNullValueFollowersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followers_url"); else _explicitNullProperties?.Remove("followers_url"); } }
+        private string _explicitNullValueFollowersUrl = default!;
 #endif
         /// <summary>The following property</summary>
-        public int? Following { get; set; }
+        public int? Following { get => _explicitNullValueFollowing; set { _explicitNullValueFollowing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("following"); else _explicitNullProperties?.Remove("following"); } }
+        private int? _explicitNullValueFollowing = default!;
         /// <summary>The following_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FollowingUrl { get; set; }
+        public string? FollowingUrl { get => _explicitNullValueFollowingUrl; set { _explicitNullValueFollowingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("following_url"); else _explicitNullProperties?.Remove("following_url"); } }
+        private string? _explicitNullValueFollowingUrl = default!;
 #nullable restore
 #else
-        public string FollowingUrl { get; set; }
+        public string FollowingUrl { get => _explicitNullValueFollowingUrl; set { _explicitNullValueFollowingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("following_url"); else _explicitNullProperties?.Remove("following_url"); } }
+        private string _explicitNullValueFollowingUrl = default!;
 #endif
         /// <summary>The gists_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GistsUrl { get; set; }
+        public string? GistsUrl { get => _explicitNullValueGistsUrl; set { _explicitNullValueGistsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gists_url"); else _explicitNullProperties?.Remove("gists_url"); } }
+        private string? _explicitNullValueGistsUrl = default!;
 #nullable restore
 #else
-        public string GistsUrl { get; set; }
+        public string GistsUrl { get => _explicitNullValueGistsUrl; set { _explicitNullValueGistsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gists_url"); else _explicitNullProperties?.Remove("gists_url"); } }
+        private string _explicitNullValueGistsUrl = default!;
 #endif
         /// <summary>The gravatar_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GravatarId { get; set; }
+        public string? GravatarId { get => _explicitNullValueGravatarId; set { _explicitNullValueGravatarId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gravatar_id"); else _explicitNullProperties?.Remove("gravatar_id"); } }
+        private string? _explicitNullValueGravatarId = default!;
 #nullable restore
 #else
-        public string GravatarId { get; set; }
+        public string GravatarId { get => _explicitNullValueGravatarId; set { _explicitNullValueGravatarId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gravatar_id"); else _explicitNullProperties?.Remove("gravatar_id"); } }
+        private string _explicitNullValueGravatarId = default!;
 #endif
         /// <summary>The hireable property</summary>
-        public bool? Hireable { get; set; }
+        public bool? Hireable { get => _explicitNullValueHireable; set { _explicitNullValueHireable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hireable"); else _explicitNullProperties?.Remove("hireable"); } }
+        private bool? _explicitNullValueHireable = default!;
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The ldap_dn property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LdapDn { get; set; }
+        public string? LdapDn { get => _explicitNullValueLdapDn; set { _explicitNullValueLdapDn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ldap_dn"); else _explicitNullProperties?.Remove("ldap_dn"); } }
+        private string? _explicitNullValueLdapDn = default!;
 #nullable restore
 #else
-        public string LdapDn { get; set; }
+        public string LdapDn { get => _explicitNullValueLdapDn; set { _explicitNullValueLdapDn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ldap_dn"); else _explicitNullProperties?.Remove("ldap_dn"); } }
+        private string _explicitNullValueLdapDn = default!;
 #endif
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get; set; }
+        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public string Location { get; set; }
+        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string _explicitNullValueLocation = default!;
 #endif
         /// <summary>The login property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Login { get; set; }
+        public string? Login { get => _explicitNullValueLogin; set { _explicitNullValueLogin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login"); else _explicitNullProperties?.Remove("login"); } }
+        private string? _explicitNullValueLogin = default!;
 #nullable restore
 #else
-        public string Login { get; set; }
+        public string Login { get => _explicitNullValueLogin; set { _explicitNullValueLogin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login"); else _explicitNullProperties?.Remove("login"); } }
+        private string _explicitNullValueLogin = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>The notification_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NotificationEmail { get; set; }
+        public string? NotificationEmail { get => _explicitNullValueNotificationEmail; set { _explicitNullValueNotificationEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_email"); else _explicitNullProperties?.Remove("notification_email"); } }
+        private string? _explicitNullValueNotificationEmail = default!;
 #nullable restore
 #else
-        public string NotificationEmail { get; set; }
+        public string NotificationEmail { get => _explicitNullValueNotificationEmail; set { _explicitNullValueNotificationEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_email"); else _explicitNullProperties?.Remove("notification_email"); } }
+        private string _explicitNullValueNotificationEmail = default!;
 #endif
         /// <summary>The organizations_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationsUrl { get; set; }
+        public string? OrganizationsUrl { get => _explicitNullValueOrganizationsUrl; set { _explicitNullValueOrganizationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations_url"); else _explicitNullProperties?.Remove("organizations_url"); } }
+        private string? _explicitNullValueOrganizationsUrl = default!;
 #nullable restore
 #else
-        public string OrganizationsUrl { get; set; }
+        public string OrganizationsUrl { get => _explicitNullValueOrganizationsUrl; set { _explicitNullValueOrganizationsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations_url"); else _explicitNullProperties?.Remove("organizations_url"); } }
+        private string _explicitNullValueOrganizationsUrl = default!;
 #endif
         /// <summary>The owned_private_repos property</summary>
-        public int? OwnedPrivateRepos { get; set; }
+        public int? OwnedPrivateRepos { get => _explicitNullValueOwnedPrivateRepos; set { _explicitNullValueOwnedPrivateRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned_private_repos"); else _explicitNullProperties?.Remove("owned_private_repos"); } }
+        private int? _explicitNullValueOwnedPrivateRepos = default!;
         /// <summary>The plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan? Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan? _explicitNullValuePlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PrivateUserPlan _explicitNullValuePlan = default!;
 #endif
         /// <summary>The private_gists property</summary>
-        public int? PrivateGists { get; set; }
+        public int? PrivateGists { get => _explicitNullValuePrivateGists; set { _explicitNullValuePrivateGists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_gists"); else _explicitNullProperties?.Remove("private_gists"); } }
+        private int? _explicitNullValuePrivateGists = default!;
         /// <summary>The public_gists property</summary>
-        public int? PublicGists { get; set; }
+        public int? PublicGists { get => _explicitNullValuePublicGists; set { _explicitNullValuePublicGists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_gists"); else _explicitNullProperties?.Remove("public_gists"); } }
+        private int? _explicitNullValuePublicGists = default!;
         /// <summary>The public_repos property</summary>
-        public int? PublicRepos { get; set; }
+        public int? PublicRepos { get => _explicitNullValuePublicRepos; set { _explicitNullValuePublicRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_repos"); else _explicitNullProperties?.Remove("public_repos"); } }
+        private int? _explicitNullValuePublicRepos = default!;
         /// <summary>The received_events_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReceivedEventsUrl { get; set; }
+        public string? ReceivedEventsUrl { get => _explicitNullValueReceivedEventsUrl; set { _explicitNullValueReceivedEventsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_events_url"); else _explicitNullProperties?.Remove("received_events_url"); } }
+        private string? _explicitNullValueReceivedEventsUrl = default!;
 #nullable restore
 #else
-        public string ReceivedEventsUrl { get; set; }
+        public string ReceivedEventsUrl { get => _explicitNullValueReceivedEventsUrl; set { _explicitNullValueReceivedEventsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_events_url"); else _explicitNullProperties?.Remove("received_events_url"); } }
+        private string _explicitNullValueReceivedEventsUrl = default!;
 #endif
         /// <summary>The repos_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReposUrl { get; set; }
+        public string? ReposUrl { get => _explicitNullValueReposUrl; set { _explicitNullValueReposUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repos_url"); else _explicitNullProperties?.Remove("repos_url"); } }
+        private string? _explicitNullValueReposUrl = default!;
 #nullable restore
 #else
-        public string ReposUrl { get; set; }
+        public string ReposUrl { get => _explicitNullValueReposUrl; set { _explicitNullValueReposUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repos_url"); else _explicitNullProperties?.Remove("repos_url"); } }
+        private string _explicitNullValueReposUrl = default!;
 #endif
         /// <summary>The site_admin property</summary>
-        public bool? SiteAdmin { get; set; }
+        public bool? SiteAdmin { get => _explicitNullValueSiteAdmin; set { _explicitNullValueSiteAdmin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("site_admin"); else _explicitNullProperties?.Remove("site_admin"); } }
+        private bool? _explicitNullValueSiteAdmin = default!;
         /// <summary>The starred_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StarredUrl { get; set; }
+        public string? StarredUrl { get => _explicitNullValueStarredUrl; set { _explicitNullValueStarredUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starred_url"); else _explicitNullProperties?.Remove("starred_url"); } }
+        private string? _explicitNullValueStarredUrl = default!;
 #nullable restore
 #else
-        public string StarredUrl { get; set; }
+        public string StarredUrl { get => _explicitNullValueStarredUrl; set { _explicitNullValueStarredUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("starred_url"); else _explicitNullProperties?.Remove("starred_url"); } }
+        private string _explicitNullValueStarredUrl = default!;
 #endif
         /// <summary>The subscriptions_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriptionsUrl { get; set; }
+        public string? SubscriptionsUrl { get => _explicitNullValueSubscriptionsUrl; set { _explicitNullValueSubscriptionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptions_url"); else _explicitNullProperties?.Remove("subscriptions_url"); } }
+        private string? _explicitNullValueSubscriptionsUrl = default!;
 #nullable restore
 #else
-        public string SubscriptionsUrl { get; set; }
+        public string SubscriptionsUrl { get => _explicitNullValueSubscriptionsUrl; set { _explicitNullValueSubscriptionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptions_url"); else _explicitNullProperties?.Remove("subscriptions_url"); } }
+        private string _explicitNullValueSubscriptionsUrl = default!;
 #endif
         /// <summary>The total_private_repos property</summary>
-        public int? TotalPrivateRepos { get; set; }
+        public int? TotalPrivateRepos { get => _explicitNullValueTotalPrivateRepos; set { _explicitNullValueTotalPrivateRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_private_repos"); else _explicitNullProperties?.Remove("total_private_repos"); } }
+        private int? _explicitNullValueTotalPrivateRepos = default!;
         /// <summary>The twitter_username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TwitterUsername { get; set; }
+        public string? TwitterUsername { get => _explicitNullValueTwitterUsername; set { _explicitNullValueTwitterUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("twitter_username"); else _explicitNullProperties?.Remove("twitter_username"); } }
+        private string? _explicitNullValueTwitterUsername = default!;
 #nullable restore
 #else
-        public string TwitterUsername { get; set; }
+        public string TwitterUsername { get => _explicitNullValueTwitterUsername; set { _explicitNullValueTwitterUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("twitter_username"); else _explicitNullProperties?.Remove("twitter_username"); } }
+        private string _explicitNullValueTwitterUsername = default!;
 #endif
         /// <summary>The two_factor_authentication property</summary>
-        public bool? TwoFactorAuthentication { get; set; }
+        public bool? TwoFactorAuthentication { get => _explicitNullValueTwoFactorAuthentication; set { _explicitNullValueTwoFactorAuthentication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("two_factor_authentication"); else _explicitNullProperties?.Remove("two_factor_authentication"); } }
+        private bool? _explicitNullValueTwoFactorAuthentication = default!;
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The user_view_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserViewType { get; set; }
+        public string? UserViewType { get => _explicitNullValueUserViewType; set { _explicitNullValueUserViewType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_view_type"); else _explicitNullProperties?.Remove("user_view_type"); } }
+        private string? _explicitNullValueUserViewType = default!;
 #nullable restore
 #else
-        public string UserViewType { get; set; }
+        public string UserViewType { get => _explicitNullValueUserViewType; set { _explicitNullValueUserViewType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_view_type"); else _explicitNullProperties?.Remove("user_view_type"); } }
+        private string _explicitNullValueUserViewType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser"/> and sets the default values.
@@ -278,7 +398,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -383,6 +503,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("user_view_type", UserViewType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

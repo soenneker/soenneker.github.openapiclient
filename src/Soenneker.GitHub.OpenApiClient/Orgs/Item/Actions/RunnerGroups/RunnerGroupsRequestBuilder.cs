@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelfHostedRunnerGroupsForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelfHostedRunnerGroupsForOrg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelfHostedRunnerGroupsForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListSelfHostedRunnerGroupsForOrg200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new self-hosted runner group for an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.RunnerGroupsOrg>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.RunnerGroupsOrg.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.RunnerGroupsOrg>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.RunnerGroupsOrg.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all self-hosted runner groups configured in an organization and inherited from an enterprise.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

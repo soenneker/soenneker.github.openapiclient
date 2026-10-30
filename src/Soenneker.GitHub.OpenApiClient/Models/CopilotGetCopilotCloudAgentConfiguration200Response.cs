@@ -11,43 +11,69 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CopilotGetCopilotCloudAgentConfiguration200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_allowlist") is { } nullNodeCustomAllowlist && nullNodeCustomAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomAllowlist = null;
+            if (parseNode.GetChildNode("enabled_tools") is { } nullNodeEnabledTools && nullNodeEnabledTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledTools = null;
+            if (parseNode.GetChildNode("is_automations_enabled") is { } nullNodeIsAutomationsEnabled && nullNodeIsAutomationsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAutomationsEnabled = null;
+            if (parseNode.GetChildNode("is_firewall_enabled") is { } nullNodeIsFirewallEnabled && nullNodeIsFirewallEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFirewallEnabled = null;
+            if (parseNode.GetChildNode("is_firewall_recommended_allowlist_enabled") is { } nullNodeIsFirewallRecommendedAllowlistEnabled && nullNodeIsFirewallRecommendedAllowlistEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFirewallRecommendedAllowlistEnabled = null;
+            if (parseNode.GetChildNode("mcp_configuration") is { } nullNodeMcpConfiguration && nullNodeMcpConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpConfiguration = null;
+            if (parseNode.GetChildNode("require_actions_workflow_approval") is { } nullNodeRequireActionsWorkflowApproval && nullNodeRequireActionsWorkflowApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireActionsWorkflowApproval = null;
+            if (parseNode.GetChildNode("require_write_access_for_automation_triggers") is { } nullNodeRequireWriteAccessForAutomationTriggers && nullNodeRequireWriteAccessForAutomationTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireWriteAccessForAutomationTriggers = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of custom allowlist entries, as hosts or URLs, that the firewall will allow the Copilot cloud agent to access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomAllowlist { get; set; }
+        public List<string>? CustomAllowlist { get => _explicitNullValueCustomAllowlist; set { _explicitNullValueCustomAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_allowlist"); else _explicitNullProperties?.Remove("custom_allowlist"); } }
+        private List<string>? _explicitNullValueCustomAllowlist = default!;
 #nullable restore
 #else
-        public List<string> CustomAllowlist { get; set; }
+        public List<string> CustomAllowlist { get => _explicitNullValueCustomAllowlist; set { _explicitNullValueCustomAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_allowlist"); else _explicitNullProperties?.Remove("custom_allowlist"); } }
+        private List<string> _explicitNullValueCustomAllowlist = default!;
 #endif
         /// <summary>The enabled review tools for Copilot cloud agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools? EnabledTools { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools? EnabledTools { get => _explicitNullValueEnabledTools; set { _explicitNullValueEnabledTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_tools"); else _explicitNullProperties?.Remove("enabled_tools"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools? _explicitNullValueEnabledTools = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools EnabledTools { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools EnabledTools { get => _explicitNullValueEnabledTools; set { _explicitNullValueEnabledTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_tools"); else _explicitNullProperties?.Remove("enabled_tools"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseEnabledTools _explicitNullValueEnabledTools = default!;
 #endif
         /// <summary>Whether automations are enabled in this repository. When true, users can create automations that automatically run agents on a schedule or in response to events like new issues or updated pull requests.</summary>
-        public bool? IsAutomationsEnabled { get; set; }
+        public bool? IsAutomationsEnabled { get => _explicitNullValueIsAutomationsEnabled; set { _explicitNullValueIsAutomationsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_automations_enabled"); else _explicitNullProperties?.Remove("is_automations_enabled"); } }
+        private bool? _explicitNullValueIsAutomationsEnabled = default!;
         /// <summary>Whether the firewall is enabled.</summary>
-        public bool? IsFirewallEnabled { get; set; }
+        public bool? IsFirewallEnabled { get => _explicitNullValueIsFirewallEnabled; set { _explicitNullValueIsFirewallEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_firewall_enabled"); else _explicitNullProperties?.Remove("is_firewall_enabled"); } }
+        private bool? _explicitNullValueIsFirewallEnabled = default!;
         /// <summary>Whether the firewall recommended allowlist is enabled.</summary>
-        public bool? IsFirewallRecommendedAllowlistEnabled { get; set; }
+        public bool? IsFirewallRecommendedAllowlistEnabled { get => _explicitNullValueIsFirewallRecommendedAllowlistEnabled; set { _explicitNullValueIsFirewallRecommendedAllowlistEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_firewall_recommended_allowlist_enabled"); else _explicitNullProperties?.Remove("is_firewall_recommended_allowlist_enabled"); } }
+        private bool? _explicitNullValueIsFirewallRecommendedAllowlistEnabled = default!;
         /// <summary>The user-supplied MCP server configuration for the repository, as a free-form JSON object. This will be set to `null` if no configuration has been set.The shape of a valid MCP configuration may evolve over time, so this property is intentionally not strictly typed. Clients should not assume a fixed schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration? McpConfiguration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration? McpConfiguration { get => _explicitNullValueMcpConfiguration; set { _explicitNullValueMcpConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_configuration"); else _explicitNullProperties?.Remove("mcp_configuration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration? _explicitNullValueMcpConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration McpConfiguration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration McpConfiguration { get => _explicitNullValueMcpConfiguration; set { _explicitNullValueMcpConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_configuration"); else _explicitNullProperties?.Remove("mcp_configuration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration _explicitNullValueMcpConfiguration = default!;
 #endif
         /// <summary>Whether Actions workflow approval is required for Copilot cloud agent pull requests.</summary>
-        public bool? RequireActionsWorkflowApproval { get; set; }
+        public bool? RequireActionsWorkflowApproval { get => _explicitNullValueRequireActionsWorkflowApproval; set { _explicitNullValueRequireActionsWorkflowApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_actions_workflow_approval"); else _explicitNullProperties?.Remove("require_actions_workflow_approval"); } }
+        private bool? _explicitNullValueRequireActionsWorkflowApproval = default!;
         /// <summary>Whether write access is required for automation triggers. When true, automations will only run if the user triggering the event has write access to the repository. When false, users can create automations that listen for events triggered by users without write access.</summary>
-        public bool? RequireWriteAccessForAutomationTriggers { get; set; }
+        public bool? RequireWriteAccessForAutomationTriggers { get => _explicitNullValueRequireWriteAccessForAutomationTriggers; set { _explicitNullValueRequireWriteAccessForAutomationTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_write_access_for_automation_triggers"); else _explicitNullProperties?.Remove("require_write_access_for_automation_triggers"); } }
+        private bool? _explicitNullValueRequireWriteAccessForAutomationTriggers = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200Response"/> and sets the default values.
         /// </summary>
@@ -63,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCloudAgentConfiguration200ResponseMcpConfiguration>("mcp_configuration", McpConfiguration);
             writer.WriteBoolValue("require_actions_workflow_approval", RequireActionsWorkflowApproval);
             writer.WriteBoolValue("require_write_access_for_automation_triggers", RequireWriteAccessForAutomationTriggers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

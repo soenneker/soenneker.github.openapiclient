@@ -37,21 +37,20 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stats.Commit_activity
         /// Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.
         /// API method documentation <see href="https://docs.github.com/rest/metrics/statistics#get-the-last-year-of-commit-activity" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.CommitActivity&gt;</returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposGetCommitActivityStatsSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CommitActivity>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetCommitActivityStatsSuccessResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CommitActivity>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetCommitActivityStatsSuccessResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.CommitActivity>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CommitActivity.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-            return collectionResult?.AsList();
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetCommitActivityStatsSuccessResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ReposGetCommitActivityStatsSuccessResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.

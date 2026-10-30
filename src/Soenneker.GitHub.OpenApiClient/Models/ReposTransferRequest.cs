@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposTransferRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("new_name") is { } nullNodeNewName && nullNodeNewName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewName = null;
+            if (parseNode.GetChildNode("new_owner") is { } nullNodeNewOwner && nullNodeNewOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewOwner = null;
+            if (parseNode.GetChildNode("team_ids") is { } nullNodeTeamIds && nullNodeTeamIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The new name to be given to the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewName { get; set; }
+        public string? NewName { get => _explicitNullValueNewName; set { _explicitNullValueNewName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_name"); else _explicitNullProperties?.Remove("new_name"); } }
+        private string? _explicitNullValueNewName = default!;
 #nullable restore
 #else
-        public string NewName { get; set; }
+        public string NewName { get => _explicitNullValueNewName; set { _explicitNullValueNewName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_name"); else _explicitNullProperties?.Remove("new_name"); } }
+        private string _explicitNullValueNewName = default!;
 #endif
         /// <summary>The username or organization name the repository will be transferred to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewOwner { get; set; }
+        public string? NewOwner { get => _explicitNullValueNewOwner; set { _explicitNullValueNewOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_owner"); else _explicitNullProperties?.Remove("new_owner"); } }
+        private string? _explicitNullValueNewOwner = default!;
 #nullable restore
 #else
-        public string NewOwner { get; set; }
+        public string NewOwner { get => _explicitNullValueNewOwner; set { _explicitNullValueNewOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_owner"); else _explicitNullProperties?.Remove("new_owner"); } }
+        private string _explicitNullValueNewOwner = default!;
 #endif
         /// <summary>ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? TeamIds { get; set; }
+        public List<int?>? TeamIds { get => _explicitNullValueTeamIds; set { _explicitNullValueTeamIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_ids"); else _explicitNullProperties?.Remove("team_ids"); } }
+        private List<int?>? _explicitNullValueTeamIds = default!;
 #nullable restore
 #else
-        public List<int?> TeamIds { get; set; }
+        public List<int?> TeamIds { get => _explicitNullValueTeamIds; set { _explicitNullValueTeamIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_ids"); else _explicitNullProperties?.Remove("team_ids"); } }
+        private List<int?> _explicitNullValueTeamIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposTransferRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposTransferRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposTransferRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposTransferRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("new_name", NewName);
             writer.WriteStringValue("new_owner", NewOwner);
             writer.WriteCollectionOfPrimitiveValues<int?>("team_ids", TeamIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

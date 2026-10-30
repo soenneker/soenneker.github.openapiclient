@@ -11,9 +11,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProjectsAddFieldForOrgRequestOneOf1 : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("issue_field_id") is { } nullNodeIssueFieldId && nullNodeIssueFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldId = null;
+        }
+
         /// <summary>The ID of the IssueField to create the field for.</summary>
-        public long? IssueFieldId { get; set; }
+        public long? IssueFieldId { get => _explicitNullValueIssueFieldId; set { _explicitNullValueIssueFieldId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_id"); else _explicitNullProperties?.Remove("issue_field_id"); } }
+        private long? _explicitNullValueIssueFieldId = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -22,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +51,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("issue_field_id", IssueFieldId);
+            writer.WriteLongValue("issue_field_id", IssueFieldId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

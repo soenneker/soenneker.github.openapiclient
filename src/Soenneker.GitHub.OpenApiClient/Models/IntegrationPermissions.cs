@@ -12,48 +12,70 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IntegrationPermissions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
+            if (parseNode.GetChildNode("contents") is { } nullNodeContents && nullNodeContents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contents = null;
+            if (parseNode.GetChildNode("deployments") is { } nullNodeDeployments && nullNodeDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployments = null;
+            if (parseNode.GetChildNode("issues") is { } nullNodeIssues && nullNodeIssues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issues = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Checks { get; set; }
+        public string? Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private string? _explicitNullValueChecks = default!;
 #nullable restore
 #else
-        public string Checks { get; set; }
+        public string Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private string _explicitNullValueChecks = default!;
 #endif
         /// <summary>The contents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contents { get; set; }
+        public string? Contents { get => _explicitNullValueContents; set { _explicitNullValueContents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contents"); else _explicitNullProperties?.Remove("contents"); } }
+        private string? _explicitNullValueContents = default!;
 #nullable restore
 #else
-        public string Contents { get; set; }
+        public string Contents { get => _explicitNullValueContents; set { _explicitNullValueContents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contents"); else _explicitNullProperties?.Remove("contents"); } }
+        private string _explicitNullValueContents = default!;
 #endif
         /// <summary>The deployments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Deployments { get; set; }
+        public string? Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private string? _explicitNullValueDeployments = default!;
 #nullable restore
 #else
-        public string Deployments { get; set; }
+        public string Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private string _explicitNullValueDeployments = default!;
 #endif
         /// <summary>The issues property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Issues { get; set; }
+        public string? Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
+        private string? _explicitNullValueIssues = default!;
 #nullable restore
 #else
-        public string Issues { get; set; }
+        public string Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
+        private string _explicitNullValueIssues = default!;
 #endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Metadata { get; set; }
+        public string? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private string? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public string Metadata { get; set; }
+        public string Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private string _explicitNullValueMetadata = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IntegrationPermissions"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IntegrationPermissions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IntegrationPermissions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IntegrationPermissions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("deployments", Deployments);
             writer.WriteStringValue("issues", Issues);
             writer.WriteStringValue("metadata", Metadata);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

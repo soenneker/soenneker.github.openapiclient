@@ -12,19 +12,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SecretScanningCustomPatternToDelete : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_pattern_version") is { } nullNodeCustomPatternVersion && nullNodeCustomPatternVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternVersion = null;
+            if (parseNode.GetChildNode("pattern_id") is { } nullNodePatternId && nullNodePatternId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The version of the entity. This is used to confirm you&apos;re updating the current version of the entity and mitigate unintentionally overriding someone else&apos;s update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPatternVersion { get; set; }
+        public string? CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        private string? _explicitNullValueCustomPatternVersion = default!;
 #nullable restore
 #else
-        public string CustomPatternVersion { get; set; }
+        public string CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        private string _explicitNullValueCustomPatternVersion = default!;
 #endif
         /// <summary>The ID of the custom pattern to delete.</summary>
-        public long? PatternId { get; set; }
+        public long? PatternId { get => _explicitNullValuePatternId; set { _explicitNullValuePatternId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_id"); else _explicitNullProperties?.Remove("pattern_id"); } }
+        private long? _explicitNullValuePatternId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_pattern_version", CustomPatternVersion);
             writer.WriteLongValue("pattern_id", PatternId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

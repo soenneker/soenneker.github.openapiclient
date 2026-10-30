@@ -12,41 +12,65 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NullableCodespaceMachine : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cpus") is { } nullNodeCpus && nullNodeCpus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cpus = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("memory_in_bytes") is { } nullNodeMemoryInBytes && nullNodeMemoryInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryInBytes = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("operating_system") is { } nullNodeOperatingSystem && nullNodeOperatingSystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperatingSystem = null;
+            if (parseNode.GetChildNode("prebuild_availability") is { } nullNodePrebuildAvailability && nullNodePrebuildAvailability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrebuildAvailability = null;
+            if (parseNode.GetChildNode("storage_in_bytes") is { } nullNodeStorageInBytes && nullNodeStorageInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageInBytes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How many cores are available to the codespace.</summary>
-        public int? Cpus { get; set; }
+        public int? Cpus { get => _explicitNullValueCpus; set { _explicitNullValueCpus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpus"); else _explicitNullProperties?.Remove("cpus"); } }
+        private int? _explicitNullValueCpus = default!;
         /// <summary>The display name of the machine includes cores, memory, and storage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>How much memory is available to the codespace.</summary>
-        public long? MemoryInBytes { get; set; }
+        public long? MemoryInBytes { get => _explicitNullValueMemoryInBytes; set { _explicitNullValueMemoryInBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_in_bytes"); else _explicitNullProperties?.Remove("memory_in_bytes"); } }
+        private long? _explicitNullValueMemoryInBytes = default!;
         /// <summary>The name of the machine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The operating system of the machine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OperatingSystem { get; set; }
+        public string? OperatingSystem { get => _explicitNullValueOperatingSystem; set { _explicitNullValueOperatingSystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operating_system"); else _explicitNullProperties?.Remove("operating_system"); } }
+        private string? _explicitNullValueOperatingSystem = default!;
 #nullable restore
 #else
-        public string OperatingSystem { get; set; }
+        public string OperatingSystem { get => _explicitNullValueOperatingSystem; set { _explicitNullValueOperatingSystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operating_system"); else _explicitNullProperties?.Remove("operating_system"); } }
+        private string _explicitNullValueOperatingSystem = default!;
 #endif
         /// <summary>Whether a prebuild is currently available when creating a codespace for this machine and repository. If a branch was not specified as a ref, the default branch will be assumed. Value will be &quot;null&quot; if prebuilds are not supported or prebuild availability could not be determined. Value will be &quot;none&quot; if no prebuild is available. Latest values &quot;ready&quot; and &quot;in_progress&quot; indicate the prebuild availability status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability? PrebuildAvailability { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability? PrebuildAvailability { get => _explicitNullValuePrebuildAvailability; set { _explicitNullValuePrebuildAvailability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prebuild_availability"); else _explicitNullProperties?.Remove("prebuild_availability"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability? _explicitNullValuePrebuildAvailability = default!;
         /// <summary>How much storage is available to the codespace.</summary>
-        public long? StorageInBytes { get; set; }
+        public long? StorageInBytes { get => _explicitNullValueStorageInBytes; set { _explicitNullValueStorageInBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_in_bytes"); else _explicitNullProperties?.Remove("storage_in_bytes"); } }
+        private long? _explicitNullValueStorageInBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine"/> and sets the default values.
         /// </summary>
@@ -62,7 +86,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("operating_system", OperatingSystem);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability>("prebuild_availability", PrebuildAvailability);
             writer.WriteLongValue("storage_in_bytes", StorageInBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

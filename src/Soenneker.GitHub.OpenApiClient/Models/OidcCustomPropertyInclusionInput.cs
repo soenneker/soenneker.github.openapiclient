@@ -12,16 +12,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OidcCustomPropertyInclusionInput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_property_name") is { } nullNodeCustomPropertyName && nullNodeCustomPropertyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPropertyName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the custom property to include in the OIDC token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPropertyName { get; set; }
+        public string? CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        private string? _explicitNullValueCustomPropertyName = default!;
 #nullable restore
 #else
-        public string CustomPropertyName { get; set; }
+        public string CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        private string _explicitNullValueCustomPropertyName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInput"/> and sets the default values.
@@ -38,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_property_name", CustomPropertyName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

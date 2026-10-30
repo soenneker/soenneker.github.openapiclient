@@ -12,80 +12,114 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposUpdateRequestSecurityAndAnalysis : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("advanced_security") is { } nullNodeAdvancedSecurity && nullNodeAdvancedSecurity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedSecurity = null;
+            if (parseNode.GetChildNode("code_security") is { } nullNodeCodeSecurity && nullNodeCodeSecurity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeSecurity = null;
+            if (parseNode.GetChildNode("secret_scanning") is { } nullNodeSecretScanning && nullNodeSecretScanning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanning = null;
+            if (parseNode.GetChildNode("secret_scanning_ai_detection") is { } nullNodeSecretScanningAiDetection && nullNodeSecretScanningAiDetection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningAiDetection = null;
+            if (parseNode.GetChildNode("secret_scanning_delegated_alert_dismissal") is { } nullNodeSecretScanningDelegatedAlertDismissal && nullNodeSecretScanningDelegatedAlertDismissal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningDelegatedAlertDismissal = null;
+            if (parseNode.GetChildNode("secret_scanning_delegated_bypass") is { } nullNodeSecretScanningDelegatedBypass && nullNodeSecretScanningDelegatedBypass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningDelegatedBypass = null;
+            if (parseNode.GetChildNode("secret_scanning_delegated_bypass_options") is { } nullNodeSecretScanningDelegatedBypassOptions && nullNodeSecretScanningDelegatedBypassOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningDelegatedBypassOptions = null;
+            if (parseNode.GetChildNode("secret_scanning_non_provider_patterns") is { } nullNodeSecretScanningNonProviderPatterns && nullNodeSecretScanningNonProviderPatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningNonProviderPatterns = null;
+            if (parseNode.GetChildNode("secret_scanning_push_protection") is { } nullNodeSecretScanningPushProtection && nullNodeSecretScanningPushProtection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningPushProtection = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use the `status` property to enable or disable GitHub Advanced Security for this repository.For more information, see &quot;[About GitHub AdvancedSecurity](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).&quot;For standalone Code Scanning or Secret Protection products, this parameter cannot be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity? AdvancedSecurity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity? AdvancedSecurity { get => _explicitNullValueAdvancedSecurity; set { _explicitNullValueAdvancedSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_security"); else _explicitNullProperties?.Remove("advanced_security"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity? _explicitNullValueAdvancedSecurity = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity AdvancedSecurity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity AdvancedSecurity { get => _explicitNullValueAdvancedSecurity; set { _explicitNullValueAdvancedSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_security"); else _explicitNullProperties?.Remove("advanced_security"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity _explicitNullValueAdvancedSecurity = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable GitHub Code Security for this repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity? CodeSecurity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity? CodeSecurity { get => _explicitNullValueCodeSecurity; set { _explicitNullValueCodeSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_security"); else _explicitNullProperties?.Remove("code_security"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity? _explicitNullValueCodeSecurity = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity CodeSecurity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity CodeSecurity { get => _explicitNullValueCodeSecurity; set { _explicitNullValueCodeSecurity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_security"); else _explicitNullProperties?.Remove("code_security"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity _explicitNullValueCodeSecurity = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning for this repository. For more information, see &quot;[About secret scanning](/code-security/secret-security/about-secret-scanning).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning? SecretScanning { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning? SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning? _explicitNullValueSecretScanning = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning SecretScanning { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanning _explicitNullValueSecretScanning = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning AI detection for this repository. For more information, see &quot;[Responsible detection of generic secrets with AI](https://docs.github.com/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection? SecretScanningAiDetection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection? SecretScanningAiDetection { get => _explicitNullValueSecretScanningAiDetection; set { _explicitNullValueSecretScanningAiDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_ai_detection"); else _explicitNullProperties?.Remove("secret_scanning_ai_detection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection? _explicitNullValueSecretScanningAiDetection = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection SecretScanningAiDetection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection SecretScanningAiDetection { get => _explicitNullValueSecretScanningAiDetection; set { _explicitNullValueSecretScanningAiDetection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_ai_detection"); else _explicitNullProperties?.Remove("secret_scanning_ai_detection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningAiDetection _explicitNullValueSecretScanningAiDetection = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning delegated alert dismissal for this repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal? SecretScanningDelegatedAlertDismissal { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal? SecretScanningDelegatedAlertDismissal { get => _explicitNullValueSecretScanningDelegatedAlertDismissal; set { _explicitNullValueSecretScanningDelegatedAlertDismissal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_alert_dismissal"); else _explicitNullProperties?.Remove("secret_scanning_delegated_alert_dismissal"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal? _explicitNullValueSecretScanningDelegatedAlertDismissal = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal SecretScanningDelegatedAlertDismissal { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal SecretScanningDelegatedAlertDismissal { get => _explicitNullValueSecretScanningDelegatedAlertDismissal; set { _explicitNullValueSecretScanningDelegatedAlertDismissal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_alert_dismissal"); else _explicitNullProperties?.Remove("secret_scanning_delegated_alert_dismissal"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedAlertDismissal _explicitNullValueSecretScanningDelegatedAlertDismissal = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning delegated bypass for this repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass? SecretScanningDelegatedBypass { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass? SecretScanningDelegatedBypass { get => _explicitNullValueSecretScanningDelegatedBypass; set { _explicitNullValueSecretScanningDelegatedBypass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_bypass"); else _explicitNullProperties?.Remove("secret_scanning_delegated_bypass"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass? _explicitNullValueSecretScanningDelegatedBypass = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass SecretScanningDelegatedBypass { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass SecretScanningDelegatedBypass { get => _explicitNullValueSecretScanningDelegatedBypass; set { _explicitNullValueSecretScanningDelegatedBypass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_bypass"); else _explicitNullProperties?.Remove("secret_scanning_delegated_bypass"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypass _explicitNullValueSecretScanningDelegatedBypass = default!;
 #endif
         /// <summary>Feature options for secret scanning delegated bypass.This object is only honored when `security_and_analysis.secret_scanning_delegated_bypass.status` is set to `enabled`.You can send this object in the same request as `secret_scanning_delegated_bypass`, or update just the options in a separate request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions? SecretScanningDelegatedBypassOptions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions? SecretScanningDelegatedBypassOptions { get => _explicitNullValueSecretScanningDelegatedBypassOptions; set { _explicitNullValueSecretScanningDelegatedBypassOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_bypass_options"); else _explicitNullProperties?.Remove("secret_scanning_delegated_bypass_options"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions? _explicitNullValueSecretScanningDelegatedBypassOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions SecretScanningDelegatedBypassOptions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions SecretScanningDelegatedBypassOptions { get => _explicitNullValueSecretScanningDelegatedBypassOptions; set { _explicitNullValueSecretScanningDelegatedBypassOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_delegated_bypass_options"); else _explicitNullProperties?.Remove("secret_scanning_delegated_bypass_options"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions _explicitNullValueSecretScanningDelegatedBypassOptions = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning non-provider patterns for this repository. For more information, see &quot;[Supported secret scanning patterns](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns? SecretScanningNonProviderPatterns { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns? SecretScanningNonProviderPatterns { get => _explicitNullValueSecretScanningNonProviderPatterns; set { _explicitNullValueSecretScanningNonProviderPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_non_provider_patterns"); else _explicitNullProperties?.Remove("secret_scanning_non_provider_patterns"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns? _explicitNullValueSecretScanningNonProviderPatterns = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns SecretScanningNonProviderPatterns { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns SecretScanningNonProviderPatterns { get => _explicitNullValueSecretScanningNonProviderPatterns; set { _explicitNullValueSecretScanningNonProviderPatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_non_provider_patterns"); else _explicitNullProperties?.Remove("secret_scanning_non_provider_patterns"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns _explicitNullValueSecretScanningNonProviderPatterns = default!;
 #endif
         /// <summary>Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see &quot;[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection? SecretScanningPushProtection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection? SecretScanningPushProtection { get => _explicitNullValueSecretScanningPushProtection; set { _explicitNullValueSecretScanningPushProtection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection"); else _explicitNullProperties?.Remove("secret_scanning_push_protection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection? _explicitNullValueSecretScanningPushProtection = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection SecretScanningPushProtection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection SecretScanningPushProtection { get => _explicitNullValueSecretScanningPushProtection; set { _explicitNullValueSecretScanningPushProtection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection"); else _explicitNullProperties?.Remove("secret_scanning_push_protection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection _explicitNullValueSecretScanningPushProtection = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysis"/> and sets the default values.
@@ -102,7 +136,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysis CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysis();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysis(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -139,6 +175,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningDelegatedBypassOptions>("secret_scanning_delegated_bypass_options", SecretScanningDelegatedBypassOptions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningNonProviderPatterns>("secret_scanning_non_provider_patterns", SecretScanningNonProviderPatterns);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisSecretScanningPushProtection>("secret_scanning_push_protection", SecretScanningPushProtection);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,18 +12,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImmutableReleasesOrganizationSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enforced_repositories") is { } nullNodeEnforcedRepositories && nullNodeEnforcedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforcedRepositories = null;
+            if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls how immutable releases are enforced in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? EnforcedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? EnforcedRepositories { get => _explicitNullValueEnforcedRepositories; set { _explicitNullValueEnforcedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforced_repositories"); else _explicitNullProperties?.Remove("enforced_repositories"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? _explicitNullValueEnforcedRepositories = default!;
         /// <summary>The API URL to use to get or set the selected repositories for immutable releases enforcement, when `enforced_repositories` is set to `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedRepositoriesUrl { get; set; }
+        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string? _explicitNullValueSelectedRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string SelectedRepositoriesUrl { get; set; }
+        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string _explicitNullValueSelectedRepositoriesUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories>("enforced_repositories", EnforcedRepositories);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,6 +13,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsPolicyOrgConditions : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,17 +94,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditions();
             if("ActionsPolicyOrgConditionsOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ActionsPolicyOrgConditionsOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1();
+                
             }
             else if("ActionsPolicyOrgConditionsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ActionsPolicyOrgConditionsOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2();
+                
             }
             else if("ActionsPolicyOrgConditionsOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ActionsPolicyOrgConditionsOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_name") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_id") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("repository_property") != null))();
+            if (result.ActionsPolicyOrgConditionsOneOf1 == null && result.ActionsPolicyOrgConditionsOneOf2 == null && result.ActionsPolicyOrgConditionsOneOf3 == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && result.WorkflowPath == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ActionsPolicyOrgConditionsOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1(), parseNode);
+            if (result.ActionsPolicyOrgConditionsOneOf1 == null && result.ActionsPolicyOrgConditionsOneOf2 == null && result.ActionsPolicyOrgConditionsOneOf3 == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && result.WorkflowPath == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ActionsPolicyOrgConditionsOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2(), parseNode);
+            if (result.ActionsPolicyOrgConditionsOneOf1 == null && result.ActionsPolicyOrgConditionsOneOf2 == null && result.ActionsPolicyOrgConditionsOneOf3 == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && result.WorkflowPath == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ActionsPolicyOrgConditionsOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3(), parseNode);
+            if (result.ActionsPolicyOrgConditionsOneOf1 == null && result.ActionsPolicyOrgConditionsOneOf2 == null && result.ActionsPolicyOrgConditionsOneOf3 == null && result.RepositoryId == null && result.RepositoryName == null && result.RepositoryProperty == null && result.WorkflowPath == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,36 +157,49 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ActionsPolicyOrgConditionsOneOf1 == null && ActionsPolicyOrgConditionsOneOf2 == null && ActionsPolicyOrgConditionsOneOf3 == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null && WorkflowPath == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ActionsPolicyOrgConditionsOneOf1 != null && ActionsPolicyOrgConditionsOneOf2 == null && ActionsPolicyOrgConditionsOneOf3 == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null && WorkflowPath == null) { if (ActionsPolicyOrgConditionsOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyOrgConditionsOneOf1); return; }
+            if (ActionsPolicyOrgConditionsOneOf2 != null && ActionsPolicyOrgConditionsOneOf1 == null && ActionsPolicyOrgConditionsOneOf3 == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null && WorkflowPath == null) { if (ActionsPolicyOrgConditionsOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyOrgConditionsOneOf2); return; }
+            if (ActionsPolicyOrgConditionsOneOf3 != null && ActionsPolicyOrgConditionsOneOf1 == null && ActionsPolicyOrgConditionsOneOf2 == null && RepositoryId == null && RepositoryName == null && RepositoryProperty == null && WorkflowPath == null) { if (ActionsPolicyOrgConditionsOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyOrgConditionsOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ActionsPolicyOrgConditionsOneOf1 != null)
             {
+                if (ActionsPolicyOrgConditionsOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1>(null, ActionsPolicyOrgConditionsOneOf1);
             }
             else if(ActionsPolicyOrgConditionsOneOf2 != null)
             {
+                if (ActionsPolicyOrgConditionsOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2>(null, ActionsPolicyOrgConditionsOneOf2);
             }
             else if(ActionsPolicyOrgConditionsOneOf3 != null)
             {
+                if (ActionsPolicyOrgConditionsOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3>(null, ActionsPolicyOrgConditionsOneOf3);
             }
             else if(RepositoryId != null)
             {
+                if (RepositoryId is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(null, RepositoryId);
             }
             else if(RepositoryName != null)
             {
+                if (RepositoryName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(null, RepositoryName);
             }
             else if(RepositoryProperty != null)
             {
+                if (RepositoryProperty is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(null, RepositoryProperty);
             }
             else if(WorkflowPath != null)
             {
+                if (WorkflowPath is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath>(null, WorkflowPath);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

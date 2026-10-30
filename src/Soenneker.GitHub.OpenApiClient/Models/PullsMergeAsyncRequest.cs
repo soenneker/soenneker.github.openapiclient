@@ -11,38 +11,60 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullsMergeAsyncRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bypass_rules") is { } nullNodeBypassRules && nullNodeBypassRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassRules = null;
+            if (parseNode.GetChildNode("commit_message") is { } nullNodeCommitMessage && nullNodeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitMessage = null;
+            if (parseNode.GetChildNode("commit_title") is { } nullNodeCommitTitle && nullNodeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitTitle = null;
+            if (parseNode.GetChildNode("merge_action") is { } nullNodeMergeAction && nullNodeMergeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeAction = null;
+            if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
+            if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to bypass repository rules that the authenticated actor is permitted to bypass.</summary>
-        public bool? BypassRules { get; set; }
+        public bool? BypassRules { get => _explicitNullValueBypassRules; set { _explicitNullValueBypassRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_rules"); else _explicitNullProperties?.Remove("bypass_rules"); } }
+        private bool? _explicitNullValueBypassRules = default!;
         /// <summary>Extra detail to append to automatic commit message. Only supported for direct merges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitMessage { get; set; }
+        public string? CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        private string? _explicitNullValueCommitMessage = default!;
 #nullable restore
 #else
-        public string CommitMessage { get; set; }
+        public string CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        private string _explicitNullValueCommitMessage = default!;
 #endif
         /// <summary>Title for the automatic commit message. Only supported for direct merges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitTitle { get; set; }
+        public string? CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        private string? _explicitNullValueCommitTitle = default!;
 #nullable restore
 #else
-        public string CommitTitle { get; set; }
+        public string CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        private string _explicitNullValueCommitTitle = default!;
 #endif
         /// <summary>The action that will be taken to merge the pull request. `direct_merge` merges the pull request directly without using a merge queue; `merge_queue` adds the pull request to a merge queue; `default` uses a merge queue if one is configured for the target branch, or merges directly otherwise. If omitted, defaults to `default`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? MergeAction { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? MergeAction { get => _explicitNullValueMergeAction; set { _explicitNullValueMergeAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_action"); else _explicitNullProperties?.Remove("merge_action"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? _explicitNullValueMergeAction = default!;
         /// <summary>The merge method to use for a direct merge. Only supported for direct merges.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? _explicitNullValueMergeMethod = default!;
         /// <summary>SHA that pull request head must match to allow merge. If not provided, the current head of the PR at the time of the request will be used; if the PR is pushed in between the merge being requested and being executed, the merge will be cancelled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha { get; set; }
+        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string? _explicitNullValueSha = default!;
 #nullable restore
 #else
-        public string Sha { get; set; }
+        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string _explicitNullValueSha = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequest"/> and sets the default values.
@@ -60,7 +82,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequest();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,6 +115,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction>("merge_action", MergeAction);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod>("merge_method", MergeMethod);
             writer.WriteStringValue("sha", Sha);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

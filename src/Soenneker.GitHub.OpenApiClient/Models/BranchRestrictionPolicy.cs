@@ -12,64 +12,92 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BranchRestrictionPolicy : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apps") is { } nullNodeApps && nullNodeApps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Apps = null;
+            if (parseNode.GetChildNode("apps_url") is { } nullNodeAppsUrl && nullNodeAppsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppsUrl = null;
+            if (parseNode.GetChildNode("teams") is { } nullNodeTeams && nullNodeTeams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Teams = null;
+            if (parseNode.GetChildNode("teams_url") is { } nullNodeTeamsUrl && nullNodeTeamsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamsUrl = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("users") is { } nullNodeUsers && nullNodeUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Users = null;
+            if (parseNode.GetChildNode("users_url") is { } nullNodeUsersUrl && nullNodeUsersUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsersUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The apps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>? Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>? Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>? _explicitNullValueApps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem> Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem> Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem> _explicitNullValueApps = default!;
 #endif
         /// <summary>The apps_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppsUrl { get; set; }
+        public string? AppsUrl { get => _explicitNullValueAppsUrl; set { _explicitNullValueAppsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps_url"); else _explicitNullProperties?.Remove("apps_url"); } }
+        private string? _explicitNullValueAppsUrl = default!;
 #nullable restore
 #else
-        public string AppsUrl { get; set; }
+        public string AppsUrl { get => _explicitNullValueAppsUrl; set { _explicitNullValueAppsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps_url"); else _explicitNullProperties?.Remove("apps_url"); } }
+        private string _explicitNullValueAppsUrl = default!;
 #endif
         /// <summary>The teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get => _explicitNullValueTeams; set { _explicitNullValueTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams"); else _explicitNullProperties?.Remove("teams"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? _explicitNullValueTeams = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get => _explicitNullValueTeams; set { _explicitNullValueTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams"); else _explicitNullProperties?.Remove("teams"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team> _explicitNullValueTeams = default!;
 #endif
         /// <summary>The teams_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TeamsUrl { get; set; }
+        public string? TeamsUrl { get => _explicitNullValueTeamsUrl; set { _explicitNullValueTeamsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams_url"); else _explicitNullProperties?.Remove("teams_url"); } }
+        private string? _explicitNullValueTeamsUrl = default!;
 #nullable restore
 #else
-        public string TeamsUrl { get; set; }
+        public string TeamsUrl { get => _explicitNullValueTeamsUrl; set { _explicitNullValueTeamsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams_url"); else _explicitNullProperties?.Remove("teams_url"); } }
+        private string _explicitNullValueTeamsUrl = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>? Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>? Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>? _explicitNullValueUsers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem> Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem> Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem> _explicitNullValueUsers = default!;
 #endif
         /// <summary>The users_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsersUrl { get; set; }
+        public string? UsersUrl { get => _explicitNullValueUsersUrl; set { _explicitNullValueUsersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users_url"); else _explicitNullProperties?.Remove("users_url"); } }
+        private string? _explicitNullValueUsersUrl = default!;
 #nullable restore
 #else
-        public string UsersUrl { get; set; }
+        public string UsersUrl { get => _explicitNullValueUsersUrl; set { _explicitNullValueUsersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users_url"); else _explicitNullProperties?.Remove("users_url"); } }
+        private string _explicitNullValueUsersUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy"/> and sets the default values.
@@ -86,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,6 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("url", Url);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>("users", Users);
             writer.WriteStringValue("users_url", UsersUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

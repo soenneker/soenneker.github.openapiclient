@@ -12,48 +12,70 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssuesUpdate200ResponseSuggestions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("issue_field_values") is { } nullNodeIssueFieldValues && nullNodeIssueFieldValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldValues = null;
+            if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assignees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem>? Assignees { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem> Assignees { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItem> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>The issue_field_values property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem>? IssueFieldValues { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem>? IssueFieldValues { get => _explicitNullValueIssueFieldValues; set { _explicitNullValueIssueFieldValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_values"); else _explicitNullProperties?.Remove("issue_field_values"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem>? _explicitNullValueIssueFieldValues = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem> IssueFieldValues { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem> IssueFieldValues { get => _explicitNullValueIssueFieldValues; set { _explicitNullValueIssueFieldValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_values"); else _explicitNullProperties?.Remove("issue_field_values"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem> _explicitNullValueIssueFieldValues = default!;
 #endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem>? _explicitNullValueLabels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem> _explicitNullValueLabels = default!;
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem>? State { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem>? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem>? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem> State { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem> State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem> _explicitNullValueState = default!;
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem>? Type { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem>? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem>? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem> Type { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem> Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem> _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItem>("labels", Labels);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItem>("state", State);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsTypeItem>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

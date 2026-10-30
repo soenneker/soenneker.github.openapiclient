@@ -12,24 +12,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrganizationExternalPropertyInstallation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("installation") is { } nullNodeInstallation && nullNodeInstallation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Installation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The display name assigned to the app installation&apos;s external custom properties in the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The GitHub App installation that was registered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation? Installation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation? Installation { get => _explicitNullValueInstallation; set { _explicitNullValueInstallation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("installation"); else _explicitNullProperties?.Remove("installation"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation? _explicitNullValueInstallation = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation Installation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation Installation { get => _explicitNullValueInstallation; set { _explicitNullValueInstallation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("installation"); else _explicitNullProperties?.Remove("installation"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation _explicitNullValueInstallation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallation"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationExternalPropertyInstallationInstallation>("installation", Installation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

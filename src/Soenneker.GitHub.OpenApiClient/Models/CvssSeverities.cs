@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CvssSeverities : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cvss_v3") is { } nullNodeCvssV3 && nullNodeCvssV3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CvssV3 = null;
+            if (parseNode.GetChildNode("cvss_v4") is { } nullNodeCvssV4 && nullNodeCvssV4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CvssV4 = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cvss_v3 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3? CvssV3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3? CvssV3 { get => _explicitNullValueCvssV3; set { _explicitNullValueCvssV3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_v3"); else _explicitNullProperties?.Remove("cvss_v3"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3? _explicitNullValueCvssV3 = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3 CvssV3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3 CvssV3 { get => _explicitNullValueCvssV3; set { _explicitNullValueCvssV3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_v3"); else _explicitNullProperties?.Remove("cvss_v3"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3 _explicitNullValueCvssV3 = default!;
 #endif
         /// <summary>The cvss_v4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4? CvssV4 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4? CvssV4 { get => _explicitNullValueCvssV4; set { _explicitNullValueCvssV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_v4"); else _explicitNullProperties?.Remove("cvss_v4"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4? _explicitNullValueCvssV4 = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4 CvssV4 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4 CvssV4 { get => _explicitNullValueCvssV4; set { _explicitNullValueCvssV4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_v4"); else _explicitNullProperties?.Remove("cvss_v4"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4 _explicitNullValueCvssV4 = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities"/> and sets the default values.
@@ -45,7 +58,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3>("cvss_v3", CvssV3);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4>("cvss_v4", CvssV4);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

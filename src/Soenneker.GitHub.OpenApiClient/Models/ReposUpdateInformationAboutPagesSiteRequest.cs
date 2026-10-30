@@ -11,28 +11,45 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposUpdateInformationAboutPagesSiteRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("build_type") is { } nullNodeBuildType && nullNodeBuildType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildType = null;
+            if (parseNode.GetChildNode("cname") is { } nullNodeCname && nullNodeCname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cname = null;
+            if (parseNode.GetChildNode("https_enforced") is { } nullNodeHttpsEnforced && nullNodeHttpsEnforced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsEnforced = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The process by which the GitHub Pages site will be built. `workflow` means that the site is built by a custom GitHub Actions workflow. `legacy` means that the site is built by GitHub when changes are pushed to a specific branch.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestBuildType? BuildType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestBuildType? BuildType { get => _explicitNullValueBuildType; set { _explicitNullValueBuildType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_type"); else _explicitNullProperties?.Remove("build_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestBuildType? _explicitNullValueBuildType = default!;
         /// <summary>Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see &quot;[Using a custom domain with GitHub Pages](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cname { get; set; }
+        public string? Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
+        private string? _explicitNullValueCname = default!;
 #nullable restore
 #else
-        public string Cname { get; set; }
+        public string Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
+        private string _explicitNullValueCname = default!;
 #endif
         /// <summary>Specify whether HTTPS should be enforced for the repository.</summary>
-        public bool? HttpsEnforced { get; set; }
+        public bool? HttpsEnforced { get => _explicitNullValueHttpsEnforced; set { _explicitNullValueHttpsEnforced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_enforced"); else _explicitNullProperties?.Remove("https_enforced"); } }
+        private bool? _explicitNullValueHttpsEnforced = default!;
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource _explicitNullValueSource = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequest"/> and sets the default values.
@@ -49,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("cname", Cname);
             writer.WriteBoolValue("https_enforced", HttpsEnforced);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource>("source", Source);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

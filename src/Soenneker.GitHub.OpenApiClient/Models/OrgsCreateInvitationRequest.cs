@@ -11,28 +11,45 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgsCreateInvitationRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("invitee_id") is { } nullNodeInviteeId && nullNodeInviteeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InviteeId = null;
+            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("team_ids") is { } nullNodeTeamIds && nullNodeTeamIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>**Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>**Required unless you provide `email`**. GitHub user ID for the person you are inviting.</summary>
-        public long? InviteeId { get; set; }
+        public long? InviteeId { get => _explicitNullValueInviteeId; set { _explicitNullValueInviteeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitee_id"); else _explicitNullProperties?.Remove("invitee_id"); } }
+        private long? _explicitNullValueInviteeId = default!;
         /// <summary>The role for the new member.  * `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.   * `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.   * `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization.  * `reinstate` - The previous role assigned to the invitee before they were removed from your organization. Can be one of the roles listed above. Only works if the invitee was previously part of your organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequestRole? Role { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequestRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequestRole? _explicitNullValueRole = default!;
         /// <summary>Specify IDs for the teams you want to invite new members to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? TeamIds { get; set; }
+        public List<int?>? TeamIds { get => _explicitNullValueTeamIds; set { _explicitNullValueTeamIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_ids"); else _explicitNullProperties?.Remove("team_ids"); } }
+        private List<int?>? _explicitNullValueTeamIds = default!;
 #nullable restore
 #else
-        public List<int?> TeamIds { get; set; }
+        public List<int?> TeamIds { get => _explicitNullValueTeamIds; set { _explicitNullValueTeamIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_ids"); else _explicitNullProperties?.Remove("team_ids"); } }
+        private List<int?> _explicitNullValueTeamIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequest"/> and sets the default values.
@@ -49,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("invitee_id", InviteeId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateInvitationRequestRole>("role", Role);
             writer.WriteCollectionOfPrimitiveValues<int?>("team_ids", TeamIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

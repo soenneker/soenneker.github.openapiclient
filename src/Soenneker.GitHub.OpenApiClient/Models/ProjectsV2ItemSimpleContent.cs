@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectsV2ItemSimpleContent : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Issue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent();
             if("Issue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Issue = new global::Soenneker.GitHub.OpenApiClient.Models.Issue();
+                
             }
             else if("ProjectsV2DraftIssue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProjectsV2DraftIssue = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue();
+                
             }
             else if("PullRequestSimple".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PullRequestSimple = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("assignee") != null && parseNode.GetChildNode("closed_at") != null && parseNode.GetChildNode("comments") != null && parseNode.GetChildNode("comments_url") != null && parseNode.GetChildNode("events_url") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("labels") != null && parseNode.GetChildNode("labels_url") != null && parseNode.GetChildNode("milestone") != null && parseNode.GetChildNode("number") != null && parseNode.GetChildNode("repository_url") != null && parseNode.GetChildNode("state") != null && parseNode.GetChildNode("locked") != null && parseNode.GetChildNode("title") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("user") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("updated_at") != null && (parseNode.GetChildNode("state_reason") == null || (parseNode.GetChildNode("state_reason")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag20 && ("completed".Equals(optionalTag20.GetValue(), global::System.StringComparison.Ordinal) || "reopened".Equals(optionalTag20.GetValue(), global::System.StringComparison.Ordinal) || "not_planned".Equals(optionalTag20.GetValue(), global::System.StringComparison.Ordinal) || "duplicate".Equals(optionalTag20.GetValue(), global::System.StringComparison.Ordinal)))) && (parseNode.GetChildNode("author_association") == null || (parseNode.GetChildNode("author_association")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag21 && ("COLLABORATOR".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "CONTRIBUTOR".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "FIRST_TIMER".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "FIRST_TIME_CONTRIBUTOR".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "MANNEQUIN".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "MEMBER".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "NONE".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal) || "OWNER".Equals(optionalTag21.GetValue(), global::System.StringComparison.Ordinal))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("_links") != null && parseNode.GetChildNode("assignee") != null && parseNode.GetChildNode("labels") != null && parseNode.GetChildNode("base") != null && parseNode.GetChildNode("body") != null && parseNode.GetChildNode("closed_at") != null && parseNode.GetChildNode("comments_url") != null && parseNode.GetChildNode("commits_url") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("diff_url") != null && parseNode.GetChildNode("head") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("issue_url") != null && parseNode.GetChildNode("merge_commit_sha") != null && parseNode.GetChildNode("merged_at") != null && parseNode.GetChildNode("milestone") != null && parseNode.GetChildNode("number") != null && parseNode.GetChildNode("patch_url") != null && parseNode.GetChildNode("review_comment_url") != null && parseNode.GetChildNode("review_comments_url") != null && parseNode.GetChildNode("statuses_url") != null && parseNode.GetChildNode("state") != null && parseNode.GetChildNode("locked") != null && parseNode.GetChildNode("title") != null && parseNode.GetChildNode("updated_at") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("user") != null && parseNode.GetChildNode("author_association") != null && (parseNode.GetChildNode("author_association")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag30 && ("COLLABORATOR".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "CONTRIBUTOR".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "FIRST_TIMER".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "FIRST_TIME_CONTRIBUTOR".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "MANNEQUIN".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "MEMBER".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "NONE".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal) || "OWNER".Equals(tag30.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("auto_merge") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("title") != null && parseNode.GetChildNode("user") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("updated_at") != null))();
+            if (result.Issue == null && result.ProjectsV2DraftIssue == null && result.PullRequestSimple == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.Issue = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.Issue(), parseNode);
+            if (result.Issue == null && result.ProjectsV2DraftIssue == null && result.PullRequestSimple == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.PullRequestSimple = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple(), parseNode);
+            if (result.Issue == null && result.ProjectsV2DraftIssue == null && result.PullRequestSimple == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ProjectsV2DraftIssue = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue(), parseNode);
+            if (result.Issue == null && result.ProjectsV2DraftIssue == null && result.PullRequestSimple == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Issue == null && ProjectsV2DraftIssue == null && PullRequestSimple == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (Issue != null && ProjectsV2DraftIssue == null && PullRequestSimple == null) { if (Issue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Issue); return; }
+            if (ProjectsV2DraftIssue != null && Issue == null && PullRequestSimple == null) { if (ProjectsV2DraftIssue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProjectsV2DraftIssue); return; }
+            if (PullRequestSimple != null && Issue == null && ProjectsV2DraftIssue == null) { if (PullRequestSimple is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PullRequestSimple); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Issue != null)
             {
+                if (Issue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>(null, Issue);
             }
             else if(ProjectsV2DraftIssue != null)
             {
+                if (ProjectsV2DraftIssue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue>(null, ProjectsV2DraftIssue);
             }
             else if(PullRequestSimple != null)
             {
+                if (PullRequestSimple is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple>(null, PullRequestSimple);
             }
         }

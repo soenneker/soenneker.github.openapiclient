@@ -71,6 +71,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -110,6 +112,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

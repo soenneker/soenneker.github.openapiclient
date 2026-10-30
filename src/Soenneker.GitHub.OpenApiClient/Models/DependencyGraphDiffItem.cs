@@ -11,76 +11,111 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DependencyGraphDiffItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("change_type") is { } nullNodeChangeType && nullNodeChangeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangeType = null;
+            if (parseNode.GetChildNode("ecosystem") is { } nullNodeEcosystem && nullNodeEcosystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ecosystem = null;
+            if (parseNode.GetChildNode("license") is { } nullNodeLicense && nullNodeLicense.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) License = null;
+            if (parseNode.GetChildNode("manifest") is { } nullNodeManifest && nullNodeManifest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Manifest = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("package_url") is { } nullNodePackageUrl && nullNodePackageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PackageUrl = null;
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("source_repository_url") is { } nullNodeSourceRepositoryUrl && nullNodeSourceRepositoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceRepositoryUrl = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("vulnerabilities") is { } nullNodeVulnerabilities && nullNodeVulnerabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vulnerabilities = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The change_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType? ChangeType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType? ChangeType { get => _explicitNullValueChangeType; set { _explicitNullValueChangeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("change_type"); else _explicitNullProperties?.Remove("change_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType? _explicitNullValueChangeType = default!;
         /// <summary>The ecosystem property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ecosystem { get; set; }
+        public string? Ecosystem { get => _explicitNullValueEcosystem; set { _explicitNullValueEcosystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ecosystem"); else _explicitNullProperties?.Remove("ecosystem"); } }
+        private string? _explicitNullValueEcosystem = default!;
 #nullable restore
 #else
-        public string Ecosystem { get; set; }
+        public string Ecosystem { get => _explicitNullValueEcosystem; set { _explicitNullValueEcosystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ecosystem"); else _explicitNullProperties?.Remove("ecosystem"); } }
+        private string _explicitNullValueEcosystem = default!;
 #endif
         /// <summary>The license property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? License { get; set; }
+        public string? License { get => _explicitNullValueLicense; set { _explicitNullValueLicense = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license"); else _explicitNullProperties?.Remove("license"); } }
+        private string? _explicitNullValueLicense = default!;
 #nullable restore
 #else
-        public string License { get; set; }
+        public string License { get => _explicitNullValueLicense; set { _explicitNullValueLicense = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license"); else _explicitNullProperties?.Remove("license"); } }
+        private string _explicitNullValueLicense = default!;
 #endif
         /// <summary>The manifest property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Manifest { get; set; }
+        public string? Manifest { get => _explicitNullValueManifest; set { _explicitNullValueManifest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifest"); else _explicitNullProperties?.Remove("manifest"); } }
+        private string? _explicitNullValueManifest = default!;
 #nullable restore
 #else
-        public string Manifest { get; set; }
+        public string Manifest { get => _explicitNullValueManifest; set { _explicitNullValueManifest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifest"); else _explicitNullProperties?.Remove("manifest"); } }
+        private string _explicitNullValueManifest = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The package_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PackageUrl { get; set; }
+        public string? PackageUrl { get => _explicitNullValuePackageUrl; set { _explicitNullValuePackageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_url"); else _explicitNullProperties?.Remove("package_url"); } }
+        private string? _explicitNullValuePackageUrl = default!;
 #nullable restore
 #else
-        public string PackageUrl { get; set; }
+        public string PackageUrl { get => _explicitNullValuePackageUrl; set { _explicitNullValuePackageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("package_url"); else _explicitNullProperties?.Remove("package_url"); } }
+        private string _explicitNullValuePackageUrl = default!;
 #endif
         /// <summary>Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope? Scope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope? _explicitNullValueScope = default!;
         /// <summary>The source_repository_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceRepositoryUrl { get; set; }
+        public string? SourceRepositoryUrl { get => _explicitNullValueSourceRepositoryUrl; set { _explicitNullValueSourceRepositoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_repository_url"); else _explicitNullProperties?.Remove("source_repository_url"); } }
+        private string? _explicitNullValueSourceRepositoryUrl = default!;
 #nullable restore
 #else
-        public string SourceRepositoryUrl { get; set; }
+        public string SourceRepositoryUrl { get => _explicitNullValueSourceRepositoryUrl; set { _explicitNullValueSourceRepositoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_repository_url"); else _explicitNullProperties?.Remove("source_repository_url"); } }
+        private string _explicitNullValueSourceRepositoryUrl = default!;
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get; set; }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>The vulnerabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>? Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>? Vulnerabilities { get => _explicitNullValueVulnerabilities; set { _explicitNullValueVulnerabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vulnerabilities"); else _explicitNullProperties?.Remove("vulnerabilities"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>? _explicitNullValueVulnerabilities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem> Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem> Vulnerabilities { get => _explicitNullValueVulnerabilities; set { _explicitNullValueVulnerabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vulnerabilities"); else _explicitNullProperties?.Remove("vulnerabilities"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem> _explicitNullValueVulnerabilities = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem"/> and sets the default values.
@@ -97,7 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -136,6 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("source_repository_url", SourceRepositoryUrl);
             writer.WriteStringValue("version", Version);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>("vulnerabilities", Vulnerabilities);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

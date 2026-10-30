@@ -12,46 +12,71 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NetworkConfiguration : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("compute_service") is { } nullNodeComputeService && nullNodeComputeService.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeService = null;
+            if (parseNode.GetChildNode("created_on") is { } nullNodeCreatedOn && nullNodeCreatedOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedOn = null;
+            if (parseNode.GetChildNode("failover_network_enabled") is { } nullNodeFailoverNetworkEnabled && nullNodeFailoverNetworkEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailoverNetworkEnabled = null;
+            if (parseNode.GetChildNode("failover_network_settings_ids") is { } nullNodeFailoverNetworkSettingsIds && nullNodeFailoverNetworkSettingsIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailoverNetworkSettingsIds = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network_settings_ids") is { } nullNodeNetworkSettingsIds && nullNodeNetworkSettingsIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkSettingsIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hosted compute service the network configuration supports.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfigurationComputeService? ComputeService { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfigurationComputeService? ComputeService { get => _explicitNullValueComputeService; set { _explicitNullValueComputeService = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_service"); else _explicitNullProperties?.Remove("compute_service"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfigurationComputeService? _explicitNullValueComputeService = default!;
         /// <summary>The time at which the network configuration was created, in ISO 8601 format.</summary>
-        public DateTimeOffset? CreatedOn { get; set; }
+        public DateTimeOffset? CreatedOn { get => _explicitNullValueCreatedOn; set { _explicitNullValueCreatedOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_on"); else _explicitNullProperties?.Remove("created_on"); } }
+        private DateTimeOffset? _explicitNullValueCreatedOn = default!;
         /// <summary>Indicates whether the failover network resource is enabled.</summary>
-        public bool? FailoverNetworkEnabled { get; set; }
+        public bool? FailoverNetworkEnabled { get => _explicitNullValueFailoverNetworkEnabled; set { _explicitNullValueFailoverNetworkEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_network_enabled"); else _explicitNullProperties?.Remove("failover_network_enabled"); } }
+        private bool? _explicitNullValueFailoverNetworkEnabled = default!;
         /// <summary>The unique identifier of each failover network settings in the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FailoverNetworkSettingsIds { get; set; }
+        public List<string>? FailoverNetworkSettingsIds { get => _explicitNullValueFailoverNetworkSettingsIds; set { _explicitNullValueFailoverNetworkSettingsIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_network_settings_ids"); else _explicitNullProperties?.Remove("failover_network_settings_ids"); } }
+        private List<string>? _explicitNullValueFailoverNetworkSettingsIds = default!;
 #nullable restore
 #else
-        public List<string> FailoverNetworkSettingsIds { get; set; }
+        public List<string> FailoverNetworkSettingsIds { get => _explicitNullValueFailoverNetworkSettingsIds; set { _explicitNullValueFailoverNetworkSettingsIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failover_network_settings_ids"); else _explicitNullProperties?.Remove("failover_network_settings_ids"); } }
+        private List<string> _explicitNullValueFailoverNetworkSettingsIds = default!;
 #endif
         /// <summary>The unique identifier of the network configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The name of the network configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The unique identifier of each network settings in the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NetworkSettingsIds { get; set; }
+        public List<string>? NetworkSettingsIds { get => _explicitNullValueNetworkSettingsIds; set { _explicitNullValueNetworkSettingsIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_settings_ids"); else _explicitNullProperties?.Remove("network_settings_ids"); } }
+        private List<string>? _explicitNullValueNetworkSettingsIds = default!;
 #nullable restore
 #else
-        public List<string> NetworkSettingsIds { get; set; }
+        public List<string> NetworkSettingsIds { get => _explicitNullValueNetworkSettingsIds; set { _explicitNullValueNetworkSettingsIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_settings_ids"); else _explicitNullProperties?.Remove("network_settings_ids"); } }
+        private List<string> _explicitNullValueNetworkSettingsIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration"/> and sets the default values.
@@ -68,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("network_settings_ids", NetworkSettingsIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

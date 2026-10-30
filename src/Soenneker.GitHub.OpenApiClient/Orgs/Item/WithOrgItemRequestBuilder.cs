@@ -262,6 +262,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories.SecurityAdvisoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The securityManagers property</summary>
+        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.SecurityManagersRequestBuilder SecurityManagers
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.SecurityManagersRequestBuilder(PathParameters, RequestAdapter);
@@ -327,6 +328,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -351,6 +354,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -377,6 +382,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

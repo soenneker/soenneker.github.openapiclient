@@ -11,24 +11,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DependabotUpdateRepositoryAccessForEnterpriseRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("repository_ids_to_add") is { } nullNodeRepositoryIdsToAdd && nullNodeRepositoryIdsToAdd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToAdd = null;
+            if (parseNode.GetChildNode("repository_ids_to_remove") is { } nullNodeRepositoryIdsToRemove && nullNodeRepositoryIdsToRemove.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToRemove = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of repository IDs to add.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIdsToAdd { get; set; }
+        public List<int?>? RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
+        private List<int?>? _explicitNullValueRepositoryIdsToAdd = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIdsToAdd { get; set; }
+        public List<int?> RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
+        private List<int?> _explicitNullValueRepositoryIdsToAdd = default!;
 #endif
         /// <summary>List of repository IDs to remove.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIdsToRemove { get; set; }
+        public List<int?>? RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
+        private List<int?>? _explicitNullValueRepositoryIdsToRemove = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIdsToRemove { get; set; }
+        public List<int?> RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
+        private List<int?> _explicitNullValueRepositoryIdsToRemove = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids_to_add", RepositoryIdsToAdd);
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids_to_remove", RepositoryIdsToRemove);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

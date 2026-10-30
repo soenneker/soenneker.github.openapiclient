@@ -67,6 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

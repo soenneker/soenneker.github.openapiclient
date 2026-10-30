@@ -12,18 +12,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NullableIssueEventIntent : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("rationale") is { } nullNodeRationale && nullNodeRationale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rationale = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The confidence level the agent had when performing this action.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntentConfidence? Confidence { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntentConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntentConfidence? _explicitNullValueConfidence = default!;
         /// <summary>The reasoning the agent provided for the change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rationale { get; set; }
+        public string? Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string? _explicitNullValueRationale = default!;
 #nullable restore
 #else
-        public string Rationale { get; set; }
+        public string Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string _explicitNullValueRationale = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent"/> and sets the default values.
@@ -40,7 +52,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntentConfidence>("confidence", Confidence);
             writer.WriteStringValue("rationale", Rationale);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

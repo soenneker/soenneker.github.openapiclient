@@ -11,31 +11,50 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MarketplacePurchaseMarketplacePendingChange : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_installed") is { } nullNodeIsInstalled && nullNodeIsInstalled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInstalled = null;
+            if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
+            if (parseNode.GetChildNode("unit_count") is { } nullNodeUnitCount && nullNodeUnitCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnitCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The effective_date property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EffectiveDate { get; set; }
+        public string? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        private string? _explicitNullValueEffectiveDate = default!;
 #nullable restore
 #else
-        public string EffectiveDate { get; set; }
+        public string EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        private string _explicitNullValueEffectiveDate = default!;
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The is_installed property</summary>
-        public bool? IsInstalled { get; set; }
+        public bool? IsInstalled { get => _explicitNullValueIsInstalled; set { _explicitNullValueIsInstalled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_installed"); else _explicitNullProperties?.Remove("is_installed"); } }
+        private bool? _explicitNullValueIsInstalled = default!;
         /// <summary>Marketplace Listing Plan</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan? _explicitNullValuePlan = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan Plan { get => _explicitNullValuePlan; set { _explicitNullValuePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan"); else _explicitNullProperties?.Remove("plan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan _explicitNullValuePlan = default!;
 #endif
         /// <summary>The unit_count property</summary>
-        public int? UnitCount { get; set; }
+        public int? UnitCount { get => _explicitNullValueUnitCount; set { _explicitNullValueUnitCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unit_count"); else _explicitNullProperties?.Remove("unit_count"); } }
+        private int? _explicitNullValueUnitCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange"/> and sets the default values.
         /// </summary>
@@ -51,7 +70,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("is_installed", IsInstalled);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan>("plan", Plan);
             writer.WriteIntValue("unit_count", UnitCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

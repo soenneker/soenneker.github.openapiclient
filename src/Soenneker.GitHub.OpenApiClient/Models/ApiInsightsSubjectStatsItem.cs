@@ -11,47 +11,72 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiInsightsSubjectStatsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("last_rate_limited_timestamp") is { } nullNodeLastRateLimitedTimestamp && nullNodeLastRateLimitedTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRateLimitedTimestamp = null;
+            if (parseNode.GetChildNode("last_request_timestamp") is { } nullNodeLastRequestTimestamp && nullNodeLastRequestTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRequestTimestamp = null;
+            if (parseNode.GetChildNode("rate_limited_request_count") is { } nullNodeRateLimitedRequestCount && nullNodeRateLimitedRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitedRequestCount = null;
+            if (parseNode.GetChildNode("subject_id") is { } nullNodeSubjectId && nullNodeSubjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectId = null;
+            if (parseNode.GetChildNode("subject_name") is { } nullNodeSubjectName && nullNodeSubjectName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectName = null;
+            if (parseNode.GetChildNode("subject_type") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+            if (parseNode.GetChildNode("total_request_count") is { } nullNodeTotalRequestCount && nullNodeTotalRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequestCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The last_rate_limited_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRateLimitedTimestamp { get; set; }
+        public string? LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        private string? _explicitNullValueLastRateLimitedTimestamp = default!;
 #nullable restore
 #else
-        public string LastRateLimitedTimestamp { get; set; }
+        public string LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        private string _explicitNullValueLastRateLimitedTimestamp = default!;
 #endif
         /// <summary>The last_request_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRequestTimestamp { get; set; }
+        public string? LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        private string? _explicitNullValueLastRequestTimestamp = default!;
 #nullable restore
 #else
-        public string LastRequestTimestamp { get; set; }
+        public string LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        private string _explicitNullValueLastRequestTimestamp = default!;
 #endif
         /// <summary>The rate_limited_request_count property</summary>
-        public int? RateLimitedRequestCount { get; set; }
+        public int? RateLimitedRequestCount { get => _explicitNullValueRateLimitedRequestCount; set { _explicitNullValueRateLimitedRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limited_request_count"); else _explicitNullProperties?.Remove("rate_limited_request_count"); } }
+        private int? _explicitNullValueRateLimitedRequestCount = default!;
         /// <summary>The subject_id property</summary>
-        public long? SubjectId { get; set; }
+        public long? SubjectId { get => _explicitNullValueSubjectId; set { _explicitNullValueSubjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_id"); else _explicitNullProperties?.Remove("subject_id"); } }
+        private long? _explicitNullValueSubjectId = default!;
         /// <summary>The subject_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubjectName { get; set; }
+        public string? SubjectName { get => _explicitNullValueSubjectName; set { _explicitNullValueSubjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_name"); else _explicitNullProperties?.Remove("subject_name"); } }
+        private string? _explicitNullValueSubjectName = default!;
 #nullable restore
 #else
-        public string SubjectName { get; set; }
+        public string SubjectName { get => _explicitNullValueSubjectName; set { _explicitNullValueSubjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_name"); else _explicitNullProperties?.Remove("subject_name"); } }
+        private string _explicitNullValueSubjectName = default!;
 #endif
         /// <summary>The subject_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubjectType { get; set; }
+        public string? SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_type"); else _explicitNullProperties?.Remove("subject_type"); } }
+        private string? _explicitNullValueSubjectType = default!;
 #nullable restore
 #else
-        public string SubjectType { get; set; }
+        public string SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_type"); else _explicitNullProperties?.Remove("subject_type"); } }
+        private string _explicitNullValueSubjectType = default!;
 #endif
         /// <summary>The total_request_count property</summary>
-        public int? TotalRequestCount { get; set; }
+        public int? TotalRequestCount { get => _explicitNullValueTotalRequestCount; set { _explicitNullValueTotalRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_request_count"); else _explicitNullProperties?.Remove("total_request_count"); } }
+        private int? _explicitNullValueTotalRequestCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSubjectStatsItem"/> and sets the default values.
         /// </summary>
@@ -67,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSubjectStatsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSubjectStatsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSubjectStatsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,6 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("subject_name", SubjectName);
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteIntValue("total_request_count", TotalRequestCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

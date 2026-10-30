@@ -11,72 +11,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullRequestLinks : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("comments") is { } nullNodeComments && nullNodeComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comments = null;
+            if (parseNode.GetChildNode("commits") is { } nullNodeCommits && nullNodeCommits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commits = null;
+            if (parseNode.GetChildNode("html") is { } nullNodeHtml && nullNodeHtml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Html = null;
+            if (parseNode.GetChildNode("issue") is { } nullNodeIssue && nullNodeIssue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issue = null;
+            if (parseNode.GetChildNode("review_comment") is { } nullNodeReviewComment && nullNodeReviewComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewComment = null;
+            if (parseNode.GetChildNode("review_comments") is { } nullNodeReviewComments && nullNodeReviewComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewComments = null;
+            if (parseNode.GetChildNode("self") is { } nullNodeSelf && nullNodeSelf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Self = null;
+            if (parseNode.GetChildNode("statuses") is { } nullNodeStatuses && nullNodeStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Statuses = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Comments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueComments = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Comments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueComments = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Commits { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Commits { get => _explicitNullValueCommits; set { _explicitNullValueCommits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commits"); else _explicitNullProperties?.Remove("commits"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueCommits = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Commits { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Commits { get => _explicitNullValueCommits; set { _explicitNullValueCommits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commits"); else _explicitNullProperties?.Remove("commits"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueCommits = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Html { get => _explicitNullValueHtml; set { _explicitNullValueHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html"); else _explicitNullProperties?.Remove("html"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueHtml = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Html { get => _explicitNullValueHtml; set { _explicitNullValueHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html"); else _explicitNullProperties?.Remove("html"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueHtml = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Issue { get => _explicitNullValueIssue; set { _explicitNullValueIssue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue"); else _explicitNullProperties?.Remove("issue"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueIssue = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Issue { get => _explicitNullValueIssue; set { _explicitNullValueIssue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue"); else _explicitNullProperties?.Remove("issue"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueIssue = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComment { get => _explicitNullValueReviewComment; set { _explicitNullValueReviewComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_comment"); else _explicitNullProperties?.Remove("review_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueReviewComment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComment { get => _explicitNullValueReviewComment; set { _explicitNullValueReviewComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_comment"); else _explicitNullProperties?.Remove("review_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueReviewComment = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComments { get => _explicitNullValueReviewComments; set { _explicitNullValueReviewComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_comments"); else _explicitNullProperties?.Remove("review_comments"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueReviewComments = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComments { get => _explicitNullValueReviewComments; set { _explicitNullValueReviewComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_comments"); else _explicitNullProperties?.Remove("review_comments"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueReviewComments = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Self { get => _explicitNullValueSelf; set { _explicitNullValueSelf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self"); else _explicitNullProperties?.Remove("self"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueSelf = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Self { get => _explicitNullValueSelf; set { _explicitNullValueSelf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self"); else _explicitNullProperties?.Remove("self"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueSelf = default!;
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Statuses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Statuses { get => _explicitNullValueStatuses; set { _explicitNullValueStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statuses"); else _explicitNullProperties?.Remove("statuses"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link? _explicitNullValueStatuses = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link Statuses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Statuses { get => _explicitNullValueStatuses; set { _explicitNullValueStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statuses"); else _explicitNullProperties?.Remove("statuses"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Link _explicitNullValueStatuses = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks"/> and sets the default values.
@@ -93,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("review_comments", ReviewComments);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("self", Self);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("statuses", Statuses);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

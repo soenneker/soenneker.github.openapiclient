@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodespacesSetCodespacesAccessRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("selected_usernames") is { } nullNodeSelectedUsernames && nullNodeSelectedUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedUsernames = null;
+            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedUsernames { get; set; }
+        public List<string>? SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        private List<string>? _explicitNullValueSelectedUsernames = default!;
 #nullable restore
 #else
-        public List<string> SelectedUsernames { get; set; }
+        public List<string> SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        private List<string> _explicitNullValueSelectedUsernames = default!;
 #endif
         /// <summary>Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequest"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("selected_usernames", SelectedUsernames);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility>("visibility", Visibility);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

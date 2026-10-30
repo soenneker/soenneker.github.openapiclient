@@ -11,13 +11,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsReRunJobForWorkflowRunRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_debugger") is { } nullNodeEnableDebugger && nullNodeEnableDebugger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugger = null;
+            if (parseNode.GetChildNode("enable_debug_logging") is { } nullNodeEnableDebugLogging && nullNodeEnableDebugLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugLogging = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to enable the debugger for the re-run of this job.</summary>
-        public bool? EnableDebugger { get; set; }
+        public bool? EnableDebugger { get => _explicitNullValueEnableDebugger; set { _explicitNullValueEnableDebugger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debugger"); else _explicitNullProperties?.Remove("enable_debugger"); } }
+        private bool? _explicitNullValueEnableDebugger = default!;
         /// <summary>Whether to enable debug logging for the re-run.</summary>
-        public bool? EnableDebugLogging { get; set; }
+        public bool? EnableDebugLogging { get => _explicitNullValueEnableDebugLogging; set { _explicitNullValueEnableDebugLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debug_logging"); else _explicitNullProperties?.Remove("enable_debug_logging"); } }
+        private bool? _explicitNullValueEnableDebugLogging = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsReRunJobForWorkflowRunRequest"/> and sets the default values.
         /// </summary>
@@ -35,7 +46,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsReRunJobForWorkflowRunRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsReRunJobForWorkflowRunRequest();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsReRunJobForWorkflowRunRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_debugger", EnableDebugger);
             writer.WriteBoolValue("enable_debug_logging", EnableDebugLogging);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

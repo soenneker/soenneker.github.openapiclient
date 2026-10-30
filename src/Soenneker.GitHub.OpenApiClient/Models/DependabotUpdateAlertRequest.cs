@@ -11,35 +11,55 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DependabotUpdateAlertRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_assignment") is { } nullNodeAgentAssignment && nullNodeAgentAssignment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentAssignment = null;
+            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
+            if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+        }
+
         /// <summary>Parameters for AI agent assignment. Only used when an agent bot login isincluded in `assignees`. Ignored when no agent is being assigned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment? AgentAssignment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment? AgentAssignment { get => _explicitNullValueAgentAssignment; set { _explicitNullValueAgentAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_assignment"); else _explicitNullProperties?.Remove("agent_assignment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment? _explicitNullValueAgentAssignment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment AgentAssignment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment AgentAssignment { get => _explicitNullValueAgentAssignment; set { _explicitNullValueAgentAssignment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_assignment"); else _explicitNullProperties?.Remove("agent_assignment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment _explicitNullValueAgentAssignment = default!;
 #endif
         /// <summary>Usernames to assign to this Dependabot Alert.Pass one or more user logins to _replace_ the set of assignees on this alert.Send an empty array (`[]`) to clear all assignees from the alert.To assign an AI agent, include the bot login (for example, `copilot-swe-agent[bot]`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Assignees { get; set; }
+        public List<string>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<string>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<string> Assignees { get; set; }
+        public List<string> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<string> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>An optional comment associated with dismissing the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissedComment { get; set; }
+        public string? DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string? _explicitNullValueDismissedComment = default!;
 #nullable restore
 #else
-        public string DismissedComment { get; set; }
+        public string DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string _explicitNullValueDismissedComment = default!;
 #endif
         /// <summary>**Required when `state` is `dismissed`.** A reason for dismissing the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestDismissedReason? DismissedReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestDismissedReason? DismissedReason { get => _explicitNullValueDismissedReason; set { _explicitNullValueDismissedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_reason"); else _explicitNullProperties?.Remove("dismissed_reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestDismissedReason? _explicitNullValueDismissedReason = default!;
         /// <summary>The state of the Dependabot alert.A `dismissed_reason` must be provided when setting the state to `dismissed`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestState? _explicitNullValueState = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +96,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestDismissedReason>("dismissed_reason", DismissedReason);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestState>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestState>("state", State);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

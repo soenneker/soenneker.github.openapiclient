@@ -11,16 +11,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullsUpdateBranchRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expected_head_sha") is { } nullNodeExpectedHeadSha && nullNodeExpectedHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedHeadSha = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The expected SHA of the pull request&apos;s HEAD ref. This is the most recent commit on the pull request&apos;s branch. If the expected SHA does not match the pull request&apos;s HEAD, you will receive a `422 Unprocessable Entity` status. You can use the &quot;[List commits](https://docs.github.com/rest/commits/commits#list-commits)&quot; endpoint to find the most recent commit SHA. Default: SHA of the pull request&apos;s current HEAD ref.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpectedHeadSha { get; set; }
+        public string? ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        private string? _explicitNullValueExpectedHeadSha = default!;
 #nullable restore
 #else
-        public string ExpectedHeadSha { get; set; }
+        public string ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        private string _explicitNullValueExpectedHeadSha = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranchRequest"/> and sets the default values.
@@ -37,7 +47,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranchRequest();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranchRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("expected_head_sha", ExpectedHeadSha);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata.Stora
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List artifact storage records with a given subject digest for repositories owned by an organization.Results are filtered by the authenticated user&apos;s permissions; records for repositories the user cannot read are omitted. Fine-grained access tokens require the `artifact-metadata:read` permission.

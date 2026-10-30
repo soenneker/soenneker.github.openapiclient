@@ -75,6 +75,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo404Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo422Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -107,6 +109,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo403Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo422Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

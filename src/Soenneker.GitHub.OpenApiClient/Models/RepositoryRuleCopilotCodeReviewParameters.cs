@@ -11,13 +11,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleCopilotCodeReviewParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("review_draft_pull_requests") is { } nullNodeReviewDraftPullRequests && nullNodeReviewDraftPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewDraftPullRequests = null;
+            if (parseNode.GetChildNode("review_on_push") is { } nullNodeReviewOnPush && nullNodeReviewOnPush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewOnPush = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Copilot automatically reviews draft pull requests before they are marked as ready for review.</summary>
-        public bool? ReviewDraftPullRequests { get; set; }
+        public bool? ReviewDraftPullRequests { get => _explicitNullValueReviewDraftPullRequests; set { _explicitNullValueReviewDraftPullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_draft_pull_requests"); else _explicitNullProperties?.Remove("review_draft_pull_requests"); } }
+        private bool? _explicitNullValueReviewDraftPullRequests = default!;
         /// <summary>Copilot automatically reviews each new push to the pull request.</summary>
-        public bool? ReviewOnPush { get; set; }
+        public bool? ReviewOnPush { get => _explicitNullValueReviewOnPush; set { _explicitNullValueReviewOnPush = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_on_push"); else _explicitNullProperties?.Remove("review_on_push"); } }
+        private bool? _explicitNullValueReviewOnPush = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters"/> and sets the default values.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("review_draft_pull_requests", ReviewDraftPullRequests);
             writer.WriteBoolValue("review_on_push", ReviewOnPush);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

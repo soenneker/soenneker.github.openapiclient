@@ -11,96 +11,159 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposCreateInOrgRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_auto_merge") is { } nullNodeAllowAutoMerge && nullNodeAllowAutoMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAutoMerge = null;
+            if (parseNode.GetChildNode("allow_merge_commit") is { } nullNodeAllowMergeCommit && nullNodeAllowMergeCommit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowMergeCommit = null;
+            if (parseNode.GetChildNode("allow_rebase_merge") is { } nullNodeAllowRebaseMerge && nullNodeAllowRebaseMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowRebaseMerge = null;
+            if (parseNode.GetChildNode("allow_squash_merge") is { } nullNodeAllowSquashMerge && nullNodeAllowSquashMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowSquashMerge = null;
+            if (parseNode.GetChildNode("auto_init") is { } nullNodeAutoInit && nullNodeAutoInit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoInit = null;
+            if (parseNode.GetChildNode("custom_properties") is { } nullNodeCustomProperties && nullNodeCustomProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomProperties = null;
+            if (parseNode.GetChildNode("delete_branch_on_merge") is { } nullNodeDeleteBranchOnMerge && nullNodeDeleteBranchOnMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeleteBranchOnMerge = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("gitignore_template") is { } nullNodeGitignoreTemplate && nullNodeGitignoreTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitignoreTemplate = null;
+            if (parseNode.GetChildNode("has_downloads") is { } nullNodeHasDownloads && nullNodeHasDownloads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasDownloads = null;
+            if (parseNode.GetChildNode("has_issues") is { } nullNodeHasIssues && nullNodeHasIssues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasIssues = null;
+            if (parseNode.GetChildNode("has_projects") is { } nullNodeHasProjects && nullNodeHasProjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasProjects = null;
+            if (parseNode.GetChildNode("has_wiki") is { } nullNodeHasWiki && nullNodeHasWiki.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasWiki = null;
+            if (parseNode.GetChildNode("homepage") is { } nullNodeHomepage && nullNodeHomepage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Homepage = null;
+            if (parseNode.GetChildNode("is_template") is { } nullNodeIsTemplate && nullNodeIsTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsTemplate = null;
+            if (parseNode.GetChildNode("license_template") is { } nullNodeLicenseTemplate && nullNodeLicenseTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseTemplate = null;
+            if (parseNode.GetChildNode("merge_commit_message") is { } nullNodeMergeCommitMessage && nullNodeMergeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeCommitMessage = null;
+            if (parseNode.GetChildNode("merge_commit_title") is { } nullNodeMergeCommitTitle && nullNodeMergeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeCommitTitle = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("private") is { } nullNodePrivate && nullNodePrivate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Private = null;
+            if (parseNode.GetChildNode("squash_merge_commit_message") is { } nullNodeSquashMergeCommitMessage && nullNodeSquashMergeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SquashMergeCommitMessage = null;
+            if (parseNode.GetChildNode("squash_merge_commit_title") is { } nullNodeSquashMergeCommitTitle && nullNodeSquashMergeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SquashMergeCommitTitle = null;
+            if (parseNode.GetChildNode("team_id") is { } nullNodeTeamId && nullNodeTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamId = null;
+            if (parseNode.GetChildNode("use_squash_pr_title_as_default") is { } nullNodeUseSquashPrTitleAsDefault && nullNodeUseSquashPrTitleAsDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseSquashPrTitleAsDefault = null;
+            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Either `true` to allow auto-merge on pull requests, or `false` to disallow auto-merge.</summary>
-        public bool? AllowAutoMerge { get; set; }
+        public bool? AllowAutoMerge { get => _explicitNullValueAllowAutoMerge; set { _explicitNullValueAllowAutoMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_auto_merge"); else _explicitNullProperties?.Remove("allow_auto_merge"); } }
+        private bool? _explicitNullValueAllowAutoMerge = default!;
         /// <summary>Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits.</summary>
-        public bool? AllowMergeCommit { get; set; }
+        public bool? AllowMergeCommit { get => _explicitNullValueAllowMergeCommit; set { _explicitNullValueAllowMergeCommit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_merge_commit"); else _explicitNullProperties?.Remove("allow_merge_commit"); } }
+        private bool? _explicitNullValueAllowMergeCommit = default!;
         /// <summary>Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.</summary>
-        public bool? AllowRebaseMerge { get; set; }
+        public bool? AllowRebaseMerge { get => _explicitNullValueAllowRebaseMerge; set { _explicitNullValueAllowRebaseMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_rebase_merge"); else _explicitNullProperties?.Remove("allow_rebase_merge"); } }
+        private bool? _explicitNullValueAllowRebaseMerge = default!;
         /// <summary>Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging.</summary>
-        public bool? AllowSquashMerge { get; set; }
+        public bool? AllowSquashMerge { get => _explicitNullValueAllowSquashMerge; set { _explicitNullValueAllowSquashMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_squash_merge"); else _explicitNullProperties?.Remove("allow_squash_merge"); } }
+        private bool? _explicitNullValueAllowSquashMerge = default!;
         /// <summary>Pass `true` to create an initial commit with empty README.</summary>
-        public bool? AutoInit { get; set; }
+        public bool? AutoInit { get => _explicitNullValueAutoInit; set { _explicitNullValueAutoInit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_init"); else _explicitNullProperties?.Remove("auto_init"); } }
+        private bool? _explicitNullValueAutoInit = default!;
         /// <summary>The custom properties for the new repository. The keys are the custom property names, and the values are the corresponding custom property values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties? CustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties? CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties? _explicitNullValueCustomProperties = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties CustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestCustomProperties _explicitNullValueCustomProperties = default!;
 #endif
         /// <summary>Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion. **The authenticated user must be an organization owner to set this property to `true`.**</summary>
-        public bool? DeleteBranchOnMerge { get; set; }
+        public bool? DeleteBranchOnMerge { get => _explicitNullValueDeleteBranchOnMerge; set { _explicitNullValueDeleteBranchOnMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delete_branch_on_merge"); else _explicitNullProperties?.Remove("delete_branch_on_merge"); } }
+        private bool? _explicitNullValueDeleteBranchOnMerge = default!;
         /// <summary>A short description of the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Desired language or platform [.gitignore template](https://github.com/github/gitignore) to apply. Use the name of the template without the extension. For example, &quot;Haskell&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GitignoreTemplate { get; set; }
+        public string? GitignoreTemplate { get => _explicitNullValueGitignoreTemplate; set { _explicitNullValueGitignoreTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitignore_template"); else _explicitNullProperties?.Remove("gitignore_template"); } }
+        private string? _explicitNullValueGitignoreTemplate = default!;
 #nullable restore
 #else
-        public string GitignoreTemplate { get; set; }
+        public string GitignoreTemplate { get => _explicitNullValueGitignoreTemplate; set { _explicitNullValueGitignoreTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gitignore_template"); else _explicitNullProperties?.Remove("gitignore_template"); } }
+        private string _explicitNullValueGitignoreTemplate = default!;
 #endif
         /// <summary>Whether downloads are enabled.</summary>
-        public bool? HasDownloads { get; set; }
+        public bool? HasDownloads { get => _explicitNullValueHasDownloads; set { _explicitNullValueHasDownloads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_downloads"); else _explicitNullProperties?.Remove("has_downloads"); } }
+        private bool? _explicitNullValueHasDownloads = default!;
         /// <summary>Either `true` to enable issues for this repository or `false` to disable them.</summary>
-        public bool? HasIssues { get; set; }
+        public bool? HasIssues { get => _explicitNullValueHasIssues; set { _explicitNullValueHasIssues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_issues"); else _explicitNullProperties?.Remove("has_issues"); } }
+        private bool? _explicitNullValueHasIssues = default!;
         /// <summary>Either `true` to enable projects for this repository or `false` to disable them. **Note:** If you&apos;re creating a repository in an organization that has disabled repository projects, the default is `false`, and if you pass `true`, the API returns an error.</summary>
-        public bool? HasProjects { get; set; }
+        public bool? HasProjects { get => _explicitNullValueHasProjects; set { _explicitNullValueHasProjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_projects"); else _explicitNullProperties?.Remove("has_projects"); } }
+        private bool? _explicitNullValueHasProjects = default!;
         /// <summary>Either `true` to enable the wiki for this repository or `false` to disable it.</summary>
-        public bool? HasWiki { get; set; }
+        public bool? HasWiki { get => _explicitNullValueHasWiki; set { _explicitNullValueHasWiki = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_wiki"); else _explicitNullProperties?.Remove("has_wiki"); } }
+        private bool? _explicitNullValueHasWiki = default!;
         /// <summary>A URL with more information about the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Homepage { get; set; }
+        public string? Homepage { get => _explicitNullValueHomepage; set { _explicitNullValueHomepage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("homepage"); else _explicitNullProperties?.Remove("homepage"); } }
+        private string? _explicitNullValueHomepage = default!;
 #nullable restore
 #else
-        public string Homepage { get; set; }
+        public string Homepage { get => _explicitNullValueHomepage; set { _explicitNullValueHomepage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("homepage"); else _explicitNullProperties?.Remove("homepage"); } }
+        private string _explicitNullValueHomepage = default!;
 #endif
         /// <summary>Either `true` to make this repo available as a template repository or `false` to prevent it.</summary>
-        public bool? IsTemplate { get; set; }
+        public bool? IsTemplate { get => _explicitNullValueIsTemplate; set { _explicitNullValueIsTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_template"); else _explicitNullProperties?.Remove("is_template"); } }
+        private bool? _explicitNullValueIsTemplate = default!;
         /// <summary>Choose an [open source license template](https://choosealicense.com/) that best suits your needs, and then use the [license keyword](https://docs.github.com/articles/licensing-a-repository/#searching-github-by-license-type) as the `license_template` string. For example, &quot;mit&quot; or &quot;mpl-2.0&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LicenseTemplate { get; set; }
+        public string? LicenseTemplate { get => _explicitNullValueLicenseTemplate; set { _explicitNullValueLicenseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_template"); else _explicitNullProperties?.Remove("license_template"); } }
+        private string? _explicitNullValueLicenseTemplate = default!;
 #nullable restore
 #else
-        public string LicenseTemplate { get; set; }
+        public string LicenseTemplate { get => _explicitNullValueLicenseTemplate; set { _explicitNullValueLicenseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_template"); else _explicitNullProperties?.Remove("license_template"); } }
+        private string _explicitNullValueLicenseTemplate = default!;
 #endif
         /// <summary>The default value for a merge commit message.- `PR_TITLE` - default to the pull request&apos;s title.- `PR_BODY` - default to the pull request&apos;s body.- `BLANK` - default to a blank commit message.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitMessage? MergeCommitMessage { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitMessage? MergeCommitMessage { get => _explicitNullValueMergeCommitMessage; set { _explicitNullValueMergeCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_commit_message"); else _explicitNullProperties?.Remove("merge_commit_message"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitMessage? _explicitNullValueMergeCommitMessage = default!;
         /// <summary>Required when using `merge_commit_message`.The default value for a merge commit title.- `PR_TITLE` - default to the pull request&apos;s title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitTitle? MergeCommitTitle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitTitle? MergeCommitTitle { get => _explicitNullValueMergeCommitTitle; set { _explicitNullValueMergeCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_commit_title"); else _explicitNullProperties?.Remove("merge_commit_title"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestMergeCommitTitle? _explicitNullValueMergeCommitTitle = default!;
         /// <summary>The name of the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Whether the repository is private.</summary>
-        public bool? Private { get; set; }
+        public bool? Private { get => _explicitNullValuePrivate; set { _explicitNullValuePrivate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private"); else _explicitNullProperties?.Remove("private"); } }
+        private bool? _explicitNullValuePrivate = default!;
         /// <summary>The default value for a squash merge commit message:- `PR_BODY` - default to the pull request&apos;s body.- `COMMIT_MESSAGES` - default to the branch&apos;s commit messages.- `BLANK` - default to a blank commit message.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitMessage? SquashMergeCommitMessage { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitMessage? SquashMergeCommitMessage { get => _explicitNullValueSquashMergeCommitMessage; set { _explicitNullValueSquashMergeCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("squash_merge_commit_message"); else _explicitNullProperties?.Remove("squash_merge_commit_message"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitMessage? _explicitNullValueSquashMergeCommitMessage = default!;
         /// <summary>Required when using `squash_merge_commit_message`.The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request&apos;s title.- `COMMIT_OR_PR_TITLE` - default to the commit&apos;s title (if only one commit) or the pull request&apos;s title (when more than one commit).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitTitle? SquashMergeCommitTitle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitTitle? SquashMergeCommitTitle { get => _explicitNullValueSquashMergeCommitTitle; set { _explicitNullValueSquashMergeCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("squash_merge_commit_title"); else _explicitNullProperties?.Remove("squash_merge_commit_title"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestSquashMergeCommitTitle? _explicitNullValueSquashMergeCommitTitle = default!;
         /// <summary>The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.</summary>
-        public long? TeamId { get; set; }
+        public long? TeamId { get => _explicitNullValueTeamId; set { _explicitNullValueTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_id"); else _explicitNullProperties?.Remove("team_id"); } }
+        private long? _explicitNullValueTeamId = default!;
         /// <summary>Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property is closing down. Please use `squash_merge_commit_title` instead.</summary>
         [Obsolete("")]
-        public bool? UseSquashPrTitleAsDefault { get; set; }
+        public bool? UseSquashPrTitleAsDefault { get => _explicitNullValueUseSquashPrTitleAsDefault; set { _explicitNullValueUseSquashPrTitleAsDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_squash_pr_title_as_default"); else _explicitNullProperties?.Remove("use_squash_pr_title_as_default"); } }
+        private bool? _explicitNullValueUseSquashPrTitleAsDefault = default!;
         /// <summary>The visibility of the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestVisibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest"/> and sets the default values.
         /// </summary>
@@ -129,7 +192,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -198,6 +261,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("team_id", TeamId);
             writer.WriteBoolValue("use_squash_pr_title_as_default", UseSquashPrTitleAsDefault);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequestVisibility>("visibility", Visibility);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

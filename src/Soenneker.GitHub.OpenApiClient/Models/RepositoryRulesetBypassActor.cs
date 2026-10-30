@@ -12,15 +12,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryRulesetBypassActor : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actor_id") is { } nullNodeActorId && nullNodeActorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorId = null;
+            if (parseNode.GetChildNode("actor_type") is { } nullNodeActorType && nullNodeActorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorType = null;
+            if (parseNode.GetChildNode("bypass_mode") is { } nullNodeBypassMode && nullNodeBypassMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassMode = null;
+        }
+
         /// <summary>The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.</summary>
-        public int? ActorId { get; set; }
+        public int? ActorId { get => _explicitNullValueActorId; set { _explicitNullValueActorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_id"); else _explicitNullProperties?.Remove("actor_id"); } }
+        private int? _explicitNullValueActorId = default!;
         /// <summary>The type of actor that can bypass a ruleset.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorActorType? ActorType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorActorType? ActorType { get => _explicitNullValueActorType; set { _explicitNullValueActorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_type"); else _explicitNullProperties?.Remove("actor_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorActorType? _explicitNullValueActorType = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets. When `bypass_mode` is `exempt`, rules will not be run for that actor and a bypass audit entry will not be created.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorBypassMode? BypassMode { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorBypassMode? BypassMode { get => _explicitNullValueBypassMode; set { _explicitNullValueBypassMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_mode"); else _explicitNullProperties?.Remove("bypass_mode"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorBypassMode? _explicitNullValueBypassMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("actor_id", ActorId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorActorType>("actor_type", ActorType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActorBypassMode>("bypass_mode", BypassMode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

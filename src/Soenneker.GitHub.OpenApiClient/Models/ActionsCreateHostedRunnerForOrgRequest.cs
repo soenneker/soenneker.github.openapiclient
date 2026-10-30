@@ -11,40 +11,64 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsCreateHostedRunnerForOrgRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable_static_ip") is { } nullNodeEnableStaticIp && nullNodeEnableStaticIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableStaticIp = null;
+            if (parseNode.GetChildNode("image") is { } nullNodeImage && nullNodeImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Image = null;
+            if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
+            if (parseNode.GetChildNode("maximum_runners") is { } nullNodeMaximumRunners && nullNodeMaximumRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumRunners = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
+            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this runner should be created with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`</summary>
-        public bool? EnableStaticIp { get; set; }
+        public bool? EnableStaticIp { get => _explicitNullValueEnableStaticIp; set { _explicitNullValueEnableStaticIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_static_ip"); else _explicitNullProperties?.Remove("enable_static_ip"); } }
+        private bool? _explicitNullValueEnableStaticIp = default!;
         /// <summary>The image of runner. To list all available images, use `GET /actions/hosted-runners/images/github-owned` or `GET /actions/hosted-runners/images/partner`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage? Image { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage? Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage? _explicitNullValueImage = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage Image { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage Image { get => _explicitNullValueImage; set { _explicitNullValueImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image"); else _explicitNullProperties?.Remove("image"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequestImage _explicitNullValueImage = default!;
 #endif
         /// <summary>Whether this runner should be used to generate custom images.</summary>
-        public bool? ImageGen { get; set; }
+        public bool? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
+        private bool? _explicitNullValueImageGen = default!;
         /// <summary>The maximum amount of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit your cost.</summary>
-        public int? MaximumRunners { get; set; }
+        public int? MaximumRunners { get => _explicitNullValueMaximumRunners; set { _explicitNullValueMaximumRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_runners"); else _explicitNullProperties?.Remove("maximum_runners"); } }
+        private int? _explicitNullValueMaximumRunners = default!;
         /// <summary>Name of the runner. Must be between 1 and 64 characters and may only contain upper and lowercase letters a-z, numbers 0-9, &apos;.&apos;, &apos;-&apos;, and &apos;_&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The existing runner group to add this runner to.</summary>
-        public long? RunnerGroupId { get; set; }
+        public long? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
+        private long? _explicitNullValueRunnerGroupId = default!;
         /// <summary>The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Size { get; set; }
+        public string? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private string? _explicitNullValueSize = default!;
 #nullable restore
 #else
-        public string Size { get; set; }
+        public string Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        private string _explicitNullValueSize = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequest"/> and sets the default values.
@@ -62,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCreateHostedRunnerForOrgRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("size", Size);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

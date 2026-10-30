@@ -12,270 +12,376 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsCreateRepoAutomationRequestTriggers : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("automation_completed") is { } nullNodeAutomationCompleted && nullNodeAutomationCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomationCompleted = null;
+            if (parseNode.GetChildNode("automation_failed") is { } nullNodeAutomationFailed && nullNodeAutomationFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomationFailed = null;
+            if (parseNode.GetChildNode("code_scanning_alert") is { } nullNodeCodeScanningAlert && nullNodeCodeScanningAlert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeScanningAlert = null;
+            if (parseNode.GetChildNode("dependabot_alert") is { } nullNodeDependabotAlert && nullNodeDependabotAlert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependabotAlert = null;
+            if (parseNode.GetChildNode("discussion_comment") is { } nullNodeDiscussionComment && nullNodeDiscussionComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionComment = null;
+            if (parseNode.GetChildNode("discussion_opened") is { } nullNodeDiscussionOpened && nullNodeDiscussionOpened.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionOpened = null;
+            if (parseNode.GetChildNode("discussion_updated") is { } nullNodeDiscussionUpdated && nullNodeDiscussionUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionUpdated = null;
+            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("issue_assigned") is { } nullNodeIssueAssigned && nullNodeIssueAssigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueAssigned = null;
+            if (parseNode.GetChildNode("issue_closed") is { } nullNodeIssueClosed && nullNodeIssueClosed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueClosed = null;
+            if (parseNode.GetChildNode("issue_comment") is { } nullNodeIssueComment && nullNodeIssueComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueComment = null;
+            if (parseNode.GetChildNode("issue_labeled") is { } nullNodeIssueLabeled && nullNodeIssueLabeled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueLabeled = null;
+            if (parseNode.GetChildNode("issue_opened") is { } nullNodeIssueOpened && nullNodeIssueOpened.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueOpened = null;
+            if (parseNode.GetChildNode("issue_reopened") is { } nullNodeIssueReopened && nullNodeIssueReopened.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueReopened = null;
+            if (parseNode.GetChildNode("pull_request_assigned") is { } nullNodePullRequestAssigned && nullNodePullRequestAssigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestAssigned = null;
+            if (parseNode.GetChildNode("pull_request_closed") is { } nullNodePullRequestClosed && nullNodePullRequestClosed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestClosed = null;
+            if (parseNode.GetChildNode("pull_request_comment") is { } nullNodePullRequestComment && nullNodePullRequestComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestComment = null;
+            if (parseNode.GetChildNode("pull_request_converted_to_draft") is { } nullNodePullRequestConvertedToDraft && nullNodePullRequestConvertedToDraft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestConvertedToDraft = null;
+            if (parseNode.GetChildNode("pull_request_labeled") is { } nullNodePullRequestLabeled && nullNodePullRequestLabeled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestLabeled = null;
+            if (parseNode.GetChildNode("pull_request_merge_conflict") is { } nullNodePullRequestMergeConflict && nullNodePullRequestMergeConflict.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestMergeConflict = null;
+            if (parseNode.GetChildNode("pull_request_merged") is { } nullNodePullRequestMerged && nullNodePullRequestMerged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestMerged = null;
+            if (parseNode.GetChildNode("pull_request_opened") is { } nullNodePullRequestOpened && nullNodePullRequestOpened.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestOpened = null;
+            if (parseNode.GetChildNode("pull_request_ready_for_review") is { } nullNodePullRequestReadyForReview && nullNodePullRequestReadyForReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReadyForReview = null;
+            if (parseNode.GetChildNode("pull_request_reopened") is { } nullNodePullRequestReopened && nullNodePullRequestReopened.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReopened = null;
+            if (parseNode.GetChildNode("pull_request_review_dismissed") is { } nullNodePullRequestReviewDismissed && nullNodePullRequestReviewDismissed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewDismissed = null;
+            if (parseNode.GetChildNode("pull_request_review_requested") is { } nullNodePullRequestReviewRequested && nullNodePullRequestReviewRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewRequested = null;
+            if (parseNode.GetChildNode("pull_request_review_submitted") is { } nullNodePullRequestReviewSubmitted && nullNodePullRequestReviewSubmitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewSubmitted = null;
+            if (parseNode.GetChildNode("pull_request_review_thread_resolved") is { } nullNodePullRequestReviewThreadResolved && nullNodePullRequestReviewThreadResolved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewThreadResolved = null;
+            if (parseNode.GetChildNode("pull_request_review_thread_unresolved") is { } nullNodePullRequestReviewThreadUnresolved && nullNodePullRequestReviewThreadUnresolved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestReviewThreadUnresolved = null;
+            if (parseNode.GetChildNode("pull_request_synchronize") is { } nullNodePullRequestSynchronize && nullNodePullRequestSynchronize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequestSynchronize = null;
+            if (parseNode.GetChildNode("secret_scanning_alert") is { } nullNodeSecretScanningAlert && nullNodeSecretScanningAlert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningAlert = null;
+            if (parseNode.GetChildNode("sub_issue_added") is { } nullNodeSubIssueAdded && nullNodeSubIssueAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIssueAdded = null;
+            if (parseNode.GetChildNode("workflow_run") is { } nullNodeWorkflowRun && nullNodeWorkflowRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRun = null;
+        }
+
         /// <summary>The automation_completed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted? AutomationCompleted { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted? AutomationCompleted { get => _explicitNullValueAutomationCompleted; set { _explicitNullValueAutomationCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_completed"); else _explicitNullProperties?.Remove("automation_completed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted? _explicitNullValueAutomationCompleted = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted AutomationCompleted { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted AutomationCompleted { get => _explicitNullValueAutomationCompleted; set { _explicitNullValueAutomationCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_completed"); else _explicitNullProperties?.Remove("automation_completed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationCompleted _explicitNullValueAutomationCompleted = default!;
 #endif
         /// <summary>The automation_failed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed? AutomationFailed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed? AutomationFailed { get => _explicitNullValueAutomationFailed; set { _explicitNullValueAutomationFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_failed"); else _explicitNullProperties?.Remove("automation_failed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed? _explicitNullValueAutomationFailed = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed AutomationFailed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed AutomationFailed { get => _explicitNullValueAutomationFailed; set { _explicitNullValueAutomationFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_failed"); else _explicitNullProperties?.Remove("automation_failed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersAutomationFailed _explicitNullValueAutomationFailed = default!;
 #endif
         /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert? CodeScanningAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert? CodeScanningAlert { get => _explicitNullValueCodeScanningAlert; set { _explicitNullValueCodeScanningAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_alert"); else _explicitNullProperties?.Remove("code_scanning_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert? _explicitNullValueCodeScanningAlert = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert CodeScanningAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert CodeScanningAlert { get => _explicitNullValueCodeScanningAlert; set { _explicitNullValueCodeScanningAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_alert"); else _explicitNullProperties?.Remove("code_scanning_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersCodeScanningAlert _explicitNullValueCodeScanningAlert = default!;
 #endif
         /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert? DependabotAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert? DependabotAlert { get => _explicitNullValueDependabotAlert; set { _explicitNullValueDependabotAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependabot_alert"); else _explicitNullProperties?.Remove("dependabot_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert? _explicitNullValueDependabotAlert = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert DependabotAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert DependabotAlert { get => _explicitNullValueDependabotAlert; set { _explicitNullValueDependabotAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependabot_alert"); else _explicitNullProperties?.Remove("dependabot_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDependabotAlert _explicitNullValueDependabotAlert = default!;
 #endif
         /// <summary>The discussion_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment? DiscussionComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment? DiscussionComment { get => _explicitNullValueDiscussionComment; set { _explicitNullValueDiscussionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment"); else _explicitNullProperties?.Remove("discussion_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment? _explicitNullValueDiscussionComment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment DiscussionComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment DiscussionComment { get => _explicitNullValueDiscussionComment; set { _explicitNullValueDiscussionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment"); else _explicitNullProperties?.Remove("discussion_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionComment _explicitNullValueDiscussionComment = default!;
 #endif
         /// <summary>The discussion_opened property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened? DiscussionOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened? DiscussionOpened { get => _explicitNullValueDiscussionOpened; set { _explicitNullValueDiscussionOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_opened"); else _explicitNullProperties?.Remove("discussion_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened? _explicitNullValueDiscussionOpened = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened DiscussionOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened DiscussionOpened { get => _explicitNullValueDiscussionOpened; set { _explicitNullValueDiscussionOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_opened"); else _explicitNullProperties?.Remove("discussion_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionOpened _explicitNullValueDiscussionOpened = default!;
 #endif
         /// <summary>The discussion_updated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated? DiscussionUpdated { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated? DiscussionUpdated { get => _explicitNullValueDiscussionUpdated; set { _explicitNullValueDiscussionUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_updated"); else _explicitNullProperties?.Remove("discussion_updated"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated? _explicitNullValueDiscussionUpdated = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated DiscussionUpdated { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated DiscussionUpdated { get => _explicitNullValueDiscussionUpdated; set { _explicitNullValueDiscussionUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_updated"); else _explicitNullProperties?.Remove("discussion_updated"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersDiscussionUpdated _explicitNullValueDiscussionUpdated = default!;
 #endif
         /// <summary>The interval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval? Interval { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval? _explicitNullValueInterval = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval Interval { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersInterval _explicitNullValueInterval = default!;
 #endif
         /// <summary>The issue_assigned property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned? IssueAssigned { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned? IssueAssigned { get => _explicitNullValueIssueAssigned; set { _explicitNullValueIssueAssigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_assigned"); else _explicitNullProperties?.Remove("issue_assigned"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned? _explicitNullValueIssueAssigned = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned IssueAssigned { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned IssueAssigned { get => _explicitNullValueIssueAssigned; set { _explicitNullValueIssueAssigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_assigned"); else _explicitNullProperties?.Remove("issue_assigned"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueAssigned _explicitNullValueIssueAssigned = default!;
 #endif
         /// <summary>The issue_closed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed? IssueClosed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed? IssueClosed { get => _explicitNullValueIssueClosed; set { _explicitNullValueIssueClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_closed"); else _explicitNullProperties?.Remove("issue_closed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed? _explicitNullValueIssueClosed = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed IssueClosed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed IssueClosed { get => _explicitNullValueIssueClosed; set { _explicitNullValueIssueClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_closed"); else _explicitNullProperties?.Remove("issue_closed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueClosed _explicitNullValueIssueClosed = default!;
 #endif
         /// <summary>The issue_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment? IssueComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment? IssueComment { get => _explicitNullValueIssueComment; set { _explicitNullValueIssueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_comment"); else _explicitNullProperties?.Remove("issue_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment? _explicitNullValueIssueComment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment IssueComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment IssueComment { get => _explicitNullValueIssueComment; set { _explicitNullValueIssueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_comment"); else _explicitNullProperties?.Remove("issue_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueComment _explicitNullValueIssueComment = default!;
 #endif
         /// <summary>The issue_labeled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled? IssueLabeled { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled? IssueLabeled { get => _explicitNullValueIssueLabeled; set { _explicitNullValueIssueLabeled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_labeled"); else _explicitNullProperties?.Remove("issue_labeled"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled? _explicitNullValueIssueLabeled = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled IssueLabeled { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled IssueLabeled { get => _explicitNullValueIssueLabeled; set { _explicitNullValueIssueLabeled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_labeled"); else _explicitNullProperties?.Remove("issue_labeled"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueLabeled _explicitNullValueIssueLabeled = default!;
 #endif
         /// <summary>The issue_opened property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened? IssueOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened? IssueOpened { get => _explicitNullValueIssueOpened; set { _explicitNullValueIssueOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_opened"); else _explicitNullProperties?.Remove("issue_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened? _explicitNullValueIssueOpened = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened IssueOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened IssueOpened { get => _explicitNullValueIssueOpened; set { _explicitNullValueIssueOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_opened"); else _explicitNullProperties?.Remove("issue_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueOpened _explicitNullValueIssueOpened = default!;
 #endif
         /// <summary>The issue_reopened property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened? IssueReopened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened? IssueReopened { get => _explicitNullValueIssueReopened; set { _explicitNullValueIssueReopened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_reopened"); else _explicitNullProperties?.Remove("issue_reopened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened? _explicitNullValueIssueReopened = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened IssueReopened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened IssueReopened { get => _explicitNullValueIssueReopened; set { _explicitNullValueIssueReopened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_reopened"); else _explicitNullProperties?.Remove("issue_reopened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersIssueReopened _explicitNullValueIssueReopened = default!;
 #endif
         /// <summary>The pull_request_assigned property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned? PullRequestAssigned { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned? PullRequestAssigned { get => _explicitNullValuePullRequestAssigned; set { _explicitNullValuePullRequestAssigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_assigned"); else _explicitNullProperties?.Remove("pull_request_assigned"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned? _explicitNullValuePullRequestAssigned = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned PullRequestAssigned { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned PullRequestAssigned { get => _explicitNullValuePullRequestAssigned; set { _explicitNullValuePullRequestAssigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_assigned"); else _explicitNullProperties?.Remove("pull_request_assigned"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestAssigned _explicitNullValuePullRequestAssigned = default!;
 #endif
         /// <summary>The pull_request_closed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed? PullRequestClosed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed? PullRequestClosed { get => _explicitNullValuePullRequestClosed; set { _explicitNullValuePullRequestClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_closed"); else _explicitNullProperties?.Remove("pull_request_closed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed? _explicitNullValuePullRequestClosed = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed PullRequestClosed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed PullRequestClosed { get => _explicitNullValuePullRequestClosed; set { _explicitNullValuePullRequestClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_closed"); else _explicitNullProperties?.Remove("pull_request_closed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestClosed _explicitNullValuePullRequestClosed = default!;
 #endif
         /// <summary>The pull_request_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment? PullRequestComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment? PullRequestComment { get => _explicitNullValuePullRequestComment; set { _explicitNullValuePullRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_comment"); else _explicitNullProperties?.Remove("pull_request_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment? _explicitNullValuePullRequestComment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment PullRequestComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment PullRequestComment { get => _explicitNullValuePullRequestComment; set { _explicitNullValuePullRequestComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_comment"); else _explicitNullProperties?.Remove("pull_request_comment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestComment _explicitNullValuePullRequestComment = default!;
 #endif
         /// <summary>The pull_request_converted_to_draft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft? PullRequestConvertedToDraft { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft? PullRequestConvertedToDraft { get => _explicitNullValuePullRequestConvertedToDraft; set { _explicitNullValuePullRequestConvertedToDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_converted_to_draft"); else _explicitNullProperties?.Remove("pull_request_converted_to_draft"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft? _explicitNullValuePullRequestConvertedToDraft = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft PullRequestConvertedToDraft { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft PullRequestConvertedToDraft { get => _explicitNullValuePullRequestConvertedToDraft; set { _explicitNullValuePullRequestConvertedToDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_converted_to_draft"); else _explicitNullProperties?.Remove("pull_request_converted_to_draft"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestConvertedToDraft _explicitNullValuePullRequestConvertedToDraft = default!;
 #endif
         /// <summary>The pull_request_labeled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled? PullRequestLabeled { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled? PullRequestLabeled { get => _explicitNullValuePullRequestLabeled; set { _explicitNullValuePullRequestLabeled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_labeled"); else _explicitNullProperties?.Remove("pull_request_labeled"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled? _explicitNullValuePullRequestLabeled = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled PullRequestLabeled { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled PullRequestLabeled { get => _explicitNullValuePullRequestLabeled; set { _explicitNullValuePullRequestLabeled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_labeled"); else _explicitNullProperties?.Remove("pull_request_labeled"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestLabeled _explicitNullValuePullRequestLabeled = default!;
 #endif
         /// <summary>The pull_request_merge_conflict property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict? PullRequestMergeConflict { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict? PullRequestMergeConflict { get => _explicitNullValuePullRequestMergeConflict; set { _explicitNullValuePullRequestMergeConflict = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_merge_conflict"); else _explicitNullProperties?.Remove("pull_request_merge_conflict"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict? _explicitNullValuePullRequestMergeConflict = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict PullRequestMergeConflict { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict PullRequestMergeConflict { get => _explicitNullValuePullRequestMergeConflict; set { _explicitNullValuePullRequestMergeConflict = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_merge_conflict"); else _explicitNullProperties?.Remove("pull_request_merge_conflict"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMergeConflict _explicitNullValuePullRequestMergeConflict = default!;
 #endif
         /// <summary>The pull_request_merged property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged? PullRequestMerged { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged? PullRequestMerged { get => _explicitNullValuePullRequestMerged; set { _explicitNullValuePullRequestMerged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_merged"); else _explicitNullProperties?.Remove("pull_request_merged"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged? _explicitNullValuePullRequestMerged = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged PullRequestMerged { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged PullRequestMerged { get => _explicitNullValuePullRequestMerged; set { _explicitNullValuePullRequestMerged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_merged"); else _explicitNullProperties?.Remove("pull_request_merged"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestMerged _explicitNullValuePullRequestMerged = default!;
 #endif
         /// <summary>The pull_request_opened property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened? PullRequestOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened? PullRequestOpened { get => _explicitNullValuePullRequestOpened; set { _explicitNullValuePullRequestOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_opened"); else _explicitNullProperties?.Remove("pull_request_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened? _explicitNullValuePullRequestOpened = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened PullRequestOpened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened PullRequestOpened { get => _explicitNullValuePullRequestOpened; set { _explicitNullValuePullRequestOpened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_opened"); else _explicitNullProperties?.Remove("pull_request_opened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestOpened _explicitNullValuePullRequestOpened = default!;
 #endif
         /// <summary>The pull_request_ready_for_review property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview? PullRequestReadyForReview { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview? PullRequestReadyForReview { get => _explicitNullValuePullRequestReadyForReview; set { _explicitNullValuePullRequestReadyForReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_ready_for_review"); else _explicitNullProperties?.Remove("pull_request_ready_for_review"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview? _explicitNullValuePullRequestReadyForReview = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview PullRequestReadyForReview { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview PullRequestReadyForReview { get => _explicitNullValuePullRequestReadyForReview; set { _explicitNullValuePullRequestReadyForReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_ready_for_review"); else _explicitNullProperties?.Remove("pull_request_ready_for_review"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReadyForReview _explicitNullValuePullRequestReadyForReview = default!;
 #endif
         /// <summary>The pull_request_reopened property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened? PullRequestReopened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened? PullRequestReopened { get => _explicitNullValuePullRequestReopened; set { _explicitNullValuePullRequestReopened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_reopened"); else _explicitNullProperties?.Remove("pull_request_reopened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened? _explicitNullValuePullRequestReopened = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened PullRequestReopened { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened PullRequestReopened { get => _explicitNullValuePullRequestReopened; set { _explicitNullValuePullRequestReopened = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_reopened"); else _explicitNullProperties?.Remove("pull_request_reopened"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReopened _explicitNullValuePullRequestReopened = default!;
 #endif
         /// <summary>The pull_request_review_dismissed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed? PullRequestReviewDismissed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed? PullRequestReviewDismissed { get => _explicitNullValuePullRequestReviewDismissed; set { _explicitNullValuePullRequestReviewDismissed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_dismissed"); else _explicitNullProperties?.Remove("pull_request_review_dismissed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed? _explicitNullValuePullRequestReviewDismissed = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed PullRequestReviewDismissed { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed PullRequestReviewDismissed { get => _explicitNullValuePullRequestReviewDismissed; set { _explicitNullValuePullRequestReviewDismissed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_dismissed"); else _explicitNullProperties?.Remove("pull_request_review_dismissed"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewDismissed _explicitNullValuePullRequestReviewDismissed = default!;
 #endif
         /// <summary>The pull_request_review_requested property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested? PullRequestReviewRequested { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested? PullRequestReviewRequested { get => _explicitNullValuePullRequestReviewRequested; set { _explicitNullValuePullRequestReviewRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_requested"); else _explicitNullProperties?.Remove("pull_request_review_requested"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested? _explicitNullValuePullRequestReviewRequested = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested PullRequestReviewRequested { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested PullRequestReviewRequested { get => _explicitNullValuePullRequestReviewRequested; set { _explicitNullValuePullRequestReviewRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_requested"); else _explicitNullProperties?.Remove("pull_request_review_requested"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewRequested _explicitNullValuePullRequestReviewRequested = default!;
 #endif
         /// <summary>The pull_request_review_submitted property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted? PullRequestReviewSubmitted { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted? PullRequestReviewSubmitted { get => _explicitNullValuePullRequestReviewSubmitted; set { _explicitNullValuePullRequestReviewSubmitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_submitted"); else _explicitNullProperties?.Remove("pull_request_review_submitted"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted? _explicitNullValuePullRequestReviewSubmitted = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted PullRequestReviewSubmitted { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted PullRequestReviewSubmitted { get => _explicitNullValuePullRequestReviewSubmitted; set { _explicitNullValuePullRequestReviewSubmitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_submitted"); else _explicitNullProperties?.Remove("pull_request_review_submitted"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewSubmitted _explicitNullValuePullRequestReviewSubmitted = default!;
 #endif
         /// <summary>The pull_request_review_thread_resolved property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved? PullRequestReviewThreadResolved { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved? PullRequestReviewThreadResolved { get => _explicitNullValuePullRequestReviewThreadResolved; set { _explicitNullValuePullRequestReviewThreadResolved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_thread_resolved"); else _explicitNullProperties?.Remove("pull_request_review_thread_resolved"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved? _explicitNullValuePullRequestReviewThreadResolved = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved PullRequestReviewThreadResolved { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved PullRequestReviewThreadResolved { get => _explicitNullValuePullRequestReviewThreadResolved; set { _explicitNullValuePullRequestReviewThreadResolved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_thread_resolved"); else _explicitNullProperties?.Remove("pull_request_review_thread_resolved"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadResolved _explicitNullValuePullRequestReviewThreadResolved = default!;
 #endif
         /// <summary>The pull_request_review_thread_unresolved property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved? PullRequestReviewThreadUnresolved { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved? PullRequestReviewThreadUnresolved { get => _explicitNullValuePullRequestReviewThreadUnresolved; set { _explicitNullValuePullRequestReviewThreadUnresolved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_thread_unresolved"); else _explicitNullProperties?.Remove("pull_request_review_thread_unresolved"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved? _explicitNullValuePullRequestReviewThreadUnresolved = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved PullRequestReviewThreadUnresolved { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved PullRequestReviewThreadUnresolved { get => _explicitNullValuePullRequestReviewThreadUnresolved; set { _explicitNullValuePullRequestReviewThreadUnresolved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_review_thread_unresolved"); else _explicitNullProperties?.Remove("pull_request_review_thread_unresolved"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestReviewThreadUnresolved _explicitNullValuePullRequestReviewThreadUnresolved = default!;
 #endif
         /// <summary>The pull_request_synchronize property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize? PullRequestSynchronize { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize? PullRequestSynchronize { get => _explicitNullValuePullRequestSynchronize; set { _explicitNullValuePullRequestSynchronize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_synchronize"); else _explicitNullProperties?.Remove("pull_request_synchronize"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize? _explicitNullValuePullRequestSynchronize = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize PullRequestSynchronize { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize PullRequestSynchronize { get => _explicitNullValuePullRequestSynchronize; set { _explicitNullValuePullRequestSynchronize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request_synchronize"); else _explicitNullProperties?.Remove("pull_request_synchronize"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize _explicitNullValuePullRequestSynchronize = default!;
 #endif
         /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert? SecretScanningAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert? SecretScanningAlert { get => _explicitNullValueSecretScanningAlert; set { _explicitNullValueSecretScanningAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_alert"); else _explicitNullProperties?.Remove("secret_scanning_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert? _explicitNullValueSecretScanningAlert = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert SecretScanningAlert { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert SecretScanningAlert { get => _explicitNullValueSecretScanningAlert; set { _explicitNullValueSecretScanningAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_alert"); else _explicitNullProperties?.Remove("secret_scanning_alert"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert _explicitNullValueSecretScanningAlert = default!;
 #endif
         /// <summary>The sub_issue_added property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded? SubIssueAdded { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded? SubIssueAdded { get => _explicitNullValueSubIssueAdded; set { _explicitNullValueSubIssueAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_issue_added"); else _explicitNullProperties?.Remove("sub_issue_added"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded? _explicitNullValueSubIssueAdded = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded SubIssueAdded { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded SubIssueAdded { get => _explicitNullValueSubIssueAdded; set { _explicitNullValueSubIssueAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_issue_added"); else _explicitNullProperties?.Remove("sub_issue_added"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded _explicitNullValueSubIssueAdded = default!;
 #endif
         /// <summary>The workflow_run property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun? WorkflowRun { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun? WorkflowRun { get => _explicitNullValueWorkflowRun; set { _explicitNullValueWorkflowRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_run"); else _explicitNullProperties?.Remove("workflow_run"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun? _explicitNullValueWorkflowRun = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun WorkflowRun { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun WorkflowRun { get => _explicitNullValueWorkflowRun; set { _explicitNullValueWorkflowRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_run"); else _explicitNullProperties?.Remove("workflow_run"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun _explicitNullValueWorkflowRun = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -285,7 +391,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggers CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggers();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggers(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -369,7 +475,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersPullRequestSynchronize>("pull_request_synchronize", PullRequestSynchronize);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSecretScanningAlert>("secret_scanning_alert", SecretScanningAlert);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersSubIssueAdded>("sub_issue_added", SubIssueAdded);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun>("workflow_run", WorkflowRun);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsCreateRepoAutomationRequestTriggersWorkflowRun>("workflow_run", WorkflowRun);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

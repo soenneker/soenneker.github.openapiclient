@@ -11,42 +11,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CopilotSpacesUpdateForOrgRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("base_role") is { } nullNodeBaseRole && nullNodeBaseRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRole = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("general_instructions") is { } nullNodeGeneralInstructions && nullNodeGeneralInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneralInstructions = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("resources_attributes") is { } nullNodeResourcesAttributes && nullNodeResourcesAttributes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcesAttributes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base role that determines default permissions for organization members. Changing this field requires admin permissions.- `no_access`: No default access (default)- `reader`: Organization members can read the space- `writer`: Organization members can read and edit the space- `admin`: Organization members have full admin access to the space</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestBaseRole? BaseRole { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestBaseRole? BaseRole { get => _explicitNullValueBaseRole; set { _explicitNullValueBaseRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_role"); else _explicitNullProperties?.Remove("base_role"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestBaseRole? _explicitNullValueBaseRole = default!;
         /// <summary>A description of the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>General instructions for the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GeneralInstructions { get; set; }
+        public string? GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
+        private string? _explicitNullValueGeneralInstructions = default!;
 #nullable restore
 #else
-        public string GeneralInstructions { get; set; }
+        public string GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
+        private string _explicitNullValueGeneralInstructions = default!;
 #endif
         /// <summary>The name of the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Resources to attach to the space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem>? ResourcesAttributes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem>? ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem>? _explicitNullValueResourcesAttributes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem> ResourcesAttributes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem> ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem> _explicitNullValueResourcesAttributes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequest"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("general_instructions", GeneralInstructions);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestResourcesAttributesItem>("resources_attributes", ResourcesAttributes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

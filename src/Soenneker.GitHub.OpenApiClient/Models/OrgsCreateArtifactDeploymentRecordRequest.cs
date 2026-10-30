@@ -11,92 +11,133 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgsCreateArtifactDeploymentRecordRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cluster") is { } nullNodeCluster && nullNodeCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cluster = null;
+            if (parseNode.GetChildNode("deployment_name") is { } nullNodeDeploymentName && nullNodeDeploymentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentName = null;
+            if (parseNode.GetChildNode("digest") is { } nullNodeDigest && nullNodeDigest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Digest = null;
+            if (parseNode.GetChildNode("github_repository") is { } nullNodeGithubRepository && nullNodeGithubRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubRepository = null;
+            if (parseNode.GetChildNode("logical_environment") is { } nullNodeLogicalEnvironment && nullNodeLogicalEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalEnvironment = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("physical_environment") is { } nullNodePhysicalEnvironment && nullNodePhysicalEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhysicalEnvironment = null;
+            if (parseNode.GetChildNode("return_records") is { } nullNodeReturnRecords && nullNodeReturnRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReturnRecords = null;
+            if (parseNode.GetChildNode("runtime_risks") is { } nullNodeRuntimeRisks && nullNodeRuntimeRisks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeRisks = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The deployment cluster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cluster { get; set; }
+        public string? Cluster { get => _explicitNullValueCluster; set { _explicitNullValueCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster"); else _explicitNullProperties?.Remove("cluster"); } }
+        private string? _explicitNullValueCluster = default!;
 #nullable restore
 #else
-        public string Cluster { get; set; }
+        public string Cluster { get => _explicitNullValueCluster; set { _explicitNullValueCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster"); else _explicitNullProperties?.Remove("cluster"); } }
+        private string _explicitNullValueCluster = default!;
 #endif
         /// <summary>The unique identifier for the deployment represented by the new record. To accommodate differingcontainers and namespaces within a cluster, the following format is recommended:{namespaceName}-{deploymentName}-{containerName}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeploymentName { get; set; }
+        public string? DeploymentName { get => _explicitNullValueDeploymentName; set { _explicitNullValueDeploymentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_name"); else _explicitNullProperties?.Remove("deployment_name"); } }
+        private string? _explicitNullValueDeploymentName = default!;
 #nullable restore
 #else
-        public string DeploymentName { get; set; }
+        public string DeploymentName { get => _explicitNullValueDeploymentName; set { _explicitNullValueDeploymentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_name"); else _explicitNullProperties?.Remove("deployment_name"); } }
+        private string _explicitNullValueDeploymentName = default!;
 #endif
         /// <summary>The hex encoded digest of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Digest { get; set; }
+        public string? Digest { get => _explicitNullValueDigest; set { _explicitNullValueDigest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digest"); else _explicitNullProperties?.Remove("digest"); } }
+        private string? _explicitNullValueDigest = default!;
 #nullable restore
 #else
-        public string Digest { get; set; }
+        public string Digest { get => _explicitNullValueDigest; set { _explicitNullValueDigest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digest"); else _explicitNullProperties?.Remove("digest"); } }
+        private string _explicitNullValueDigest = default!;
 #endif
         /// <summary>The name of the GitHub repository associated with the artifact. This should be usedwhen there are no provenance attestations available for the artifact. The repositorymust belong to the organization specified in the path parameter.If a provenance attestation is available for the artifact, the API will usethe repository information from the attestation instead of this parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GithubRepository { get; set; }
+        public string? GithubRepository { get => _explicitNullValueGithubRepository; set { _explicitNullValueGithubRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_repository"); else _explicitNullProperties?.Remove("github_repository"); } }
+        private string? _explicitNullValueGithubRepository = default!;
 #nullable restore
 #else
-        public string GithubRepository { get; set; }
+        public string GithubRepository { get => _explicitNullValueGithubRepository; set { _explicitNullValueGithubRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_repository"); else _explicitNullProperties?.Remove("github_repository"); } }
+        private string _explicitNullValueGithubRepository = default!;
 #endif
         /// <summary>The stage of the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogicalEnvironment { get; set; }
+        public string? LogicalEnvironment { get => _explicitNullValueLogicalEnvironment; set { _explicitNullValueLogicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_environment"); else _explicitNullProperties?.Remove("logical_environment"); } }
+        private string? _explicitNullValueLogicalEnvironment = default!;
 #nullable restore
 #else
-        public string LogicalEnvironment { get; set; }
+        public string LogicalEnvironment { get => _explicitNullValueLogicalEnvironment; set { _explicitNullValueLogicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_environment"); else _explicitNullProperties?.Remove("logical_environment"); } }
+        private string _explicitNullValueLogicalEnvironment = default!;
 #endif
         /// <summary>The name of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The physical region of the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhysicalEnvironment { get; set; }
+        public string? PhysicalEnvironment { get => _explicitNullValuePhysicalEnvironment; set { _explicitNullValuePhysicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("physical_environment"); else _explicitNullProperties?.Remove("physical_environment"); } }
+        private string? _explicitNullValuePhysicalEnvironment = default!;
 #nullable restore
 #else
-        public string PhysicalEnvironment { get; set; }
+        public string PhysicalEnvironment { get => _explicitNullValuePhysicalEnvironment; set { _explicitNullValuePhysicalEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("physical_environment"); else _explicitNullProperties?.Remove("physical_environment"); } }
+        private string _explicitNullValuePhysicalEnvironment = default!;
 #endif
         /// <summary>If true, the endpoint will return the created or updated record in the response body.</summary>
-        public bool? ReturnRecords { get; set; }
+        public bool? ReturnRecords { get => _explicitNullValueReturnRecords; set { _explicitNullValueReturnRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return_records"); else _explicitNullProperties?.Remove("return_records"); } }
+        private bool? _explicitNullValueReturnRecords = default!;
         /// <summary>A list of runtime risks associated with the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?>? RuntimeRisks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?>? RuntimeRisks { get => _explicitNullValueRuntimeRisks; set { _explicitNullValueRuntimeRisks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_risks"); else _explicitNullProperties?.Remove("runtime_risks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?>? _explicitNullValueRuntimeRisks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?> RuntimeRisks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?> RuntimeRisks { get => _explicitNullValueRuntimeRisks; set { _explicitNullValueRuntimeRisks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_risks"); else _explicitNullProperties?.Remove("runtime_risks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestRuntimeRisksItem?> _explicitNullValueRuntimeRisks = default!;
 #endif
         /// <summary>The status of the artifact. Can be either deployed or decommissioned.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestStatus? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestStatus? _explicitNullValueStatus = default!;
         /// <summary>The tags associated with the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags? Tags { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags Tags { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags _explicitNullValueTags = default!;
 #endif
         /// <summary>The artifact version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get; set; }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequest"/> and sets the default values.
@@ -114,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -157,6 +198,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsCreateArtifactDeploymentRecordRequestTags>("tags", Tags);
             writer.WriteStringValue("version", Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

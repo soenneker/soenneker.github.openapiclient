@@ -12,114 +12,167 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckRun : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("app") is { } nullNodeApp && nullNodeApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) App = null;
+            if (parseNode.GetChildNode("check_suite") is { } nullNodeCheckSuite && nullNodeCheckSuite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckSuite = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("conclusion") is { } nullNodeConclusion && nullNodeConclusion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conclusion = null;
+            if (parseNode.GetChildNode("deployment") is { } nullNodeDeployment && nullNodeDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployment = null;
+            if (parseNode.GetChildNode("details_url") is { } nullNodeDetailsUrl && nullNodeDetailsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DetailsUrl = null;
+            if (parseNode.GetChildNode("external_id") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
+            if (parseNode.GetChildNode("head_sha") is { } nullNodeHeadSha && nullNodeHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadSha = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("pull_requests") is { } nullNodePullRequests && nullNodePullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequests = null;
+            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration? App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration? App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration? _explicitNullValueApp = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration _explicitNullValueApp = default!;
 #endif
         /// <summary>The check_suite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite? CheckSuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite? CheckSuite { get => _explicitNullValueCheckSuite; set { _explicitNullValueCheckSuite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_suite"); else _explicitNullProperties?.Remove("check_suite"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite? _explicitNullValueCheckSuite = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite CheckSuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite CheckSuite { get => _explicitNullValueCheckSuite; set { _explicitNullValueCheckSuite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_suite"); else _explicitNullProperties?.Remove("check_suite"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite _explicitNullValueCheckSuite = default!;
 #endif
         /// <summary>The completed_at property</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The conclusion property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunConclusion? Conclusion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunConclusion? Conclusion { get => _explicitNullValueConclusion; set { _explicitNullValueConclusion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conclusion"); else _explicitNullProperties?.Remove("conclusion"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunConclusion? _explicitNullValueConclusion = default!;
         /// <summary>A deployment created as the result of an Actions check run from a workflow that references an environment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple? Deployment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple? Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple? _explicitNullValueDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple Deployment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple _explicitNullValueDeployment = default!;
 #endif
         /// <summary>The details_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DetailsUrl { get; set; }
+        public string? DetailsUrl { get => _explicitNullValueDetailsUrl; set { _explicitNullValueDetailsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details_url"); else _explicitNullProperties?.Remove("details_url"); } }
+        private string? _explicitNullValueDetailsUrl = default!;
 #nullable restore
 #else
-        public string DetailsUrl { get; set; }
+        public string DetailsUrl { get => _explicitNullValueDetailsUrl; set { _explicitNullValueDetailsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details_url"); else _explicitNullProperties?.Remove("details_url"); } }
+        private string _explicitNullValueDetailsUrl = default!;
 #endif
         /// <summary>The external_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalId { get; set; }
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string? _explicitNullValueExternalId = default!;
 #nullable restore
 #else
-        public string ExternalId { get; set; }
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string _explicitNullValueExternalId = default!;
 #endif
         /// <summary>The SHA of the commit that is being checked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadSha { get; set; }
+        public string? HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string? _explicitNullValueHeadSha = default!;
 #nullable restore
 #else
-        public string HeadSha { get; set; }
+        public string HeadSha { get => _explicitNullValueHeadSha; set { _explicitNullValueHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_sha"); else _explicitNullProperties?.Remove("head_sha"); } }
+        private string _explicitNullValueHeadSha = default!;
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The id of the check.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The name of the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>The output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput? Output { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput Output { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput _explicitNullValueOutput = default!;
 #endif
         /// <summary>Pull requests that are open with a `head_sha` or `head_branch` that matches the check. The returned pull requests do not necessarily indicate pull requests that triggered the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>? PullRequests { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>? PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>? _explicitNullValuePullRequests = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal> PullRequests { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal> PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal> _explicitNullValuePullRequests = default!;
 #endif
         /// <summary>The started_at property</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The phase of the lifecycle that the check is currently in. Statuses of waiting, requested, and pending are reserved for GitHub Actions check runs.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunStatus? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckRunStatus? _explicitNullValueStatus = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckRun"/> and sets the default values.
@@ -136,7 +189,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CheckRun CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CheckRun();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CheckRun(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -189,6 +242,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunStatus>("status", Status);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

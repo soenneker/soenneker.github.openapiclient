@@ -69,6 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customiza
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -96,6 +98,8 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customiza
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

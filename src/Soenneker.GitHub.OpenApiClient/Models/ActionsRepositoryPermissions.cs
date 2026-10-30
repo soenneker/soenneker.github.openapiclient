@@ -11,23 +11,39 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsRepositoryPermissions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("selected_actions_url") is { } nullNodeSelectedActionsUrl && nullNodeSelectedActionsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedActionsUrl = null;
+            if (parseNode.GetChildNode("sha_pinning_required") is { } nullNodeShaPinningRequired && nullNodeShaPinningRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShaPinningRequired = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The permissions policy that controls the actions and reusable workflows that are allowed to run.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get => _explicitNullValueAllowedActions; set { _explicitNullValueAllowedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actions"); else _explicitNullProperties?.Remove("allowed_actions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? _explicitNullValueAllowedActions = default!;
         /// <summary>Whether GitHub Actions is enabled on the repository.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The API URL to use to get or set the actions and reusable workflows that are allowed to run, when `allowed_actions` is set to `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedActionsUrl { get; set; }
+        public string? SelectedActionsUrl { get => _explicitNullValueSelectedActionsUrl; set { _explicitNullValueSelectedActionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_actions_url"); else _explicitNullProperties?.Remove("selected_actions_url"); } }
+        private string? _explicitNullValueSelectedActionsUrl = default!;
 #nullable restore
 #else
-        public string SelectedActionsUrl { get; set; }
+        public string SelectedActionsUrl { get => _explicitNullValueSelectedActionsUrl; set { _explicitNullValueSelectedActionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_actions_url"); else _explicitNullProperties?.Remove("selected_actions_url"); } }
+        private string _explicitNullValueSelectedActionsUrl = default!;
 #endif
         /// <summary>Whether actions must be pinned to a full-length commit SHA.</summary>
-        public bool? ShaPinningRequired { get; set; }
+        public bool? ShaPinningRequired { get => _explicitNullValueShaPinningRequired; set { _explicitNullValueShaPinningRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha_pinning_required"); else _explicitNullProperties?.Remove("sha_pinning_required"); } }
+        private bool? _explicitNullValueShaPinningRequired = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsRepositoryPermissions"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsRepositoryPermissions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRepositoryPermissions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRepositoryPermissions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("selected_actions_url", SelectedActionsUrl);
             writer.WriteBoolValue("sha_pinning_required", ShaPinningRequired);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

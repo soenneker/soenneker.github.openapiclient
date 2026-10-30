@@ -11,58 +11,85 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CommitSearchResultItemCommit : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("author") is { } nullNodeAuthor && nullNodeAuthor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Author = null;
+            if (parseNode.GetChildNode("comment_count") is { } nullNodeCommentCount && nullNodeCommentCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommentCount = null;
+            if (parseNode.GetChildNode("committer") is { } nullNodeCommitter && nullNodeCommitter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Committer = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("tree") is { } nullNodeTree && nullNodeTree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tree = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("verification") is { } nullNodeVerification && nullNodeVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verification = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The author property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor? Author { get => _explicitNullValueAuthor; set { _explicitNullValueAuthor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("author"); else _explicitNullProperties?.Remove("author"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor? _explicitNullValueAuthor = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor Author { get => _explicitNullValueAuthor; set { _explicitNullValueAuthor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("author"); else _explicitNullProperties?.Remove("author"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitAuthor _explicitNullValueAuthor = default!;
 #endif
         /// <summary>The comment_count property</summary>
-        public int? CommentCount { get; set; }
+        public int? CommentCount { get => _explicitNullValueCommentCount; set { _explicitNullValueCommentCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment_count"); else _explicitNullProperties?.Remove("comment_count"); } }
+        private int? _explicitNullValueCommentCount = default!;
         /// <summary>Metaproperties for Git author/committer information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Committer { get => _explicitNullValueCommitter; set { _explicitNullValueCommitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("committer"); else _explicitNullProperties?.Remove("committer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? _explicitNullValueCommitter = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Committer { get => _explicitNullValueCommitter; set { _explicitNullValueCommitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("committer"); else _explicitNullProperties?.Remove("committer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser _explicitNullValueCommitter = default!;
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The tree property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree? Tree { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree? Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree? _explicitNullValueTree = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree Tree { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree _explicitNullValueTree = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The verification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Verification? Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Verification? Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Verification? _explicitNullValueVerification = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Verification Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Verification Verification { get => _explicitNullValueVerification; set { _explicitNullValueVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification"); else _explicitNullProperties?.Remove("verification"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.Verification _explicitNullValueVerification = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommit"/> and sets the default values.
@@ -79,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemCommitTree>("tree", Tree);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification>("verification", Verification);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

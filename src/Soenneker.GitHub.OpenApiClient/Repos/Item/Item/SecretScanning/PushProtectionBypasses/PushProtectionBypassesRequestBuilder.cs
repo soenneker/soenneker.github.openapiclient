@@ -56,6 +56,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.PushProt
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnvironmentProtectionRulesItemAnyOf2ReviewersItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("reviewer") is { } nullNodeReviewer && nullNodeReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewer = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reviewer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer? Reviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer? Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer? _explicitNullValueReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer Reviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer _explicitNullValueReviewer = default!;
 #endif
         /// <summary>The type of reviewer.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItem"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer>("reviewer", Reviewer);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

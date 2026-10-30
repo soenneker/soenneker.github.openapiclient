@@ -11,17 +11,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RateLimit : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
+            if (parseNode.GetChildNode("reset") is { } nullNodeReset && nullNodeReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reset = null;
+            if (parseNode.GetChildNode("used") is { } nullNodeUsed && nullNodeUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Used = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The limit property</summary>
-        public int? Limit { get; set; }
+        public int? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private int? _explicitNullValueLimit = default!;
         /// <summary>The remaining property</summary>
-        public int? Remaining { get; set; }
+        public int? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
+        private int? _explicitNullValueRemaining = default!;
         /// <summary>The reset property</summary>
-        public int? Reset { get; set; }
+        public int? Reset { get => _explicitNullValueReset; set { _explicitNullValueReset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset"); else _explicitNullProperties?.Remove("reset"); } }
+        private int? _explicitNullValueReset = default!;
         /// <summary>The used property</summary>
-        public int? Used { get; set; }
+        public int? Used { get => _explicitNullValueUsed; set { _explicitNullValueUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used"); else _explicitNullProperties?.Remove("used"); } }
+        private int? _explicitNullValueUsed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RateLimit"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RateLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RateLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("remaining", Remaining);
             writer.WriteIntValue("reset", Reset);
             writer.WriteIntValue("used", Used);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

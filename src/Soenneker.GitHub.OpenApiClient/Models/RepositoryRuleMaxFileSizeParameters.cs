@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleMaxFileSizeParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
+            if (parseNode.GetChildNode("max_file_size") is { } nullNodeMaxFileSize && nullNodeMaxFileSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFileSize = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Files matching these patterns may exceed the maximum size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IgnoredFilePaths { get; set; }
+        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        private List<string>? _explicitNullValueIgnoredFilePaths = default!;
 #nullable restore
 #else
-        public List<string> IgnoredFilePaths { get; set; }
+        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        private List<string> _explicitNullValueIgnoredFilePaths = default!;
 #endif
         /// <summary>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</summary>
-        public int? MaxFileSize { get; set; }
+        public int? MaxFileSize { get => _explicitNullValueMaxFileSize; set { _explicitNullValueMaxFileSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_file_size"); else _explicitNullProperties?.Remove("max_file_size"); } }
+        private int? _explicitNullValueMaxFileSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("ignored_file_paths", IgnoredFilePaths);
             writer.WriteIntValue("max_file_size", MaxFileSize);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

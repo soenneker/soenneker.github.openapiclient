@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.Teams.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** This operation is closing down and will be removed starting January 1, 2026. Please use the &quot;[Organization Roles](https://docs.github.com/rest/orgs/organization-roles)&quot; endpoints instead.
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.Teams.Item
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** This operation is closing down and will be removed starting January 1, 2026. Please use the &quot;[Organization Roles](https://docs.github.com/rest/orgs/organization-roles)&quot; endpoints instead.

@@ -11,20 +11,34 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SecretScanningPushProtectionBypass : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expire_at") is { } nullNodeExpireAt && nullNodeExpireAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpireAt = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time that the bypass will expire in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? ExpireAt { get; set; }
+        public DateTimeOffset? ExpireAt { get => _explicitNullValueExpireAt; set { _explicitNullValueExpireAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expire_at"); else _explicitNullProperties?.Remove("expire_at"); } }
+        private DateTimeOffset? _explicitNullValueExpireAt = default!;
         /// <summary>The reason for bypassing push protection.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? Reason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? _explicitNullValueReason = default!;
         /// <summary>The token type this bypass is for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenType { get; set; }
+        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        private string? _explicitNullValueTokenType = default!;
 #nullable restore
 #else
-        public string TokenType { get; set; }
+        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        private string _explicitNullValueTokenType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass"/> and sets the default values.
@@ -41,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expire_at", ExpireAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason>("reason", Reason);
             writer.WriteStringValue("token_type", TokenType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

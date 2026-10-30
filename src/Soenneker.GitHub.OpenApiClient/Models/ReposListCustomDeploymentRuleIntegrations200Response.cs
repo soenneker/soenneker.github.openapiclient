@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposListCustomDeploymentRuleIntegrations200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("available_custom_deployment_protection_rule_integrations") is { } nullNodeAvailableCustomDeploymentProtectionRuleIntegrations && nullNodeAvailableCustomDeploymentProtectionRuleIntegrations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableCustomDeploymentProtectionRuleIntegrations = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The available_custom_deployment_protection_rule_integrations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>? AvailableCustomDeploymentProtectionRuleIntegrations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>? AvailableCustomDeploymentProtectionRuleIntegrations { get => _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations; set { _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_custom_deployment_protection_rule_integrations"); else _explicitNullProperties?.Remove("available_custom_deployment_protection_rule_integrations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>? _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp> AvailableCustomDeploymentProtectionRuleIntegrations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp> AvailableCustomDeploymentProtectionRuleIntegrations { get => _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations; set { _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_custom_deployment_protection_rule_integrations"); else _explicitNullProperties?.Remove("available_custom_deployment_protection_rule_integrations"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp> _explicitNullValueAvailableCustomDeploymentProtectionRuleIntegrations = default!;
 #endif
         /// <summary>The total number of custom deployment protection rule integrations available for this environment.</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposListCustomDeploymentRuleIntegrations200Response"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposListCustomDeploymentRuleIntegrations200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposListCustomDeploymentRuleIntegrations200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposListCustomDeploymentRuleIntegrations200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>("available_custom_deployment_protection_rule_integrations", AvailableCustomDeploymentProtectionRuleIntegrations);
             writer.WriteIntValue("total_count", TotalCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

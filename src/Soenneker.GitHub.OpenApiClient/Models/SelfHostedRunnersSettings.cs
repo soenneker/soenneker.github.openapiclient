@@ -11,18 +11,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SelfHostedRunnersSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enabled_repositories") is { } nullNodeEnabledRepositories && nullNodeEnabledRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledRepositories = null;
+            if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls whether self-hosted runners can be used by repositories in the organization</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? EnabledRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? EnabledRepositories { get => _explicitNullValueEnabledRepositories; set { _explicitNullValueEnabledRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_repositories"); else _explicitNullProperties?.Remove("enabled_repositories"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? _explicitNullValueEnabledRepositories = default!;
         /// <summary>The URL to the endpoint for managing selected repositories for self-hosted runners in the organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedRepositoriesUrl { get; set; }
+        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string? _explicitNullValueSelectedRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string SelectedRepositoriesUrl { get; set; }
+        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        private string _explicitNullValueSelectedRepositoriesUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories>("enabled_repositories", EnabledRepositories);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

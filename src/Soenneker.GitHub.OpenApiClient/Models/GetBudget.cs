@@ -11,58 +11,90 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetBudget : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("budget_alerting") is { } nullNodeBudgetAlerting && nullNodeBudgetAlerting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetAlerting = null;
+            if (parseNode.GetChildNode("budget_amount") is { } nullNodeBudgetAmount && nullNodeBudgetAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetAmount = null;
+            if (parseNode.GetChildNode("budget_entity_name") is { } nullNodeBudgetEntityName && nullNodeBudgetEntityName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetEntityName = null;
+            if (parseNode.GetChildNode("budget_product_sku") is { } nullNodeBudgetProductSku && nullNodeBudgetProductSku.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetProductSku = null;
+            if (parseNode.GetChildNode("budget_scope") is { } nullNodeBudgetScope && nullNodeBudgetScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetScope = null;
+            if (parseNode.GetChildNode("budget_type") is { } nullNodeBudgetType && nullNodeBudgetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetType = null;
+            if (parseNode.GetChildNode("consumed_amount") is { } nullNodeConsumedAmount && nullNodeConsumedAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumedAmount = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("prevent_further_usage") is { } nullNodePreventFurtherUsage && nullNodePreventFurtherUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreventFurtherUsage = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The budget_alerting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting? BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting? BudgetAlerting { get => _explicitNullValueBudgetAlerting; set { _explicitNullValueBudgetAlerting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_alerting"); else _explicitNullProperties?.Remove("budget_alerting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting? _explicitNullValueBudgetAlerting = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting BudgetAlerting { get => _explicitNullValueBudgetAlerting; set { _explicitNullValueBudgetAlerting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_alerting"); else _explicitNullProperties?.Remove("budget_alerting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting _explicitNullValueBudgetAlerting = default!;
 #endif
         /// <summary>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</summary>
-        public int? BudgetAmount { get; set; }
+        public int? BudgetAmount { get => _explicitNullValueBudgetAmount; set { _explicitNullValueBudgetAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_amount"); else _explicitNullProperties?.Remove("budget_amount"); } }
+        private int? _explicitNullValueBudgetAmount = default!;
         /// <summary>The name of the entity to apply the budget to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BudgetEntityName { get; set; }
+        public string? BudgetEntityName { get => _explicitNullValueBudgetEntityName; set { _explicitNullValueBudgetEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_entity_name"); else _explicitNullProperties?.Remove("budget_entity_name"); } }
+        private string? _explicitNullValueBudgetEntityName = default!;
 #nullable restore
 #else
-        public string BudgetEntityName { get; set; }
+        public string BudgetEntityName { get => _explicitNullValueBudgetEntityName; set { _explicitNullValueBudgetEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_entity_name"); else _explicitNullProperties?.Remove("budget_entity_name"); } }
+        private string _explicitNullValueBudgetEntityName = default!;
 #endif
         /// <summary>A single product or sku to apply the budget to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BudgetProductSku { get; set; }
+        public string? BudgetProductSku { get => _explicitNullValueBudgetProductSku; set { _explicitNullValueBudgetProductSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_product_sku"); else _explicitNullProperties?.Remove("budget_product_sku"); } }
+        private string? _explicitNullValueBudgetProductSku = default!;
 #nullable restore
 #else
-        public string BudgetProductSku { get; set; }
+        public string BudgetProductSku { get => _explicitNullValueBudgetProductSku; set { _explicitNullValueBudgetProductSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_product_sku"); else _explicitNullProperties?.Remove("budget_product_sku"); } }
+        private string _explicitNullValueBudgetProductSku = default!;
 #endif
         /// <summary>The type of scope for the budget</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope? BudgetScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope? BudgetScope { get => _explicitNullValueBudgetScope; set { _explicitNullValueBudgetScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_scope"); else _explicitNullProperties?.Remove("budget_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope? _explicitNullValueBudgetScope = default!;
         /// <summary>The type of pricing for the budget</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType? BudgetType { get => _explicitNullValueBudgetType; set { _explicitNullValueBudgetType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_type"); else _explicitNullProperties?.Remove("budget_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType? _explicitNullValueBudgetType = default!;
         /// <summary>The current usage amount counted toward the budget. How usage is calculated may vary by budget type.</summary>
-        public double? ConsumedAmount { get; set; }
+        public double? ConsumedAmount { get => _explicitNullValueConsumedAmount; set { _explicitNullValueConsumedAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_amount"); else _explicitNullProperties?.Remove("consumed_amount"); } }
+        private double? _explicitNullValueConsumedAmount = default!;
         /// <summary>ID of the budget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether to prevent additional spending once the budget is exceeded</summary>
-        public bool? PreventFurtherUsage { get; set; }
+        public bool? PreventFurtherUsage { get => _explicitNullValuePreventFurtherUsage; set { _explicitNullValuePreventFurtherUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_further_usage"); else _explicitNullProperties?.Remove("prevent_further_usage"); } }
+        private bool? _explicitNullValuePreventFurtherUsage = default!;
         /// <summary>The user login when the budget is scoped to a single user (`user` scope).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetBudget"/> and sets the default values.
@@ -79,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.GetBudget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.GetBudget();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GetBudget(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,6 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteStringValue("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

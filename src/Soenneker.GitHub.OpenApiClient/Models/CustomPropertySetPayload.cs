@@ -12,41 +12,65 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomPropertySetPayload : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_values") is { } nullNodeAllowedValues && nullNodeAllowedValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedValues = null;
+            if (parseNode.GetChildNode("default_value") is { } nullNodeDefaultValue && nullNodeDefaultValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultValue = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("require_explicit_values") is { } nullNodeRequireExplicitValues && nullNodeRequireExplicitValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireExplicitValues = null;
+            if (parseNode.GetChildNode("values_editable_by") is { } nullNodeValuesEditableBy && nullNodeValuesEditableBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValuesEditableBy = null;
+            if (parseNode.GetChildNode("value_type") is { } nullNodeValueType && nullNodeValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValueType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An ordered list of the allowed values of the property.The property can have up to 200 allowed values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedValues { get; set; }
+        public List<string>? AllowedValues { get => _explicitNullValueAllowedValues; set { _explicitNullValueAllowedValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_values"); else _explicitNullProperties?.Remove("allowed_values"); } }
+        private List<string>? _explicitNullValueAllowedValues = default!;
 #nullable restore
 #else
-        public List<string> AllowedValues { get; set; }
+        public List<string> AllowedValues { get => _explicitNullValueAllowedValues; set { _explicitNullValueAllowedValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_values"); else _explicitNullProperties?.Remove("allowed_values"); } }
+        private List<string> _explicitNullValueAllowedValues = default!;
 #endif
         /// <summary>Default value of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue? DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue? DefaultValue { get => _explicitNullValueDefaultValue; set { _explicitNullValueDefaultValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_value"); else _explicitNullProperties?.Remove("default_value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue? _explicitNullValueDefaultValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue DefaultValue { get => _explicitNullValueDefaultValue; set { _explicitNullValueDefaultValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_value"); else _explicitNullProperties?.Remove("default_value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue _explicitNullValueDefaultValue = default!;
 #endif
         /// <summary>Short description of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Whether the property is required.</summary>
-        public bool? Required { get; set; }
+        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private bool? _explicitNullValueRequired = default!;
         /// <summary>Whether setting properties values is mandatory</summary>
-        public bool? RequireExplicitValues { get; set; }
+        public bool? RequireExplicitValues { get => _explicitNullValueRequireExplicitValues; set { _explicitNullValueRequireExplicitValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_explicit_values"); else _explicitNullProperties?.Remove("require_explicit_values"); } }
+        private bool? _explicitNullValueRequireExplicitValues = default!;
         /// <summary>Who can edit the values of the property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValuesEditableBy? ValuesEditableBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValuesEditableBy? ValuesEditableBy { get => _explicitNullValueValuesEditableBy; set { _explicitNullValueValuesEditableBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("values_editable_by"); else _explicitNullProperties?.Remove("values_editable_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValuesEditableBy? _explicitNullValueValuesEditableBy = default!;
         /// <summary>The type of the value for the property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValueType? ValueType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValueType? ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValueType? _explicitNullValueValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload"/> and sets the default values.
         /// </summary>
@@ -62,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("require_explicit_values", RequireExplicitValues);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValuesEditableBy>("values_editable_by", ValuesEditableBy);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadValueType>("value_type", ValueType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

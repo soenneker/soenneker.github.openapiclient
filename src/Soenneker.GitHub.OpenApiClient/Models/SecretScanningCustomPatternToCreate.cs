@@ -12,56 +12,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SecretScanningCustomPatternToCreate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("end_delimiter") is { } nullNodeEndDelimiter && nullNodeEndDelimiter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndDelimiter = null;
+            if (parseNode.GetChildNode("must_match") is { } nullNodeMustMatch && nullNodeMustMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MustMatch = null;
+            if (parseNode.GetChildNode("must_not_match") is { } nullNodeMustNotMatch && nullNodeMustNotMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MustNotMatch = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("pattern") is { } nullNodePattern && nullNodePattern.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pattern = null;
+            if (parseNode.GetChildNode("start_delimiter") is { } nullNodeStartDelimiter && nullNodeStartDelimiter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDelimiter = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The end delimiter regex for the custom pattern.Defaults to `\z|[^0-9A-Za-z]` when not specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndDelimiter { get; set; }
+        public string? EndDelimiter { get => _explicitNullValueEndDelimiter; set { _explicitNullValueEndDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_delimiter"); else _explicitNullProperties?.Remove("end_delimiter"); } }
+        private string? _explicitNullValueEndDelimiter = default!;
 #nullable restore
 #else
-        public string EndDelimiter { get; set; }
+        public string EndDelimiter { get => _explicitNullValueEndDelimiter; set { _explicitNullValueEndDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_delimiter"); else _explicitNullProperties?.Remove("end_delimiter"); } }
+        private string _explicitNullValueEndDelimiter = default!;
 #endif
         /// <summary>List of regexes that the secret must match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MustMatch { get; set; }
+        public List<string>? MustMatch { get => _explicitNullValueMustMatch; set { _explicitNullValueMustMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("must_match"); else _explicitNullProperties?.Remove("must_match"); } }
+        private List<string>? _explicitNullValueMustMatch = default!;
 #nullable restore
 #else
-        public List<string> MustMatch { get; set; }
+        public List<string> MustMatch { get => _explicitNullValueMustMatch; set { _explicitNullValueMustMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("must_match"); else _explicitNullProperties?.Remove("must_match"); } }
+        private List<string> _explicitNullValueMustMatch = default!;
 #endif
         /// <summary>List of regexes that the secret must not match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MustNotMatch { get; set; }
+        public List<string>? MustNotMatch { get => _explicitNullValueMustNotMatch; set { _explicitNullValueMustNotMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("must_not_match"); else _explicitNullProperties?.Remove("must_not_match"); } }
+        private List<string>? _explicitNullValueMustNotMatch = default!;
 #nullable restore
 #else
-        public List<string> MustNotMatch { get; set; }
+        public List<string> MustNotMatch { get => _explicitNullValueMustNotMatch; set { _explicitNullValueMustNotMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("must_not_match"); else _explicitNullProperties?.Remove("must_not_match"); } }
+        private List<string> _explicitNullValueMustNotMatch = default!;
 #endif
         /// <summary>The name of the custom pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The regular expression of the custom pattern.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Pattern { get; set; }
+        public string? Pattern { get => _explicitNullValuePattern; set { _explicitNullValuePattern = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern"); else _explicitNullProperties?.Remove("pattern"); } }
+        private string? _explicitNullValuePattern = default!;
 #nullable restore
 #else
-        public string Pattern { get; set; }
+        public string Pattern { get => _explicitNullValuePattern; set { _explicitNullValuePattern = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern"); else _explicitNullProperties?.Remove("pattern"); } }
+        private string _explicitNullValuePattern = default!;
 #endif
         /// <summary>The start delimiter regex for the custom pattern.Defaults to `\A|[^0-9A-Za-z]` when not specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartDelimiter { get; set; }
+        public string? StartDelimiter { get => _explicitNullValueStartDelimiter; set { _explicitNullValueStartDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_delimiter"); else _explicitNullProperties?.Remove("start_delimiter"); } }
+        private string? _explicitNullValueStartDelimiter = default!;
 #nullable restore
 #else
-        public string StartDelimiter { get; set; }
+        public string StartDelimiter { get => _explicitNullValueStartDelimiter; set { _explicitNullValueStartDelimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_delimiter"); else _explicitNullProperties?.Remove("start_delimiter"); } }
+        private string _explicitNullValueStartDelimiter = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate"/> and sets the default values.
@@ -80,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,6 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("pattern", Pattern);
             writer.WriteStringValue("start_delimiter", StartDelimiter);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

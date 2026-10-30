@@ -11,17 +11,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ContributorActivityWeeksItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("a") is { } nullNodeA && nullNodeA.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) A = null;
+            if (parseNode.GetChildNode("c") is { } nullNodeC && nullNodeC.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) C = null;
+            if (parseNode.GetChildNode("d") is { } nullNodeD && nullNodeD.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) D = null;
+            if (parseNode.GetChildNode("w") is { } nullNodeW && nullNodeW.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) W = null;
+        }
+
         /// <summary>The a property</summary>
-        public int? A { get; set; }
+        public int? A { get => _explicitNullValueA; set { _explicitNullValueA = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("a"); else _explicitNullProperties?.Remove("a"); } }
+        private int? _explicitNullValueA = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The c property</summary>
-        public int? C { get; set; }
+        public int? C { get => _explicitNullValueC; set { _explicitNullValueC = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("c"); else _explicitNullProperties?.Remove("c"); } }
+        private int? _explicitNullValueC = default!;
         /// <summary>The d property</summary>
-        public int? D { get; set; }
+        public int? D { get => _explicitNullValueD; set { _explicitNullValueD = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("d"); else _explicitNullProperties?.Remove("d"); } }
+        private int? _explicitNullValueD = default!;
         /// <summary>The w property</summary>
-        public int? W { get; set; }
+        public int? W { get => _explicitNullValueW; set { _explicitNullValueW = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("w"); else _explicitNullProperties?.Remove("w"); } }
+        private int? _explicitNullValueW = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("c", C);
             writer.WriteIntValue("d", D);
             writer.WriteIntValue("w", W);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -93,6 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient
             get => new global::Soenneker.GitHub.OpenApiClient.Assignments.AssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The classrooms property</summary>
+        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder Classrooms
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder(PathParameters, RequestAdapter);
@@ -273,7 +274,7 @@ namespace Soenneker.GitHub.OpenApiClient
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Root>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Root.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Root>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Root.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get Hypermedia links to resources accessible in GitHub&apos;s REST API

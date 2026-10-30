@@ -61,11 +61,13 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.
+        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.For enterprise-managed users, if their email is unverified, this endpoint will return a placeholder email in the format `email+shortcode@domain.com` instead of their actual email. This placeholder email [may cause issues with some third-party apps](https://github.blog/changelog/2024-08-01-enterprise-managed-user-accounts-now-require-email-verification/). Once the user has [verified their email address](https://docs.github.com/account-and-profile/how-tos/email-preferences/verifying-your-email-address), the endpoint will return their real email.
         /// API method documentation <see href="https://docs.github.com/rest/users/emails#list-email-addresses-for-the-authenticated-user" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Email&gt;</returns>
@@ -89,6 +91,8 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Email>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Email.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -122,6 +126,8 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Email>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Email.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -149,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             return requestInfo;
         }
         /// <summary>
-        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.
+        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.For enterprise-managed users, if their email is unverified, this endpoint will return a placeholder email in the format `email+shortcode@domain.com` instead of their actual email. This placeholder email [may cause issues with some third-party apps](https://github.blog/changelog/2024-08-01-enterprise-managed-user-accounts-now-require-email-verification/). Once the user has [verified their email address](https://docs.github.com/account-and-profile/how-tos/email-preferences/verifying-your-email-address), the endpoint will return their real email.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -199,7 +205,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             return new global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.
+        /// Lists all of your email addresses, and specifies which one is visibleto the public.OAuth app tokens and personal access tokens (classic) need the `user:email` scope to use this endpoint.For enterprise-managed users, if their email is unverified, this endpoint will return a placeholder email in the format `email+shortcode@domain.com` instead of their actual email. This placeholder email [may cause issues with some third-party apps](https://github.blog/changelog/2024-08-01-enterprise-managed-user-accounts-now-require-email-verification/). Once the user has [verified their email address](https://docs.github.com/account-and-profile/how-tos/email-preferences/verifying-your-email-address), the endpoint will return their real email.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EmailsRequestBuilderGetQueryParameters 

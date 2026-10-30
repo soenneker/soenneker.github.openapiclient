@@ -11,27 +11,44 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdated : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_copilot_triggers") is { } nullNodeAllowCopilotTriggers && nullNodeAllowCopilotTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCopilotTriggers = null;
+            if (parseNode.GetChildNode("body_substring") is { } nullNodeBodySubstring && nullNodeBodySubstring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BodySubstring = null;
+            if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
+            if (parseNode.GetChildNode("write_scope") is { } nullNodeWriteScope && nullNodeWriteScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WriteScope = null;
+        }
+
         /// <summary>When true, events Copilot creates, including from other automations and Copilot sessions, can start this automation through this trigger. Defaults to false. The Copilot coding agent app cannot turn it on: creating a trigger with true, or changing it from false to true, returns 422.</summary>
-        public bool? AllowCopilotTriggers { get; set; }
+        public bool? AllowCopilotTriggers { get => _explicitNullValueAllowCopilotTriggers; set { _explicitNullValueAllowCopilotTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_copilot_triggers"); else _explicitNullProperties?.Remove("allow_copilot_triggers"); } }
+        private bool? _explicitNullValueAllowCopilotTriggers = default!;
         /// <summary>A case-insensitive substring matched against the event body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BodySubstring { get; set; }
+        public string? BodySubstring { get => _explicitNullValueBodySubstring; set { _explicitNullValueBodySubstring = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_substring"); else _explicitNullProperties?.Remove("body_substring"); } }
+        private string? _explicitNullValueBodySubstring = default!;
 #nullable restore
 #else
-        public string BodySubstring { get; set; }
+        public string BodySubstring { get => _explicitNullValueBodySubstring; set { _explicitNullValueBodySubstring = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body_substring"); else _explicitNullProperties?.Remove("body_substring"); } }
+        private string _explicitNullValueBodySubstring = default!;
 #endif
         /// <summary>Discussion category names matched case-insensitively.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Categories { get; set; }
+        public List<string>? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        private List<string>? _explicitNullValueCategories = default!;
 #nullable restore
 #else
-        public List<string> Categories { get; set; }
+        public List<string> Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        private List<string> _explicitNullValueCategories = default!;
 #endif
         /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdatedWriteScope? WriteScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdatedWriteScope? WriteScope { get => _explicitNullValueWriteScope; set { _explicitNullValueWriteScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write_scope"); else _explicitNullProperties?.Remove("write_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdatedWriteScope? _explicitNullValueWriteScope = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdated CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdated();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdated(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +83,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("allow_copilot_triggers", AllowCopilotTriggers);
             writer.WriteStringValue("body_substring", BodySubstring);
             writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdatedWriteScope>("write_scope", WriteScope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggersDiscussionUpdatedWriteScope>("write_scope", WriteScope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,101 +11,150 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentTasksCreateTaskInRepo201Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("archived_at") is { } nullNodeArchivedAt && nullNodeArchivedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArchivedAt = null;
+            if (parseNode.GetChildNode("artifacts") is { } nullNodeArtifacts && nullNodeArtifacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifacts = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("creator_type") is { } nullNodeCreatorType && nullNodeCreatorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatorType = null;
+            if (parseNode.GetChildNode("custom_agent") is { } nullNodeCustomAgent && nullNodeCustomAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomAgent = null;
+            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+            if (parseNode.GetChildNode("session_count") is { } nullNodeSessionCount && nullNodeSessionCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionCount = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("user_collaborators") is { } nullNodeUserCollaborators && nullNodeUserCollaborators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserCollaborators = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp when the task was archived, null if not archived</summary>
-        public DateTimeOffset? ArchivedAt { get; set; }
+        public DateTimeOffset? ArchivedAt { get => _explicitNullValueArchivedAt; set { _explicitNullValueArchivedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived_at"); else _explicitNullProperties?.Remove("archived_at"); } }
+        private DateTimeOffset? _explicitNullValueArchivedAt = default!;
         /// <summary>Resources created by this task (PRs, branches, etc.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem>? Artifacts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem>? Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem>? _explicitNullValueArtifacts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem> Artifacts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem> Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem> _explicitNullValueArtifacts = default!;
 #endif
         /// <summary>Timestamp when the task was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The entity who created this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator? Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator? Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator? _explicitNullValueCreator = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreator _explicitNullValueCreator = default!;
 #endif
         /// <summary>Type of the task creator</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType? CreatorType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType? CreatorType { get => _explicitNullValueCreatorType; set { _explicitNullValueCreatorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator_type"); else _explicitNullProperties?.Remove("creator_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType? _explicitNullValueCreatorType = default!;
         /// <summary>Custom agent metadata associated with this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent? CustomAgent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent? CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent? _explicitNullValueCustomAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent CustomAgent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent _explicitNullValueCustomAgent = default!;
 #endif
         /// <summary>Web URL for this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>Unique task identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Human-readable name derived from the task prompt</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The owner of the repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseOwner _explicitNullValueOwner = default!;
 #endif
         /// <summary>The repository this task belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseRepository _explicitNullValueRepository = default!;
 #endif
         /// <summary>Number of sessions in this task</summary>
-        public int? SessionCount { get; set; }
+        public int? SessionCount { get => _explicitNullValueSessionCount; set { _explicitNullValueSessionCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_count"); else _explicitNullProperties?.Remove("session_count"); } }
+        private int? _explicitNullValueSessionCount = default!;
         /// <summary>Current state of the task, derived from its most recent session</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseState? _explicitNullValueState = default!;
         /// <summary>Timestamp of the most recent update</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>API URL for this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>User objects of collaborators on this task</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem>? UserCollaborators { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem>? UserCollaborators { get => _explicitNullValueUserCollaborators; set { _explicitNullValueUserCollaborators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_collaborators"); else _explicitNullProperties?.Remove("user_collaborators"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem>? _explicitNullValueUserCollaborators = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem> UserCollaborators { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem> UserCollaborators { get => _explicitNullValueUserCollaborators; set { _explicitNullValueUserCollaborators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_collaborators"); else _explicitNullProperties?.Remove("user_collaborators"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem> _explicitNullValueUserCollaborators = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response"/> and sets the default values.
@@ -122,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -173,6 +222,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseUserCollaboratorsItem>("user_collaborators", UserCollaborators);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

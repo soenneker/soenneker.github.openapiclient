@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UsersGetByUsername200Response : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersGetByUsername200Response();
             if("private".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PrivateUser = new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser();
+                
             }
             else if("public".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PublicUser = new global::Soenneker.GitHub.OpenApiClient.Models.PublicUser();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("avatar_url") != null && parseNode.GetChildNode("events_url") != null && parseNode.GetChildNode("followers_url") != null && parseNode.GetChildNode("following_url") != null && parseNode.GetChildNode("gists_url") != null && parseNode.GetChildNode("gravatar_id") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("login") != null && parseNode.GetChildNode("organizations_url") != null && parseNode.GetChildNode("received_events_url") != null && parseNode.GetChildNode("repos_url") != null && parseNode.GetChildNode("site_admin") != null && parseNode.GetChildNode("starred_url") != null && parseNode.GetChildNode("subscriptions_url") != null && parseNode.GetChildNode("type") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("bio") != null && parseNode.GetChildNode("blog") != null && parseNode.GetChildNode("company") != null && parseNode.GetChildNode("email") != null && parseNode.GetChildNode("followers") != null && parseNode.GetChildNode("following") != null && parseNode.GetChildNode("hireable") != null && parseNode.GetChildNode("location") != null && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("public_gists") != null && parseNode.GetChildNode("public_repos") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("updated_at") != null && parseNode.GetChildNode("collaborators") != null && parseNode.GetChildNode("disk_usage") != null && parseNode.GetChildNode("owned_private_repos") != null && parseNode.GetChildNode("private_gists") != null && parseNode.GetChildNode("total_private_repos") != null && parseNode.GetChildNode("two_factor_authentication") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("avatar_url") != null && parseNode.GetChildNode("events_url") != null && parseNode.GetChildNode("followers_url") != null && parseNode.GetChildNode("following_url") != null && parseNode.GetChildNode("gists_url") != null && parseNode.GetChildNode("gravatar_id") != null && parseNode.GetChildNode("html_url") != null && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("node_id") != null && parseNode.GetChildNode("login") != null && parseNode.GetChildNode("organizations_url") != null && parseNode.GetChildNode("received_events_url") != null && parseNode.GetChildNode("repos_url") != null && parseNode.GetChildNode("site_admin") != null && parseNode.GetChildNode("starred_url") != null && parseNode.GetChildNode("subscriptions_url") != null && parseNode.GetChildNode("type") != null && parseNode.GetChildNode("url") != null && parseNode.GetChildNode("bio") != null && parseNode.GetChildNode("blog") != null && parseNode.GetChildNode("company") != null && parseNode.GetChildNode("email") != null && parseNode.GetChildNode("followers") != null && parseNode.GetChildNode("following") != null && parseNode.GetChildNode("hireable") != null && parseNode.GetChildNode("location") != null && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("public_gists") != null && parseNode.GetChildNode("public_repos") != null && parseNode.GetChildNode("created_at") != null && parseNode.GetChildNode("updated_at") != null))();
+            if (result.PrivateUser == null && result.PublicUser == null && matchesUnionBranch0 && !matchesUnionBranch1) result.PrivateUser = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser(), parseNode);
+            if (result.PrivateUser == null && result.PublicUser == null && matchesUnionBranch1 && !matchesUnionBranch0) result.PublicUser = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PublicUser(), parseNode);
+            if (result.PrivateUser == null && result.PublicUser == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PrivateUser == null && PublicUser == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PrivateUser != null && PublicUser == null) { if (PrivateUser is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PrivateUser); return; }
+            if (PublicUser != null && PrivateUser == null) { if (PublicUser is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PublicUser); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(PrivateUser != null)
             {
+                if (PrivateUser is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser>(null, PrivateUser);
             }
             else if(PublicUser != null)
             {
+                if (PublicUser is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicUser>(null, PublicUser);
             }
         }

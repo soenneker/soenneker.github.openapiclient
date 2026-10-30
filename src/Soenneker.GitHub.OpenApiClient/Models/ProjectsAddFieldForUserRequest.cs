@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectsAddFieldForUserRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest();
             if("ProjectsAddFieldForUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProjectsAddFieldForUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1();
+                
             }
             else if("ProjectsAddFieldForUserRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProjectsAddFieldForUserRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2();
+                
             }
             else if("ProjectsAddFieldForUserRequestOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProjectsAddFieldForUserRequestOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("data_type") != null && (parseNode.GetChildNode("data_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("text".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "number".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "date".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("data_type") != null && (parseNode.GetChildNode("data_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("single_select".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("single_select_options") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("data_type") != null && (parseNode.GetChildNode("data_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("iteration".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("iteration_configuration") != null))();
+            if (result.ProjectsAddFieldForUserRequestOneOf1 == null && result.ProjectsAddFieldForUserRequestOneOf2 == null && result.ProjectsAddFieldForUserRequestOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ProjectsAddFieldForUserRequestOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1(), parseNode);
+            if (result.ProjectsAddFieldForUserRequestOneOf1 == null && result.ProjectsAddFieldForUserRequestOneOf2 == null && result.ProjectsAddFieldForUserRequestOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ProjectsAddFieldForUserRequestOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2(), parseNode);
+            if (result.ProjectsAddFieldForUserRequestOneOf1 == null && result.ProjectsAddFieldForUserRequestOneOf2 == null && result.ProjectsAddFieldForUserRequestOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ProjectsAddFieldForUserRequestOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3(), parseNode);
+            if (result.ProjectsAddFieldForUserRequestOneOf1 == null && result.ProjectsAddFieldForUserRequestOneOf2 == null && result.ProjectsAddFieldForUserRequestOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ProjectsAddFieldForUserRequestOneOf1 == null && ProjectsAddFieldForUserRequestOneOf2 == null && ProjectsAddFieldForUserRequestOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ProjectsAddFieldForUserRequestOneOf1 != null && ProjectsAddFieldForUserRequestOneOf2 == null && ProjectsAddFieldForUserRequestOneOf3 == null) { if (ProjectsAddFieldForUserRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProjectsAddFieldForUserRequestOneOf1); return; }
+            if (ProjectsAddFieldForUserRequestOneOf2 != null && ProjectsAddFieldForUserRequestOneOf1 == null && ProjectsAddFieldForUserRequestOneOf3 == null) { if (ProjectsAddFieldForUserRequestOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProjectsAddFieldForUserRequestOneOf2); return; }
+            if (ProjectsAddFieldForUserRequestOneOf3 != null && ProjectsAddFieldForUserRequestOneOf1 == null && ProjectsAddFieldForUserRequestOneOf2 == null) { if (ProjectsAddFieldForUserRequestOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProjectsAddFieldForUserRequestOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ProjectsAddFieldForUserRequestOneOf1 != null)
             {
+                if (ProjectsAddFieldForUserRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1>(null, ProjectsAddFieldForUserRequestOneOf1);
             }
             else if(ProjectsAddFieldForUserRequestOneOf2 != null)
             {
+                if (ProjectsAddFieldForUserRequestOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2>(null, ProjectsAddFieldForUserRequestOneOf2);
             }
             else if(ProjectsAddFieldForUserRequestOneOf3 != null)
             {
+                if (ProjectsAddFieldForUserRequestOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3>(null, ProjectsAddFieldForUserRequestOneOf3);
             }
         }

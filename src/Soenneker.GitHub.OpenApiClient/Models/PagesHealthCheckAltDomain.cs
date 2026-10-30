@@ -11,100 +11,169 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PagesHealthCheckAltDomain : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("caa_error") is { } nullNodeCaaError && nullNodeCaaError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaaError = null;
+            if (parseNode.GetChildNode("dns_resolves") is { } nullNodeDnsResolves && nullNodeDnsResolves.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DnsResolves = null;
+            if (parseNode.GetChildNode("enforces_https") is { } nullNodeEnforcesHttps && nullNodeEnforcesHttps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforcesHttps = null;
+            if (parseNode.GetChildNode("has_cname_record") is { } nullNodeHasCnameRecord && nullNodeHasCnameRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasCnameRecord = null;
+            if (parseNode.GetChildNode("has_mx_records_present") is { } nullNodeHasMxRecordsPresent && nullNodeHasMxRecordsPresent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMxRecordsPresent = null;
+            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("https_error") is { } nullNodeHttpsError && nullNodeHttpsError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsError = null;
+            if (parseNode.GetChildNode("is_apex_domain") is { } nullNodeIsApexDomain && nullNodeIsApexDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsApexDomain = null;
+            if (parseNode.GetChildNode("is_a_record") is { } nullNodeIsARecord && nullNodeIsARecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsARecord = null;
+            if (parseNode.GetChildNode("is_cloudflare_ip") is { } nullNodeIsCloudflareIp && nullNodeIsCloudflareIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCloudflareIp = null;
+            if (parseNode.GetChildNode("is_cname_to_fastly") is { } nullNodeIsCnameToFastly && nullNodeIsCnameToFastly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCnameToFastly = null;
+            if (parseNode.GetChildNode("is_cname_to_github_user_domain") is { } nullNodeIsCnameToGithubUserDomain && nullNodeIsCnameToGithubUserDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCnameToGithubUserDomain = null;
+            if (parseNode.GetChildNode("is_cname_to_pages_dot_github_dot_com") is { } nullNodeIsCnameToPagesDotGithubDotCom && nullNodeIsCnameToPagesDotGithubDotCom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsCnameToPagesDotGithubDotCom = null;
+            if (parseNode.GetChildNode("is_fastly_ip") is { } nullNodeIsFastlyIp && nullNodeIsFastlyIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFastlyIp = null;
+            if (parseNode.GetChildNode("is_https_eligible") is { } nullNodeIsHttpsEligible && nullNodeIsHttpsEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsHttpsEligible = null;
+            if (parseNode.GetChildNode("is_non_github_pages_ip_present") is { } nullNodeIsNonGithubPagesIpPresent && nullNodeIsNonGithubPagesIpPresent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsNonGithubPagesIpPresent = null;
+            if (parseNode.GetChildNode("is_old_ip_address") is { } nullNodeIsOldIpAddress && nullNodeIsOldIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsOldIpAddress = null;
+            if (parseNode.GetChildNode("is_pages_domain") is { } nullNodeIsPagesDomain && nullNodeIsPagesDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPagesDomain = null;
+            if (parseNode.GetChildNode("is_pointed_to_github_pages_ip") is { } nullNodeIsPointedToGithubPagesIp && nullNodeIsPointedToGithubPagesIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPointedToGithubPagesIp = null;
+            if (parseNode.GetChildNode("is_proxied") is { } nullNodeIsProxied && nullNodeIsProxied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsProxied = null;
+            if (parseNode.GetChildNode("is_served_by_pages") is { } nullNodeIsServedByPages && nullNodeIsServedByPages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsServedByPages = null;
+            if (parseNode.GetChildNode("is_valid") is { } nullNodeIsValid && nullNodeIsValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsValid = null;
+            if (parseNode.GetChildNode("is_valid_domain") is { } nullNodeIsValidDomain && nullNodeIsValidDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsValidDomain = null;
+            if (parseNode.GetChildNode("nameservers") is { } nullNodeNameservers && nullNodeNameservers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nameservers = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("responds_to_https") is { } nullNodeRespondsToHttps && nullNodeRespondsToHttps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RespondsToHttps = null;
+            if (parseNode.GetChildNode("should_be_a_record") is { } nullNodeShouldBeARecord && nullNodeShouldBeARecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldBeARecord = null;
+            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The caa_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaaError { get; set; }
+        public string? CaaError { get => _explicitNullValueCaaError; set { _explicitNullValueCaaError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caa_error"); else _explicitNullProperties?.Remove("caa_error"); } }
+        private string? _explicitNullValueCaaError = default!;
 #nullable restore
 #else
-        public string CaaError { get; set; }
+        public string CaaError { get => _explicitNullValueCaaError; set { _explicitNullValueCaaError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caa_error"); else _explicitNullProperties?.Remove("caa_error"); } }
+        private string _explicitNullValueCaaError = default!;
 #endif
         /// <summary>The dns_resolves property</summary>
-        public bool? DnsResolves { get; set; }
+        public bool? DnsResolves { get => _explicitNullValueDnsResolves; set { _explicitNullValueDnsResolves = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dns_resolves"); else _explicitNullProperties?.Remove("dns_resolves"); } }
+        private bool? _explicitNullValueDnsResolves = default!;
         /// <summary>The enforces_https property</summary>
-        public bool? EnforcesHttps { get; set; }
+        public bool? EnforcesHttps { get => _explicitNullValueEnforcesHttps; set { _explicitNullValueEnforcesHttps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforces_https"); else _explicitNullProperties?.Remove("enforces_https"); } }
+        private bool? _explicitNullValueEnforcesHttps = default!;
         /// <summary>The has_cname_record property</summary>
-        public bool? HasCnameRecord { get; set; }
+        public bool? HasCnameRecord { get => _explicitNullValueHasCnameRecord; set { _explicitNullValueHasCnameRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_cname_record"); else _explicitNullProperties?.Remove("has_cname_record"); } }
+        private bool? _explicitNullValueHasCnameRecord = default!;
         /// <summary>The has_mx_records_present property</summary>
-        public bool? HasMxRecordsPresent { get; set; }
+        public bool? HasMxRecordsPresent { get => _explicitNullValueHasMxRecordsPresent; set { _explicitNullValueHasMxRecordsPresent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_mx_records_present"); else _explicitNullProperties?.Remove("has_mx_records_present"); } }
+        private bool? _explicitNullValueHasMxRecordsPresent = default!;
         /// <summary>The host property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Host { get; set; }
+        public string? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        private string? _explicitNullValueHost = default!;
 #nullable restore
 #else
-        public string Host { get; set; }
+        public string Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        private string _explicitNullValueHost = default!;
 #endif
         /// <summary>The https_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HttpsError { get; set; }
+        public string? HttpsError { get => _explicitNullValueHttpsError; set { _explicitNullValueHttpsError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_error"); else _explicitNullProperties?.Remove("https_error"); } }
+        private string? _explicitNullValueHttpsError = default!;
 #nullable restore
 #else
-        public string HttpsError { get; set; }
+        public string HttpsError { get => _explicitNullValueHttpsError; set { _explicitNullValueHttpsError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_error"); else _explicitNullProperties?.Remove("https_error"); } }
+        private string _explicitNullValueHttpsError = default!;
 #endif
         /// <summary>The is_apex_domain property</summary>
-        public bool? IsApexDomain { get; set; }
+        public bool? IsApexDomain { get => _explicitNullValueIsApexDomain; set { _explicitNullValueIsApexDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_apex_domain"); else _explicitNullProperties?.Remove("is_apex_domain"); } }
+        private bool? _explicitNullValueIsApexDomain = default!;
         /// <summary>The is_a_record property</summary>
-        public bool? IsARecord { get; set; }
+        public bool? IsARecord { get => _explicitNullValueIsARecord; set { _explicitNullValueIsARecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_a_record"); else _explicitNullProperties?.Remove("is_a_record"); } }
+        private bool? _explicitNullValueIsARecord = default!;
         /// <summary>The is_cloudflare_ip property</summary>
-        public bool? IsCloudflareIp { get; set; }
+        public bool? IsCloudflareIp { get => _explicitNullValueIsCloudflareIp; set { _explicitNullValueIsCloudflareIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cloudflare_ip"); else _explicitNullProperties?.Remove("is_cloudflare_ip"); } }
+        private bool? _explicitNullValueIsCloudflareIp = default!;
         /// <summary>The is_cname_to_fastly property</summary>
-        public bool? IsCnameToFastly { get; set; }
+        public bool? IsCnameToFastly { get => _explicitNullValueIsCnameToFastly; set { _explicitNullValueIsCnameToFastly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cname_to_fastly"); else _explicitNullProperties?.Remove("is_cname_to_fastly"); } }
+        private bool? _explicitNullValueIsCnameToFastly = default!;
         /// <summary>The is_cname_to_github_user_domain property</summary>
-        public bool? IsCnameToGithubUserDomain { get; set; }
+        public bool? IsCnameToGithubUserDomain { get => _explicitNullValueIsCnameToGithubUserDomain; set { _explicitNullValueIsCnameToGithubUserDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cname_to_github_user_domain"); else _explicitNullProperties?.Remove("is_cname_to_github_user_domain"); } }
+        private bool? _explicitNullValueIsCnameToGithubUserDomain = default!;
         /// <summary>The is_cname_to_pages_dot_github_dot_com property</summary>
-        public bool? IsCnameToPagesDotGithubDotCom { get; set; }
+        public bool? IsCnameToPagesDotGithubDotCom { get => _explicitNullValueIsCnameToPagesDotGithubDotCom; set { _explicitNullValueIsCnameToPagesDotGithubDotCom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_cname_to_pages_dot_github_dot_com"); else _explicitNullProperties?.Remove("is_cname_to_pages_dot_github_dot_com"); } }
+        private bool? _explicitNullValueIsCnameToPagesDotGithubDotCom = default!;
         /// <summary>The is_fastly_ip property</summary>
-        public bool? IsFastlyIp { get; set; }
+        public bool? IsFastlyIp { get => _explicitNullValueIsFastlyIp; set { _explicitNullValueIsFastlyIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_fastly_ip"); else _explicitNullProperties?.Remove("is_fastly_ip"); } }
+        private bool? _explicitNullValueIsFastlyIp = default!;
         /// <summary>The is_https_eligible property</summary>
-        public bool? IsHttpsEligible { get; set; }
+        public bool? IsHttpsEligible { get => _explicitNullValueIsHttpsEligible; set { _explicitNullValueIsHttpsEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_https_eligible"); else _explicitNullProperties?.Remove("is_https_eligible"); } }
+        private bool? _explicitNullValueIsHttpsEligible = default!;
         /// <summary>The is_non_github_pages_ip_present property</summary>
-        public bool? IsNonGithubPagesIpPresent { get; set; }
+        public bool? IsNonGithubPagesIpPresent { get => _explicitNullValueIsNonGithubPagesIpPresent; set { _explicitNullValueIsNonGithubPagesIpPresent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_non_github_pages_ip_present"); else _explicitNullProperties?.Remove("is_non_github_pages_ip_present"); } }
+        private bool? _explicitNullValueIsNonGithubPagesIpPresent = default!;
         /// <summary>The is_old_ip_address property</summary>
-        public bool? IsOldIpAddress { get; set; }
+        public bool? IsOldIpAddress { get => _explicitNullValueIsOldIpAddress; set { _explicitNullValueIsOldIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_old_ip_address"); else _explicitNullProperties?.Remove("is_old_ip_address"); } }
+        private bool? _explicitNullValueIsOldIpAddress = default!;
         /// <summary>The is_pages_domain property</summary>
-        public bool? IsPagesDomain { get; set; }
+        public bool? IsPagesDomain { get => _explicitNullValueIsPagesDomain; set { _explicitNullValueIsPagesDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_pages_domain"); else _explicitNullProperties?.Remove("is_pages_domain"); } }
+        private bool? _explicitNullValueIsPagesDomain = default!;
         /// <summary>The is_pointed_to_github_pages_ip property</summary>
-        public bool? IsPointedToGithubPagesIp { get; set; }
+        public bool? IsPointedToGithubPagesIp { get => _explicitNullValueIsPointedToGithubPagesIp; set { _explicitNullValueIsPointedToGithubPagesIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_pointed_to_github_pages_ip"); else _explicitNullProperties?.Remove("is_pointed_to_github_pages_ip"); } }
+        private bool? _explicitNullValueIsPointedToGithubPagesIp = default!;
         /// <summary>The is_proxied property</summary>
-        public bool? IsProxied { get; set; }
+        public bool? IsProxied { get => _explicitNullValueIsProxied; set { _explicitNullValueIsProxied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_proxied"); else _explicitNullProperties?.Remove("is_proxied"); } }
+        private bool? _explicitNullValueIsProxied = default!;
         /// <summary>The is_served_by_pages property</summary>
-        public bool? IsServedByPages { get; set; }
+        public bool? IsServedByPages { get => _explicitNullValueIsServedByPages; set { _explicitNullValueIsServedByPages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_served_by_pages"); else _explicitNullProperties?.Remove("is_served_by_pages"); } }
+        private bool? _explicitNullValueIsServedByPages = default!;
         /// <summary>The is_valid property</summary>
-        public bool? IsValid { get; set; }
+        public bool? IsValid { get => _explicitNullValueIsValid; set { _explicitNullValueIsValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_valid"); else _explicitNullProperties?.Remove("is_valid"); } }
+        private bool? _explicitNullValueIsValid = default!;
         /// <summary>The is_valid_domain property</summary>
-        public bool? IsValidDomain { get; set; }
+        public bool? IsValidDomain { get => _explicitNullValueIsValidDomain; set { _explicitNullValueIsValidDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_valid_domain"); else _explicitNullProperties?.Remove("is_valid_domain"); } }
+        private bool? _explicitNullValueIsValidDomain = default!;
         /// <summary>The nameservers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Nameservers { get; set; }
+        public string? Nameservers { get => _explicitNullValueNameservers; set { _explicitNullValueNameservers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nameservers"); else _explicitNullProperties?.Remove("nameservers"); } }
+        private string? _explicitNullValueNameservers = default!;
 #nullable restore
 #else
-        public string Nameservers { get; set; }
+        public string Nameservers { get => _explicitNullValueNameservers; set { _explicitNullValueNameservers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nameservers"); else _explicitNullProperties?.Remove("nameservers"); } }
+        private string _explicitNullValueNameservers = default!;
 #endif
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
         /// <summary>The responds_to_https property</summary>
-        public bool? RespondsToHttps { get; set; }
+        public bool? RespondsToHttps { get => _explicitNullValueRespondsToHttps; set { _explicitNullValueRespondsToHttps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responds_to_https"); else _explicitNullProperties?.Remove("responds_to_https"); } }
+        private bool? _explicitNullValueRespondsToHttps = default!;
         /// <summary>The should_be_a_record property</summary>
-        public bool? ShouldBeARecord { get; set; }
+        public bool? ShouldBeARecord { get => _explicitNullValueShouldBeARecord; set { _explicitNullValueShouldBeARecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_be_a_record"); else _explicitNullProperties?.Remove("should_be_a_record"); } }
+        private bool? _explicitNullValueShouldBeARecord = default!;
         /// <summary>The uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get; set; }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get; set; }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain"/> and sets the default values.
@@ -121,7 +190,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -196,6 +267,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("responds_to_https", RespondsToHttps);
             writer.WriteBoolValue("should_be_a_record", ShouldBeARecord);
             writer.WriteStringValue("uri", Uri);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

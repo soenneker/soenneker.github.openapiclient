@@ -12,9 +12,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeScanningAiScanOrgEnablementUpdate : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
+        }
+
         /// <summary>Whether AI Scan is enabled for the organization. Organization respects enterprise policy. Disabled organizations prevent repositories from enabling AI Scan. Enabled organizations enable AI Scan for their repositories, but individual repositories can opt out.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan? PrScan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan? PrScan { get => _explicitNullValuePrScan; set { _explicitNullValuePrScan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pr_scan"); else _explicitNullProperties?.Remove("pr_scan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan? _explicitNullValuePrScan = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -23,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan>("pr_scan", PrScan);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan>("pr_scan", PrScan);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

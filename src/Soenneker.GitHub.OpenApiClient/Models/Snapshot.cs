@@ -12,59 +12,88 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Snapshot : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("detector") is { } nullNodeDetector && nullNodeDetector.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detector = null;
+            if (parseNode.GetChildNode("job") is { } nullNodeJob && nullNodeJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Job = null;
+            if (parseNode.GetChildNode("manifests") is { } nullNodeManifests && nullNodeManifests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Manifests = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("scanned") is { } nullNodeScanned && nullNodeScanned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scanned = null;
+            if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+        }
+
         /// <summary>A description of the detector used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector? Detector { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector? Detector { get => _explicitNullValueDetector; set { _explicitNullValueDetector = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detector"); else _explicitNullProperties?.Remove("detector"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector? _explicitNullValueDetector = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector Detector { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector Detector { get => _explicitNullValueDetector; set { _explicitNullValueDetector = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detector"); else _explicitNullProperties?.Remove("detector"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector _explicitNullValueDetector = default!;
 #endif
         /// <summary>The job property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob? Job { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob? Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob? _explicitNullValueJob = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob Job { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob _explicitNullValueJob = default!;
 #endif
         /// <summary>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty? Manifests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty? Manifests { get => _explicitNullValueManifests; set { _explicitNullValueManifests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifests"); else _explicitNullProperties?.Remove("manifests"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty? _explicitNullValueManifests = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty Manifests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty Manifests { get => _explicitNullValueManifests; set { _explicitNullValueManifests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manifests"); else _explicitNullProperties?.Remove("manifests"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty _explicitNullValueManifests = default!;
 #endif
         /// <summary>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The repository branch that triggered this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>The time at which the snapshot was scanned.</summary>
-        public DateTimeOffset? Scanned { get; set; }
+        public DateTimeOffset? Scanned { get => _explicitNullValueScanned; set { _explicitNullValueScanned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scanned"); else _explicitNullProperties?.Remove("scanned"); } }
+        private DateTimeOffset? _explicitNullValueScanned = default!;
         /// <summary>The commit SHA associated with this dependency snapshot. Maximum length: 64 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha { get; set; }
+        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string? _explicitNullValueSha = default!;
 #nullable restore
 #else
-        public string Sha { get; set; }
+        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        private string _explicitNullValueSha = default!;
 #endif
         /// <summary>The version of the repository snapshot submission.</summary>
-        public int? Version { get; set; }
+        public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private int? _explicitNullValueVersion = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -73,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.Snapshot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.Snapshot();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.Snapshot(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +136,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("ref", Ref);
             writer.WriteDateTimeOffsetValue("scanned", Scanned);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteIntValue("version", Version);
+            writer.WriteIntValue("version", Version);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

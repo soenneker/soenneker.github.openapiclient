@@ -11,17 +11,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsForkPrWorkflowsPrivateReposRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("require_approval_for_fork_pr_workflows") is { } nullNodeRequireApprovalForForkPrWorkflows && nullNodeRequireApprovalForForkPrWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireApprovalForForkPrWorkflows = null;
+            if (parseNode.GetChildNode("run_workflows_from_fork_pull_requests") is { } nullNodeRunWorkflowsFromForkPullRequests && nullNodeRunWorkflowsFromForkPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunWorkflowsFromForkPullRequests = null;
+            if (parseNode.GetChildNode("send_secrets_and_variables") is { } nullNodeSendSecretsAndVariables && nullNodeSendSecretsAndVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendSecretsAndVariables = null;
+            if (parseNode.GetChildNode("send_write_tokens_to_workflows") is { } nullNodeSendWriteTokensToWorkflows && nullNodeSendWriteTokensToWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendWriteTokensToWorkflows = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether workflows triggered by pull requests from forks require approval from a repository administrator to run.</summary>
-        public bool? RequireApprovalForForkPrWorkflows { get; set; }
+        public bool? RequireApprovalForForkPrWorkflows { get => _explicitNullValueRequireApprovalForForkPrWorkflows; set { _explicitNullValueRequireApprovalForForkPrWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval_for_fork_pr_workflows"); else _explicitNullProperties?.Remove("require_approval_for_fork_pr_workflows"); } }
+        private bool? _explicitNullValueRequireApprovalForForkPrWorkflows = default!;
         /// <summary>Whether workflows triggered by pull requests from forks are allowed to run on private repositories.</summary>
-        public bool? RunWorkflowsFromForkPullRequests { get; set; }
+        public bool? RunWorkflowsFromForkPullRequests { get => _explicitNullValueRunWorkflowsFromForkPullRequests; set { _explicitNullValueRunWorkflowsFromForkPullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_workflows_from_fork_pull_requests"); else _explicitNullProperties?.Remove("run_workflows_from_fork_pull_requests"); } }
+        private bool? _explicitNullValueRunWorkflowsFromForkPullRequests = default!;
         /// <summary>Whether to make secrets and variables available to workflows triggered by pull requests from forks.</summary>
-        public bool? SendSecretsAndVariables { get; set; }
+        public bool? SendSecretsAndVariables { get => _explicitNullValueSendSecretsAndVariables; set { _explicitNullValueSendSecretsAndVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_secrets_and_variables"); else _explicitNullProperties?.Remove("send_secrets_and_variables"); } }
+        private bool? _explicitNullValueSendSecretsAndVariables = default!;
         /// <summary>Whether GitHub Actions can create pull requests or submit approving pull request reviews from a workflow triggered by a fork pull request.</summary>
-        public bool? SendWriteTokensToWorkflows { get; set; }
+        public bool? SendWriteTokensToWorkflows { get => _explicitNullValueSendWriteTokensToWorkflows; set { _explicitNullValueSendWriteTokensToWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_write_tokens_to_workflows"); else _explicitNullProperties?.Remove("send_write_tokens_to_workflows"); } }
+        private bool? _explicitNullValueSendWriteTokensToWorkflows = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrWorkflowsPrivateReposRequest"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrWorkflowsPrivateReposRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrWorkflowsPrivateReposRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrWorkflowsPrivateReposRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("run_workflows_from_fork_pull_requests", RunWorkflowsFromForkPullRequests);
             writer.WriteBoolValue("send_secrets_and_variables", SendSecretsAndVariables);
             writer.WriteBoolValue("send_write_tokens_to_workflows", SendWriteTokensToWorkflows);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

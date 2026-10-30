@@ -11,50 +11,74 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentTasksCreateTaskInRepoRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("base_ref") is { } nullNodeBaseRef && nullNodeBaseRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRef = null;
+            if (parseNode.GetChildNode("create_pull_request") is { } nullNodeCreatePullRequest && nullNodeCreatePullRequest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatePullRequest = null;
+            if (parseNode.GetChildNode("custom_agent") is { } nullNodeCustomAgent && nullNodeCustomAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomAgent = null;
+            if (parseNode.GetChildNode("head_ref") is { } nullNodeHeadRef && nullNodeHeadRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadRef = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("prompt") is { } nullNodePrompt && nullNodePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prompt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Base ref for new branch/PR</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseRef { get; set; }
+        public string? BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
+        private string? _explicitNullValueBaseRef = default!;
 #nullable restore
 #else
-        public string BaseRef { get; set; }
+        public string BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
+        private string _explicitNullValueBaseRef = default!;
 #endif
         /// <summary>Whether to create a PR.</summary>
-        public bool? CreatePullRequest { get; set; }
+        public bool? CreatePullRequest { get => _explicitNullValueCreatePullRequest; set { _explicitNullValueCreatePullRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("create_pull_request"); else _explicitNullProperties?.Remove("create_pull_request"); } }
+        private bool? _explicitNullValueCreatePullRequest = default!;
         /// <summary>Optional identifier for a custom agent to use for this task. Use the custom agent&apos;s filename without the extension - for example, for a `.github/agents/performance-optimizer.agent.md` custom agent, use `performance-optimizer`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomAgent { get; set; }
+        public string? CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private string? _explicitNullValueCustomAgent = default!;
 #nullable restore
 #else
-        public string CustomAgent { get; set; }
+        public string CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private string _explicitNullValueCustomAgent = default!;
 #endif
         /// <summary>Head ref for existing branch/PR. If provided with `base_ref`, the agent looks up open PR context for `head_ref` targeting `base_ref` and commits to `head_ref` instead of creating a new branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadRef { get; set; }
+        public string? HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
+        private string? _explicitNullValueHeadRef = default!;
 #nullable restore
 #else
-        public string HeadRef { get; set; }
+        public string HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
+        private string _explicitNullValueHeadRef = default!;
 #endif
         /// <summary>The model to use for this task. The allowed models may change over time and depend on the user&apos;s GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>The user&apos;s prompt for the agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string? _explicitNullValuePrompt = default!;
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Prompt { get => _explicitNullValuePrompt; set { _explicitNullValuePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prompt"); else _explicitNullProperties?.Remove("prompt"); } }
+        private string _explicitNullValuePrompt = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("head_ref", HeadRef);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("prompt", Prompt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; To get information about name patterns that branches must match in order to deploy to this environment, see &quot;[Get a deployment branch policy](/rest/deployments/branch-policies#get-a-deployment-branch-policy).&quot;Anyone with read access to the repository can use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create or update an environment with protection rules, such as required reviewers. For more information about environment protection rules, see &quot;[Environments](/actions/reference/environments#environment-protection-rules).&quot;&gt; [!NOTE]&gt; To create or update name patterns that branches must match in order to deploy to this environment, see &quot;[Deployment branch policies](/rest/deployments/branch-policies).&quot;&gt; [!NOTE]&gt; To create or update secrets for an environment, see &quot;[GitHub Actions secrets](/rest/actions/secrets).&quot;OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -117,6 +117,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

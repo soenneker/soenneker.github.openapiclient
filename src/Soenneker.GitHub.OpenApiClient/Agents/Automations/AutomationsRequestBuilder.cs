@@ -56,6 +56,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Automations
             {
                 { "400", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations401Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItem>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

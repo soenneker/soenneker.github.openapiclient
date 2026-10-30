@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
         /// Set deployment records for a given cluster.If proposed records in the &apos;deployments&apos; field have identical &apos;cluster&apos;, &apos;logical_environment&apos;,&apos;physical_environment&apos;, and &apos;deployment_name&apos; values as existing records, the existing records will be updated.If no existing records match, new records will be created.Note: Artifacts are uniquely identified by the combination of their repository and digest fields. If two entries in the deploymentsarray resolve to the same repository and have identical digest fields but differing name and version fields, the endpoint will usethe artifact name and version from the record processed first, since a single artifact (identified by repository and digest) canonly have one name and version.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/artifact-metadata#set-cluster-deployment-records" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsSuccessResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -51,11 +51,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsSuccessResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsSuccessResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,8 +64,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsSuccessResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecordsSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Set deployment records for a given cluster.If proposed records in the &apos;deployments&apos; field have identical &apos;cluster&apos;, &apos;logical_environment&apos;,&apos;physical_environment&apos;, and &apos;deployment_name&apos; values as existing records, the existing records will be updated.If no existing records match, new records will be created.Note: Artifacts are uniquely identified by the combination of their repository and digest fields. If two entries in the deploymentsarray resolve to the same repository and have identical digest fields but differing name and version fields, the endpoint will usethe artifact name and version from the record processed first, since a single artifact (identified by repository and digest) canonly have one name and version.

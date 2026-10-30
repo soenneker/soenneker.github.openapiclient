@@ -12,24 +12,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestReviewRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("teams") is { } nullNodeTeams && nullNodeTeams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Teams = null;
+            if (parseNode.GetChildNode("users") is { } nullNodeUsers && nullNodeUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Users = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get => _explicitNullValueTeams; set { _explicitNullValueTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams"); else _explicitNullProperties?.Remove("teams"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? _explicitNullValueTeams = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get => _explicitNullValueTeams; set { _explicitNullValueTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teams"); else _explicitNullProperties?.Remove("teams"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Team> _explicitNullValueTeams = default!;
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? _explicitNullValueUsers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> _explicitNullValueUsers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewRequest"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("teams", Teams);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("users", Users);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

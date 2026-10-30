@@ -11,19 +11,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeSecuritySetConfigurationAsDefault200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("configuration") is { } nullNodeConfiguration && nullNodeConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Configuration = null;
+            if (parseNode.GetChildNode("default_for_new_repos") is { } nullNodeDefaultForNewRepos && nullNodeDefaultForNewRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultForNewRepos = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A code security configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration? Configuration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration? Configuration { get => _explicitNullValueConfiguration; set { _explicitNullValueConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration"); else _explicitNullProperties?.Remove("configuration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration? _explicitNullValueConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration Configuration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration Configuration { get => _explicitNullValueConfiguration; set { _explicitNullValueConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration"); else _explicitNullProperties?.Remove("configuration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration _explicitNullValueConfiguration = default!;
 #endif
         /// <summary>Specifies which types of repository this security configuration is applied to by default.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200ResponseDefaultForNewRepos? DefaultForNewRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200ResponseDefaultForNewRepos? DefaultForNewRepos { get => _explicitNullValueDefaultForNewRepos; set { _explicitNullValueDefaultForNewRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_for_new_repos"); else _explicitNullProperties?.Remove("default_for_new_repos"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200ResponseDefaultForNewRepos? _explicitNullValueDefaultForNewRepos = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200Response"/> and sets the default values.
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration>("configuration", Configuration);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefault200ResponseDefaultForNewRepos>("default_for_new_repos", DefaultForNewRepos);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

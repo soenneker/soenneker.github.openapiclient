@@ -11,45 +11,68 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposUpdateRepoRulesetRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bypass_actors") is { } nullNodeBypassActors && nullNodeBypassActors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassActors = null;
+            if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
+            if (parseNode.GetChildNode("enforcement") is { } nullNodeEnforcement && nullNodeEnforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enforcement = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
+            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The actors that can bypass the rules in this ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>? BypassActors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>? BypassActors { get => _explicitNullValueBypassActors; set { _explicitNullValueBypassActors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_actors"); else _explicitNullProperties?.Remove("bypass_actors"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>? _explicitNullValueBypassActors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor> BypassActors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor> BypassActors { get => _explicitNullValueBypassActors; set { _explicitNullValueBypassActors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_actors"); else _explicitNullProperties?.Remove("bypass_actors"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor> _explicitNullValueBypassActors = default!;
 #endif
         /// <summary>Parameters for a repository ruleset ref name condition</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions? Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions? _explicitNullValueConditions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions _explicitNullValueConditions = default!;
 #endif
         /// <summary>The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? Enforcement { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? _explicitNullValueEnforcement = default!;
         /// <summary>The name of the ruleset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>An array of rules within the ruleset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>? Rules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>? _explicitNullValueRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule> Rules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule> _explicitNullValueRules = default!;
 #endif
         /// <summary>The target of the ruleset</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequestTarget? Target { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequestTarget? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequestTarget? _explicitNullValueTarget = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequest"/> and sets the default values.
         /// </summary>
@@ -65,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>("rules", Rules);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRepoRulesetRequestTarget>("target", Target);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

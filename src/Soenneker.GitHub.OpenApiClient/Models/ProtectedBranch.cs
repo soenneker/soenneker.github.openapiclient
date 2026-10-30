@@ -12,112 +12,158 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProtectedBranch : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_deletions") is { } nullNodeAllowDeletions && nullNodeAllowDeletions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowDeletions = null;
+            if (parseNode.GetChildNode("allow_force_pushes") is { } nullNodeAllowForcePushes && nullNodeAllowForcePushes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowForcePushes = null;
+            if (parseNode.GetChildNode("allow_fork_syncing") is { } nullNodeAllowForkSyncing && nullNodeAllowForkSyncing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowForkSyncing = null;
+            if (parseNode.GetChildNode("block_creations") is { } nullNodeBlockCreations && nullNodeBlockCreations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockCreations = null;
+            if (parseNode.GetChildNode("enforce_admins") is { } nullNodeEnforceAdmins && nullNodeEnforceAdmins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforceAdmins = null;
+            if (parseNode.GetChildNode("lock_branch") is { } nullNodeLockBranch && nullNodeLockBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockBranch = null;
+            if (parseNode.GetChildNode("required_conversation_resolution") is { } nullNodeRequiredConversationResolution && nullNodeRequiredConversationResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredConversationResolution = null;
+            if (parseNode.GetChildNode("required_linear_history") is { } nullNodeRequiredLinearHistory && nullNodeRequiredLinearHistory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredLinearHistory = null;
+            if (parseNode.GetChildNode("required_pull_request_reviews") is { } nullNodeRequiredPullRequestReviews && nullNodeRequiredPullRequestReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredPullRequestReviews = null;
+            if (parseNode.GetChildNode("required_signatures") is { } nullNodeRequiredSignatures && nullNodeRequiredSignatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredSignatures = null;
+            if (parseNode.GetChildNode("required_status_checks") is { } nullNodeRequiredStatusChecks && nullNodeRequiredStatusChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredStatusChecks = null;
+            if (parseNode.GetChildNode("restrictions") is { } nullNodeRestrictions && nullNodeRestrictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Restrictions = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allow_deletions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions? AllowDeletions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions? AllowDeletions { get => _explicitNullValueAllowDeletions; set { _explicitNullValueAllowDeletions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_deletions"); else _explicitNullProperties?.Remove("allow_deletions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions? _explicitNullValueAllowDeletions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions AllowDeletions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions AllowDeletions { get => _explicitNullValueAllowDeletions; set { _explicitNullValueAllowDeletions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_deletions"); else _explicitNullProperties?.Remove("allow_deletions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions _explicitNullValueAllowDeletions = default!;
 #endif
         /// <summary>The allow_force_pushes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes? AllowForcePushes { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes? AllowForcePushes { get => _explicitNullValueAllowForcePushes; set { _explicitNullValueAllowForcePushes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_force_pushes"); else _explicitNullProperties?.Remove("allow_force_pushes"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes? _explicitNullValueAllowForcePushes = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes AllowForcePushes { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes AllowForcePushes { get => _explicitNullValueAllowForcePushes; set { _explicitNullValueAllowForcePushes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_force_pushes"); else _explicitNullProperties?.Remove("allow_force_pushes"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes _explicitNullValueAllowForcePushes = default!;
 #endif
         /// <summary>Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow fork syncing. Set to `false` to prevent fork syncing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing? AllowForkSyncing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing? AllowForkSyncing { get => _explicitNullValueAllowForkSyncing; set { _explicitNullValueAllowForkSyncing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_fork_syncing"); else _explicitNullProperties?.Remove("allow_fork_syncing"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing? _explicitNullValueAllowForkSyncing = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing AllowForkSyncing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing AllowForkSyncing { get => _explicitNullValueAllowForkSyncing; set { _explicitNullValueAllowForkSyncing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_fork_syncing"); else _explicitNullProperties?.Remove("allow_fork_syncing"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing _explicitNullValueAllowForkSyncing = default!;
 #endif
         /// <summary>The block_creations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations? BlockCreations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations? BlockCreations { get => _explicitNullValueBlockCreations; set { _explicitNullValueBlockCreations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_creations"); else _explicitNullProperties?.Remove("block_creations"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations? _explicitNullValueBlockCreations = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations BlockCreations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations BlockCreations { get => _explicitNullValueBlockCreations; set { _explicitNullValueBlockCreations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_creations"); else _explicitNullProperties?.Remove("block_creations"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations _explicitNullValueBlockCreations = default!;
 #endif
         /// <summary>The enforce_admins property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins? EnforceAdmins { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins? EnforceAdmins { get => _explicitNullValueEnforceAdmins; set { _explicitNullValueEnforceAdmins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforce_admins"); else _explicitNullProperties?.Remove("enforce_admins"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins? _explicitNullValueEnforceAdmins = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins EnforceAdmins { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins EnforceAdmins { get => _explicitNullValueEnforceAdmins; set { _explicitNullValueEnforceAdmins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforce_admins"); else _explicitNullProperties?.Remove("enforce_admins"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins _explicitNullValueEnforceAdmins = default!;
 #endif
         /// <summary>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch? LockBranch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch? LockBranch { get => _explicitNullValueLockBranch; set { _explicitNullValueLockBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_branch"); else _explicitNullProperties?.Remove("lock_branch"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch? _explicitNullValueLockBranch = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch LockBranch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch LockBranch { get => _explicitNullValueLockBranch; set { _explicitNullValueLockBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_branch"); else _explicitNullProperties?.Remove("lock_branch"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch _explicitNullValueLockBranch = default!;
 #endif
         /// <summary>The required_conversation_resolution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution? RequiredConversationResolution { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution? RequiredConversationResolution { get => _explicitNullValueRequiredConversationResolution; set { _explicitNullValueRequiredConversationResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_conversation_resolution"); else _explicitNullProperties?.Remove("required_conversation_resolution"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution? _explicitNullValueRequiredConversationResolution = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution RequiredConversationResolution { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution RequiredConversationResolution { get => _explicitNullValueRequiredConversationResolution; set { _explicitNullValueRequiredConversationResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_conversation_resolution"); else _explicitNullProperties?.Remove("required_conversation_resolution"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution _explicitNullValueRequiredConversationResolution = default!;
 #endif
         /// <summary>The required_linear_history property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory? RequiredLinearHistory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory? RequiredLinearHistory { get => _explicitNullValueRequiredLinearHistory; set { _explicitNullValueRequiredLinearHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_linear_history"); else _explicitNullProperties?.Remove("required_linear_history"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory? _explicitNullValueRequiredLinearHistory = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory RequiredLinearHistory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory RequiredLinearHistory { get => _explicitNullValueRequiredLinearHistory; set { _explicitNullValueRequiredLinearHistory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_linear_history"); else _explicitNullProperties?.Remove("required_linear_history"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory _explicitNullValueRequiredLinearHistory = default!;
 #endif
         /// <summary>The required_pull_request_reviews property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews? RequiredPullRequestReviews { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews? RequiredPullRequestReviews { get => _explicitNullValueRequiredPullRequestReviews; set { _explicitNullValueRequiredPullRequestReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_pull_request_reviews"); else _explicitNullProperties?.Remove("required_pull_request_reviews"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews? _explicitNullValueRequiredPullRequestReviews = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews RequiredPullRequestReviews { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews RequiredPullRequestReviews { get => _explicitNullValueRequiredPullRequestReviews; set { _explicitNullValueRequiredPullRequestReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_pull_request_reviews"); else _explicitNullProperties?.Remove("required_pull_request_reviews"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews _explicitNullValueRequiredPullRequestReviews = default!;
 #endif
         /// <summary>The required_signatures property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures? RequiredSignatures { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures? RequiredSignatures { get => _explicitNullValueRequiredSignatures; set { _explicitNullValueRequiredSignatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_signatures"); else _explicitNullProperties?.Remove("required_signatures"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures? _explicitNullValueRequiredSignatures = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures RequiredSignatures { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures RequiredSignatures { get => _explicitNullValueRequiredSignatures; set { _explicitNullValueRequiredSignatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_signatures"); else _explicitNullProperties?.Remove("required_signatures"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures _explicitNullValueRequiredSignatures = default!;
 #endif
         /// <summary>Status Check Policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy? RequiredStatusChecks { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy? RequiredStatusChecks { get => _explicitNullValueRequiredStatusChecks; set { _explicitNullValueRequiredStatusChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_status_checks"); else _explicitNullProperties?.Remove("required_status_checks"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy? _explicitNullValueRequiredStatusChecks = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy RequiredStatusChecks { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy RequiredStatusChecks { get => _explicitNullValueRequiredStatusChecks; set { _explicitNullValueRequiredStatusChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_status_checks"); else _explicitNullProperties?.Remove("required_status_checks"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy _explicitNullValueRequiredStatusChecks = default!;
 #endif
         /// <summary>Branch Restriction Policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy? Restrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy? Restrictions { get => _explicitNullValueRestrictions; set { _explicitNullValueRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrictions"); else _explicitNullProperties?.Remove("restrictions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy? _explicitNullValueRestrictions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy Restrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy Restrictions { get => _explicitNullValueRestrictions; set { _explicitNullValueRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrictions"); else _explicitNullProperties?.Remove("restrictions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy _explicitNullValueRestrictions = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch"/> and sets the default values.
@@ -134,7 +180,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -179,6 +225,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy>("required_status_checks", RequiredStatusChecks);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy>("restrictions", Restrictions);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

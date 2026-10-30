@@ -11,40 +11,61 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningCreateVariantAnalysisRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("query_pack") is { } nullNodeQueryPack && nullNodeQueryPack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryPack = null;
+            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_lists") is { } nullNodeRepositoryLists && nullNodeRepositoryLists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryLists = null;
+            if (parseNode.GetChildNode("repository_owners") is { } nullNodeRepositoryOwners && nullNodeRepositoryOwners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryOwners = null;
+        }
+
         /// <summary>The language targeted by the CodeQL query</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? Language { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? _explicitNullValueLanguage = default!;
         /// <summary>A Base64-encoded tarball containing a CodeQL query and all its dependencies</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? QueryPack { get; set; }
+        public string? QueryPack { get => _explicitNullValueQueryPack; set { _explicitNullValueQueryPack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_pack"); else _explicitNullProperties?.Remove("query_pack"); } }
+        private string? _explicitNullValueQueryPack = default!;
 #nullable restore
 #else
-        public string QueryPack { get; set; }
+        public string QueryPack { get => _explicitNullValueQueryPack; set { _explicitNullValueQueryPack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_pack"); else _explicitNullProperties?.Remove("query_pack"); } }
+        private string _explicitNullValueQueryPack = default!;
 #endif
         /// <summary>List of repository names (in the form `owner/repo-name`) to run the query against. Precisely one property from `repositories`, `repository_lists` and `repository_owners` is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Repositories { get; set; }
+        public List<string>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<string>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<string> Repositories { get; set; }
+        public List<string> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<string> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>List of repository lists to run the query against. Precisely one property from `repositories`, `repository_lists` and `repository_owners` is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RepositoryLists { get; set; }
+        public List<string>? RepositoryLists { get => _explicitNullValueRepositoryLists; set { _explicitNullValueRepositoryLists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_lists"); else _explicitNullProperties?.Remove("repository_lists"); } }
+        private List<string>? _explicitNullValueRepositoryLists = default!;
 #nullable restore
 #else
-        public List<string> RepositoryLists { get; set; }
+        public List<string> RepositoryLists { get => _explicitNullValueRepositoryLists; set { _explicitNullValueRepositoryLists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_lists"); else _explicitNullProperties?.Remove("repository_lists"); } }
+        private List<string> _explicitNullValueRepositoryLists = default!;
 #endif
         /// <summary>List of organization or user names whose repositories the query should be run against. Precisely one property from `repositories`, `repository_lists` and `repository_owners` is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RepositoryOwners { get; set; }
+        public List<string>? RepositoryOwners { get => _explicitNullValueRepositoryOwners; set { _explicitNullValueRepositoryOwners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_owners"); else _explicitNullProperties?.Remove("repository_owners"); } }
+        private List<string>? _explicitNullValueRepositoryOwners = default!;
 #nullable restore
 #else
-        public List<string> RepositoryOwners { get; set; }
+        public List<string> RepositoryOwners { get => _explicitNullValueRepositoryOwners; set { _explicitNullValueRepositoryOwners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_owners"); else _explicitNullProperties?.Remove("repository_owners"); } }
+        private List<string> _explicitNullValueRepositoryOwners = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,7 +103,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("query_pack", QueryPack);
             writer.WriteCollectionOfPrimitiveValues<string>("repositories", Repositories);
             writer.WriteCollectionOfPrimitiveValues<string>("repository_lists", RepositoryLists);
-            writer.WriteCollectionOfPrimitiveValues<string>("repository_owners", RepositoryOwners);
+            writer.WriteCollectionOfPrimitiveValues<string>("repository_owners", RepositoryOwners);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

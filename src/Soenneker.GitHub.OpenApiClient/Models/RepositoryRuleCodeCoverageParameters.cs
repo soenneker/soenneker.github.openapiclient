@@ -11,13 +11,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRuleCodeCoverageParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("max_coverage_drop") is { } nullNodeMaxCoverageDrop && nullNodeMaxCoverageDrop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCoverageDrop = null;
+            if (parseNode.GetChildNode("minimum_coverage") is { } nullNodeMinimumCoverage && nullNodeMinimumCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumCoverage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</summary>
-        public float? MaxCoverageDrop { get; set; }
+        public float? MaxCoverageDrop { get => _explicitNullValueMaxCoverageDrop; set { _explicitNullValueMaxCoverageDrop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_coverage_drop"); else _explicitNullProperties?.Remove("max_coverage_drop"); } }
+        private float? _explicitNullValueMaxCoverageDrop = default!;
         /// <summary>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</summary>
-        public float? MinimumCoverage { get; set; }
+        public float? MinimumCoverage { get => _explicitNullValueMinimumCoverage; set { _explicitNullValueMinimumCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_coverage"); else _explicitNullProperties?.Remove("minimum_coverage"); } }
+        private float? _explicitNullValueMinimumCoverage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverageParameters"/> and sets the default values.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverageParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverageParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverageParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteFloatValue("max_coverage_drop", MaxCoverageDrop);
             writer.WriteFloatValue("minimum_coverage", MinimumCoverage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

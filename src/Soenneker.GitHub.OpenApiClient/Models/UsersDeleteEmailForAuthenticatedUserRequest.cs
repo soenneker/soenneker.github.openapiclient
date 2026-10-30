@@ -12,7 +12,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UsersDeleteEmailForAuthenticatedUserRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequest();
             if("UsersDeleteEmailForAuthenticatedUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1();
+                
             }
-            else if(parseNode.GetStringValue() is string usersDeleteEmailForAuthenticatedUserRequestStringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string usersDeleteEmailForAuthenticatedUserRequestStringValue)
             {
                 result.UsersDeleteEmailForAuthenticatedUserRequestString = usersDeleteEmailForAuthenticatedUserRequestStringValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString) && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("emails") != null))();
+            if (result.String == null && result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 == null && result.UsersDeleteEmailForAuthenticatedUserRequestString == null && matchesUnionBranch0) result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1(), parseNode);
+            if (result.String == null && result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 == null && result.UsersDeleteEmailForAuthenticatedUserRequestString == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1(), parseNode);
+            if (result.String == null && result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 == null && result.UsersDeleteEmailForAuthenticatedUserRequestString == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,9 +90,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (String == null && UsersDeleteEmailForAuthenticatedUserRequestOneOf1 == null && UsersDeleteEmailForAuthenticatedUserRequestString == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null && String == null && UsersDeleteEmailForAuthenticatedUserRequestString == null) { if (UsersDeleteEmailForAuthenticatedUserRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UsersDeleteEmailForAuthenticatedUserRequestOneOf1); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null)
             {
+                if (UsersDeleteEmailForAuthenticatedUserRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1>(null, UsersDeleteEmailForAuthenticatedUserRequestOneOf1);
             }
             else if(UsersDeleteEmailForAuthenticatedUserRequestString != null)

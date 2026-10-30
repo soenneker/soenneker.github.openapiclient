@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Merge
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; We recommend using the [asynchronous merge API](https://docs.github.com/rest/pulls/pulls#merge-a-pull-request-asynchronously) instead. This endpoint does not support stacked pull requests or merging with a merge queue.Merges a pull request into the base branch.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications).Creating content too quickly using this endpoint may result in secondary rate limiting.For more information, see &quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)&quot; and &quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).&quot;
@@ -82,6 +82,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Merge
                 { "405", global::Soenneker.GitHub.OpenApiClient.Models.PullsMerge405Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.PullsMerge409Response.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeResult>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,21 +12,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReferrerTraffic : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("referrer") is { } nullNodeReferrer && nullNodeReferrer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Referrer = null;
+            if (parseNode.GetChildNode("uniques") is { } nullNodeUniques && nullNodeUniques.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uniques = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The count property</summary>
-        public int? Count { get; set; }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        private int? _explicitNullValueCount = default!;
         /// <summary>The referrer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Referrer { get; set; }
+        public string? Referrer { get => _explicitNullValueReferrer; set { _explicitNullValueReferrer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referrer"); else _explicitNullProperties?.Remove("referrer"); } }
+        private string? _explicitNullValueReferrer = default!;
 #nullable restore
 #else
-        public string Referrer { get; set; }
+        public string Referrer { get => _explicitNullValueReferrer; set { _explicitNullValueReferrer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referrer"); else _explicitNullProperties?.Remove("referrer"); } }
+        private string _explicitNullValueReferrer = default!;
 #endif
         /// <summary>The uniques property</summary>
-        public int? Uniques { get; set; }
+        public int? Uniques { get => _explicitNullValueUniques; set { _explicitNullValueUniques = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniques"); else _explicitNullProperties?.Remove("uniques"); } }
+        private int? _explicitNullValueUniques = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReferrerTraffic"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReferrerTraffic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReferrerTraffic();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReferrerTraffic(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("count", Count);
             writer.WriteStringValue("referrer", Referrer);
             writer.WriteIntValue("uniques", Uniques);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

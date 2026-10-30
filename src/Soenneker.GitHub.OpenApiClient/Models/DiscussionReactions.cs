@@ -11,34 +11,62 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DiscussionReactions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("confused") is { } nullNodeConfused && nullNodeConfused.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confused = null;
+            if (parseNode.GetChildNode("eyes") is { } nullNodeEyes && nullNodeEyes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eyes = null;
+            if (parseNode.GetChildNode("heart") is { } nullNodeHeart && nullNodeHeart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Heart = null;
+            if (parseNode.GetChildNode("hooray") is { } nullNodeHooray && nullNodeHooray.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hooray = null;
+            if (parseNode.GetChildNode("laugh") is { } nullNodeLaugh && nullNodeLaugh.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Laugh = null;
+            if (parseNode.GetChildNode("-1") is { } nullNodeMinus1 && nullNodeMinus1.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Minus1 = null;
+            if (parseNode.GetChildNode("+1") is { } nullNodePlus1 && nullNodePlus1.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plus1 = null;
+            if (parseNode.GetChildNode("rocket") is { } nullNodeRocket && nullNodeRocket.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rocket = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The confused property</summary>
-        public int? Confused { get; set; }
+        public int? Confused { get => _explicitNullValueConfused; set { _explicitNullValueConfused = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confused"); else _explicitNullProperties?.Remove("confused"); } }
+        private int? _explicitNullValueConfused = default!;
         /// <summary>The eyes property</summary>
-        public int? Eyes { get; set; }
+        public int? Eyes { get => _explicitNullValueEyes; set { _explicitNullValueEyes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eyes"); else _explicitNullProperties?.Remove("eyes"); } }
+        private int? _explicitNullValueEyes = default!;
         /// <summary>The heart property</summary>
-        public int? Heart { get; set; }
+        public int? Heart { get => _explicitNullValueHeart; set { _explicitNullValueHeart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("heart"); else _explicitNullProperties?.Remove("heart"); } }
+        private int? _explicitNullValueHeart = default!;
         /// <summary>The hooray property</summary>
-        public int? Hooray { get; set; }
+        public int? Hooray { get => _explicitNullValueHooray; set { _explicitNullValueHooray = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hooray"); else _explicitNullProperties?.Remove("hooray"); } }
+        private int? _explicitNullValueHooray = default!;
         /// <summary>The laugh property</summary>
-        public int? Laugh { get; set; }
+        public int? Laugh { get => _explicitNullValueLaugh; set { _explicitNullValueLaugh = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("laugh"); else _explicitNullProperties?.Remove("laugh"); } }
+        private int? _explicitNullValueLaugh = default!;
         /// <summary>The minus_1 property</summary>
-        public int? Minus1 { get; set; }
+        public int? Minus1 { get => _explicitNullValueMinus1; set { _explicitNullValueMinus1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("-1"); else _explicitNullProperties?.Remove("-1"); } }
+        private int? _explicitNullValueMinus1 = default!;
         /// <summary>The plus_1 property</summary>
-        public int? Plus1 { get; set; }
+        public int? Plus1 { get => _explicitNullValuePlus1; set { _explicitNullValuePlus1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("+1"); else _explicitNullProperties?.Remove("+1"); } }
+        private int? _explicitNullValuePlus1 = default!;
         /// <summary>The rocket property</summary>
-        public int? Rocket { get; set; }
+        public int? Rocket { get => _explicitNullValueRocket; set { _explicitNullValueRocket = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rocket"); else _explicitNullProperties?.Remove("rocket"); } }
+        private int? _explicitNullValueRocket = default!;
         /// <summary>The total_count property</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions"/> and sets the default values.
@@ -55,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,6 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("rocket", Rocket);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Run
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a self-hosted runner to a runner group configured in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Run
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes a self-hosted runner from a group configured in an organization. The runner is then returned to the default group.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

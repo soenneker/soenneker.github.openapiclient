@@ -11,13 +11,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ActionsCacheUsageOrgEnterprise : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("total_active_caches_count") is { } nullNodeTotalActiveCachesCount && nullNodeTotalActiveCachesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalActiveCachesCount = null;
+            if (parseNode.GetChildNode("total_active_caches_size_in_bytes") is { } nullNodeTotalActiveCachesSizeInBytes && nullNodeTotalActiveCachesSizeInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalActiveCachesSizeInBytes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The count of active caches across all repositories of an enterprise or an organization.</summary>
-        public int? TotalActiveCachesCount { get; set; }
+        public int? TotalActiveCachesCount { get => _explicitNullValueTotalActiveCachesCount; set { _explicitNullValueTotalActiveCachesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_active_caches_count"); else _explicitNullProperties?.Remove("total_active_caches_count"); } }
+        private int? _explicitNullValueTotalActiveCachesCount = default!;
         /// <summary>The total size in bytes of all active cache items across all repositories of an enterprise or an organization.</summary>
-        public int? TotalActiveCachesSizeInBytes { get; set; }
+        public int? TotalActiveCachesSizeInBytes { get => _explicitNullValueTotalActiveCachesSizeInBytes; set { _explicitNullValueTotalActiveCachesSizeInBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_active_caches_size_in_bytes"); else _explicitNullProperties?.Remove("total_active_caches_size_in_bytes"); } }
+        private int? _explicitNullValueTotalActiveCachesSizeInBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheUsageOrgEnterprise"/> and sets the default values.
         /// </summary>
@@ -33,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheUsageOrgEnterprise CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheUsageOrgEnterprise();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheUsageOrgEnterprise(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("total_active_caches_count", TotalActiveCachesCount);
             writer.WriteIntValue("total_active_caches_size_in_bytes", TotalActiveCachesSizeInBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

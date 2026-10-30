@@ -12,29 +12,51 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotOrganizationDetails : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cli") is { } nullNodeCli && nullNodeCli.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cli = null;
+            if (parseNode.GetChildNode("ide_chat") is { } nullNodeIdeChat && nullNodeIdeChat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdeChat = null;
+            if (parseNode.GetChildNode("plan_type") is { } nullNodePlanType && nullNodePlanType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanType = null;
+            if (parseNode.GetChildNode("platform_chat") is { } nullNodePlatformChat && nullNodePlatformChat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlatformChat = null;
+            if (parseNode.GetChildNode("public_code_suggestions") is { } nullNodePublicCodeSuggestions && nullNodePublicCodeSuggestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicCodeSuggestions = null;
+            if (parseNode.GetChildNode("seat_breakdown") is { } nullNodeSeatBreakdown && nullNodeSeatBreakdown.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatBreakdown = null;
+            if (parseNode.GetChildNode("seat_management_setting") is { } nullNodeSeatManagementSetting && nullNodeSeatManagementSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatManagementSetting = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The organization policy for allowing or disallowing Copilot CLI.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli? Cli { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli? Cli { get => _explicitNullValueCli; set { _explicitNullValueCli = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cli"); else _explicitNullProperties?.Remove("cli"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli? _explicitNullValueCli = default!;
         /// <summary>The organization policy for allowing or disallowing Copilot Chat in the IDE.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat? IdeChat { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat? IdeChat { get => _explicitNullValueIdeChat; set { _explicitNullValueIdeChat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ide_chat"); else _explicitNullProperties?.Remove("ide_chat"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat? _explicitNullValueIdeChat = default!;
         /// <summary>The Copilot plan of the organization, or the parent enterprise, when applicable.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType? PlanType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType? PlanType { get => _explicitNullValuePlanType; set { _explicitNullValuePlanType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_type"); else _explicitNullProperties?.Remove("plan_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType? _explicitNullValuePlanType = default!;
         /// <summary>The organization policy for allowing or disallowing Copilot features on GitHub.com.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat? PlatformChat { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat? PlatformChat { get => _explicitNullValuePlatformChat; set { _explicitNullValuePlatformChat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform_chat"); else _explicitNullProperties?.Remove("platform_chat"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat? _explicitNullValuePlatformChat = default!;
         /// <summary>The organization policy for allowing or blocking suggestions matching public code (duplication detection filter).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions? PublicCodeSuggestions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions? PublicCodeSuggestions { get => _explicitNullValuePublicCodeSuggestions; set { _explicitNullValuePublicCodeSuggestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_code_suggestions"); else _explicitNullProperties?.Remove("public_code_suggestions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions? _explicitNullValuePublicCodeSuggestions = default!;
         /// <summary>The breakdown of Copilot Business seats for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown? SeatBreakdown { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown? SeatBreakdown { get => _explicitNullValueSeatBreakdown; set { _explicitNullValueSeatBreakdown = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seat_breakdown"); else _explicitNullProperties?.Remove("seat_breakdown"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown? _explicitNullValueSeatBreakdown = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown SeatBreakdown { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown SeatBreakdown { get => _explicitNullValueSeatBreakdown; set { _explicitNullValueSeatBreakdown = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seat_breakdown"); else _explicitNullProperties?.Remove("seat_breakdown"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown _explicitNullValueSeatBreakdown = default!;
 #endif
         /// <summary>The mode of assigning new seats.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting? SeatManagementSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting? SeatManagementSetting { get => _explicitNullValueSeatManagementSetting; set { _explicitNullValueSeatManagementSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seat_management_setting"); else _explicitNullProperties?.Remove("seat_management_setting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting? _explicitNullValueSeatManagementSetting = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails"/> and sets the default values.
         /// </summary>
@@ -50,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions>("public_code_suggestions", PublicCodeSuggestions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown>("seat_breakdown", SeatBreakdown);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting>("seat_management_setting", SeatManagementSetting);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -54,6 +54,8 @@ namespace Soenneker.GitHub.OpenApiClient.Versions
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendPrimitiveCollectionAsync<Date?>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

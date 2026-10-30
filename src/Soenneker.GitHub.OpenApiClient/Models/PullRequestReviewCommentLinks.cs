@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullRequestReviewCommentLinks : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("html") is { } nullNodeHtml && nullNodeHtml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Html = null;
+            if (parseNode.GetChildNode("pull_request") is { } nullNodePullRequest && nullNodePullRequest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequest = null;
+            if (parseNode.GetChildNode("self") is { } nullNodeSelf && nullNodeSelf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Self = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The html property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml? Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml? Html { get => _explicitNullValueHtml; set { _explicitNullValueHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html"); else _explicitNullProperties?.Remove("html"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml? _explicitNullValueHtml = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml Html { get => _explicitNullValueHtml; set { _explicitNullValueHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html"); else _explicitNullProperties?.Remove("html"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml _explicitNullValueHtml = default!;
 #endif
         /// <summary>The pull_request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest? PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest? PullRequest { get => _explicitNullValuePullRequest; set { _explicitNullValuePullRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request"); else _explicitNullProperties?.Remove("pull_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest? _explicitNullValuePullRequest = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest PullRequest { get => _explicitNullValuePullRequest; set { _explicitNullValuePullRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_request"); else _explicitNullProperties?.Remove("pull_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest _explicitNullValuePullRequest = default!;
 #endif
         /// <summary>The self property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf? Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf? Self { get => _explicitNullValueSelf; set { _explicitNullValueSelf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self"); else _explicitNullProperties?.Remove("self"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf? _explicitNullValueSelf = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf Self { get => _explicitNullValueSelf; set { _explicitNullValueSelf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self"); else _explicitNullProperties?.Remove("self"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf _explicitNullValueSelf = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksHtml>("html", Html);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksPullRequest>("pull_request", PullRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentLinksSelf>("self", Self);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

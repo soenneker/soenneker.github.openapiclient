@@ -11,15 +11,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InteractionsUpdatePullRequestCreationCapForRepoRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("include_drafts") is { } nullNodeIncludeDrafts && nullNodeIncludeDrafts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDrafts = null;
+            if (parseNode.GetChildNode("max_open_pull_requests") is { } nullNodeMaxOpenPullRequests && nullNodeMaxOpenPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOpenPullRequests = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the pull request creation cap is enabled</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether draft pull requests count toward the pull request creation cap</summary>
-        public bool? IncludeDrafts { get; set; }
+        public bool? IncludeDrafts { get => _explicitNullValueIncludeDrafts; set { _explicitNullValueIncludeDrafts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_drafts"); else _explicitNullProperties?.Remove("include_drafts"); } }
+        private bool? _explicitNullValueIncludeDrafts = default!;
         /// <summary>The maximum number of open pull requests a user can have at one time</summary>
-        public int? MaxOpenPullRequests { get; set; }
+        public int? MaxOpenPullRequests { get => _explicitNullValueMaxOpenPullRequests; set { _explicitNullValueMaxOpenPullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_open_pull_requests"); else _explicitNullProperties?.Remove("max_open_pull_requests"); } }
+        private int? _explicitNullValueMaxOpenPullRequests = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionsUpdatePullRequestCreationCapForRepoRequest"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.InteractionsUpdatePullRequestCreationCapForRepoRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.InteractionsUpdatePullRequestCreationCapForRepoRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.InteractionsUpdatePullRequestCreationCapForRepoRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("include_drafts", IncludeDrafts);
             writer.WriteIntValue("max_open_pull_requests", MaxOpenPullRequests);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

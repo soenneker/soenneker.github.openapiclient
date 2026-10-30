@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("encrypted_value") is { } nullNodeEncryptedValue && nullNodeEncryptedValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedValue = null;
+            if (parseNode.GetChildNode("key_id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
+            if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get the public key for the authenticated user](https://docs.github.com/rest/codespaces/secrets#get-public-key-for-the-authenticated-user) endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedValue { get; set; }
+        public string? EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        private string? _explicitNullValueEncryptedValue = default!;
 #nullable restore
 #else
-        public string EncryptedValue { get; set; }
+        public string EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        private string _explicitNullValueEncryptedValue = default!;
 #endif
         /// <summary>ID of the key you used to encrypt the secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyId { get; set; }
+        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        private string? _explicitNullValueKeyId = default!;
 #nullable restore
 #else
-        public string KeyId { get; set; }
+        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        private string _explicitNullValueKeyId = default!;
 #endif
         /// <summary>An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret) endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids>? SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids>? _explicitNullValueSelectedRepositoryIds = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids> SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids> _explicitNullValueSelectedRepositoryIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids>("selected_repository_ids", SelectedRepositoryIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -103,14 +120,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest.CodespacesCreateOrUpdateSecretForAuthenticatedUserRequest_selected_repository_ids();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -130,6 +151,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {

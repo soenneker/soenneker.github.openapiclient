@@ -12,19 +12,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryCodeSearchIndexStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("lexical_commit_sha") is { } nullNodeLexicalCommitSha && nullNodeLexicalCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalCommitSha = null;
+            if (parseNode.GetChildNode("lexical_search_ok") is { } nullNodeLexicalSearchOk && nullNodeLexicalSearchOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalSearchOk = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The lexical_commit_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LexicalCommitSha { get; set; }
+        public string? LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
+        private string? _explicitNullValueLexicalCommitSha = default!;
 #nullable restore
 #else
-        public string LexicalCommitSha { get; set; }
+        public string LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
+        private string _explicitNullValueLexicalCommitSha = default!;
 #endif
         /// <summary>The lexical_search_ok property</summary>
-        public bool? LexicalSearchOk { get; set; }
+        public bool? LexicalSearchOk { get => _explicitNullValueLexicalSearchOk; set { _explicitNullValueLexicalSearchOk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_search_ok"); else _explicitNullProperties?.Remove("lexical_search_ok"); } }
+        private bool? _explicitNullValueLexicalSearchOk = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCodeSearchIndexStatus"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCodeSearchIndexStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCodeSearchIndexStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCodeSearchIndexStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("lexical_commit_sha", LexicalCommitSha);
             writer.WriteBoolValue("lexical_search_ok", LexicalSearchOk);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

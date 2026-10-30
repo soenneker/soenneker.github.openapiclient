@@ -11,104 +11,147 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RateLimitOverviewResources : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actions_runner_registration") is { } nullNodeActionsRunnerRegistration && nullNodeActionsRunnerRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionsRunnerRegistration = null;
+            if (parseNode.GetChildNode("code_scanning_autofix") is { } nullNodeCodeScanningAutofix && nullNodeCodeScanningAutofix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeScanningAutofix = null;
+            if (parseNode.GetChildNode("code_search") is { } nullNodeCodeSearch && nullNodeCodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeSearch = null;
+            if (parseNode.GetChildNode("copilot_usage_records") is { } nullNodeCopilotUsageRecords && nullNodeCopilotUsageRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotUsageRecords = null;
+            if (parseNode.GetChildNode("core") is { } nullNodeCore && nullNodeCore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Core = null;
+            if (parseNode.GetChildNode("dependency_sbom") is { } nullNodeDependencySbom && nullNodeDependencySbom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependencySbom = null;
+            if (parseNode.GetChildNode("dependency_snapshots") is { } nullNodeDependencySnapshots && nullNodeDependencySnapshots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependencySnapshots = null;
+            if (parseNode.GetChildNode("graphql") is { } nullNodeGraphql && nullNodeGraphql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Graphql = null;
+            if (parseNode.GetChildNode("integration_manifest") is { } nullNodeIntegrationManifest && nullNodeIntegrationManifest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationManifest = null;
+            if (parseNode.GetChildNode("scim") is { } nullNodeScim && nullNodeScim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scim = null;
+            if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
+            if (parseNode.GetChildNode("source_import") is { } nullNodeSourceImport && nullNodeSourceImport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceImport = null;
+        }
+
         /// <summary>The actions_runner_registration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? ActionsRunnerRegistration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? ActionsRunnerRegistration { get => _explicitNullValueActionsRunnerRegistration; set { _explicitNullValueActionsRunnerRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_runner_registration"); else _explicitNullProperties?.Remove("actions_runner_registration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueActionsRunnerRegistration = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit ActionsRunnerRegistration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit ActionsRunnerRegistration { get => _explicitNullValueActionsRunnerRegistration; set { _explicitNullValueActionsRunnerRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_runner_registration"); else _explicitNullProperties?.Remove("actions_runner_registration"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueActionsRunnerRegistration = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code_scanning_autofix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CodeScanningAutofix { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CodeScanningAutofix { get => _explicitNullValueCodeScanningAutofix; set { _explicitNullValueCodeScanningAutofix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_autofix"); else _explicitNullProperties?.Remove("code_scanning_autofix"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueCodeScanningAutofix = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CodeScanningAutofix { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CodeScanningAutofix { get => _explicitNullValueCodeScanningAutofix; set { _explicitNullValueCodeScanningAutofix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_autofix"); else _explicitNullProperties?.Remove("code_scanning_autofix"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueCodeScanningAutofix = default!;
 #endif
         /// <summary>The code_search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CodeSearch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CodeSearch { get => _explicitNullValueCodeSearch; set { _explicitNullValueCodeSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_search"); else _explicitNullProperties?.Remove("code_search"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueCodeSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CodeSearch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CodeSearch { get => _explicitNullValueCodeSearch; set { _explicitNullValueCodeSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_search"); else _explicitNullProperties?.Remove("code_search"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueCodeSearch = default!;
 #endif
         /// <summary>The copilot_usage_records property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CopilotUsageRecords { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? CopilotUsageRecords { get => _explicitNullValueCopilotUsageRecords; set { _explicitNullValueCopilotUsageRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_usage_records"); else _explicitNullProperties?.Remove("copilot_usage_records"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueCopilotUsageRecords = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CopilotUsageRecords { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit CopilotUsageRecords { get => _explicitNullValueCopilotUsageRecords; set { _explicitNullValueCopilotUsageRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_usage_records"); else _explicitNullProperties?.Remove("copilot_usage_records"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueCopilotUsageRecords = default!;
 #endif
         /// <summary>The core property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Core { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Core { get => _explicitNullValueCore; set { _explicitNullValueCore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("core"); else _explicitNullProperties?.Remove("core"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueCore = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Core { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Core { get => _explicitNullValueCore; set { _explicitNullValueCore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("core"); else _explicitNullProperties?.Remove("core"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueCore = default!;
 #endif
         /// <summary>The dependency_sbom property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? DependencySbom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? DependencySbom { get => _explicitNullValueDependencySbom; set { _explicitNullValueDependencySbom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_sbom"); else _explicitNullProperties?.Remove("dependency_sbom"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueDependencySbom = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit DependencySbom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit DependencySbom { get => _explicitNullValueDependencySbom; set { _explicitNullValueDependencySbom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_sbom"); else _explicitNullProperties?.Remove("dependency_sbom"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueDependencySbom = default!;
 #endif
         /// <summary>The dependency_snapshots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? DependencySnapshots { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? DependencySnapshots { get => _explicitNullValueDependencySnapshots; set { _explicitNullValueDependencySnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_snapshots"); else _explicitNullProperties?.Remove("dependency_snapshots"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueDependencySnapshots = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit DependencySnapshots { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit DependencySnapshots { get => _explicitNullValueDependencySnapshots; set { _explicitNullValueDependencySnapshots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_snapshots"); else _explicitNullProperties?.Remove("dependency_snapshots"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueDependencySnapshots = default!;
 #endif
         /// <summary>The graphql property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Graphql { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Graphql { get => _explicitNullValueGraphql; set { _explicitNullValueGraphql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graphql"); else _explicitNullProperties?.Remove("graphql"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueGraphql = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Graphql { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Graphql { get => _explicitNullValueGraphql; set { _explicitNullValueGraphql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graphql"); else _explicitNullProperties?.Remove("graphql"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueGraphql = default!;
 #endif
         /// <summary>The integration_manifest property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? IntegrationManifest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? IntegrationManifest { get => _explicitNullValueIntegrationManifest; set { _explicitNullValueIntegrationManifest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_manifest"); else _explicitNullProperties?.Remove("integration_manifest"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueIntegrationManifest = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit IntegrationManifest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit IntegrationManifest { get => _explicitNullValueIntegrationManifest; set { _explicitNullValueIntegrationManifest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_manifest"); else _explicitNullProperties?.Remove("integration_manifest"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueIntegrationManifest = default!;
 #endif
         /// <summary>The scim property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Scim { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Scim { get => _explicitNullValueScim; set { _explicitNullValueScim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim"); else _explicitNullProperties?.Remove("scim"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueScim = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Scim { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Scim { get => _explicitNullValueScim; set { _explicitNullValueScim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim"); else _explicitNullProperties?.Remove("scim"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueScim = default!;
 #endif
         /// <summary>The search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Search { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Search { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueSearch = default!;
 #endif
         /// <summary>The source_import property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? SourceImport { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? SourceImport { get => _explicitNullValueSourceImport; set { _explicitNullValueSourceImport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_import"); else _explicitNullProperties?.Remove("source_import"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? _explicitNullValueSourceImport = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit SourceImport { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit SourceImport { get => _explicitNullValueSourceImport; set { _explicitNullValueSourceImport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_import"); else _explicitNullProperties?.Remove("source_import"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RateLimit _explicitNullValueSourceImport = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources"/> and sets the default values.
@@ -125,7 +168,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -168,6 +211,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("scim", Scim);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("search", Search);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("source_import", SourceImport);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

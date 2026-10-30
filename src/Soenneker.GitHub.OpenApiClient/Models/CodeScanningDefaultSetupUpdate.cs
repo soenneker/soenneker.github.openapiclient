@@ -12,31 +12,52 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeScanningDefaultSetupUpdate : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("query_suite") is { } nullNodeQuerySuite && nullNodeQuerySuite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuerySuite = null;
+            if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
+            if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("threat_model") is { } nullNodeThreatModel && nullNodeThreatModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreatModel = null;
+        }
+
         /// <summary>CodeQL languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?>? Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?>? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?> Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?> _explicitNullValueLanguages = default!;
 #endif
         /// <summary>CodeQL query suite to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite? QuerySuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite? QuerySuite { get => _explicitNullValueQuerySuite; set { _explicitNullValueQuerySuite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_suite"); else _explicitNullProperties?.Remove("query_suite"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite? _explicitNullValueQuerySuite = default!;
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerLabel { get; set; }
+        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        private string? _explicitNullValueRunnerLabel = default!;
 #nullable restore
 #else
-        public string RunnerLabel { get; set; }
+        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        private string _explicitNullValueRunnerLabel = default!;
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType? _explicitNullValueRunnerType = default!;
         /// <summary>The desired state of code scanning default setup.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState? _explicitNullValueState = default!;
         /// <summary>Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel? ThreatModel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel? ThreatModel { get => _explicitNullValueThreatModel; set { _explicitNullValueThreatModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threat_model"); else _explicitNullProperties?.Remove("threat_model"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel? _explicitNullValueThreatModel = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +96,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType>("runner_type", RunnerType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState>("state", State);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel>("threat_model", ThreatModel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel>("threat_model", ThreatModel);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

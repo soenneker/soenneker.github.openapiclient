@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GistsCreateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("files") is { } nullNodeFiles && nullNodeFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Files = null;
+            if (parseNode.GetChildNode("public") is { } nullNodePublic && nullNodePublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Public = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Description of the gist</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Names and content for the files that make up the gist</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles? Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles? Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles? _explicitNullValueFiles = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles _explicitNullValueFiles = default!;
 #endif
         /// <summary>The public property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic? Public { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic? Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic? _explicitNullValuePublic = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic Public { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic _explicitNullValuePublic = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestFiles>("files", Files);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequestPublic>("public", Public);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

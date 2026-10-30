@@ -11,51 +11,80 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiInsightsUserStatsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actor_id") is { } nullNodeActorId && nullNodeActorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorId = null;
+            if (parseNode.GetChildNode("actor_name") is { } nullNodeActorName && nullNodeActorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorName = null;
+            if (parseNode.GetChildNode("actor_type") is { } nullNodeActorType && nullNodeActorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorType = null;
+            if (parseNode.GetChildNode("integration_id") is { } nullNodeIntegrationId && nullNodeIntegrationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationId = null;
+            if (parseNode.GetChildNode("last_rate_limited_timestamp") is { } nullNodeLastRateLimitedTimestamp && nullNodeLastRateLimitedTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRateLimitedTimestamp = null;
+            if (parseNode.GetChildNode("last_request_timestamp") is { } nullNodeLastRequestTimestamp && nullNodeLastRequestTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRequestTimestamp = null;
+            if (parseNode.GetChildNode("oauth_application_id") is { } nullNodeOauthApplicationId && nullNodeOauthApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthApplicationId = null;
+            if (parseNode.GetChildNode("rate_limited_request_count") is { } nullNodeRateLimitedRequestCount && nullNodeRateLimitedRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitedRequestCount = null;
+            if (parseNode.GetChildNode("total_request_count") is { } nullNodeTotalRequestCount && nullNodeTotalRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequestCount = null;
+        }
+
         /// <summary>The actor_id property</summary>
-        public long? ActorId { get; set; }
+        public long? ActorId { get => _explicitNullValueActorId; set { _explicitNullValueActorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_id"); else _explicitNullProperties?.Remove("actor_id"); } }
+        private long? _explicitNullValueActorId = default!;
         /// <summary>The actor_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActorName { get; set; }
+        public string? ActorName { get => _explicitNullValueActorName; set { _explicitNullValueActorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_name"); else _explicitNullProperties?.Remove("actor_name"); } }
+        private string? _explicitNullValueActorName = default!;
 #nullable restore
 #else
-        public string ActorName { get; set; }
+        public string ActorName { get => _explicitNullValueActorName; set { _explicitNullValueActorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_name"); else _explicitNullProperties?.Remove("actor_name"); } }
+        private string _explicitNullValueActorName = default!;
 #endif
         /// <summary>The actor_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActorType { get; set; }
+        public string? ActorType { get => _explicitNullValueActorType; set { _explicitNullValueActorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_type"); else _explicitNullProperties?.Remove("actor_type"); } }
+        private string? _explicitNullValueActorType = default!;
 #nullable restore
 #else
-        public string ActorType { get; set; }
+        public string ActorType { get => _explicitNullValueActorType; set { _explicitNullValueActorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_type"); else _explicitNullProperties?.Remove("actor_type"); } }
+        private string _explicitNullValueActorType = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The integration_id property</summary>
-        public long? IntegrationId { get; set; }
+        public long? IntegrationId { get => _explicitNullValueIntegrationId; set { _explicitNullValueIntegrationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_id"); else _explicitNullProperties?.Remove("integration_id"); } }
+        private long? _explicitNullValueIntegrationId = default!;
         /// <summary>The last_rate_limited_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRateLimitedTimestamp { get; set; }
+        public string? LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        private string? _explicitNullValueLastRateLimitedTimestamp = default!;
 #nullable restore
 #else
-        public string LastRateLimitedTimestamp { get; set; }
+        public string LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        private string _explicitNullValueLastRateLimitedTimestamp = default!;
 #endif
         /// <summary>The last_request_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRequestTimestamp { get; set; }
+        public string? LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        private string? _explicitNullValueLastRequestTimestamp = default!;
 #nullable restore
 #else
-        public string LastRequestTimestamp { get; set; }
+        public string LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        private string _explicitNullValueLastRequestTimestamp = default!;
 #endif
         /// <summary>The oauth_application_id property</summary>
-        public long? OauthApplicationId { get; set; }
+        public long? OauthApplicationId { get => _explicitNullValueOauthApplicationId; set { _explicitNullValueOauthApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_application_id"); else _explicitNullProperties?.Remove("oauth_application_id"); } }
+        private long? _explicitNullValueOauthApplicationId = default!;
         /// <summary>The rate_limited_request_count property</summary>
-        public int? RateLimitedRequestCount { get; set; }
+        public int? RateLimitedRequestCount { get => _explicitNullValueRateLimitedRequestCount; set { _explicitNullValueRateLimitedRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limited_request_count"); else _explicitNullProperties?.Remove("rate_limited_request_count"); } }
+        private int? _explicitNullValueRateLimitedRequestCount = default!;
         /// <summary>The total_request_count property</summary>
-        public int? TotalRequestCount { get; set; }
+        public int? TotalRequestCount { get => _explicitNullValueTotalRequestCount; set { _explicitNullValueTotalRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_request_count"); else _explicitNullProperties?.Remove("total_request_count"); } }
+        private int? _explicitNullValueTotalRequestCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsUserStatsItem"/> and sets the default values.
         /// </summary>
@@ -71,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsUserStatsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsUserStatsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsUserStatsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("oauth_application_id", OauthApplicationId);
             writer.WriteIntValue("rate_limited_request_count", RateLimitedRequestCount);
             writer.WriteIntValue("total_request_count", TotalRequestCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

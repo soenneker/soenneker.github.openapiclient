@@ -11,27 +11,42 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConcurrencyGroupListConcurrencyGroupsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("group_name") is { } nullNodeGroupName && nullNodeGroupName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupName = null;
+            if (parseNode.GetChildNode("group_url") is { } nullNodeGroupUrl && nullNodeGroupUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupUrl = null;
+            if (parseNode.GetChildNode("last_acquired_at") is { } nullNodeLastAcquiredAt && nullNodeLastAcquiredAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastAcquiredAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the concurrency group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupName { get; set; }
+        public string? GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
+        private string? _explicitNullValueGroupName = default!;
 #nullable restore
 #else
-        public string GroupName { get; set; }
+        public string GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
+        private string _explicitNullValueGroupName = default!;
 #endif
         /// <summary>API URL for this concurrency group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupUrl { get; set; }
+        public string? GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
+        private string? _explicitNullValueGroupUrl = default!;
 #nullable restore
 #else
-        public string GroupUrl { get; set; }
+        public string GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
+        private string _explicitNullValueGroupUrl = default!;
 #endif
         /// <summary>The last_acquired_at property</summary>
-        public DateTimeOffset? LastAcquiredAt { get; set; }
+        public DateTimeOffset? LastAcquiredAt { get => _explicitNullValueLastAcquiredAt; set { _explicitNullValueLastAcquiredAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_acquired_at"); else _explicitNullProperties?.Remove("last_acquired_at"); } }
+        private DateTimeOffset? _explicitNullValueLastAcquiredAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupListConcurrencyGroupsItem"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupListConcurrencyGroupsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupListConcurrencyGroupsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupListConcurrencyGroupsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("group_name", GroupName);
             writer.WriteStringValue("group_url", GroupUrl);
             writer.WriteDateTimeOffsetValue("last_acquired_at", LastAcquiredAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

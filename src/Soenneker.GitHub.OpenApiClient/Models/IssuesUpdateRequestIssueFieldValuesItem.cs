@@ -11,28 +11,47 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class IssuesUpdateRequestIssueFieldValuesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("field_id") is { } nullNodeFieldId && nullNodeFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldId = null;
+            if (parseNode.GetChildNode("rationale") is { } nullNodeRationale && nullNodeRationale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rationale = null;
+            if (parseNode.GetChildNode("suggest") is { } nullNodeSuggest && nullNodeSuggest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggest = null;
+            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+        }
+
         /// <summary>The confidence level for this field value choice.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence? Confidence { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence? _explicitNullValueConfidence = default!;
         /// <summary>The ID of the issue field to set</summary>
-        public long? FieldId { get; set; }
+        public long? FieldId { get => _explicitNullValueFieldId; set { _explicitNullValueFieldId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_id"); else _explicitNullProperties?.Remove("field_id"); } }
+        private long? _explicitNullValueFieldId = default!;
         /// <summary>Optional reasoning for setting this field value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rationale { get; set; }
+        public string? Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string? _explicitNullValueRationale = default!;
 #nullable restore
 #else
-        public string Rationale { get; set; }
+        public string Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string _explicitNullValueRationale = default!;
 #endif
         /// <summary>If `true`, the change is stored as a pending suggestion for human review rather than applied directly.</summary>
-        public bool? Suggest { get; set; }
+        public bool? Suggest { get => _explicitNullValueSuggest; set { _explicitNullValueSuggest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggest"); else _explicitNullProperties?.Remove("suggest"); } }
+        private bool? _explicitNullValueSuggest = default!;
         /// <summary>The value to set for the field. For multi-select fields, provide an array of option names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -42,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +89,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("field_id", FieldId);
             writer.WriteStringValue("rationale", Rationale);
             writer.WriteBoolValue("suggest", Suggest);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

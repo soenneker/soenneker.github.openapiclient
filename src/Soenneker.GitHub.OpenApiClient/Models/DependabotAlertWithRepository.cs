@@ -12,7 +12,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotAlertWithRepository : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dismissal_request") is { } nullNodeDismissalRequest && nullNodeDismissalRequest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalRequest = null;
+            if (parseNode.GetChildNode("dismissed_by") is { } nullNodeDismissedBy && nullNodeDismissedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedBy = null;
+            if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
+            if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+        }
+
         /// <summary>The users assigned to this alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,31 +48,38 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Information about an active dismissal request for this Dependabot alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple? DismissalRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple? DismissalRequest { get => _explicitNullValueDismissalRequest; set { _explicitNullValueDismissalRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_request"); else _explicitNullProperties?.Remove("dismissal_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple? _explicitNullValueDismissalRequest = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple DismissalRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple DismissalRequest { get => _explicitNullValueDismissalRequest; set { _explicitNullValueDismissalRequest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_request"); else _explicitNullProperties?.Remove("dismissal_request"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple _explicitNullValueDismissalRequest = default!;
 #endif
         /// <summary>The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? DismissedAt { get; private set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueDismissedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueDismissedBy = default!;
 #endif
         /// <summary>An optional comment associated with the alert&apos;s dismissal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissedComment { get; set; }
+        public string? DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string? _explicitNullValueDismissedComment = default!;
 #nullable restore
 #else
-        public string DismissedComment { get; set; }
+        public string DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        private string _explicitNullValueDismissedComment = default!;
 #endif
         /// <summary>The reason that the alert was dismissed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason? DismissedReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason? DismissedReason { get => _explicitNullValueDismissedReason; set { _explicitNullValueDismissedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_reason"); else _explicitNullProperties?.Remove("dismissed_reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason? _explicitNullValueDismissedReason = default!;
         /// <summary>The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? FixedAt { get; private set; }
         /// <summary>The GitHub URL of the alert resource.</summary>
@@ -84,10 +103,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository _explicitNullValueRepository = default!;
 #endif
         /// <summary>Details for the GitHub Security Advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,7 +146,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,7 +188,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("dismissed_by", DismissedBy);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason>("dismissed_reason", DismissedReason);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

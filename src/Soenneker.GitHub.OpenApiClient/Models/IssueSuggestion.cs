@@ -12,47 +12,82 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssueSuggestion : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("actor_id") is { } nullNodeActorId && nullNodeActorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorId = null;
+            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("issue_event_id") is { } nullNodeIssueEventId && nullNodeIssueEventId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueEventId = null;
+            if (parseNode.GetChildNode("issue_id") is { } nullNodeIssueId && nullNodeIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueId = null;
+            if (parseNode.GetChildNode("rationale") is { } nullNodeRationale && nullNodeRationale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rationale = null;
+            if (parseNode.GetChildNode("resolved_by") is { } nullNodeResolvedBy && nullNodeResolvedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolvedBy = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("target_id") is { } nullNodeTargetId && nullNodeTargetId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetId = null;
+            if (parseNode.GetChildNode("target_value") is { } nullNodeTargetValue && nullNodeTargetValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetValue = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>The kind of change proposed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionAction? Action { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionAction? _explicitNullValueAction = default!;
         /// <summary>The unique identifier of the actor that proposed the suggestion.</summary>
-        public int? ActorId { get; set; }
+        public int? ActorId { get => _explicitNullValueActorId; set { _explicitNullValueActorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_id"); else _explicitNullProperties?.Remove("actor_id"); } }
+        private int? _explicitNullValueActorId = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The actor&apos;s confidence level in the suggestion.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionConfidence? Confidence { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionConfidence? _explicitNullValueConfidence = default!;
         /// <summary>The time the suggestion was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The unique identifier of the suggestion.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The identifier of the timeline event created when the suggestion was approved, when applicable.</summary>
-        public long? IssueEventId { get; set; }
+        public long? IssueEventId { get => _explicitNullValueIssueEventId; set { _explicitNullValueIssueEventId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_event_id"); else _explicitNullProperties?.Remove("issue_event_id"); } }
+        private long? _explicitNullValueIssueEventId = default!;
         /// <summary>The unique identifier of the issue the suggestion applies to.</summary>
-        public long? IssueId { get; set; }
+        public long? IssueId { get => _explicitNullValueIssueId; set { _explicitNullValueIssueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_id"); else _explicitNullProperties?.Remove("issue_id"); } }
+        private long? _explicitNullValueIssueId = default!;
         /// <summary>The rationale the actor provided for the suggestion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rationale { get; set; }
+        public string? Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string? _explicitNullValueRationale = default!;
 #nullable restore
 #else
-        public string Rationale { get; set; }
+        public string Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        private string _explicitNullValueRationale = default!;
 #endif
         /// <summary>The unique identifier of the user who approved or dismissed the suggestion.</summary>
-        public int? ResolvedBy { get; set; }
+        public int? ResolvedBy { get => _explicitNullValueResolvedBy; set { _explicitNullValueResolvedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolved_by"); else _explicitNullProperties?.Remove("resolved_by"); } }
+        private int? _explicitNullValueResolvedBy = default!;
         /// <summary>The suggestion&apos;s lifecycle state.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionState? _explicitNullValueState = default!;
         /// <summary>The identifier of the target the change applies to (issue type, label, field, assignee, or duplicate issue), when applicable.</summary>
-        public int? TargetId { get; set; }
+        public int? TargetId { get => _explicitNullValueTargetId; set { _explicitNullValueTargetId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_id"); else _explicitNullProperties?.Remove("target_id"); } }
+        private int? _explicitNullValueTargetId = default!;
         /// <summary>The proposed value, when applicable. An array for multi-select field suggestions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue? TargetValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue? TargetValue { get => _explicitNullValueTargetValue; set { _explicitNullValueTargetValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_value"); else _explicitNullProperties?.Remove("target_value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue? _explicitNullValueTargetValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue TargetValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue TargetValue { get => _explicitNullValueTargetValue; set { _explicitNullValueTargetValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_value"); else _explicitNullProperties?.Remove("target_value"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue _explicitNullValueTargetValue = default!;
 #endif
         /// <summary>The time the suggestion was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestion"/> and sets the default values.
         /// </summary>
@@ -68,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("target_id", TargetId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionTargetValue>("target_value", TargetValue);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

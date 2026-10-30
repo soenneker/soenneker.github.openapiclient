@@ -11,43 +11,64 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GitCreateTagRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("tagger") is { } nullNodeTagger && nullNodeTagger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tagger = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tag message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The SHA of the git object this is tagging.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Object { get; set; }
+        public string? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private string? _explicitNullValueObject = default!;
 #nullable restore
 #else
-        public string Object { get; set; }
+        public string Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private string _explicitNullValueObject = default!;
 #endif
         /// <summary>The tag&apos;s name. This is typically a version (e.g., &quot;v0.0.1&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get; set; }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get; set; }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string _explicitNullValueTag = default!;
 #endif
         /// <summary>An object with information about the individual creating the tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger? Tagger { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger? Tagger { get => _explicitNullValueTagger; set { _explicitNullValueTagger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tagger"); else _explicitNullProperties?.Remove("tagger"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger? _explicitNullValueTagger = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger Tagger { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger Tagger { get => _explicitNullValueTagger; set { _explicitNullValueTagger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tagger"); else _explicitNullProperties?.Remove("tagger"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger _explicitNullValueTagger = default!;
 #endif
         /// <summary>The type of the object we&apos;re tagging. Normally this is a `commit` but it can also be a `tree` or a `blob`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest"/> and sets the default values.
         /// </summary>
@@ -63,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("tag", Tag);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestTagger>("tagger", Tagger);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequestType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

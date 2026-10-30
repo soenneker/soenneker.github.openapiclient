@@ -11,42 +11,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MigrationsStartImportRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
+            if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
+            if (parseNode.GetChildNode("vcs_password") is { } nullNodeVcsPassword && nullNodeVcsPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsPassword = null;
+            if (parseNode.GetChildNode("vcs_url") is { } nullNodeVcsUrl && nullNodeVcsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUrl = null;
+            if (parseNode.GetChildNode("vcs_username") is { } nullNodeVcsUsername && nullNodeVcsUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUsername = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For a tfvc import, the name of the project that is being imported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TfvcProject { get; set; }
+        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        private string? _explicitNullValueTfvcProject = default!;
 #nullable restore
 #else
-        public string TfvcProject { get; set; }
+        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        private string _explicitNullValueTfvcProject = default!;
 #endif
         /// <summary>The originating VCS type. Without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? Vcs { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? _explicitNullValueVcs = default!;
         /// <summary>If authentication is required, the password to provide to `vcs_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsPassword { get; set; }
+        public string? VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
+        private string? _explicitNullValueVcsPassword = default!;
 #nullable restore
 #else
-        public string VcsPassword { get; set; }
+        public string VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
+        private string _explicitNullValueVcsPassword = default!;
 #endif
         /// <summary>The URL of the originating repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsUrl { get; set; }
+        public string? VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
+        private string? _explicitNullValueVcsUrl = default!;
 #nullable restore
 #else
-        public string VcsUrl { get; set; }
+        public string VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
+        private string _explicitNullValueVcsUrl = default!;
 #endif
         /// <summary>If authentication is required, the username to provide to `vcs_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsUsername { get; set; }
+        public string? VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
+        private string? _explicitNullValueVcsUsername = default!;
 #nullable restore
 #else
-        public string VcsUsername { get; set; }
+        public string VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
+        private string _explicitNullValueVcsUsername = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequest"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("vcs_password", VcsPassword);
             writer.WriteStringValue("vcs_url", VcsUrl);
             writer.WriteStringValue("vcs_username", VcsUsername);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

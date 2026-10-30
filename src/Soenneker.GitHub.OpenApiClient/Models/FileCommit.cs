@@ -12,24 +12,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FileCommit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("commit") is { } nullNodeCommit && nullNodeCommit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commit = null;
+            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The commit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit? Commit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit? Commit { get => _explicitNullValueCommit; set { _explicitNullValueCommit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit"); else _explicitNullProperties?.Remove("commit"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit? _explicitNullValueCommit = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit Commit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit Commit { get => _explicitNullValueCommit; set { _explicitNullValueCommit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit"); else _explicitNullProperties?.Remove("commit"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit _explicitNullValueCommit = default!;
 #endif
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent _explicitNullValueContent = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.FileCommit"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.FileCommit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.FileCommit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.FileCommit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit>("commit", Commit);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent>("content", Content);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

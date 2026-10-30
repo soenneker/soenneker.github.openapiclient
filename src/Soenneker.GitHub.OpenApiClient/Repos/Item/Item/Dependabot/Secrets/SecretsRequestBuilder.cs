@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Secrets
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListRepoSecrets200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListRepoSecrets200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListRepoSecrets200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListRepoSecrets200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all secrets available in a repository without revealing their encryptedvalues.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.

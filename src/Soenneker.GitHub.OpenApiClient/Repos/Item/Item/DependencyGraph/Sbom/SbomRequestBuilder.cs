@@ -20,13 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom
     public partial class SbomRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The fetchReport property</summary>
-        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.FetchReportRequestBuilder FetchReport
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.FetchReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The generateReport property</summary>
-        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.GenerateReport.GenerateReportRequestBuilder GenerateReport
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.GenerateReport.GenerateReportRequestBuilder(PathParameters, RequestAdapter);
@@ -71,6 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

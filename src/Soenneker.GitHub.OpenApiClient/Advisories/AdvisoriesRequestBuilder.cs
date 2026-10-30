@@ -69,6 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
             {
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

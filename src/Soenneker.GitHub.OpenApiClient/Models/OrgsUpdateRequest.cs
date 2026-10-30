@@ -11,129 +11,205 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OrgsUpdateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("advanced_security_enabled_for_new_repositories") is { } nullNodeAdvancedSecurityEnabledForNewRepositories && nullNodeAdvancedSecurityEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedSecurityEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("billing_email") is { } nullNodeBillingEmail && nullNodeBillingEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingEmail = null;
+            if (parseNode.GetChildNode("blog") is { } nullNodeBlog && nullNodeBlog.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blog = null;
+            if (parseNode.GetChildNode("company") is { } nullNodeCompany && nullNodeCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Company = null;
+            if (parseNode.GetChildNode("default_repository_permission") is { } nullNodeDefaultRepositoryPermission && nullNodeDefaultRepositoryPermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRepositoryPermission = null;
+            if (parseNode.GetChildNode("dependabot_alerts_enabled_for_new_repositories") is { } nullNodeDependabotAlertsEnabledForNewRepositories && nullNodeDependabotAlertsEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependabotAlertsEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("dependabot_security_updates_enabled_for_new_repositories") is { } nullNodeDependabotSecurityUpdatesEnabledForNewRepositories && nullNodeDependabotSecurityUpdatesEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependabotSecurityUpdatesEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("dependency_graph_enabled_for_new_repositories") is { } nullNodeDependencyGraphEnabledForNewRepositories && nullNodeDependencyGraphEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DependencyGraphEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("deploy_keys_enabled_for_repositories") is { } nullNodeDeployKeysEnabledForRepositories && nullNodeDeployKeysEnabledForRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeployKeysEnabledForRepositories = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("has_organization_projects") is { } nullNodeHasOrganizationProjects && nullNodeHasOrganizationProjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasOrganizationProjects = null;
+            if (parseNode.GetChildNode("has_repository_projects") is { } nullNodeHasRepositoryProjects && nullNodeHasRepositoryProjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasRepositoryProjects = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("members_allowed_repository_creation_type") is { } nullNodeMembersAllowedRepositoryCreationType && nullNodeMembersAllowedRepositoryCreationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersAllowedRepositoryCreationType = null;
+            if (parseNode.GetChildNode("members_can_create_internal_repositories") is { } nullNodeMembersCanCreateInternalRepositories && nullNodeMembersCanCreateInternalRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreateInternalRepositories = null;
+            if (parseNode.GetChildNode("members_can_create_pages") is { } nullNodeMembersCanCreatePages && nullNodeMembersCanCreatePages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreatePages = null;
+            if (parseNode.GetChildNode("members_can_create_private_pages") is { } nullNodeMembersCanCreatePrivatePages && nullNodeMembersCanCreatePrivatePages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreatePrivatePages = null;
+            if (parseNode.GetChildNode("members_can_create_private_repositories") is { } nullNodeMembersCanCreatePrivateRepositories && nullNodeMembersCanCreatePrivateRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreatePrivateRepositories = null;
+            if (parseNode.GetChildNode("members_can_create_public_pages") is { } nullNodeMembersCanCreatePublicPages && nullNodeMembersCanCreatePublicPages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreatePublicPages = null;
+            if (parseNode.GetChildNode("members_can_create_public_repositories") is { } nullNodeMembersCanCreatePublicRepositories && nullNodeMembersCanCreatePublicRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreatePublicRepositories = null;
+            if (parseNode.GetChildNode("members_can_create_repositories") is { } nullNodeMembersCanCreateRepositories && nullNodeMembersCanCreateRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanCreateRepositories = null;
+            if (parseNode.GetChildNode("members_can_fork_private_repositories") is { } nullNodeMembersCanForkPrivateRepositories && nullNodeMembersCanForkPrivateRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembersCanForkPrivateRepositories = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("secret_scanning_enabled_for_new_repositories") is { } nullNodeSecretScanningEnabledForNewRepositories && nullNodeSecretScanningEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("secret_scanning_push_protection_custom_link") is { } nullNodeSecretScanningPushProtectionCustomLink && nullNodeSecretScanningPushProtectionCustomLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningPushProtectionCustomLink = null;
+            if (parseNode.GetChildNode("secret_scanning_push_protection_custom_link_enabled") is { } nullNodeSecretScanningPushProtectionCustomLinkEnabled && nullNodeSecretScanningPushProtectionCustomLinkEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningPushProtectionCustomLinkEnabled = null;
+            if (parseNode.GetChildNode("secret_scanning_push_protection_enabled_for_new_repositories") is { } nullNodeSecretScanningPushProtectionEnabledForNewRepositories && nullNodeSecretScanningPushProtectionEnabledForNewRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanningPushProtectionEnabledForNewRepositories = null;
+            if (parseNode.GetChildNode("twitter_username") is { } nullNodeTwitterUsername && nullNodeTwitterUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TwitterUsername = null;
+            if (parseNode.GetChildNode("web_commit_signoff_required") is { } nullNodeWebCommitSignoffRequired && nullNodeWebCommitSignoffRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebCommitSignoffRequired = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether GitHub Advanced Security is automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? AdvancedSecurityEnabledForNewRepositories { get; set; }
+        public bool? AdvancedSecurityEnabledForNewRepositories { get => _explicitNullValueAdvancedSecurityEnabledForNewRepositories; set { _explicitNullValueAdvancedSecurityEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_security_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("advanced_security_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueAdvancedSecurityEnabledForNewRepositories = default!;
         /// <summary>Billing email address. This address is not publicized.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BillingEmail { get; set; }
+        public string? BillingEmail { get => _explicitNullValueBillingEmail; set { _explicitNullValueBillingEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_email"); else _explicitNullProperties?.Remove("billing_email"); } }
+        private string? _explicitNullValueBillingEmail = default!;
 #nullable restore
 #else
-        public string BillingEmail { get; set; }
+        public string BillingEmail { get => _explicitNullValueBillingEmail; set { _explicitNullValueBillingEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_email"); else _explicitNullProperties?.Remove("billing_email"); } }
+        private string _explicitNullValueBillingEmail = default!;
 #endif
         /// <summary>The blog property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Blog { get; set; }
+        public string? Blog { get => _explicitNullValueBlog; set { _explicitNullValueBlog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blog"); else _explicitNullProperties?.Remove("blog"); } }
+        private string? _explicitNullValueBlog = default!;
 #nullable restore
 #else
-        public string Blog { get; set; }
+        public string Blog { get => _explicitNullValueBlog; set { _explicitNullValueBlog = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blog"); else _explicitNullProperties?.Remove("blog"); } }
+        private string _explicitNullValueBlog = default!;
 #endif
         /// <summary>The company name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Company { get; set; }
+        public string? Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        private string? _explicitNullValueCompany = default!;
 #nullable restore
 #else
-        public string Company { get; set; }
+        public string Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        private string _explicitNullValueCompany = default!;
 #endif
         /// <summary>Default permission level members have for organization repositories.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestDefaultRepositoryPermission? DefaultRepositoryPermission { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestDefaultRepositoryPermission? DefaultRepositoryPermission { get => _explicitNullValueDefaultRepositoryPermission; set { _explicitNullValueDefaultRepositoryPermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_repository_permission"); else _explicitNullProperties?.Remove("default_repository_permission"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestDefaultRepositoryPermission? _explicitNullValueDefaultRepositoryPermission = default!;
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? DependabotAlertsEnabledForNewRepositories { get; set; }
+        public bool? DependabotAlertsEnabledForNewRepositories { get => _explicitNullValueDependabotAlertsEnabledForNewRepositories; set { _explicitNullValueDependabotAlertsEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependabot_alerts_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("dependabot_alerts_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueDependabotAlertsEnabledForNewRepositories = default!;
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? DependabotSecurityUpdatesEnabledForNewRepositories { get; set; }
+        public bool? DependabotSecurityUpdatesEnabledForNewRepositories { get => _explicitNullValueDependabotSecurityUpdatesEnabledForNewRepositories; set { _explicitNullValueDependabotSecurityUpdatesEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependabot_security_updates_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("dependabot_security_updates_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueDependabotSecurityUpdatesEnabledForNewRepositories = default!;
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? DependencyGraphEnabledForNewRepositories { get; set; }
+        public bool? DependencyGraphEnabledForNewRepositories { get => _explicitNullValueDependencyGraphEnabledForNewRepositories; set { _explicitNullValueDependencyGraphEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependency_graph_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("dependency_graph_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueDependencyGraphEnabledForNewRepositories = default!;
         /// <summary>Controls whether or not deploy keys may be added and used for repositories in the organization.</summary>
-        public bool? DeployKeysEnabledForRepositories { get; set; }
+        public bool? DeployKeysEnabledForRepositories { get => _explicitNullValueDeployKeysEnabledForRepositories; set { _explicitNullValueDeployKeysEnabledForRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deploy_keys_enabled_for_repositories"); else _explicitNullProperties?.Remove("deploy_keys_enabled_for_repositories"); } }
+        private bool? _explicitNullValueDeployKeysEnabledForRepositories = default!;
         /// <summary>The description of the company. The maximum size is 160 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The publicly visible email address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>Whether an organization can use organization projects.</summary>
-        public bool? HasOrganizationProjects { get; set; }
+        public bool? HasOrganizationProjects { get => _explicitNullValueHasOrganizationProjects; set { _explicitNullValueHasOrganizationProjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_organization_projects"); else _explicitNullProperties?.Remove("has_organization_projects"); } }
+        private bool? _explicitNullValueHasOrganizationProjects = default!;
         /// <summary>Whether repositories that belong to the organization can use repository projects.</summary>
-        public bool? HasRepositoryProjects { get; set; }
+        public bool? HasRepositoryProjects { get => _explicitNullValueHasRepositoryProjects; set { _explicitNullValueHasRepositoryProjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_repository_projects"); else _explicitNullProperties?.Remove("has_repository_projects"); } }
+        private bool? _explicitNullValueHasRepositoryProjects = default!;
         /// <summary>The location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get; set; }
+        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public string Location { get; set; }
+        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private string _explicitNullValueLocation = default!;
 #endif
         /// <summary>Specifies which types of repositories non-admin organization members can create. `private` is only available to repositories that are part of an organization on GitHub Enterprise Cloud. **Note:** This parameter is closing down and will be removed in the future. Its return value ignores internal repositories. Using this parameter overrides values set in `members_can_create_repositories`. See the parameter deprecation notice in the operation description for details.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestMembersAllowedRepositoryCreationType? MembersAllowedRepositoryCreationType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestMembersAllowedRepositoryCreationType? MembersAllowedRepositoryCreationType { get => _explicitNullValueMembersAllowedRepositoryCreationType; set { _explicitNullValueMembersAllowedRepositoryCreationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_allowed_repository_creation_type"); else _explicitNullProperties?.Remove("members_allowed_repository_creation_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequestMembersAllowedRepositoryCreationType? _explicitNullValueMembersAllowedRepositoryCreationType = default!;
         /// <summary>Whether organization members can create internal repositories, which are visible to all enterprise members. You can only allow members to create internal repositories if your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+. For more information, see &quot;[Restricting repository creation in your organization](https://docs.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)&quot; in the GitHub Help documentation.</summary>
-        public bool? MembersCanCreateInternalRepositories { get; set; }
+        public bool? MembersCanCreateInternalRepositories { get => _explicitNullValueMembersCanCreateInternalRepositories; set { _explicitNullValueMembersCanCreateInternalRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_internal_repositories"); else _explicitNullProperties?.Remove("members_can_create_internal_repositories"); } }
+        private bool? _explicitNullValueMembersCanCreateInternalRepositories = default!;
         /// <summary>Whether organization members can create GitHub Pages sites. Existing published sites will not be impacted.</summary>
-        public bool? MembersCanCreatePages { get; set; }
+        public bool? MembersCanCreatePages { get => _explicitNullValueMembersCanCreatePages; set { _explicitNullValueMembersCanCreatePages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_pages"); else _explicitNullProperties?.Remove("members_can_create_pages"); } }
+        private bool? _explicitNullValueMembersCanCreatePages = default!;
         /// <summary>Whether organization members can create private GitHub Pages sites. Existing published sites will not be impacted.</summary>
-        public bool? MembersCanCreatePrivatePages { get; set; }
+        public bool? MembersCanCreatePrivatePages { get => _explicitNullValueMembersCanCreatePrivatePages; set { _explicitNullValueMembersCanCreatePrivatePages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_private_pages"); else _explicitNullProperties?.Remove("members_can_create_private_pages"); } }
+        private bool? _explicitNullValueMembersCanCreatePrivatePages = default!;
         /// <summary>Whether organization members can create private repositories, which are visible to organization members with permission. For more information, see &quot;[Restricting repository creation in your organization](https://docs.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)&quot; in the GitHub Help documentation.</summary>
-        public bool? MembersCanCreatePrivateRepositories { get; set; }
+        public bool? MembersCanCreatePrivateRepositories { get => _explicitNullValueMembersCanCreatePrivateRepositories; set { _explicitNullValueMembersCanCreatePrivateRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_private_repositories"); else _explicitNullProperties?.Remove("members_can_create_private_repositories"); } }
+        private bool? _explicitNullValueMembersCanCreatePrivateRepositories = default!;
         /// <summary>Whether organization members can create public GitHub Pages sites. Existing published sites will not be impacted.</summary>
-        public bool? MembersCanCreatePublicPages { get; set; }
+        public bool? MembersCanCreatePublicPages { get => _explicitNullValueMembersCanCreatePublicPages; set { _explicitNullValueMembersCanCreatePublicPages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_public_pages"); else _explicitNullProperties?.Remove("members_can_create_public_pages"); } }
+        private bool? _explicitNullValueMembersCanCreatePublicPages = default!;
         /// <summary>Whether organization members can create public repositories, which are visible to anyone. For more information, see &quot;[Restricting repository creation in your organization](https://docs.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)&quot; in the GitHub Help documentation.</summary>
-        public bool? MembersCanCreatePublicRepositories { get; set; }
+        public bool? MembersCanCreatePublicRepositories { get => _explicitNullValueMembersCanCreatePublicRepositories; set { _explicitNullValueMembersCanCreatePublicRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_public_repositories"); else _explicitNullProperties?.Remove("members_can_create_public_repositories"); } }
+        private bool? _explicitNullValueMembersCanCreatePublicRepositories = default!;
         /// <summary>Whether of non-admin organization members can create repositories. **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details.</summary>
-        public bool? MembersCanCreateRepositories { get; set; }
+        public bool? MembersCanCreateRepositories { get => _explicitNullValueMembersCanCreateRepositories; set { _explicitNullValueMembersCanCreateRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_create_repositories"); else _explicitNullProperties?.Remove("members_can_create_repositories"); } }
+        private bool? _explicitNullValueMembersCanCreateRepositories = default!;
         /// <summary>Whether organization members can fork private organization repositories.</summary>
-        public bool? MembersCanForkPrivateRepositories { get; set; }
+        public bool? MembersCanForkPrivateRepositories { get => _explicitNullValueMembersCanForkPrivateRepositories; set { _explicitNullValueMembersCanForkPrivateRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("members_can_fork_private_repositories"); else _explicitNullProperties?.Remove("members_can_fork_private_repositories"); } }
+        private bool? _explicitNullValueMembersCanForkPrivateRepositories = default!;
         /// <summary>The shorthand name of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? SecretScanningEnabledForNewRepositories { get; set; }
+        public bool? SecretScanningEnabledForNewRepositories { get => _explicitNullValueSecretScanningEnabledForNewRepositories; set { _explicitNullValueSecretScanningEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("secret_scanning_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueSecretScanningEnabledForNewRepositories = default!;
         /// <summary>If `secret_scanning_push_protection_custom_link_enabled` is true, the URL that will be displayed to contributors who are blocked from pushing a secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecretScanningPushProtectionCustomLink { get; set; }
+        public string? SecretScanningPushProtectionCustomLink { get => _explicitNullValueSecretScanningPushProtectionCustomLink; set { _explicitNullValueSecretScanningPushProtectionCustomLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection_custom_link"); else _explicitNullProperties?.Remove("secret_scanning_push_protection_custom_link"); } }
+        private string? _explicitNullValueSecretScanningPushProtectionCustomLink = default!;
 #nullable restore
 #else
-        public string SecretScanningPushProtectionCustomLink { get; set; }
+        public string SecretScanningPushProtectionCustomLink { get => _explicitNullValueSecretScanningPushProtectionCustomLink; set { _explicitNullValueSecretScanningPushProtectionCustomLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection_custom_link"); else _explicitNullProperties?.Remove("secret_scanning_push_protection_custom_link"); } }
+        private string _explicitNullValueSecretScanningPushProtectionCustomLink = default!;
 #endif
         /// <summary>Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection.</summary>
-        public bool? SecretScanningPushProtectionCustomLinkEnabled { get; set; }
+        public bool? SecretScanningPushProtectionCustomLinkEnabled { get => _explicitNullValueSecretScanningPushProtectionCustomLinkEnabled; set { _explicitNullValueSecretScanningPushProtectionCustomLinkEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection_custom_link_enabled"); else _explicitNullProperties?.Remove("secret_scanning_push_protection_custom_link_enabled"); } }
+        private bool? _explicitNullValueSecretScanningPushProtectionCustomLinkEnabled = default!;
         /// <summary>**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead.Whether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see &quot;[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).&quot;You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.</summary>
         [Obsolete("")]
-        public bool? SecretScanningPushProtectionEnabledForNewRepositories { get; set; }
+        public bool? SecretScanningPushProtectionEnabledForNewRepositories { get => _explicitNullValueSecretScanningPushProtectionEnabledForNewRepositories; set { _explicitNullValueSecretScanningPushProtectionEnabledForNewRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning_push_protection_enabled_for_new_repositories"); else _explicitNullProperties?.Remove("secret_scanning_push_protection_enabled_for_new_repositories"); } }
+        private bool? _explicitNullValueSecretScanningPushProtectionEnabledForNewRepositories = default!;
         /// <summary>The Twitter username of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TwitterUsername { get; set; }
+        public string? TwitterUsername { get => _explicitNullValueTwitterUsername; set { _explicitNullValueTwitterUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("twitter_username"); else _explicitNullProperties?.Remove("twitter_username"); } }
+        private string? _explicitNullValueTwitterUsername = default!;
 #nullable restore
 #else
-        public string TwitterUsername { get; set; }
+        public string TwitterUsername { get => _explicitNullValueTwitterUsername; set { _explicitNullValueTwitterUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("twitter_username"); else _explicitNullProperties?.Remove("twitter_username"); } }
+        private string _explicitNullValueTwitterUsername = default!;
 #endif
         /// <summary>Whether contributors to organization repositories are required to sign off on commits they make through GitHub&apos;s web interface.</summary>
-        public bool? WebCommitSignoffRequired { get; set; }
+        public bool? WebCommitSignoffRequired { get => _explicitNullValueWebCommitSignoffRequired; set { _explicitNullValueWebCommitSignoffRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_commit_signoff_required"); else _explicitNullProperties?.Remove("web_commit_signoff_required"); } }
+        private bool? _explicitNullValueWebCommitSignoffRequired = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest"/> and sets the default values.
         /// </summary>
@@ -155,7 +231,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -234,6 +310,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("secret_scanning_push_protection_enabled_for_new_repositories", SecretScanningPushProtectionEnabledForNewRepositories);
             writer.WriteStringValue("twitter_username", TwitterUsername);
             writer.WriteBoolValue("web_commit_signoff_required", WebCommitSignoffRequired);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

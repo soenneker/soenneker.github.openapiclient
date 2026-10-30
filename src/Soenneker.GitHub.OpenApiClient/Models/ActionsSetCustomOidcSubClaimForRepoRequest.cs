@@ -12,21 +12,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsSetCustomOidcSubClaimForRepoRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("include_claim_keys") is { } nullNodeIncludeClaimKeys && nullNodeIncludeClaimKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeClaimKeys = null;
+            if (parseNode.GetChildNode("use_default") is { } nullNodeUseDefault && nullNodeUseDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDefault = null;
+            if (parseNode.GetChildNode("use_immutable_subject") is { } nullNodeUseImmutableSubject && nullNodeUseImmutableSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseImmutableSubject = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludeClaimKeys { get; set; }
+        public List<string>? IncludeClaimKeys { get => _explicitNullValueIncludeClaimKeys; set { _explicitNullValueIncludeClaimKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_claim_keys"); else _explicitNullProperties?.Remove("include_claim_keys"); } }
+        private List<string>? _explicitNullValueIncludeClaimKeys = default!;
 #nullable restore
 #else
-        public List<string> IncludeClaimKeys { get; set; }
+        public List<string> IncludeClaimKeys { get => _explicitNullValueIncludeClaimKeys; set { _explicitNullValueIncludeClaimKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_claim_keys"); else _explicitNullProperties?.Remove("include_claim_keys"); } }
+        private List<string> _explicitNullValueIncludeClaimKeys = default!;
 #endif
         /// <summary>Whether to use the default template or not. If `true`, the `include_claim_keys` field is ignored.</summary>
-        public bool? UseDefault { get; set; }
+        public bool? UseDefault { get => _explicitNullValueUseDefault; set { _explicitNullValueUseDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_default"); else _explicitNullProperties?.Remove("use_default"); } }
+        private bool? _explicitNullValueUseDefault = default!;
         /// <summary>Whether to opt in to the immutable OIDC subject claim format for this repository. When `true`, OIDC tokens will use a stable, repository-ID-based `sub` claim.</summary>
-        public bool? UseImmutableSubject { get; set; }
+        public bool? UseImmutableSubject { get => _explicitNullValueUseImmutableSubject; set { _explicitNullValueUseImmutableSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_immutable_subject"); else _explicitNullProperties?.Remove("use_immutable_subject"); } }
+        private bool? _explicitNullValueUseImmutableSubject = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("include_claim_keys", IncludeClaimKeys);
             writer.WriteBoolValue("use_default", UseDefault);
             writer.WriteBoolValue("use_immutable_subject", UseImmutableSubject);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

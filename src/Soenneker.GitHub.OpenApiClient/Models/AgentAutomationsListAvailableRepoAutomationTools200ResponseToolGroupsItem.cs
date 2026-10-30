@@ -12,30 +12,46 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItem : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+        }
+
         /// <summary>The unique identifier of the group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The human-readable name of the group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>The tools currently available in this group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem>? Tools { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem> Tools { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem> _explicitNullValueTools = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("title", Title);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTools200ResponseToolGroupsItemToolsItem>("tools", Tools);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

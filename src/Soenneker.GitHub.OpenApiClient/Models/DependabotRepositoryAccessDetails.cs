@@ -12,17 +12,29 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotRepositoryAccessDetails : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accessible_repositories") is { } nullNodeAccessibleRepositories && nullNodeAccessibleRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessibleRepositories = null;
+            if (parseNode.GetChildNode("default_level") is { } nullNodeDefaultLevel && nullNodeDefaultLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLevel = null;
+        }
+
         /// <summary>The accessible_repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>? AccessibleRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>? AccessibleRepositories { get => _explicitNullValueAccessibleRepositories; set { _explicitNullValueAccessibleRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessible_repositories"); else _explicitNullProperties?.Remove("accessible_repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>? _explicitNullValueAccessibleRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository> AccessibleRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository> AccessibleRepositories { get => _explicitNullValueAccessibleRepositories; set { _explicitNullValueAccessibleRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessible_repositories"); else _explicitNullProperties?.Remove("accessible_repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository> _explicitNullValueAccessibleRepositories = default!;
 #endif
         /// <summary>The default repository access level for Dependabot updates.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel? DefaultLevel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel? DefaultLevel { get => _explicitNullValueDefaultLevel; set { _explicitNullValueDefaultLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_level"); else _explicitNullProperties?.Remove("default_level"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel? _explicitNullValueDefaultLevel = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +65,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>("accessible_repositories", AccessibleRepositories);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel>("default_level", DefaultLevel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel>("default_level", DefaultLevel);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

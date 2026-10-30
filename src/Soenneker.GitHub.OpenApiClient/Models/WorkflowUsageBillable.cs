@@ -11,32 +11,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WorkflowUsageBillable : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("MACOS") is { } nullNodeMACOS && nullNodeMACOS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MACOS = null;
+            if (parseNode.GetChildNode("UBUNTU") is { } nullNodeUBUNTU && nullNodeUBUNTU.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UBUNTU = null;
+            if (parseNode.GetChildNode("WINDOWS") is { } nullNodeWINDOWS && nullNodeWINDOWS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WINDOWS = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The MACOS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos? MACOS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos? MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos? _explicitNullValueMACOS = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos MACOS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos _explicitNullValueMACOS = default!;
 #endif
         /// <summary>The UBUNTU property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu? UBUNTU { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu? UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu? _explicitNullValueUBUNTU = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu UBUNTU { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu _explicitNullValueUBUNTU = default!;
 #endif
         /// <summary>The WINDOWS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows? WINDOWS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows? WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows? _explicitNullValueWINDOWS = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows WINDOWS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows _explicitNullValueWINDOWS = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos>("MACOS", MACOS);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableUbuntu>("UBUNTU", UBUNTU);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableWindows>("WINDOWS", WINDOWS);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

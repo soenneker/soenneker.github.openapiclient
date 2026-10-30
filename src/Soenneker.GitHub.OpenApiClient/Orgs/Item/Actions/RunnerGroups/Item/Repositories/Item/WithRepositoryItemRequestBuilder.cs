@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Rep
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a repository to the list of repositories that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see &quot;[Create a self-hosted runner group for an organization](#create-a-self-hosted-runner-group-for-an-organization).&quot;OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.Rep
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes a repository from the list of selected repositories that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see &quot;[Create a self-hosted runner group for an organization](#create-a-self-hosted-runner-group-for-an-organization).&quot;OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

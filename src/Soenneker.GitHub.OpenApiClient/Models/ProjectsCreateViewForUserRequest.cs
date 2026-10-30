@@ -11,56 +11,83 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProjectsCreateViewForUserRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
+            if (parseNode.GetChildNode("group_by") is { } nullNodeGroupBy && nullNodeGroupBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupBy = null;
+            if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("sort_by") is { } nullNodeSortBy && nullNodeSortBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SortBy = null;
+            if (parseNode.GetChildNode("vertical_group_by") is { } nullNodeVerticalGroupBy && nullNodeVerticalGroupBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerticalGroupBy = null;
+            if (parseNode.GetChildNode("visible_fields") is { } nullNodeVisibleFields && nullNodeVisibleFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VisibleFields = null;
+        }
+
         /// <summary>The filter query for the view. See [Filtering projects](https://docs.github.com/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filter { get; set; }
+        public string? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private string? _explicitNullValueFilter = default!;
 #nullable restore
 #else
-        public string Filter { get; set; }
+        public string Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private string _explicitNullValueFilter = default!;
 #endif
         /// <summary>The field IDs to group items by (horizontal grouping). Supports a single field. The field must support grouping; fields such as `Title`, `Reviewers`, `Linked pull requests`, `Sub-issues progress`, `Tracked by`, and `Tracks` cannot be grouped on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? GroupBy { get; set; }
+        public List<int?>? GroupBy { get => _explicitNullValueGroupBy; set { _explicitNullValueGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by"); else _explicitNullProperties?.Remove("group_by"); } }
+        private List<int?>? _explicitNullValueGroupBy = default!;
 #nullable restore
 #else
-        public List<int?> GroupBy { get; set; }
+        public List<int?> GroupBy { get => _explicitNullValueGroupBy; set { _explicitNullValueGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by"); else _explicitNullProperties?.Remove("group_by"); } }
+        private List<int?> _explicitNullValueGroupBy = default!;
 #endif
         /// <summary>The layout of the view.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequestLayout? Layout { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequestLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequestLayout? _explicitNullValueLayout = default!;
         /// <summary>The name of the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Sorting configuration for the view. Each element is a two-element array of `[field_id, direction]` where `direction` is `&quot;asc&quot;` or `&quot;desc&quot;`. Supports multiple sort criteria applied in order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SortBy { get; set; }
+        public UntypedNode? SortBy { get => _explicitNullValueSortBy; set { _explicitNullValueSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_by"); else _explicitNullProperties?.Remove("sort_by"); } }
+        private UntypedNode? _explicitNullValueSortBy = default!;
 #nullable restore
 #else
-        public UntypedNode SortBy { get; set; }
+        public UntypedNode SortBy { get => _explicitNullValueSortBy; set { _explicitNullValueSortBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sort_by"); else _explicitNullProperties?.Remove("sort_by"); } }
+        private UntypedNode _explicitNullValueSortBy = default!;
 #endif
         /// <summary>The field IDs to use as columns in `board` layout (vertical grouping). Supports a single field. The field must support grouping; fields such as `Title`, `Reviewers`, `Linked pull requests`, `Sub-issues progress`, `Tracked by`, and `Tracks` cannot be grouped on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? VerticalGroupBy { get; set; }
+        public List<int?>? VerticalGroupBy { get => _explicitNullValueVerticalGroupBy; set { _explicitNullValueVerticalGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical_group_by"); else _explicitNullProperties?.Remove("vertical_group_by"); } }
+        private List<int?>? _explicitNullValueVerticalGroupBy = default!;
 #nullable restore
 #else
-        public List<int?> VerticalGroupBy { get; set; }
+        public List<int?> VerticalGroupBy { get => _explicitNullValueVerticalGroupBy; set { _explicitNullValueVerticalGroupBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical_group_by"); else _explicitNullProperties?.Remove("vertical_group_by"); } }
+        private List<int?> _explicitNullValueVerticalGroupBy = default!;
 #endif
         /// <summary>`visible_fields` is not applicable to `roadmap` layout views.For `table` and `board` layouts, this represents the field IDs that should be visible in the view. If not provided, the default visible fields will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? VisibleFields { get; set; }
+        public List<int?>? VisibleFields { get => _explicitNullValueVisibleFields; set { _explicitNullValueVisibleFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visible_fields"); else _explicitNullProperties?.Remove("visible_fields"); } }
+        private List<int?>? _explicitNullValueVisibleFields = default!;
 #nullable restore
 #else
-        public List<int?> VisibleFields { get; set; }
+        public List<int?> VisibleFields { get => _explicitNullValueVisibleFields; set { _explicitNullValueVisibleFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visible_fields"); else _explicitNullProperties?.Remove("visible_fields"); } }
+        private List<int?> _explicitNullValueVisibleFields = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -70,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsCreateViewForUserRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,7 +129,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<UntypedNode>("sort_by", SortBy);
             writer.WriteCollectionOfPrimitiveValues<int?>("vertical_group_by", VerticalGroupBy);
-            writer.WriteCollectionOfPrimitiveValues<int?>("visible_fields", VisibleFields);
+            writer.WriteCollectionOfPrimitiveValues<int?>("visible_fields", VisibleFields);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

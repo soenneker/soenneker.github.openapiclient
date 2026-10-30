@@ -12,50 +12,74 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProtectedBranchRequiredStatusCheck : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
+            if (parseNode.GetChildNode("contexts") is { } nullNodeContexts && nullNodeContexts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contexts = null;
+            if (parseNode.GetChildNode("contexts_url") is { } nullNodeContextsUrl && nullNodeContextsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContextsUrl = null;
+            if (parseNode.GetChildNode("enforcement_level") is { } nullNodeEnforcementLevel && nullNodeEnforcementLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforcementLevel = null;
+            if (parseNode.GetChildNode("strict") is { } nullNodeStrict && nullNodeStrict.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Strict = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>? Checks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>? Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>? _explicitNullValueChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem> Checks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem> Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem> _explicitNullValueChecks = default!;
 #endif
         /// <summary>The contexts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Contexts { get; set; }
+        public List<string>? Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
+        private List<string>? _explicitNullValueContexts = default!;
 #nullable restore
 #else
-        public List<string> Contexts { get; set; }
+        public List<string> Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
+        private List<string> _explicitNullValueContexts = default!;
 #endif
         /// <summary>The contexts_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContextsUrl { get; set; }
+        public string? ContextsUrl { get => _explicitNullValueContextsUrl; set { _explicitNullValueContextsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts_url"); else _explicitNullProperties?.Remove("contexts_url"); } }
+        private string? _explicitNullValueContextsUrl = default!;
 #nullable restore
 #else
-        public string ContextsUrl { get; set; }
+        public string ContextsUrl { get => _explicitNullValueContextsUrl; set { _explicitNullValueContextsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts_url"); else _explicitNullProperties?.Remove("contexts_url"); } }
+        private string _explicitNullValueContextsUrl = default!;
 #endif
         /// <summary>The enforcement_level property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnforcementLevel { get; set; }
+        public string? EnforcementLevel { get => _explicitNullValueEnforcementLevel; set { _explicitNullValueEnforcementLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement_level"); else _explicitNullProperties?.Remove("enforcement_level"); } }
+        private string? _explicitNullValueEnforcementLevel = default!;
 #nullable restore
 #else
-        public string EnforcementLevel { get; set; }
+        public string EnforcementLevel { get => _explicitNullValueEnforcementLevel; set { _explicitNullValueEnforcementLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement_level"); else _explicitNullProperties?.Remove("enforcement_level"); } }
+        private string _explicitNullValueEnforcementLevel = default!;
 #endif
         /// <summary>The strict property</summary>
-        public bool? Strict { get; set; }
+        public bool? Strict { get => _explicitNullValueStrict; set { _explicitNullValueStrict = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strict"); else _explicitNullProperties?.Remove("strict"); } }
+        private bool? _explicitNullValueStrict = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("enforcement_level", EnforcementLevel);
             writer.WriteBoolValue("strict", Strict);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

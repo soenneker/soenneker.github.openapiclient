@@ -11,45 +11,73 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RepositoryRulePullRequestParameters : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_merge_methods") is { } nullNodeAllowedMergeMethods && nullNodeAllowedMergeMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedMergeMethods = null;
+            if (parseNode.GetChildNode("dismissal_restriction") is { } nullNodeDismissalRestriction && nullNodeDismissalRestriction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalRestriction = null;
+            if (parseNode.GetChildNode("dismiss_stale_reviews_on_push") is { } nullNodeDismissStaleReviewsOnPush && nullNodeDismissStaleReviewsOnPush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissStaleReviewsOnPush = null;
+            if (parseNode.GetChildNode("require_code_owner_review") is { } nullNodeRequireCodeOwnerReview && nullNodeRequireCodeOwnerReview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireCodeOwnerReview = null;
+            if (parseNode.GetChildNode("required_approving_review_count") is { } nullNodeRequiredApprovingReviewCount && nullNodeRequiredApprovingReviewCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredApprovingReviewCount = null;
+            if (parseNode.GetChildNode("required_reviewers") is { } nullNodeRequiredReviewers && nullNodeRequiredReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredReviewers = null;
+            if (parseNode.GetChildNode("required_review_thread_resolution") is { } nullNodeRequiredReviewThreadResolution && nullNodeRequiredReviewThreadResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredReviewThreadResolution = null;
+            if (parseNode.GetChildNode("require_extra_approval_for_unattributed_changes") is { } nullNodeRequireExtraApprovalForUnattributedChanges && nullNodeRequireExtraApprovalForUnattributedChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireExtraApprovalForUnattributedChanges = null;
+            if (parseNode.GetChildNode("require_last_push_approval") is { } nullNodeRequireLastPushApproval && nullNodeRequireLastPushApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireLastPushApproval = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?>? AllowedMergeMethods { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?>? AllowedMergeMethods { get => _explicitNullValueAllowedMergeMethods; set { _explicitNullValueAllowedMergeMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_merge_methods"); else _explicitNullProperties?.Remove("allowed_merge_methods"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?>? _explicitNullValueAllowedMergeMethods = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?> AllowedMergeMethods { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?> AllowedMergeMethods { get => _explicitNullValueAllowedMergeMethods; set { _explicitNullValueAllowedMergeMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_merge_methods"); else _explicitNullProperties?.Remove("allowed_merge_methods"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?> _explicitNullValueAllowedMergeMethods = default!;
 #endif
         /// <summary>Specify people, teams, or apps allowed to dismiss pull request reviews.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction? DismissalRestriction { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction? DismissalRestriction { get => _explicitNullValueDismissalRestriction; set { _explicitNullValueDismissalRestriction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_restriction"); else _explicitNullProperties?.Remove("dismissal_restriction"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction? _explicitNullValueDismissalRestriction = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction DismissalRestriction { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction DismissalRestriction { get => _explicitNullValueDismissalRestriction; set { _explicitNullValueDismissalRestriction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_restriction"); else _explicitNullProperties?.Remove("dismissal_restriction"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction _explicitNullValueDismissalRestriction = default!;
 #endif
         /// <summary>New, reviewable commits pushed will dismiss previous pull request review approvals.</summary>
-        public bool? DismissStaleReviewsOnPush { get; set; }
+        public bool? DismissStaleReviewsOnPush { get => _explicitNullValueDismissStaleReviewsOnPush; set { _explicitNullValueDismissStaleReviewsOnPush = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismiss_stale_reviews_on_push"); else _explicitNullProperties?.Remove("dismiss_stale_reviews_on_push"); } }
+        private bool? _explicitNullValueDismissStaleReviewsOnPush = default!;
         /// <summary>Require an approving review in pull requests that modify files that have a designated code owner.</summary>
-        public bool? RequireCodeOwnerReview { get; set; }
+        public bool? RequireCodeOwnerReview { get => _explicitNullValueRequireCodeOwnerReview; set { _explicitNullValueRequireCodeOwnerReview = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_code_owner_review"); else _explicitNullProperties?.Remove("require_code_owner_review"); } }
+        private bool? _explicitNullValueRequireCodeOwnerReview = default!;
         /// <summary>The number of approving reviews that are required before a pull request can be merged.</summary>
-        public int? RequiredApprovingReviewCount { get; set; }
+        public int? RequiredApprovingReviewCount { get => _explicitNullValueRequiredApprovingReviewCount; set { _explicitNullValueRequiredApprovingReviewCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_approving_review_count"); else _explicitNullProperties?.Remove("required_approving_review_count"); } }
+        private int? _explicitNullValueRequiredApprovingReviewCount = default!;
         /// <summary>A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>? RequiredReviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>? RequiredReviewers { get => _explicitNullValueRequiredReviewers; set { _explicitNullValueRequiredReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_reviewers"); else _explicitNullProperties?.Remove("required_reviewers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>? _explicitNullValueRequiredReviewers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration> RequiredReviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration> RequiredReviewers { get => _explicitNullValueRequiredReviewers; set { _explicitNullValueRequiredReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_reviewers"); else _explicitNullProperties?.Remove("required_reviewers"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration> _explicitNullValueRequiredReviewers = default!;
 #endif
         /// <summary>All conversations on code must be resolved before a pull request can be merged.</summary>
-        public bool? RequiredReviewThreadResolution { get; set; }
+        public bool? RequiredReviewThreadResolution { get => _explicitNullValueRequiredReviewThreadResolution; set { _explicitNullValueRequiredReviewThreadResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_review_thread_resolution"); else _explicitNullProperties?.Remove("required_review_thread_resolution"); } }
+        private bool? _explicitNullValueRequiredReviewThreadResolution = default!;
         /// <summary>When Copilot opens a pull request without a human collaborator, require one more approving review if a non-zero approval count is required.</summary>
-        public bool? RequireExtraApprovalForUnattributedChanges { get; set; }
+        public bool? RequireExtraApprovalForUnattributedChanges { get => _explicitNullValueRequireExtraApprovalForUnattributedChanges; set { _explicitNullValueRequireExtraApprovalForUnattributedChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_extra_approval_for_unattributed_changes"); else _explicitNullProperties?.Remove("require_extra_approval_for_unattributed_changes"); } }
+        private bool? _explicitNullValueRequireExtraApprovalForUnattributedChanges = default!;
         /// <summary>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</summary>
-        public bool? RequireLastPushApproval { get; set; }
+        public bool? RequireLastPushApproval { get => _explicitNullValueRequireLastPushApproval; set { _explicitNullValueRequireLastPushApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_last_push_approval"); else _explicitNullProperties?.Remove("require_last_push_approval"); } }
+        private bool? _explicitNullValueRequireLastPushApproval = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters"/> and sets the default values.
         /// </summary>
@@ -65,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +130,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("required_review_thread_resolution", RequiredReviewThreadResolution);
             writer.WriteBoolValue("require_extra_approval_for_unattributed_changes", RequireExtraApprovalForUnattributedChanges);
             writer.WriteBoolValue("require_last_push_approval", RequireLastPushApproval);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

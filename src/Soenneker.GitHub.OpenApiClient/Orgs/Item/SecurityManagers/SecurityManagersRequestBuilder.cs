@@ -19,7 +19,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers
     public partial class SecurityManagersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The teams property</summary>
-        [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.Teams.TeamsRequestBuilder Teams
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
@@ -58,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

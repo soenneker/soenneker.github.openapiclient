@@ -11,78 +11,115 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class IssuesUpdateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assignee") is { } nullNodeAssignee && nullNodeAssignee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignee = null;
+            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("duplicate_issue_id") is { } nullNodeDuplicateIssueId && nullNodeDuplicateIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicateIssueId = null;
+            if (parseNode.GetChildNode("issue_field_values") is { } nullNodeIssueFieldValues && nullNodeIssueFieldValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldValues = null;
+            if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
+            if (parseNode.GetChildNode("milestone") is { } nullNodeMilestone && nullNodeMilestone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Milestone = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("state_reason") is { } nullNodeStateReason && nullNodeStateReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateReason = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Username to assign to this issue. **This field is closing down.**</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Assignee { get; set; }
+        public string? Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        private string? _explicitNullValueAssignee = default!;
 #nullable restore
 #else
-        public string Assignee { get; set; }
+        public string Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        private string _explicitNullValueAssignee = default!;
 #endif
         /// <summary>Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Assignees { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<string> Assignees { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>The contents of the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        private string _explicitNullValueBody = default!;
 #endif
         /// <summary>The ID of the issue that this issue duplicates, used when marking this issue as a duplicate with `status: Duplicate` or `state_reason: duplicate`. The issue must exist and be accessible to the authenticated user.</summary>
-        public long? DuplicateIssueId { get; set; }
+        public long? DuplicateIssueId { get => _explicitNullValueDuplicateIssueId; set { _explicitNullValueDuplicateIssueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicate_issue_id"); else _explicitNullProperties?.Remove("duplicate_issue_id"); } }
+        private long? _explicitNullValueDuplicateIssueId = default!;
         /// <summary>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Only users with push access can set field values for issues</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem>? IssueFieldValues { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem>? IssueFieldValues { get => _explicitNullValueIssueFieldValues; set { _explicitNullValueIssueFieldValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_values"); else _explicitNullProperties?.Remove("issue_field_values"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem>? _explicitNullValueIssueFieldValues = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem> IssueFieldValues { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem> IssueFieldValues { get => _explicitNullValueIssueFieldValues; set { _explicitNullValueIssueFieldValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_values"); else _explicitNullProperties?.Remove("issue_field_values"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem> _explicitNullValueIssueFieldValues = default!;
 #endif
         /// <summary>Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Labels { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueLabels = default!;
 #nullable restore
 #else
-        public List<string> Labels { get; set; }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueLabels = default!;
 #endif
         /// <summary>The milestone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone? Milestone { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone? Milestone { get => _explicitNullValueMilestone; set { _explicitNullValueMilestone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("milestone"); else _explicitNullProperties?.Remove("milestone"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone? _explicitNullValueMilestone = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone Milestone { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone Milestone { get => _explicitNullValueMilestone; set { _explicitNullValueMilestone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("milestone"); else _explicitNullProperties?.Remove("milestone"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone _explicitNullValueMilestone = default!;
 #endif
         /// <summary>The open or closed state of the issue.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState? _explicitNullValueState = default!;
         /// <summary>The reason for the state change. Ignored unless `state` is changed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason? StateReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason? StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason? _explicitNullValueStateReason = default!;
         /// <summary>The title of the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title? Title { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title Title { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueTitle = default!;
 #endif
         /// <summary>The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest"/> and sets the default values.
@@ -99,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,15 +147,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assignee", n => { Assignee = n.GetStringValue(); } },
-                { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "duplicate_issue_id", n => { DuplicateIssueId = n.GetLongValue(); } },
                 { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone.CreateFromDiscriminatorValue); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState>(); } },
                 { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason>(); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType.CreateFromDiscriminatorValue); } },
             };
         }
@@ -130,16 +167,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assignee", Assignee);
-            writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("assignees", Assignees);
             writer.WriteStringValue("body", Body);
             writer.WriteLongValue("duplicate_issue_id", DuplicateIssueId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItem>("issue_field_values", IssueFieldValues);
-            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestMilestone>("milestone", Milestone);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason>("state_reason", StateReason);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title>("title", Title);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("title", Title);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -165,14 +203,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest.IssuesUpdateRequest_title();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -192,6 +234,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {

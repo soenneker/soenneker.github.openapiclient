@@ -11,82 +11,122 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningAnalysis : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("analysis_key") is { } nullNodeAnalysisKey && nullNodeAnalysisKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalysisKey = null;
+            if (parseNode.GetChildNode("category") is { } nullNodeCategory && nullNodeCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Category = null;
+            if (parseNode.GetChildNode("commit_sha") is { } nullNodeCommitSha && nullNodeCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitSha = null;
+            if (parseNode.GetChildNode("deletable") is { } nullNodeDeletable && nullNodeDeletable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deletable = null;
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("results_count") is { } nullNodeResultsCount && nullNodeResultsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultsCount = null;
+            if (parseNode.GetChildNode("rules_count") is { } nullNodeRulesCount && nullNodeRulesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesCount = null;
+            if (parseNode.GetChildNode("sarif_id") is { } nullNodeSarifId && nullNodeSarifId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SarifId = null;
+            if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
+            if (parseNode.GetChildNode("warning") is { } nullNodeWarning && nullNodeWarning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warning = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnalysisKey { get; set; }
+        public string? AnalysisKey { get => _explicitNullValueAnalysisKey; set { _explicitNullValueAnalysisKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_key"); else _explicitNullProperties?.Remove("analysis_key"); } }
+        private string? _explicitNullValueAnalysisKey = default!;
 #nullable restore
 #else
-        public string AnalysisKey { get; set; }
+        public string AnalysisKey { get => _explicitNullValueAnalysisKey; set { _explicitNullValueAnalysisKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analysis_key"); else _explicitNullProperties?.Remove("analysis_key"); } }
+        private string _explicitNullValueAnalysisKey = default!;
 #endif
         /// <summary>Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Category { get; set; }
+        public string? Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        private string? _explicitNullValueCategory = default!;
 #nullable restore
 #else
-        public string Category { get; set; }
+        public string Category { get => _explicitNullValueCategory; set { _explicitNullValueCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category"); else _explicitNullProperties?.Remove("category"); } }
+        private string _explicitNullValueCategory = default!;
 #endif
         /// <summary>The SHA of the commit to which the analysis you are uploading relates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitSha { get; set; }
+        public string? CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string? _explicitNullValueCommitSha = default!;
 #nullable restore
 #else
-        public string CommitSha { get; set; }
+        public string CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string _explicitNullValueCommitSha = default!;
 #endif
         /// <summary>The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The deletable property</summary>
-        public bool? Deletable { get; set; }
+        public bool? Deletable { get => _explicitNullValueDeletable; set { _explicitNullValueDeletable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletable"); else _explicitNullProperties?.Remove("deletable"); } }
+        private bool? _explicitNullValueDeletable = default!;
         /// <summary>Identifies the variable values associated with the environment in which this analysis was performed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Environment { get; set; }
+        public string? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public string Environment { get; set; }
+        public string Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private string _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get; set; }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string _explicitNullValueError = default!;
 #endif
         /// <summary>Unique identifier for this analysis.</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The Git reference, formatted as `refs/pull/&lt;number&gt;/merge`, `refs/pull/&lt;number&gt;/head`,`refs/heads/&lt;branch name&gt;` or simply `&lt;branch name&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>The total number of results in the analysis.</summary>
-        public int? ResultsCount { get; set; }
+        public int? ResultsCount { get => _explicitNullValueResultsCount; set { _explicitNullValueResultsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results_count"); else _explicitNullProperties?.Remove("results_count"); } }
+        private int? _explicitNullValueResultsCount = default!;
         /// <summary>The total number of rules used in the analysis.</summary>
-        public int? RulesCount { get; set; }
+        public int? RulesCount { get => _explicitNullValueRulesCount; set { _explicitNullValueRulesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules_count"); else _explicitNullProperties?.Remove("rules_count"); } }
+        private int? _explicitNullValueRulesCount = default!;
         /// <summary>An identifier for the upload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SarifId { get; set; }
+        public string? SarifId { get => _explicitNullValueSarifId; set { _explicitNullValueSarifId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sarif_id"); else _explicitNullProperties?.Remove("sarif_id"); } }
+        private string? _explicitNullValueSarifId = default!;
 #nullable restore
 #else
-        public string SarifId { get; set; }
+        public string SarifId { get => _explicitNullValueSarifId; set { _explicitNullValueSarifId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sarif_id"); else _explicitNullProperties?.Remove("sarif_id"); } }
+        private string _explicitNullValueSarifId = default!;
 #endif
         /// <summary>The tool property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? Tool { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? _explicitNullValueTool = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool Tool { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool _explicitNullValueTool = default!;
 #endif
         /// <summary>The REST API URL of the analysis resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,10 +139,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Warning generated when processing the analysis</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Warning { get; set; }
+        public string? Warning { get => _explicitNullValueWarning; set { _explicitNullValueWarning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warning"); else _explicitNullProperties?.Remove("warning"); } }
+        private string? _explicitNullValueWarning = default!;
 #nullable restore
 #else
-        public string Warning { get; set; }
+        public string Warning { get => _explicitNullValueWarning; set { _explicitNullValueWarning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warning"); else _explicitNullProperties?.Remove("warning"); } }
+        private string _explicitNullValueWarning = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis"/> and sets the default values.
@@ -119,7 +161,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -166,6 +208,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("sarif_id", SarifId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool>("tool", Tool);
             writer.WriteStringValue("warning", Warning);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

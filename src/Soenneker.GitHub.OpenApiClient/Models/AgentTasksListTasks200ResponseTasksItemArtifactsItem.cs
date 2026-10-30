@@ -12,21 +12,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentTasksListTasks200ResponseTasksItemArtifactsItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Resource data (shape depends on type)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData? Data { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData Data { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData _explicitNullValueData = default!;
 #endif
         /// <summary>Provider namespace</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider? Provider { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider? _explicitNullValueProvider = default!;
         /// <summary>Type of artifact. Available Values: `pull`, `branch`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItem"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData>("data", Data);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider>("provider", Provider);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

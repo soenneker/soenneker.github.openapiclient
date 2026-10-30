@@ -12,50 +12,79 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BillingCreateOrganizationBudgetRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("budget_alerting") is { } nullNodeBudgetAlerting && nullNodeBudgetAlerting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetAlerting = null;
+            if (parseNode.GetChildNode("budget_amount") is { } nullNodeBudgetAmount && nullNodeBudgetAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetAmount = null;
+            if (parseNode.GetChildNode("budget_entity_name") is { } nullNodeBudgetEntityName && nullNodeBudgetEntityName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetEntityName = null;
+            if (parseNode.GetChildNode("budget_product_sku") is { } nullNodeBudgetProductSku && nullNodeBudgetProductSku.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetProductSku = null;
+            if (parseNode.GetChildNode("budget_scope") is { } nullNodeBudgetScope && nullNodeBudgetScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetScope = null;
+            if (parseNode.GetChildNode("budget_type") is { } nullNodeBudgetType && nullNodeBudgetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetType = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("prevent_further_usage") is { } nullNodePreventFurtherUsage && nullNodePreventFurtherUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreventFurtherUsage = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The budget_alerting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting? BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting? BudgetAlerting { get => _explicitNullValueBudgetAlerting; set { _explicitNullValueBudgetAlerting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_alerting"); else _explicitNullProperties?.Remove("budget_alerting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting? _explicitNullValueBudgetAlerting = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting BudgetAlerting { get => _explicitNullValueBudgetAlerting; set { _explicitNullValueBudgetAlerting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_alerting"); else _explicitNullProperties?.Remove("budget_alerting"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetAlerting _explicitNullValueBudgetAlerting = default!;
 #endif
         /// <summary>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</summary>
-        public int? BudgetAmount { get; set; }
+        public int? BudgetAmount { get => _explicitNullValueBudgetAmount; set { _explicitNullValueBudgetAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_amount"); else _explicitNullProperties?.Remove("budget_amount"); } }
+        private int? _explicitNullValueBudgetAmount = default!;
         /// <summary>The entity to apply the budget to. The expected value depends on `budget_scope`.- `repository`: The repository name, or `owner/repo`.- `organization`, `multi_user_customer`, and `user`: Not used. For `user`, set the `user` field instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BudgetEntityName { get; set; }
+        public string? BudgetEntityName { get => _explicitNullValueBudgetEntityName; set { _explicitNullValueBudgetEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_entity_name"); else _explicitNullProperties?.Remove("budget_entity_name"); } }
+        private string? _explicitNullValueBudgetEntityName = default!;
 #nullable restore
 #else
-        public string BudgetEntityName { get; set; }
+        public string BudgetEntityName { get => _explicitNullValueBudgetEntityName; set { _explicitNullValueBudgetEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_entity_name"); else _explicitNullProperties?.Remove("budget_entity_name"); } }
+        private string _explicitNullValueBudgetEntityName = default!;
 #endif
         /// <summary>A single product or SKU that will be covered in the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BudgetProductSku { get; set; }
+        public string? BudgetProductSku { get => _explicitNullValueBudgetProductSku; set { _explicitNullValueBudgetProductSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_product_sku"); else _explicitNullProperties?.Remove("budget_product_sku"); } }
+        private string? _explicitNullValueBudgetProductSku = default!;
 #nullable restore
 #else
-        public string BudgetProductSku { get; set; }
+        public string BudgetProductSku { get => _explicitNullValueBudgetProductSku; set { _explicitNullValueBudgetProductSku = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_product_sku"); else _explicitNullProperties?.Remove("budget_product_sku"); } }
+        private string _explicitNullValueBudgetProductSku = default!;
 #endif
         /// <summary>The scope of the budget for this organization.- `organization`: Apply the budget to the organization.- `repository`: Apply the budget to a specific repository in the organization.- `multi_user_customer`: Apply a universal budget to all users in the organization.- `user`: Apply the budget to a single user in the organization.`user` and `multi_user_customer` scopes are only supported when`budget_product_sku` is `ai_credits` or `premium_requests`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetScope? BudgetScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetScope? BudgetScope { get => _explicitNullValueBudgetScope; set { _explicitNullValueBudgetScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_scope"); else _explicitNullProperties?.Remove("budget_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetScope? _explicitNullValueBudgetScope = default!;
         /// <summary>The type of pricing model used by the budget. Determines how `budget_product_sku` is interpreted.- `BundlePricing`: Covers all AI credit SKUs. Set `budget_product_sku` to `ai_credits`.- `ProductPricing`: Covers all SKUs that belong to a product. Set `budget_product_sku` to a product such as `actions` or `packages`.- `SkuPricing`: Covers a single, specific SKU. Set `budget_product_sku` to a SKU such as `actions_linux`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType? BudgetType { get => _explicitNullValueBudgetType; set { _explicitNullValueBudgetType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_type"); else _explicitNullProperties?.Remove("budget_type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType? _explicitNullValueBudgetType = default!;
         /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
-        public Date? ExpiresAt { get; set; }
+        public Date? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private Date? _explicitNullValueExpiresAt = default!;
         /// <summary>Whether to prevent additional spending once the budget is exceeded. For `user` and `multi_user_customer` scopes, this must be `true`.</summary>
-        public bool? PreventFurtherUsage { get; set; }
+        public bool? PreventFurtherUsage { get => _explicitNullValuePreventFurtherUsage; set { _explicitNullValuePreventFurtherUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_further_usage"); else _explicitNullProperties?.Remove("prevent_further_usage"); } }
+        private bool? _explicitNullValuePreventFurtherUsage = default!;
         /// <summary>The username of the user for `user` scope budgets. This field is required when `budget_scope` is `user`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest"/> and sets the default values.
@@ -72,7 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateValue("expires_at", ExpiresAt);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteStringValue("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

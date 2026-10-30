@@ -11,40 +11,64 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProtectedBranchRequiredPullRequestReviews : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bypass_pull_request_allowances") is { } nullNodeBypassPullRequestAllowances && nullNodeBypassPullRequestAllowances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassPullRequestAllowances = null;
+            if (parseNode.GetChildNode("dismissal_restrictions") is { } nullNodeDismissalRestrictions && nullNodeDismissalRestrictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalRestrictions = null;
+            if (parseNode.GetChildNode("dismiss_stale_reviews") is { } nullNodeDismissStaleReviews && nullNodeDismissStaleReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissStaleReviews = null;
+            if (parseNode.GetChildNode("require_code_owner_reviews") is { } nullNodeRequireCodeOwnerReviews && nullNodeRequireCodeOwnerReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireCodeOwnerReviews = null;
+            if (parseNode.GetChildNode("required_approving_review_count") is { } nullNodeRequiredApprovingReviewCount && nullNodeRequiredApprovingReviewCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredApprovingReviewCount = null;
+            if (parseNode.GetChildNode("require_last_push_approval") is { } nullNodeRequireLastPushApproval && nullNodeRequireLastPushApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireLastPushApproval = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The bypass_pull_request_allowances property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances? BypassPullRequestAllowances { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances? BypassPullRequestAllowances { get => _explicitNullValueBypassPullRequestAllowances; set { _explicitNullValueBypassPullRequestAllowances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_pull_request_allowances"); else _explicitNullProperties?.Remove("bypass_pull_request_allowances"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances? _explicitNullValueBypassPullRequestAllowances = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances BypassPullRequestAllowances { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances BypassPullRequestAllowances { get => _explicitNullValueBypassPullRequestAllowances; set { _explicitNullValueBypassPullRequestAllowances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_pull_request_allowances"); else _explicitNullProperties?.Remove("bypass_pull_request_allowances"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances _explicitNullValueBypassPullRequestAllowances = default!;
 #endif
         /// <summary>The dismissal_restrictions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions? DismissalRestrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions? DismissalRestrictions { get => _explicitNullValueDismissalRestrictions; set { _explicitNullValueDismissalRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_restrictions"); else _explicitNullProperties?.Remove("dismissal_restrictions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions? _explicitNullValueDismissalRestrictions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions DismissalRestrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions DismissalRestrictions { get => _explicitNullValueDismissalRestrictions; set { _explicitNullValueDismissalRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_restrictions"); else _explicitNullProperties?.Remove("dismissal_restrictions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsDismissalRestrictions _explicitNullValueDismissalRestrictions = default!;
 #endif
         /// <summary>The dismiss_stale_reviews property</summary>
-        public bool? DismissStaleReviews { get; set; }
+        public bool? DismissStaleReviews { get => _explicitNullValueDismissStaleReviews; set { _explicitNullValueDismissStaleReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismiss_stale_reviews"); else _explicitNullProperties?.Remove("dismiss_stale_reviews"); } }
+        private bool? _explicitNullValueDismissStaleReviews = default!;
         /// <summary>The require_code_owner_reviews property</summary>
-        public bool? RequireCodeOwnerReviews { get; set; }
+        public bool? RequireCodeOwnerReviews { get => _explicitNullValueRequireCodeOwnerReviews; set { _explicitNullValueRequireCodeOwnerReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_code_owner_reviews"); else _explicitNullProperties?.Remove("require_code_owner_reviews"); } }
+        private bool? _explicitNullValueRequireCodeOwnerReviews = default!;
         /// <summary>The required_approving_review_count property</summary>
-        public int? RequiredApprovingReviewCount { get; set; }
+        public int? RequiredApprovingReviewCount { get => _explicitNullValueRequiredApprovingReviewCount; set { _explicitNullValueRequiredApprovingReviewCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_approving_review_count"); else _explicitNullProperties?.Remove("required_approving_review_count"); } }
+        private int? _explicitNullValueRequiredApprovingReviewCount = default!;
         /// <summary>Whether the most recent push must be approved by someone other than the person who pushed it.</summary>
-        public bool? RequireLastPushApproval { get; set; }
+        public bool? RequireLastPushApproval { get => _explicitNullValueRequireLastPushApproval; set { _explicitNullValueRequireLastPushApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_last_push_approval"); else _explicitNullProperties?.Remove("require_last_push_approval"); } }
+        private bool? _explicitNullValueRequireLastPushApproval = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews"/> and sets the default values.
@@ -62,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("required_approving_review_count", RequiredApprovingReviewCount);
             writer.WriteBoolValue("require_last_push_approval", RequireLastPushApproval);
             writer.WriteStringValue("url", Url);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

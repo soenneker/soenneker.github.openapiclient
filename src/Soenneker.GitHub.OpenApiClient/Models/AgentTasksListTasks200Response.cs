@@ -11,21 +11,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentTasksListTasks200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("tasks") is { } nullNodeTasks && nullNodeTasks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tasks = null;
+            if (parseNode.GetChildNode("total_active_count") is { } nullNodeTotalActiveCount && nullNodeTotalActiveCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalActiveCount = null;
+            if (parseNode.GetChildNode("total_archived_count") is { } nullNodeTotalArchivedCount && nullNodeTotalArchivedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalArchivedCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of tasks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem>? Tasks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem>? Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem>? _explicitNullValueTasks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem> Tasks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem> Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem> _explicitNullValueTasks = default!;
 #endif
         /// <summary>Total count of active (non-archived) tasks</summary>
-        public int? TotalActiveCount { get; set; }
+        public int? TotalActiveCount { get => _explicitNullValueTotalActiveCount; set { _explicitNullValueTotalActiveCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_active_count"); else _explicitNullProperties?.Remove("total_active_count"); } }
+        private int? _explicitNullValueTotalActiveCount = default!;
         /// <summary>Total count of archived tasks</summary>
-        public int? TotalArchivedCount { get; set; }
+        public int? TotalArchivedCount { get => _explicitNullValueTotalArchivedCount; set { _explicitNullValueTotalArchivedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_archived_count"); else _explicitNullProperties?.Remove("total_archived_count"); } }
+        private int? _explicitNullValueTotalArchivedCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200Response"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItem>("tasks", Tasks);
             writer.WriteIntValue("total_active_count", TotalActiveCount);
             writer.WriteIntValue("total_archived_count", TotalArchivedCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

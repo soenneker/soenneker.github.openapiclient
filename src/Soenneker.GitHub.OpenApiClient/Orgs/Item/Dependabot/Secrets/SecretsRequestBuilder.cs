@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListOrgSecrets200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListOrgSecrets200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotListOrgSecrets200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotListOrgSecrets200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all secrets available in an organization without revealing theirencrypted values.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

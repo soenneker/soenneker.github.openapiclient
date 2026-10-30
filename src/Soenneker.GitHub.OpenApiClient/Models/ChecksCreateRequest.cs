@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChecksCreateRequest : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1? ChecksCreateRequestOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch? ChecksCreateRequestOneOf1Branch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1 ChecksCreateRequestOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch ChecksCreateRequestOneOf1Branch { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2? ChecksCreateRequestOneOf2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch? ChecksCreateRequestOneOf2Branch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2 ChecksCreateRequestOneOf2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch ChecksCreateRequestOneOf2Branch { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,17 +42,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest();
-            if("ChecksCreateRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ChecksCreateRequestOneOf1Branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ChecksCreateRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1();
+                
             }
-            else if("ChecksCreateRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ChecksCreateRequestOneOf2Branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ChecksCreateRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("status") != null && (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("completed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("conclusion") != null && (parseNode.GetChildNode("conclusion")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("action_required".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "cancelled".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "failure".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "neutral".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "success".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "skipped".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "stale".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "timed_out".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("name") != null && parseNode.GetChildNode("head_sha") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("name") != null && parseNode.GetChildNode("head_sha") != null && parseNode.GetChildNode("status") != null && (parseNode.GetChildNode("status")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("queued".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "in_progress".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && (parseNode.GetChildNode("conclusion") == null || (parseNode.GetChildNode("conclusion")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag4 && ("action_required".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "cancelled".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "failure".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "neutral".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "success".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "skipped".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "stale".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal) || "timed_out".Equals(optionalTag4.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.ChecksCreateRequestOneOf1Branch == null && result.ChecksCreateRequestOneOf2Branch == null && matchesUnionBranch0 && !matchesUnionBranch1) result.ChecksCreateRequestOneOf1Branch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch(), parseNode);
+            if (result.ChecksCreateRequestOneOf1Branch == null && result.ChecksCreateRequestOneOf2Branch == null && matchesUnionBranch1 && !matchesUnionBranch0) result.ChecksCreateRequestOneOf2Branch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch(), parseNode);
+            if (result.ChecksCreateRequestOneOf1Branch == null && result.ChecksCreateRequestOneOf2Branch == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,13 +67,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ChecksCreateRequestOneOf1 != null)
+            if(ChecksCreateRequestOneOf1Branch != null)
             {
-                return ChecksCreateRequestOneOf1.GetFieldDeserializers();
+                return ChecksCreateRequestOneOf1Branch.GetFieldDeserializers();
             }
-            else if(ChecksCreateRequestOneOf2 != null)
+            else if(ChecksCreateRequestOneOf2Branch != null)
             {
-                return ChecksCreateRequestOneOf2.GetFieldDeserializers();
+                return ChecksCreateRequestOneOf2Branch.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -71,14 +83,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ChecksCreateRequestOneOf1Branch == null && ChecksCreateRequestOneOf2Branch == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ChecksCreateRequestOneOf1Branch != null && ChecksCreateRequestOneOf2Branch == null) { if (ChecksCreateRequestOneOf1Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ChecksCreateRequestOneOf1Branch); return; }
+            if (ChecksCreateRequestOneOf2Branch != null && ChecksCreateRequestOneOf1Branch == null) { if (ChecksCreateRequestOneOf2Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ChecksCreateRequestOneOf2Branch); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ChecksCreateRequestOneOf1 != null)
+            if(ChecksCreateRequestOneOf1Branch != null)
             {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1>(null, ChecksCreateRequestOneOf1);
+                if (ChecksCreateRequestOneOf1Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1Branch>(null, ChecksCreateRequestOneOf1Branch);
             }
-            else if(ChecksCreateRequestOneOf2 != null)
+            else if(ChecksCreateRequestOneOf2Branch != null)
             {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2>(null, ChecksCreateRequestOneOf2);
+                if (ChecksCreateRequestOneOf2Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2Branch>(null, ChecksCreateRequestOneOf2Branch);
             }
         }
     }

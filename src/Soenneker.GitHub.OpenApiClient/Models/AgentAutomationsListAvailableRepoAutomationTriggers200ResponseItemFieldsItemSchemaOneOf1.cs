@@ -11,19 +11,33 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enum") is { } nullNodeEnum && nullNodeEnum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enum = null;
+            if (parseNode.GetChildNode("minLength") is { } nullNodeMinLength && nullNodeMinLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinLength = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The allowed string values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Enum { get; set; }
+        public List<string>? Enum { get => _explicitNullValueEnum; set { _explicitNullValueEnum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enum"); else _explicitNullProperties?.Remove("enum"); } }
+        private List<string>? _explicitNullValueEnum = default!;
 #nullable restore
 #else
-        public List<string> Enum { get; set; }
+        public List<string> Enum { get => _explicitNullValueEnum; set { _explicitNullValueEnum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enum"); else _explicitNullProperties?.Remove("enum"); } }
+        private List<string> _explicitNullValueEnum = default!;
 #endif
         /// <summary>The minimum accepted string length.</summary>
-        public int? MinLength { get; set; }
+        public int? MinLength { get => _explicitNullValueMinLength; set { _explicitNullValueMinLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minLength"); else _explicitNullProperties?.Remove("minLength"); } }
+        private int? _explicitNullValueMinLength = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.StringValueType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.StringValueType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.StringValueType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +70,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("enum", Enum);
             writer.WriteIntValue("minLength", MinLength);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.StringValueType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.StringValueType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

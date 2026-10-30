@@ -11,51 +11,77 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CodeScanningUploadSarifRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("checkout_uri") is { } nullNodeCheckoutUri && nullNodeCheckoutUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckoutUri = null;
+            if (parseNode.GetChildNode("commit_sha") is { } nullNodeCommitSha && nullNodeCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitSha = null;
+            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("sarif") is { } nullNodeSarif && nullNodeSarif.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sarif = null;
+            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("tool_name") is { } nullNodeToolName && nullNodeToolName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolName = null;
+            if (parseNode.GetChildNode("validate") is { } nullNodeValidate && nullNodeValidate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Validate = null;
+        }
+
         /// <summary>The base directory used in the analysis, as it appears in the SARIF file.This property is used to convert file paths from absolute to relative, so that alerts can be mapped to their correct location in the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CheckoutUri { get; set; }
+        public string? CheckoutUri { get => _explicitNullValueCheckoutUri; set { _explicitNullValueCheckoutUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkout_uri"); else _explicitNullProperties?.Remove("checkout_uri"); } }
+        private string? _explicitNullValueCheckoutUri = default!;
 #nullable restore
 #else
-        public string CheckoutUri { get; set; }
+        public string CheckoutUri { get => _explicitNullValueCheckoutUri; set { _explicitNullValueCheckoutUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkout_uri"); else _explicitNullProperties?.Remove("checkout_uri"); } }
+        private string _explicitNullValueCheckoutUri = default!;
 #endif
         /// <summary>The SHA of the commit to which the analysis you are uploading relates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitSha { get; set; }
+        public string? CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string? _explicitNullValueCommitSha = default!;
 #nullable restore
 #else
-        public string CommitSha { get; set; }
+        public string CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        private string _explicitNullValueCommitSha = default!;
 #endif
         /// <summary>The full Git reference, formatted as `refs/heads/&lt;branch name&gt;`,`refs/tags/&lt;tag&gt;`, `refs/pull/&lt;number&gt;/merge`, or `refs/pull/&lt;number&gt;/head`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get; set; }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get; set; }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        private string _explicitNullValueRef = default!;
 #endif
         /// <summary>A Base64 string representing the SARIF file to upload. You must first compress your SARIF file using [`gzip`](http://www.gnu.org/software/gzip/manual/gzip.html) and then translate the contents of the file into a Base64 encoding string. For more information, see &quot;[SARIF support for code scanning](https://docs.github.com/code-security/secure-coding/sarif-support-for-code-scanning).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sarif { get; set; }
+        public string? Sarif { get => _explicitNullValueSarif; set { _explicitNullValueSarif = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sarif"); else _explicitNullProperties?.Remove("sarif"); } }
+        private string? _explicitNullValueSarif = default!;
 #nullable restore
 #else
-        public string Sarif { get; set; }
+        public string Sarif { get => _explicitNullValueSarif; set { _explicitNullValueSarif = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sarif"); else _explicitNullProperties?.Remove("sarif"); } }
+        private string _explicitNullValueSarif = default!;
 #endif
         /// <summary>The time that the analysis run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The name of the tool used to generate the code scanning analysis. If this parameter is not used, the tool name defaults to &quot;API&quot;. If the uploaded SARIF contains a tool GUID, this will be available for filtering using the `tool_guid` parameter of operations such as `GET /repos/{owner}/{repo}/code-scanning/alerts`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolName { get; set; }
+        public string? ToolName { get => _explicitNullValueToolName; set { _explicitNullValueToolName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_name"); else _explicitNullProperties?.Remove("tool_name"); } }
+        private string? _explicitNullValueToolName = default!;
 #nullable restore
 #else
-        public string ToolName { get; set; }
+        public string ToolName { get => _explicitNullValueToolName; set { _explicitNullValueToolName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_name"); else _explicitNullProperties?.Remove("tool_name"); } }
+        private string _explicitNullValueToolName = default!;
 #endif
         /// <summary>Whether the SARIF file will be validated according to the code scanning specifications.This parameter is intended to help integrators ensure that the uploaded SARIF files are correctly rendered by code scanning.</summary>
-        public bool? Validate { get; set; }
+        public bool? Validate { get => _explicitNullValueValidate; set { _explicitNullValueValidate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validate"); else _explicitNullProperties?.Remove("validate"); } }
+        private bool? _explicitNullValueValidate = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -64,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUploadSarifRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUploadSarifRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningUploadSarifRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,7 +122,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("sarif", Sarif);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteStringValue("tool_name", ToolName);
-            writer.WriteBoolValue("validate", Validate);
+            writer.WriteBoolValue("validate", Validate);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

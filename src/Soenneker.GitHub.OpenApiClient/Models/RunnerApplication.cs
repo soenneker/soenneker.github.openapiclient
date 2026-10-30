@@ -12,56 +12,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunnerApplication : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("architecture") is { } nullNodeArchitecture && nullNodeArchitecture.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Architecture = null;
+            if (parseNode.GetChildNode("download_url") is { } nullNodeDownloadUrl && nullNodeDownloadUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadUrl = null;
+            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("os") is { } nullNodeOs && nullNodeOs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Os = null;
+            if (parseNode.GetChildNode("sha256_checksum") is { } nullNodeSha256Checksum && nullNodeSha256Checksum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha256Checksum = null;
+            if (parseNode.GetChildNode("temp_download_token") is { } nullNodeTempDownloadToken && nullNodeTempDownloadToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TempDownloadToken = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The architecture property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Architecture { get; set; }
+        public string? Architecture { get => _explicitNullValueArchitecture; set { _explicitNullValueArchitecture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("architecture"); else _explicitNullProperties?.Remove("architecture"); } }
+        private string? _explicitNullValueArchitecture = default!;
 #nullable restore
 #else
-        public string Architecture { get; set; }
+        public string Architecture { get => _explicitNullValueArchitecture; set { _explicitNullValueArchitecture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("architecture"); else _explicitNullProperties?.Remove("architecture"); } }
+        private string _explicitNullValueArchitecture = default!;
 #endif
         /// <summary>The download_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DownloadUrl { get; set; }
+        public string? DownloadUrl { get => _explicitNullValueDownloadUrl; set { _explicitNullValueDownloadUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_url"); else _explicitNullProperties?.Remove("download_url"); } }
+        private string? _explicitNullValueDownloadUrl = default!;
 #nullable restore
 #else
-        public string DownloadUrl { get; set; }
+        public string DownloadUrl { get => _explicitNullValueDownloadUrl; set { _explicitNullValueDownloadUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_url"); else _explicitNullProperties?.Remove("download_url"); } }
+        private string _explicitNullValueDownloadUrl = default!;
 #endif
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get; set; }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get; set; }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>The os property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Os { get; set; }
+        public string? Os { get => _explicitNullValueOs; set { _explicitNullValueOs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os"); else _explicitNullProperties?.Remove("os"); } }
+        private string? _explicitNullValueOs = default!;
 #nullable restore
 #else
-        public string Os { get; set; }
+        public string Os { get => _explicitNullValueOs; set { _explicitNullValueOs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os"); else _explicitNullProperties?.Remove("os"); } }
+        private string _explicitNullValueOs = default!;
 #endif
         /// <summary>The sha256_checksum property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha256Checksum { get; set; }
+        public string? Sha256Checksum { get => _explicitNullValueSha256Checksum; set { _explicitNullValueSha256Checksum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha256_checksum"); else _explicitNullProperties?.Remove("sha256_checksum"); } }
+        private string? _explicitNullValueSha256Checksum = default!;
 #nullable restore
 #else
-        public string Sha256Checksum { get; set; }
+        public string Sha256Checksum { get => _explicitNullValueSha256Checksum; set { _explicitNullValueSha256Checksum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha256_checksum"); else _explicitNullProperties?.Remove("sha256_checksum"); } }
+        private string _explicitNullValueSha256Checksum = default!;
 #endif
         /// <summary>A short lived bearer token used to download the runner, if needed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TempDownloadToken { get; set; }
+        public string? TempDownloadToken { get => _explicitNullValueTempDownloadToken; set { _explicitNullValueTempDownloadToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_download_token"); else _explicitNullProperties?.Remove("temp_download_token"); } }
+        private string? _explicitNullValueTempDownloadToken = default!;
 #nullable restore
 #else
-        public string TempDownloadToken { get; set; }
+        public string TempDownloadToken { get => _explicitNullValueTempDownloadToken; set { _explicitNullValueTempDownloadToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_download_token"); else _explicitNullProperties?.Remove("temp_download_token"); } }
+        private string _explicitNullValueTempDownloadToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RunnerApplication"/> and sets the default values.
@@ -78,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RunnerApplication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RunnerApplication();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RunnerApplication(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("os", Os);
             writer.WriteStringValue("sha256_checksum", Sha256Checksum);
             writer.WriteStringValue("temp_download_token", TempDownloadToken);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

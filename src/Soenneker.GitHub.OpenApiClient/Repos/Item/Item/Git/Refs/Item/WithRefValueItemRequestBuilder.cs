@@ -53,6 +53,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Refs.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -81,6 +83,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Refs.Item
             {
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GitRef>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GitRef.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

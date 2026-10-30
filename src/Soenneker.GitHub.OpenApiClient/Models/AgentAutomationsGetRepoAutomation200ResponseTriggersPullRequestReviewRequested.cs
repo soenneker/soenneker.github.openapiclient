@@ -11,27 +11,44 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequested : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_copilot_triggers") is { } nullNodeAllowCopilotTriggers && nullNodeAllowCopilotTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCopilotTriggers = null;
+            if (parseNode.GetChildNode("paths") is { } nullNodePaths && nullNodePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Paths = null;
+            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("write_scope") is { } nullNodeWriteScope && nullNodeWriteScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WriteScope = null;
+        }
+
         /// <summary>When true, events Copilot creates, including from other automations and Copilot sessions, can start this automation through this trigger. Defaults to false. The Copilot coding agent app cannot turn it on: creating a trigger with true, or changing it from false to true, returns 422.</summary>
-        public bool? AllowCopilotTriggers { get; set; }
+        public bool? AllowCopilotTriggers { get => _explicitNullValueAllowCopilotTriggers; set { _explicitNullValueAllowCopilotTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_copilot_triggers"); else _explicitNullProperties?.Remove("allow_copilot_triggers"); } }
+        private bool? _explicitNullValueAllowCopilotTriggers = default!;
         /// <summary>Gitignore-style changed-file path globs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Paths { get; set; }
+        public List<string>? Paths { get => _explicitNullValuePaths; set { _explicitNullValuePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paths"); else _explicitNullProperties?.Remove("paths"); } }
+        private List<string>? _explicitNullValuePaths = default!;
 #nullable restore
 #else
-        public List<string> Paths { get; set; }
+        public List<string> Paths { get => _explicitNullValuePaths; set { _explicitNullValuePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paths"); else _explicitNullProperties?.Remove("paths"); } }
+        private List<string> _explicitNullValuePaths = default!;
 #endif
         /// <summary>A GitHub issue or pull request search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get; set; }
+        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private string? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public string Query { get; set; }
+        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private string _explicitNullValueQuery = default!;
 #endif
         /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequestedWriteScope? WriteScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequestedWriteScope? WriteScope { get => _explicitNullValueWriteScope; set { _explicitNullValueWriteScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write_scope"); else _explicitNullProperties?.Remove("write_scope"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequestedWriteScope? _explicitNullValueWriteScope = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequested CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequested();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequested(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +83,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("allow_copilot_triggers", AllowCopilotTriggers);
             writer.WriteCollectionOfPrimitiveValues<string>("paths", Paths);
             writer.WriteStringValue("query", Query);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequestedWriteScope>("write_scope", WriteScope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsGetRepoAutomation200ResponseTriggersPullRequestReviewRequestedWriteScope>("write_scope", WriteScope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

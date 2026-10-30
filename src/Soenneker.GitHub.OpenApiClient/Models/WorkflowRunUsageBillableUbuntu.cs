@@ -11,21 +11,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WorkflowRunUsageBillableUbuntu : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("job_runs") is { } nullNodeJobRuns && nullNodeJobRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobRuns = null;
+            if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
+            if (parseNode.GetChildNode("total_ms") is { } nullNodeTotalMs && nullNodeTotalMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalMs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The job_runs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem>? JobRuns { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem>? JobRuns { get => _explicitNullValueJobRuns; set { _explicitNullValueJobRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_runs"); else _explicitNullProperties?.Remove("job_runs"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem>? _explicitNullValueJobRuns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem> JobRuns { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem> JobRuns { get => _explicitNullValueJobRuns; set { _explicitNullValueJobRuns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_runs"); else _explicitNullProperties?.Remove("job_runs"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem> _explicitNullValueJobRuns = default!;
 #endif
         /// <summary>The jobs property</summary>
-        public int? Jobs { get; set; }
+        public int? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        private int? _explicitNullValueJobs = default!;
         /// <summary>The total_ms property</summary>
-        public int? TotalMs { get; set; }
+        public int? TotalMs { get => _explicitNullValueTotalMs; set { _explicitNullValueTotalMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_ms"); else _explicitNullProperties?.Remove("total_ms"); } }
+        private int? _explicitNullValueTotalMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntuJobRunsItem>("job_runs", JobRuns);
             writer.WriteIntValue("jobs", Jobs);
             writer.WriteIntValue("total_ms", TotalMs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

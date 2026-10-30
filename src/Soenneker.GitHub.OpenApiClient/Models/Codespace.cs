@@ -12,198 +12,290 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Codespace : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billable_owner") is { } nullNodeBillableOwner && nullNodeBillableOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillableOwner = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("devcontainer_path") is { } nullNodeDevcontainerPath && nullNodeDevcontainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevcontainerPath = null;
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("environment_id") is { } nullNodeEnvironmentId && nullNodeEnvironmentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnvironmentId = null;
+            if (parseNode.GetChildNode("git_status") is { } nullNodeGitStatus && nullNodeGitStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitStatus = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("idle_timeout_minutes") is { } nullNodeIdleTimeoutMinutes && nullNodeIdleTimeoutMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutMinutes = null;
+            if (parseNode.GetChildNode("idle_timeout_notice") is { } nullNodeIdleTimeoutNotice && nullNodeIdleTimeoutNotice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutNotice = null;
+            if (parseNode.GetChildNode("last_known_stop_notice") is { } nullNodeLastKnownStopNotice && nullNodeLastKnownStopNotice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastKnownStopNotice = null;
+            if (parseNode.GetChildNode("last_used_at") is { } nullNodeLastUsedAt && nullNodeLastUsedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUsedAt = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("machine") is { } nullNodeMachine && nullNodeMachine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Machine = null;
+            if (parseNode.GetChildNode("machines_url") is { } nullNodeMachinesUrl && nullNodeMachinesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachinesUrl = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("pending_operation") is { } nullNodePendingOperation && nullNodePendingOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingOperation = null;
+            if (parseNode.GetChildNode("pending_operation_disabled_reason") is { } nullNodePendingOperationDisabledReason && nullNodePendingOperationDisabledReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingOperationDisabledReason = null;
+            if (parseNode.GetChildNode("prebuild") is { } nullNodePrebuild && nullNodePrebuild.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prebuild = null;
+            if (parseNode.GetChildNode("publish_url") is { } nullNodePublishUrl && nullNodePublishUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublishUrl = null;
+            if (parseNode.GetChildNode("pulls_url") is { } nullNodePullsUrl && nullNodePullsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullsUrl = null;
+            if (parseNode.GetChildNode("recent_folders") is { } nullNodeRecentFolders && nullNodeRecentFolders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecentFolders = null;
+            if (parseNode.GetChildNode("repository") is { } nullNodeRepository && nullNodeRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repository = null;
+            if (parseNode.GetChildNode("retention_expires_at") is { } nullNodeRetentionExpiresAt && nullNodeRetentionExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionExpiresAt = null;
+            if (parseNode.GetChildNode("retention_period_minutes") is { } nullNodeRetentionPeriodMinutes && nullNodeRetentionPeriodMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionPeriodMinutes = null;
+            if (parseNode.GetChildNode("runtime_constraints") is { } nullNodeRuntimeConstraints && nullNodeRuntimeConstraints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeConstraints = null;
+            if (parseNode.GetChildNode("start_url") is { } nullNodeStartUrl && nullNodeStartUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartUrl = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("stop_url") is { } nullNodeStopUrl && nullNodeStopUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StopUrl = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("web_url") is { } nullNodeWebUrl && nullNodeWebUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? BillableOwner { get => _explicitNullValueBillableOwner; set { _explicitNullValueBillableOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable_owner"); else _explicitNullProperties?.Remove("billable_owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueBillableOwner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser BillableOwner { get => _explicitNullValueBillableOwner; set { _explicitNullValueBillableOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable_owner"); else _explicitNullProperties?.Remove("billable_owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueBillableOwner = default!;
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Path to devcontainer.json from repo root used to create Codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevcontainerPath { get; set; }
+        public string? DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        private string? _explicitNullValueDevcontainerPath = default!;
 #nullable restore
 #else
-        public string DevcontainerPath { get; set; }
+        public string DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        private string _explicitNullValueDevcontainerPath = default!;
 #endif
         /// <summary>Display name for this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>UUID identifying this codespace&apos;s environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnvironmentId { get; set; }
+        public string? EnvironmentId { get => _explicitNullValueEnvironmentId; set { _explicitNullValueEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_id"); else _explicitNullProperties?.Remove("environment_id"); } }
+        private string? _explicitNullValueEnvironmentId = default!;
 #nullable restore
 #else
-        public string EnvironmentId { get; set; }
+        public string EnvironmentId { get => _explicitNullValueEnvironmentId; set { _explicitNullValueEnvironmentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment_id"); else _explicitNullProperties?.Remove("environment_id"); } }
+        private string _explicitNullValueEnvironmentId = default!;
 #endif
         /// <summary>Details about the codespace&apos;s git repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus? GitStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus? GitStatus { get => _explicitNullValueGitStatus; set { _explicitNullValueGitStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_status"); else _explicitNullProperties?.Remove("git_status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus? _explicitNullValueGitStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus GitStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus GitStatus { get => _explicitNullValueGitStatus; set { _explicitNullValueGitStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_status"); else _explicitNullProperties?.Remove("git_status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceGitStatus _explicitNullValueGitStatus = default!;
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private long? _explicitNullValueId = default!;
         /// <summary>The number of minutes of inactivity after which this codespace will be automatically stopped.</summary>
-        public int? IdleTimeoutMinutes { get; set; }
+        public int? IdleTimeoutMinutes { get => _explicitNullValueIdleTimeoutMinutes; set { _explicitNullValueIdleTimeoutMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_minutes"); else _explicitNullProperties?.Remove("idle_timeout_minutes"); } }
+        private int? _explicitNullValueIdleTimeoutMinutes = default!;
         /// <summary>Text to show user when codespace idle timeout minutes has been overriden by an organization policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdleTimeoutNotice { get; set; }
+        public string? IdleTimeoutNotice { get => _explicitNullValueIdleTimeoutNotice; set { _explicitNullValueIdleTimeoutNotice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_notice"); else _explicitNullProperties?.Remove("idle_timeout_notice"); } }
+        private string? _explicitNullValueIdleTimeoutNotice = default!;
 #nullable restore
 #else
-        public string IdleTimeoutNotice { get; set; }
+        public string IdleTimeoutNotice { get => _explicitNullValueIdleTimeoutNotice; set { _explicitNullValueIdleTimeoutNotice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_notice"); else _explicitNullProperties?.Remove("idle_timeout_notice"); } }
+        private string _explicitNullValueIdleTimeoutNotice = default!;
 #endif
         /// <summary>The text to display to a user when a codespace has been stopped for a potentially actionable reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastKnownStopNotice { get; set; }
+        public string? LastKnownStopNotice { get => _explicitNullValueLastKnownStopNotice; set { _explicitNullValueLastKnownStopNotice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_known_stop_notice"); else _explicitNullProperties?.Remove("last_known_stop_notice"); } }
+        private string? _explicitNullValueLastKnownStopNotice = default!;
 #nullable restore
 #else
-        public string LastKnownStopNotice { get; set; }
+        public string LastKnownStopNotice { get => _explicitNullValueLastKnownStopNotice; set { _explicitNullValueLastKnownStopNotice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_known_stop_notice"); else _explicitNullProperties?.Remove("last_known_stop_notice"); } }
+        private string _explicitNullValueLastKnownStopNotice = default!;
 #endif
         /// <summary>Last known time this codespace was started.</summary>
-        public DateTimeOffset? LastUsedAt { get; set; }
+        public DateTimeOffset? LastUsedAt { get => _explicitNullValueLastUsedAt; set { _explicitNullValueLastUsedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_used_at"); else _explicitNullProperties?.Remove("last_used_at"); } }
+        private DateTimeOffset? _explicitNullValueLastUsedAt = default!;
         /// <summary>The initally assigned location of a new codespace.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceLocation? Location { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceLocation? _explicitNullValueLocation = default!;
         /// <summary>A description of the machine powering a codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine? Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine? Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine? _explicitNullValueMachine = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine _explicitNullValueMachine = default!;
 #endif
         /// <summary>API URL to access available alternate machine types for this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MachinesUrl { get; set; }
+        public string? MachinesUrl { get => _explicitNullValueMachinesUrl; set { _explicitNullValueMachinesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machines_url"); else _explicitNullProperties?.Remove("machines_url"); } }
+        private string? _explicitNullValueMachinesUrl = default!;
 #nullable restore
 #else
-        public string MachinesUrl { get; set; }
+        public string MachinesUrl { get => _explicitNullValueMachinesUrl; set { _explicitNullValueMachinesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machines_url"); else _explicitNullProperties?.Remove("machines_url"); } }
+        private string _explicitNullValueMachinesUrl = default!;
 #endif
         /// <summary>Automatically generated name of this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueOwner = default!;
 #endif
         /// <summary>Whether or not a codespace has a pending async operation. This would mean that the codespace is temporarily unavailable. The only thing that you can do with a codespace in this state is delete it.</summary>
-        public bool? PendingOperation { get; set; }
+        public bool? PendingOperation { get => _explicitNullValuePendingOperation; set { _explicitNullValuePendingOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_operation"); else _explicitNullProperties?.Remove("pending_operation"); } }
+        private bool? _explicitNullValuePendingOperation = default!;
         /// <summary>Text to show user when codespace is disabled by a pending operation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PendingOperationDisabledReason { get; set; }
+        public string? PendingOperationDisabledReason { get => _explicitNullValuePendingOperationDisabledReason; set { _explicitNullValuePendingOperationDisabledReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_operation_disabled_reason"); else _explicitNullProperties?.Remove("pending_operation_disabled_reason"); } }
+        private string? _explicitNullValuePendingOperationDisabledReason = default!;
 #nullable restore
 #else
-        public string PendingOperationDisabledReason { get; set; }
+        public string PendingOperationDisabledReason { get => _explicitNullValuePendingOperationDisabledReason; set { _explicitNullValuePendingOperationDisabledReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_operation_disabled_reason"); else _explicitNullProperties?.Remove("pending_operation_disabled_reason"); } }
+        private string _explicitNullValuePendingOperationDisabledReason = default!;
 #endif
         /// <summary>Whether the codespace was created from a prebuild.</summary>
-        public bool? Prebuild { get; set; }
+        public bool? Prebuild { get => _explicitNullValuePrebuild; set { _explicitNullValuePrebuild = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prebuild"); else _explicitNullProperties?.Remove("prebuild"); } }
+        private bool? _explicitNullValuePrebuild = default!;
         /// <summary>API URL to publish this codespace to a new repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PublishUrl { get; set; }
+        public string? PublishUrl { get => _explicitNullValuePublishUrl; set { _explicitNullValuePublishUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("publish_url"); else _explicitNullProperties?.Remove("publish_url"); } }
+        private string? _explicitNullValuePublishUrl = default!;
 #nullable restore
 #else
-        public string PublishUrl { get; set; }
+        public string PublishUrl { get => _explicitNullValuePublishUrl; set { _explicitNullValuePublishUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("publish_url"); else _explicitNullProperties?.Remove("publish_url"); } }
+        private string _explicitNullValuePublishUrl = default!;
 #endif
         /// <summary>API URL for the Pull Request associated with this codespace, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PullsUrl { get; set; }
+        public string? PullsUrl { get => _explicitNullValuePullsUrl; set { _explicitNullValuePullsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pulls_url"); else _explicitNullProperties?.Remove("pulls_url"); } }
+        private string? _explicitNullValuePullsUrl = default!;
 #nullable restore
 #else
-        public string PullsUrl { get; set; }
+        public string PullsUrl { get => _explicitNullValuePullsUrl; set { _explicitNullValuePullsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pulls_url"); else _explicitNullProperties?.Remove("pulls_url"); } }
+        private string _explicitNullValuePullsUrl = default!;
 #endif
         /// <summary>The recent_folders property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RecentFolders { get; set; }
+        public List<string>? RecentFolders { get => _explicitNullValueRecentFolders; set { _explicitNullValueRecentFolders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_folders"); else _explicitNullProperties?.Remove("recent_folders"); } }
+        private List<string>? _explicitNullValueRecentFolders = default!;
 #nullable restore
 #else
-        public List<string> RecentFolders { get; set; }
+        public List<string> RecentFolders { get => _explicitNullValueRecentFolders; set { _explicitNullValueRecentFolders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recent_folders"); else _explicitNullProperties?.Remove("recent_folders"); } }
+        private List<string> _explicitNullValueRecentFolders = default!;
 #endif
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? _explicitNullValueRepository = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get => _explicitNullValueRepository; set { _explicitNullValueRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository"); else _explicitNullProperties?.Remove("repository"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository _explicitNullValueRepository = default!;
 #endif
         /// <summary>When a codespace will be auto-deleted based on the &quot;retention_period_minutes&quot; and &quot;last_used_at&quot;</summary>
-        public DateTimeOffset? RetentionExpiresAt { get; set; }
+        public DateTimeOffset? RetentionExpiresAt { get => _explicitNullValueRetentionExpiresAt; set { _explicitNullValueRetentionExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_expires_at"); else _explicitNullProperties?.Remove("retention_expires_at"); } }
+        private DateTimeOffset? _explicitNullValueRetentionExpiresAt = default!;
         /// <summary>Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).</summary>
-        public int? RetentionPeriodMinutes { get; set; }
+        public int? RetentionPeriodMinutes { get => _explicitNullValueRetentionPeriodMinutes; set { _explicitNullValueRetentionPeriodMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_period_minutes"); else _explicitNullProperties?.Remove("retention_period_minutes"); } }
+        private int? _explicitNullValueRetentionPeriodMinutes = default!;
         /// <summary>The runtime_constraints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints? RuntimeConstraints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints? RuntimeConstraints { get => _explicitNullValueRuntimeConstraints; set { _explicitNullValueRuntimeConstraints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_constraints"); else _explicitNullProperties?.Remove("runtime_constraints"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints? _explicitNullValueRuntimeConstraints = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints RuntimeConstraints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints RuntimeConstraints { get => _explicitNullValueRuntimeConstraints; set { _explicitNullValueRuntimeConstraints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_constraints"); else _explicitNullProperties?.Remove("runtime_constraints"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceRuntimeConstraints _explicitNullValueRuntimeConstraints = default!;
 #endif
         /// <summary>API URL to start this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartUrl { get; set; }
+        public string? StartUrl { get => _explicitNullValueStartUrl; set { _explicitNullValueStartUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_url"); else _explicitNullProperties?.Remove("start_url"); } }
+        private string? _explicitNullValueStartUrl = default!;
 #nullable restore
 #else
-        public string StartUrl { get; set; }
+        public string StartUrl { get => _explicitNullValueStartUrl; set { _explicitNullValueStartUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_url"); else _explicitNullProperties?.Remove("start_url"); } }
+        private string _explicitNullValueStartUrl = default!;
 #endif
         /// <summary>State of this codespace.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodespaceState? _explicitNullValueState = default!;
         /// <summary>API URL to stop this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StopUrl { get; set; }
+        public string? StopUrl { get => _explicitNullValueStopUrl; set { _explicitNullValueStopUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_url"); else _explicitNullProperties?.Remove("stop_url"); } }
+        private string? _explicitNullValueStopUrl = default!;
 #nullable restore
 #else
-        public string StopUrl { get; set; }
+        public string StopUrl { get => _explicitNullValueStopUrl; set { _explicitNullValueStopUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_url"); else _explicitNullProperties?.Remove("stop_url"); } }
+        private string _explicitNullValueStopUrl = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>API URL for this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>URL to access this codespace on the web.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebUrl { get; set; }
+        public string? WebUrl { get => _explicitNullValueWebUrl; set { _explicitNullValueWebUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_url"); else _explicitNullProperties?.Remove("web_url"); } }
+        private string? _explicitNullValueWebUrl = default!;
 #nullable restore
 #else
-        public string WebUrl { get; set; }
+        public string WebUrl { get => _explicitNullValueWebUrl; set { _explicitNullValueWebUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_url"); else _explicitNullProperties?.Remove("web_url"); } }
+        private string _explicitNullValueWebUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Codespace"/> and sets the default values.
@@ -220,7 +312,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.Codespace CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.Codespace();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.Codespace(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -303,6 +395,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("web_url", WebUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

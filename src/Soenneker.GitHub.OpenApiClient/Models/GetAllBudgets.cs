@@ -11,36 +11,56 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetAllBudgets : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("budgets") is { } nullNodeBudgets && nullNodeBudgets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Budgets = null;
+            if (parseNode.GetChildNode("effective_budget") is { } nullNodeEffectiveBudget && nullNodeEffectiveBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveBudget = null;
+            if (parseNode.GetChildNode("has_next_page") is { } nullNodeHasNextPage && nullNodeHasNextPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasNextPage = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Array of budget objects for the enterprise</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget>? Budgets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget>? Budgets { get => _explicitNullValueBudgets; set { _explicitNullValueBudgets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budgets"); else _explicitNullProperties?.Remove("budgets"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Budget>? _explicitNullValueBudgets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> Budgets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> Budgets { get => _explicitNullValueBudgets; set { _explicitNullValueBudgets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budgets"); else _explicitNullProperties?.Remove("budgets"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> _explicitNullValueBudgets = default!;
 #endif
         /// <summary>Effective user-level budget details returned when the response is scoped with the `user` query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget? EffectiveBudget { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget? EffectiveBudget { get => _explicitNullValueEffectiveBudget; set { _explicitNullValueEffectiveBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_budget"); else _explicitNullProperties?.Remove("effective_budget"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget? _explicitNullValueEffectiveBudget = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget EffectiveBudget { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget EffectiveBudget { get => _explicitNullValueEffectiveBudget; set { _explicitNullValueEffectiveBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_budget"); else _explicitNullProperties?.Remove("effective_budget"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget _explicitNullValueEffectiveBudget = default!;
 #endif
         /// <summary>Indicates if there are more pages of results available</summary>
-        public bool? HasNextPage { get; set; }
+        public bool? HasNextPage { get => _explicitNullValueHasNextPage; set { _explicitNullValueHasNextPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_next_page"); else _explicitNullProperties?.Remove("has_next_page"); } }
+        private bool? _explicitNullValueHasNextPage = default!;
         /// <summary>Total number of budgets matching the query</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>User login included when the response is scoped with the `user` query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets"/> and sets the default values.
@@ -57,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("has_next_page", HasNextPage);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteStringValue("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

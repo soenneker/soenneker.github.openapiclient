@@ -12,7 +12,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotAlertReachability : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+        }
+
         /// <summary>The reason for the reachability verdict. This field is omitted when reachability analysis is disabled or no result has been computed.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertReachabilityReason? Reason { get; private set; }
         /// <summary>The reachability verdict for the alert.- `reachable`: a path from the repository&apos;s code reaches a vulnerable function.- `unreachable`: no path from the repository&apos;s code reaches a vulnerable function.- `potentially_reachable`: reachability could not be determined with confidence; review manually.- `unavailable`: no verdict has been computed for the alert yet.- `disabled`: reachability analysis is not enabled for the repository.</summary>
@@ -25,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertReachability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertReachability();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertReachability(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

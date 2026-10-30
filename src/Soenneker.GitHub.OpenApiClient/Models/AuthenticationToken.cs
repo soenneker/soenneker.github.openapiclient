@@ -12,44 +12,67 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthenticationToken : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_selection") is { } nullNodeRepositorySelection && nullNodeRepositorySelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositorySelection = null;
+            if (parseNode.GetChildNode("single_file") is { } nullNodeSingleFile && nullNodeSingleFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SingleFile = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time this token expires</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The repositories this token has access to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository>? Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Repository>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection? RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection? _explicitNullValueRepositorySelection = default!;
         /// <summary>The single_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SingleFile { get; set; }
+        public string? SingleFile { get => _explicitNullValueSingleFile; set { _explicitNullValueSingleFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file"); else _explicitNullProperties?.Remove("single_file"); } }
+        private string? _explicitNullValueSingleFile = default!;
 #nullable restore
 #else
-        public string SingleFile { get; set; }
+        public string SingleFile { get => _explicitNullValueSingleFile; set { _explicitNullValueSingleFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_file"); else _explicitNullProperties?.Remove("single_file"); } }
+        private string _explicitNullValueSingleFile = default!;
 #endif
         /// <summary>The token used for authentication</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string _explicitNullValueToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken"/> and sets the default values.
@@ -66,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,6 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file", SingleFile);
             writer.WriteStringValue("token", Token);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

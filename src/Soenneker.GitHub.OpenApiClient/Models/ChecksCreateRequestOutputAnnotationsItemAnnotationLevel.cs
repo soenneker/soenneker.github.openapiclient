@@ -3,26 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
+    /// <summary>The level of the annotation.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum CommitComparisonStatus
-    #pragma warning restore CS1591
+    public enum ChecksCreateRequestOutputAnnotationsItemAnnotationLevel
     {
-        [EnumMember(Value = "diverged")]
+        [EnumMember(Value = "notice")]
         #pragma warning disable CS1591
-        Diverged,
+        Notice,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ahead")]
+        [EnumMember(Value = "warning")]
         #pragma warning disable CS1591
-        Ahead,
+        Warning,
         #pragma warning restore CS1591
-        [EnumMember(Value = "behind")]
+        [EnumMember(Value = "failure")]
         #pragma warning disable CS1591
-        Behind,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "identical")]
-        #pragma warning disable CS1591
-        Identical,
+        Failure,
         #pragma warning restore CS1591
     }
 }

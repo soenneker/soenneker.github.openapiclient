@@ -57,6 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Blobs
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.GitCreateBlob422ResponseError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ShortBlob?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateBlobRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -73,6 +74,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Blobs
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.GitCreateBlob422ResponseError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ShortBlob>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ShortBlob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

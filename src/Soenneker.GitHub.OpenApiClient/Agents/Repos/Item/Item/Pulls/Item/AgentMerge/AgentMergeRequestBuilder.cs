@@ -65,6 +65,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.Item.Agent
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeDeleteAgentMergeEnrollment422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeDeleteAgentMergeEnrollment429Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeDeleteAgentMergeEnrollment503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -99,6 +101,8 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.Item.Agent
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment429Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -106,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.Item.Agent
         /// Updates the Agent Merge configuration for a pull request, enabling Agent Mergeor changing the allowed actions that Copilot is allowed to take on the pullrequest.If Agent Merge is currently enabled for the pull request, only the userwho most recently enabled it may change its allowed actions.If enrollment eligibility cannot be determined, the operation returns `503`.This endpoint is only available to users with a Copilot subscription,excluding Copilot Free users. You must have write access to the repository,the pull request must not be from a fork or part of a stack, and the repositorymust have the &quot;Allow automations&quot; setting enabled.OAuth app tokens and personal access tokens (classic) need the repo scope for private or internal repositories, or the public_repo scope for public repositories.
         /// API method documentation <see href="https://docs.github.com/rest/pulls/agent-merge#update-agent-merge-configuration-for-a-pull-request" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentSuccessResponse"/></returns>
         /// <param name="body">The Agent Merge enrollment configuration</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,11 +124,11 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.Item.Agent
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment200Response?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentSuccessResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment200Response> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentSuccessResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -139,8 +143,10 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.Item.Agent
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment429Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentSuccessResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentMergePutAgentMergeEnrollmentSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Disables Agent Merge for a pull request.You must have write access to the repository. Disabling does not requireenrollment eligibility: your Copilot subscription, coding-agent and Automationspolicies, the Agent Merge execution flag, pull request state, stack membership,and repository archive state do not prevent cleanup. Authentication, tokenrepository selection, and &quot;Agent tasks&quot; write permission remain required.OAuth app tokens and personal access tokens (classic) need the repo scope for private or internal repositories, or the public_repo scope for public repositories.

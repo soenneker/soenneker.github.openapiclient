@@ -12,30 +12,46 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotUpdateAlertRequestAgentAssignment : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_agent") is { } nullNodeCustomAgent && nullNodeCustomAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomAgent = null;
+            if (parseNode.GetChildNode("custom_instructions") is { } nullNodeCustomInstructions && nullNodeCustomInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomInstructions = null;
+            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+        }
+
         /// <summary>A custom agent identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomAgent { get; set; }
+        public string? CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private string? _explicitNullValueCustomAgent = default!;
 #nullable restore
 #else
-        public string CustomAgent { get; set; }
+        public string CustomAgent { get => _explicitNullValueCustomAgent; set { _explicitNullValueCustomAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_agent"); else _explicitNullProperties?.Remove("custom_agent"); } }
+        private string _explicitNullValueCustomAgent = default!;
 #endif
         /// <summary>Custom instructions for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomInstructions { get; set; }
+        public string? CustomInstructions { get => _explicitNullValueCustomInstructions; set { _explicitNullValueCustomInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_instructions"); else _explicitNullProperties?.Remove("custom_instructions"); } }
+        private string? _explicitNullValueCustomInstructions = default!;
 #nullable restore
 #else
-        public string CustomInstructions { get; set; }
+        public string CustomInstructions { get => _explicitNullValueCustomInstructions; set { _explicitNullValueCustomInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_instructions"); else _explicitNullProperties?.Remove("custom_instructions"); } }
+        private string _explicitNullValueCustomInstructions = default!;
 #endif
         /// <summary>The model to use for the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        private string _explicitNullValueModel = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateAlertRequestAgentAssignment(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_agent", CustomAgent);
             writer.WriteStringValue("custom_instructions", CustomInstructions);
-            writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("model", Model);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

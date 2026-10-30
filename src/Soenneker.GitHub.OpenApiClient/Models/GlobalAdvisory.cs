@@ -12,7 +12,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GlobalAdvisory : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cvss") is { } nullNodeCvss && nullNodeCvss.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cvss = null;
+            if (parseNode.GetChildNode("cvss_severities") is { } nullNodeCvssSeverities && nullNodeCvssSeverities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CvssSeverities = null;
+            if (parseNode.GetChildNode("cwes") is { } nullNodeCwes && nullNodeCwes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cwes = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("references") is { } nullNodeReferences && nullNodeReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) References = null;
+            if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
+            if (parseNode.GetChildNode("source_code_location") is { } nullNodeSourceCodeLocation && nullNodeSourceCodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceCodeLocation = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("vulnerabilities") is { } nullNodeVulnerabilities && nullNodeVulnerabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vulnerabilities = null;
+        }
+
         /// <summary>The users who contributed to the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,34 +48,42 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The cvss property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss? Cvss { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss? Cvss { get => _explicitNullValueCvss; set { _explicitNullValueCvss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss"); else _explicitNullProperties?.Remove("cvss"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss? _explicitNullValueCvss = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss Cvss { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss Cvss { get => _explicitNullValueCvss; set { _explicitNullValueCvss = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss"); else _explicitNullProperties?.Remove("cvss"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss _explicitNullValueCvss = default!;
 #endif
         /// <summary>The cvss_severities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities? CvssSeverities { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities? CvssSeverities { get => _explicitNullValueCvssSeverities; set { _explicitNullValueCvssSeverities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_severities"); else _explicitNullProperties?.Remove("cvss_severities"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities? _explicitNullValueCvssSeverities = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities CvssSeverities { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities CvssSeverities { get => _explicitNullValueCvssSeverities; set { _explicitNullValueCvssSeverities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cvss_severities"); else _explicitNullProperties?.Remove("cvss_severities"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities _explicitNullValueCvssSeverities = default!;
 #endif
         /// <summary>The cwes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem>? Cwes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem>? Cwes { get => _explicitNullValueCwes; set { _explicitNullValueCwes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwes"); else _explicitNullProperties?.Remove("cwes"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem>? _explicitNullValueCwes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem> Cwes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem> Cwes { get => _explicitNullValueCwes; set { _explicitNullValueCwes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwes"); else _explicitNullProperties?.Remove("cwes"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCwesItem> _explicitNullValueCwes = default!;
 #endif
         /// <summary>A detailed description of what the advisory entails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,10 +126,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The references property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? References { get; set; }
+        public List<string>? References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        private List<string>? _explicitNullValueReferences = default!;
 #nullable restore
 #else
-        public List<string> References { get; set; }
+        public List<string> References { get => _explicitNullValueReferences; set { _explicitNullValueReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("references"); else _explicitNullProperties?.Remove("references"); } }
+        private List<string> _explicitNullValueReferences = default!;
 #endif
         /// <summary>The API URL for the repository advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,22 +142,27 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryAdvisoryUrl { get; private set; }
 #endif
         /// <summary>The severity of the advisory.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisorySeverity? Severity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisorySeverity? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisorySeverity? _explicitNullValueSeverity = default!;
         /// <summary>The URL of the advisory&apos;s source code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceCodeLocation { get; set; }
+        public string? SourceCodeLocation { get => _explicitNullValueSourceCodeLocation; set { _explicitNullValueSourceCodeLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_code_location"); else _explicitNullProperties?.Remove("source_code_location"); } }
+        private string? _explicitNullValueSourceCodeLocation = default!;
 #nullable restore
 #else
-        public string SourceCodeLocation { get; set; }
+        public string SourceCodeLocation { get => _explicitNullValueSourceCodeLocation; set { _explicitNullValueSourceCodeLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_code_location"); else _explicitNullProperties?.Remove("source_code_location"); } }
+        private string _explicitNullValueSourceCodeLocation = default!;
 #endif
         /// <summary>A short summary of the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get; set; }
+        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public string Summary { get; set; }
+        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string _explicitNullValueSummary = default!;
 #endif
         /// <summary>The type of advisory.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryType? Type { get; private set; }
@@ -148,10 +179,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The products and respective version ranges affected by the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability>? Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability>? Vulnerabilities { get => _explicitNullValueVulnerabilities; set { _explicitNullValueVulnerabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vulnerabilities"); else _explicitNullProperties?.Remove("vulnerabilities"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability>? _explicitNullValueVulnerabilities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability> Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability> Vulnerabilities { get => _explicitNullValueVulnerabilities; set { _explicitNullValueVulnerabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vulnerabilities"); else _explicitNullProperties?.Remove("vulnerabilities"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability> _explicitNullValueVulnerabilities = default!;
 #endif
         /// <summary>The date and time of when the advisory was withdrawn, in ISO 8601 format.</summary>
         public DateTimeOffset? WithdrawnAt { get; private set; }
@@ -163,7 +196,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -213,7 +246,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisorySeverity>("severity", Severity);
             writer.WriteStringValue("source_code_location", SourceCodeLocation);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability>("vulnerabilities", Vulnerabilities);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Vulnerability>("vulnerabilities", Vulnerabilities);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

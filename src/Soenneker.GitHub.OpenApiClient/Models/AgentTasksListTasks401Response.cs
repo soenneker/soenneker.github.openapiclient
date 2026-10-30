@@ -13,34 +13,50 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentTasksListTasks401Response : ApiException, IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("documentation_url") is { } nullNodeDocumentationUrl && nullNodeDocumentationUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentationUrl = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessageEscaped && nullNodeMessageEscaped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageEscaped = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>URL to relevant API documentation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentationUrl { get; set; }
+        public string? DocumentationUrl { get => _explicitNullValueDocumentationUrl; set { _explicitNullValueDocumentationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentation_url"); else _explicitNullProperties?.Remove("documentation_url"); } }
+        private string? _explicitNullValueDocumentationUrl = default!;
 #nullable restore
 #else
-        public string DocumentationUrl { get; set; }
+        public string DocumentationUrl { get => _explicitNullValueDocumentationUrl; set { _explicitNullValueDocumentationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentation_url"); else _explicitNullProperties?.Remove("documentation_url"); } }
+        private string _explicitNullValueDocumentationUrl = default!;
 #endif
         /// <summary>List of validation errors (present only for 422 responses)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem>? Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem> Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>Summary message (e.g. &quot;Validation Failed&quot;, &quot;Not Found&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessageEscaped { get; set; }
+        public string? MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessageEscaped = default!;
 #nullable restore
 #else
-        public string MessageEscaped { get; set; }
+        public string MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessageEscaped = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401Response"/> and sets the default values.
@@ -57,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("documentation_url", DocumentationUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks401ResponseErrorsItem>("errors", Errors);
             writer.WriteStringValue("message", MessageEscaped);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

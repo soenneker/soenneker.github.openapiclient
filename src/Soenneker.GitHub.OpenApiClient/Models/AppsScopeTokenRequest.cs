@@ -11,51 +11,75 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AppsScopeTokenRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("access_token") is { } nullNodeAccessToken && nullNodeAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessToken = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_ids") is { } nullNodeRepositoryIds && nullNodeRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIds = null;
+            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("target_id") is { } nullNodeTargetId && nullNodeTargetId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetId = null;
+        }
+
         /// <summary>The access token used to authenticate to the GitHub API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccessToken { get; set; }
+        public string? AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
+        private string? _explicitNullValueAccessToken = default!;
 #nullable restore
 #else
-        public string AccessToken { get; set; }
+        public string AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
+        private string _explicitNullValueAccessToken = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The permissions granted to the fine-grained access token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The list of repository names to scope the user access token to. `repositories` may not be specified if `repository_ids` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Repositories { get; set; }
+        public List<string>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<string>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<string> Repositories { get; set; }
+        public List<string> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<string> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>The list of repository IDs to scope the user access token to. `repository_ids` may not be specified if `repositories` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIds { get; set; }
+        public List<int?>? RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
+        private List<int?>? _explicitNullValueRepositoryIds = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIds { get; set; }
+        public List<int?> RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
+        private List<int?> _explicitNullValueRepositoryIds = default!;
 #endif
         /// <summary>The name of the user or organization to scope the user access token to. **Required** unless `target_id` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Target { get; set; }
+        public string? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private string? _explicitNullValueTarget = default!;
 #nullable restore
 #else
-        public string Target { get; set; }
+        public string Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private string _explicitNullValueTarget = default!;
 #endif
         /// <summary>The ID of the user or organization to scope the user access token to. **Required** unless `target` is specified.</summary>
-        public long? TargetId { get; set; }
+        public long? TargetId { get => _explicitNullValueTargetId; set { _explicitNullValueTargetId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_id"); else _explicitNullProperties?.Remove("target_id"); } }
+        private long? _explicitNullValueTargetId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppsScopeTokenRequest"/> and sets the default values.
         /// </summary>
@@ -71,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AppsScopeTokenRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AppsScopeTokenRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.AppsScopeTokenRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids", RepositoryIds);
             writer.WriteStringValue("target", Target);
             writer.WriteLongValue("target_id", TargetId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

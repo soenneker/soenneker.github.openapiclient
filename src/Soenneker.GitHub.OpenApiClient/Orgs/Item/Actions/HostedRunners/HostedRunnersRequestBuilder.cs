@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListHostedRunnersForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListHostedRunnersForOrg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListHostedRunnersForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListHostedRunnersForOrg200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a GitHub-hosted runner for an organization.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.
@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all GitHub-hosted runners configured in an organization.OAuth app tokens and personal access tokens (classic) need the `manage_runner:org` scope to use this endpoint.

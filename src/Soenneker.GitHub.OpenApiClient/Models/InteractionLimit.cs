@@ -12,13 +12,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InteractionLimit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expiry") is { } nullNodeExpiry && nullNodeExpiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expiry = null;
+            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration of the interaction restriction. Default: `one_day`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? Expiry { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? Expiry { get => _explicitNullValueExpiry; set { _explicitNullValueExpiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiry"); else _explicitNullProperties?.Remove("expiry"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? _explicitNullValueExpiry = default!;
         /// <summary>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? Limit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? _explicitNullValueLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry>("expiry", Expiry);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup>("limit", Limit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

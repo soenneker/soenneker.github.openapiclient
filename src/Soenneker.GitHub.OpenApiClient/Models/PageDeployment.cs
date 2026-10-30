@@ -12,40 +12,59 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PageDeployment : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("page_url") is { } nullNodePageUrl && nullNodePageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageUrl = null;
+            if (parseNode.GetChildNode("preview_url") is { } nullNodePreviewUrl && nullNodePreviewUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviewUrl = null;
+            if (parseNode.GetChildNode("status_url") is { } nullNodeStatusUrl && nullNodeStatusUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the GitHub Pages deployment. This is the Git SHA of the deployed commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id? Id { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id Id { get; set; }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueId = default!;
 #endif
         /// <summary>The URI to the deployed GitHub Pages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PageUrl { get; set; }
+        public string? PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        private string? _explicitNullValuePageUrl = default!;
 #nullable restore
 #else
-        public string PageUrl { get; set; }
+        public string PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        private string _explicitNullValuePageUrl = default!;
 #endif
         /// <summary>The URI to the deployed GitHub Pages preview.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviewUrl { get; set; }
+        public string? PreviewUrl { get => _explicitNullValuePreviewUrl; set { _explicitNullValuePreviewUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preview_url"); else _explicitNullProperties?.Remove("preview_url"); } }
+        private string? _explicitNullValuePreviewUrl = default!;
 #nullable restore
 #else
-        public string PreviewUrl { get; set; }
+        public string PreviewUrl { get => _explicitNullValuePreviewUrl; set { _explicitNullValuePreviewUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preview_url"); else _explicitNullProperties?.Remove("preview_url"); } }
+        private string _explicitNullValuePreviewUrl = default!;
 #endif
         /// <summary>The URI to monitor GitHub Pages deployment status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusUrl { get; set; }
+        public string? StatusUrl { get => _explicitNullValueStatusUrl; set { _explicitNullValueStatusUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_url"); else _explicitNullProperties?.Remove("status_url"); } }
+        private string? _explicitNullValueStatusUrl = default!;
 #nullable restore
 #else
-        public string StatusUrl { get; set; }
+        public string StatusUrl { get => _explicitNullValueStatusUrl; set { _explicitNullValueStatusUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status_url"); else _explicitNullProperties?.Remove("status_url"); } }
+        private string _explicitNullValueStatusUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id>(global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "page_url", n => { PageUrl = n.GetStringValue(); } },
                 { "preview_url", n => { PreviewUrl = n.GetStringValue(); } },
                 { "status_url", n => { StatusUrl = n.GetStringValue(); } },
@@ -85,10 +104,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id>("id", Id);
+            writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("id", Id);
             writer.WriteStringValue("page_url", PageUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);
             writer.WriteStringValue("status_url", StatusUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
@@ -114,14 +134,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id CreateFromDiscriminatorValue(IParseNode parseNode)
             {
+            // A null union input must not initialize an object branch.
+            if (global::System.Object.ReferenceEquals(parseNode, null)) throw new global::System.ArgumentNullException(nameof(parseNode));
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return new global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id();
+
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.PageDeployment.PageDeployment_id();
-                if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }
-                else if(parseNode.GetStringValue() is string stringValue)
+                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -141,6 +165,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
+            // Empty composed wrappers serialize as JSON null.
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Integer == null && String == null) { writer.WriteNullValue(null); return; }
+
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Integer != null)
                 {

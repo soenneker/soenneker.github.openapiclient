@@ -11,26 +11,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReposCreateAutolinkRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("is_alphanumeric") is { } nullNodeIsAlphanumeric && nullNodeIsAlphanumeric.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAlphanumeric = null;
+            if (parseNode.GetChildNode("key_prefix") is { } nullNodeKeyPrefix && nullNodeKeyPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyPrefix = null;
+            if (parseNode.GetChildNode("url_template") is { } nullNodeUrlTemplate && nullNodeUrlTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlTemplate = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this autolink reference matches alphanumeric characters. If true, the `&lt;num&gt;` parameter of the `url_template` matches alphanumeric characters `A-Z` (case insensitive), `0-9`, and `-`. If false, this autolink reference only matches numeric characters.</summary>
-        public bool? IsAlphanumeric { get; set; }
+        public bool? IsAlphanumeric { get => _explicitNullValueIsAlphanumeric; set { _explicitNullValueIsAlphanumeric = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_alphanumeric"); else _explicitNullProperties?.Remove("is_alphanumeric"); } }
+        private bool? _explicitNullValueIsAlphanumeric = default!;
         /// <summary>This prefix appended by certain characters will generate a link any time it is found in an issue, pull request, or commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyPrefix { get; set; }
+        public string? KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
+        private string? _explicitNullValueKeyPrefix = default!;
 #nullable restore
 #else
-        public string KeyPrefix { get; set; }
+        public string KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
+        private string _explicitNullValueKeyPrefix = default!;
 #endif
         /// <summary>The URL must contain `&lt;num&gt;` for the reference number. `&lt;num&gt;` matches different characters depending on the value of `is_alphanumeric`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UrlTemplate { get; set; }
+        public string? UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
+        private string? _explicitNullValueUrlTemplate = default!;
 #nullable restore
 #else
-        public string UrlTemplate { get; set; }
+        public string UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
+        private string _explicitNullValueUrlTemplate = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAutolinkRequest"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAutolinkRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAutolinkRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAutolinkRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("is_alphanumeric", IsAlphanumeric);
             writer.WriteStringValue("key_prefix", KeyPrefix);
             writer.WriteStringValue("url_template", UrlTemplate);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,42 +11,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TimelineCommittedEventVerification : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("verified") is { } nullNodeVerified && nullNodeVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verified = null;
+            if (parseNode.GetChildNode("verified_at") is { } nullNodeVerifiedAt && nullNodeVerifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payload { get; set; }
+        public string? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private string? _explicitNullValuePayload = default!;
 #nullable restore
 #else
-        public string Payload { get; set; }
+        public string Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        private string _explicitNullValuePayload = default!;
 #endif
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
         /// <summary>The signature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Signature { get; set; }
+        public string? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public string Signature { get; set; }
+        public string Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string _explicitNullValueSignature = default!;
 #endif
         /// <summary>The verified property</summary>
-        public bool? Verified { get; set; }
+        public bool? Verified { get => _explicitNullValueVerified; set { _explicitNullValueVerified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified"); else _explicitNullProperties?.Remove("verified"); } }
+        private bool? _explicitNullValueVerified = default!;
         /// <summary>The verified_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerifiedAt { get; set; }
+        public string? VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_at"); else _explicitNullProperties?.Remove("verified_at"); } }
+        private string? _explicitNullValueVerifiedAt = default!;
 #nullable restore
 #else
-        public string VerifiedAt { get; set; }
+        public string VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_at"); else _explicitNullProperties?.Remove("verified_at"); } }
+        private string _explicitNullValueVerifiedAt = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.TimelineCommittedEventVerification"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.TimelineCommittedEventVerification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.TimelineCommittedEventVerification();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.TimelineCommittedEventVerification(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("signature", Signature);
             writer.WriteBoolValue("verified", Verified);
             writer.WriteStringValue("verified_at", VerifiedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

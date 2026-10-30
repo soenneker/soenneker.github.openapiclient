@@ -12,64 +12,97 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckAnnotation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annotation_level") is { } nullNodeAnnotationLevel && nullNodeAnnotationLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnotationLevel = null;
+            if (parseNode.GetChildNode("blob_href") is { } nullNodeBlobHref && nullNodeBlobHref.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlobHref = null;
+            if (parseNode.GetChildNode("end_column") is { } nullNodeEndColumn && nullNodeEndColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndColumn = null;
+            if (parseNode.GetChildNode("end_line") is { } nullNodeEndLine && nullNodeEndLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndLine = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("raw_details") is { } nullNodeRawDetails && nullNodeRawDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawDetails = null;
+            if (parseNode.GetChildNode("start_column") is { } nullNodeStartColumn && nullNodeStartColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartColumn = null;
+            if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
+            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annotation_level property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnnotationLevel { get; set; }
+        public string? AnnotationLevel { get => _explicitNullValueAnnotationLevel; set { _explicitNullValueAnnotationLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation_level"); else _explicitNullProperties?.Remove("annotation_level"); } }
+        private string? _explicitNullValueAnnotationLevel = default!;
 #nullable restore
 #else
-        public string AnnotationLevel { get; set; }
+        public string AnnotationLevel { get => _explicitNullValueAnnotationLevel; set { _explicitNullValueAnnotationLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation_level"); else _explicitNullProperties?.Remove("annotation_level"); } }
+        private string _explicitNullValueAnnotationLevel = default!;
 #endif
         /// <summary>The blob_href property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlobHref { get; set; }
+        public string? BlobHref { get => _explicitNullValueBlobHref; set { _explicitNullValueBlobHref = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_href"); else _explicitNullProperties?.Remove("blob_href"); } }
+        private string? _explicitNullValueBlobHref = default!;
 #nullable restore
 #else
-        public string BlobHref { get; set; }
+        public string BlobHref { get => _explicitNullValueBlobHref; set { _explicitNullValueBlobHref = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_href"); else _explicitNullProperties?.Remove("blob_href"); } }
+        private string _explicitNullValueBlobHref = default!;
 #endif
         /// <summary>The end_column property</summary>
-        public int? EndColumn { get; set; }
+        public int? EndColumn { get => _explicitNullValueEndColumn; set { _explicitNullValueEndColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_column"); else _explicitNullProperties?.Remove("end_column"); } }
+        private int? _explicitNullValueEndColumn = default!;
         /// <summary>The end_line property</summary>
-        public int? EndLine { get; set; }
+        public int? EndLine { get => _explicitNullValueEndLine; set { _explicitNullValueEndLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_line"); else _explicitNullProperties?.Remove("end_line"); } }
+        private int? _explicitNullValueEndLine = default!;
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The raw_details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RawDetails { get; set; }
+        public string? RawDetails { get => _explicitNullValueRawDetails; set { _explicitNullValueRawDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_details"); else _explicitNullProperties?.Remove("raw_details"); } }
+        private string? _explicitNullValueRawDetails = default!;
 #nullable restore
 #else
-        public string RawDetails { get; set; }
+        public string RawDetails { get => _explicitNullValueRawDetails; set { _explicitNullValueRawDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_details"); else _explicitNullProperties?.Remove("raw_details"); } }
+        private string _explicitNullValueRawDetails = default!;
 #endif
         /// <summary>The start_column property</summary>
-        public int? StartColumn { get; set; }
+        public int? StartColumn { get => _explicitNullValueStartColumn; set { _explicitNullValueStartColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_column"); else _explicitNullProperties?.Remove("start_column"); } }
+        private int? _explicitNullValueStartColumn = default!;
         /// <summary>The start_line property</summary>
-        public int? StartLine { get; set; }
+        public int? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
+        private int? _explicitNullValueStartLine = default!;
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckAnnotation"/> and sets the default values.
@@ -86,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CheckAnnotation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CheckAnnotation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CheckAnnotation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,6 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("start_column", StartColumn);
             writer.WriteIntValue("start_line", StartLine);
             writer.WriteStringValue("title", Title);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
