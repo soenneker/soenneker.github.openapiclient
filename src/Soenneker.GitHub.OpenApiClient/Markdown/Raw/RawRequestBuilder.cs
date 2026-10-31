@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Markdown.Raw
         {
 #endif
             if(string.IsNullOrEmpty(body)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.github.com", "/markdown/raw", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/html");
             requestInfo.SetContentFromScalar(RequestAdapter, "text/plain", body);

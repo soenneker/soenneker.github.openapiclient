@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Report
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.UserTeams1Day.UserTeams1DayRequestBuilder.UserTeams1DayRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.github.com", "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
