@@ -753,6 +753,45 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Automation created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentAutomationsCreateRepoAutomation201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "name": "Issue triage",
+                      "enabled": true,
+                      "type": "personal",
+                      "require_actor_write_permission": false,
+                      "triggers": {
+                        "issue_opened": {
+                          "query": "is:open"
+                        }
+                      },
+                      "prompt": "Inspect the new issue and suggest labels, priority, and next steps.",
+                      "tools": [
+                        "github/get_file_contents",
+                        "github/issue_read"
+                      ],
+                      "model": "gpt-6-sol",
+                      "reasoning_effort": "high",
+                      "created_at": "2026-05-01T12:00:00Z",
+                      "updated_at": "2026-05-01T12:00:00Z",
+                      "created_by": {
+                        "id": 123
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -1662,6 +1701,26 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Automation run request accepted for asynchronous processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentAutomationsCreateRepoAutomationTask202Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "task_id": "6f7b2fd5-bc70-4f55-befe-8653bd76045f",
+                      "automation_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "event": "manual"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -2601,6 +2660,71 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Task created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentTasksCreateTaskInRepo201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "name": "Fix the login button on the homepage",
+                      "creator": {
+                        "id": 1
+                      },
+                      "creator_type": "user",
+                      "owner": {
+                        "id": 1
+                      },
+                      "repository": {
+                        "id": 1296269
+                      },
+                      "state": "queued",
+                      "session_count": 1,
+                      "artifacts": [],
+                      "archived_at": null,
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  },
+                  "with-custom-agent": {
+                    "summary": "Task created with a custom agent",
+                    "value": {
+                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "name": "Fix the login button on the homepage",
+                      "creator": {
+                        "id": 1
+                      },
+                      "creator_type": "user",
+                      "owner": {
+                        "id": 1
+                      },
+                      "repository": {
+                        "id": 1296269
+                      },
+                      "state": "queued",
+                      "session_count": 1,
+                      "custom_agent": {
+                        "id": "my-custom-agent"
+                      },
+                      "artifacts": [],
+                      "archived_at": null,
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -3193,6 +3317,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed_simple"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppsCreateFromManifest201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/integration-from-manifest"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -3435,6 +3575,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -3748,6 +3904,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstallationToken"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/installation-token"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -4613,6 +4785,22 @@
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -5010,6 +5198,22 @@
           },
           "422": {
             "description": "Property inclusion already exists"
+          },
+          "200": {
+            "description": "OIDC custom property inclusion created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OidcCustomPropertyInclusion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -5233,6 +5437,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created code security configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeSecurityConfiguration"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-code-security-configuration"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -5609,6 +5829,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -6904,6 +7140,30 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/gists/aa5a315d61ae9438b18d"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GistSimple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/gist"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -7376,6 +7636,30 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/gists/a6db0bec360bb87e9418/comments/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GistComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/gist-comment"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -7778,6 +8062,30 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/gists/aa5a315d61ae9438b18d"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseGist"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/base-gist"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -9184,6 +9492,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityMarkNotificationsAsRead202Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/notifications-mark-read"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -10738,6 +11062,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -10993,6 +11333,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsHostedRunner"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-hosted-runner"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -11764,6 +12120,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsHostedRunner"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-hosted-runner"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -11894,6 +12266,22 @@
           },
           "422": {
             "description": "Property inclusion already exists"
+          },
+          "200": {
+            "description": "OIDC custom property inclusion created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OidcCustomPropertyInclusion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -12060,6 +12448,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Empty response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -13403,6 +13807,22 @@
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -13730,6 +14150,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunnerGroupsOrg"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/runner-group"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -14703,6 +15139,22 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsRunnerJitconfigResponse"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/runner-jitconfig"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -14751,6 +15203,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationToken"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/authentication-token"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -14799,6 +15267,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationToken"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/authentication-token-2"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -15446,6 +15930,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -15854,6 +16354,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response when creating a variable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -16508,6 +17024,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -16916,6 +17448,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response when creating a variable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -17740,6 +18288,24 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Job created successfully. Authorized deployments will be processed in the background.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJob202Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "job_id": 123
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -19522,6 +20088,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created code security configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeSecurityConfiguration"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-security-configuration"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -19983,6 +20565,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -20736,6 +21334,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -21215,6 +21829,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-organization"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -21707,6 +22337,78 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "user": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "writer",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  },
+                  "team": {
+                    "value": {
+                      "actor_type": "Team",
+                      "role": "reader",
+                      "id": 67890,
+                      "node_id": "MDQ6VGVhbTY3ODkw",
+                      "url": "https://api.github.com/teams/67890",
+                      "html_url": "https://github.com/orgs/octo-org/teams/developers",
+                      "name": "Developers",
+                      "slug": "developers",
+                      "type": "Team",
+                      "description": "Team of developers",
+                      "privacy": "closed",
+                      "notification_setting": "notifications_enabled",
+                      "members_url": "https://api.github.com/teams/67890/members{/member}",
+                      "repositories_url": "https://api.github.com/teams/67890/repos",
+                      "parent": null,
+                      "organization_id": 1
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -22624,6 +23326,24 @@
           },
           "422": {
             "description": "Copilot Business or Enterprise is not enabled for this organization, billing has not been set up for this organization, a public code suggestions policy has not been set for this organization, or the organization\u0027s Copilot access setting is set to enable Copilot for all users or is unconfigured."
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotAddCopilotSeatsForTeams201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "seats_created": 5
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -22794,6 +23514,24 @@
           },
           "422": {
             "description": "Copilot Business or Enterprise is not enabled for this organization, billing has not been set up for this organization, a public code suggestions policy has not been set for this organization, or the organization\u0027s Copilot access setting is set to enable Copilot for all users or is unconfigured."
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotAddCopilotSeatsForUsers201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "seats_created": 5
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -24366,6 +25104,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -24979,6 +25733,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/orgs/octocat/hooks/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgHook"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/org-hook"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -25509,6 +26287,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -26737,6 +27531,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationInvitation"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-invitation"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -27874,6 +28684,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -28372,6 +29198,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Migration"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/migration-with-short-org-2"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -29446,6 +30288,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "User is getting converted asynchronously",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsConvertMemberToOutsideCollaborator202Response"
+                },
+                "examples": {
+                  "202": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -30265,6 +31123,22 @@
           },
           "202": {
             "$ref": "#/components/responses/accepted"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -30583,6 +31457,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -30930,6 +31820,25 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "The organization private registry configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgPrivateRegistryConfigurationWithSelectedRepositories"
+                },
+                "examples": {
+                  "org-private-registry-with-selected-visibility": {
+                    "$ref": "#/components/examples/org-private-registry-configuration"
+                  },
+                  "org-private-registry-with-private-visibility": {
+                    "$ref": "#/components/examples/org-private-registry-configuration-with-selected-repositories"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -31420,6 +32329,25 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2ItemSimple"
+                },
+                "examples": {
+                  "title": {
+                    "$ref": "#/components/examples/projects-v2-item-simple-org"
+                  },
+                  "body": {
+                    "$ref": "#/components/examples/projects-v2-item-simple-org"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -31618,6 +32546,34 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response for adding a field to an organization-owned project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2Field"
+                },
+                "examples": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-field-text"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-field-number"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-field-date"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-field-single-select"
+                  },
+                  "iteration_field": {
+                    "$ref": "#/components/examples/projects-v2-field-iteration"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -31924,6 +32880,31 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2ItemSimple"
+                },
+                "examples": {
+                  "issue_with_id": {
+                    "$ref": "#/components/examples/projects-v2-item-issue-org"
+                  },
+                  "pull_request_with_id": {
+                    "$ref": "#/components/examples/projects-v2-item-pull-request-org"
+                  },
+                  "issue_with_nwo": {
+                    "$ref": "#/components/examples/projects-v2-item-issue-org"
+                  },
+                  "pull_request_with_nwo": {
+                    "$ref": "#/components/examples/projects-v2-item-pull-request-org"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -32382,6 +33363,37 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response for creating a view in an organization-owned project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2View"
+                },
+                "examples": {
+                  "table_view": {
+                    "summary": "Response for creating a table view",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  },
+                  "board_view": {
+                    "summary": "Response for creating a board view with filter",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  },
+                  "roadmap_view": {
+                    "summary": "Response for creating a roadmap view",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -32627,6 +33639,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationExternalPropertyInstallation"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-external-property-installation"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -33700,6 +34728,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -33888,6 +34940,22 @@
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryRuleset"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/org-ruleset"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -34688,6 +35756,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "All patterns created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatterns201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -35646,6 +36730,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkConfiguration"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/network-configuration"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -36027,6 +37127,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamFull"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/team-full"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -38470,6 +39586,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -38691,6 +39823,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed_simple"
+          },
+          "200": {
+            "description": "Empty response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -39847,6 +40995,22 @@
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -40355,6 +41519,22 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsRunnerJitconfigResponse"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/runner-jitconfig"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -40412,6 +41592,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationToken"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/authentication-token"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -40469,6 +41665,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationToken"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/authentication-token-2"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -41289,6 +42501,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -41684,6 +42912,22 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -41916,6 +43160,22 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -42358,6 +43618,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -42439,6 +43715,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -42782,6 +44074,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -42975,6 +44283,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -44246,6 +45570,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -44439,6 +45779,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -44841,6 +46197,24 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposCreateAttestation201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 2
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -45094,6 +46468,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/autolinks/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Autolink"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/autolink"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -48188,6 +49586,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchWithProtection"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/branch-with-protection"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -48324,6 +49738,25 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckRun"
+                },
+                "examples": {
+                  "example-of-completed-conclusion": {
+                    "$ref": "#/components/examples/check-run-example-of-completed-conclusion"
+                  },
+                  "example-of-in-progress-conclusion": {
+                    "$ref": "#/components/examples/check-run-example-of-in-progress-conclusion"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -48676,6 +50109,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -49070,6 +50519,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -50127,6 +51592,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningAutofixCommitsResponse"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-autofix-commits-response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -50847,6 +52328,37 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Variant analysis submitted for processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningVariantAnalysis"
+                },
+                "examples": {
+                  "repositories_parameter": {
+                    "summary": "Response for a successful variant analysis submission",
+                    "value": {
+                      "$ref": "#/components/examples/code-scanning-variant-analysis"
+                    }
+                  },
+                  "repository_owners": {
+                    "summary": "Response for a successful variant analysis submission",
+                    "value": {
+                      "$ref": "#/components/examples/code-scanning-variant-analysis"
+                    }
+                  },
+                  "repository_lists": {
+                    "summary": "Response for a successful variant analysis submission",
+                    "value": {
+                      "$ref": "#/components/examples/code-scanning-variant-analysis"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -51277,6 +52789,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningSarifsReceipt"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-sarif-upload"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -51668,6 +53196,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Response when the codespace was successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Codespace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/codespace"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -52296,6 +53840,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -52589,6 +54149,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response when a new invitation is created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryInvitation"
+                },
+                "examples": {
+                  "new-invitation-is-created": {
+                    "$ref": "#/components/examples/repository-invitation-response-when-a-new-invitation-is-created"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -53636,6 +55212,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/comments/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommitComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/commit-comment"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -53782,58 +55382,44 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/Commit"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/commit"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/Commit"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "application/vnd.github.diff": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubDiffResponseSchema"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/diff-media-type"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubDiffResponseSchema"
                 }
               },
               "application/vnd.github.patch": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubPatchResponseSchema"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/patch-media-type"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubPatchResponseSchema"
                 }
               },
               "application/vnd.github.sha": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposGetCommit200GithubShaResponseSchema"
                 },
                 "examples": {
                   "default": {
                     "value": "ac3282a2725be3b1d4979169a7a311c89066af1c"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposGetCommit200GithubShaResponseSchema"
                 }
               }
             }
@@ -54324,44 +55910,34 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/CommitComparison"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/commit-comparison"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/CommitComparison"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "application/vnd.github.diff": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposCompareCommits200GithubDiffResponseSchema"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/diff-media-type"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposCompareCommits200GithubDiffResponseSchema"
                 }
               },
               "application/vnd.github.patch": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposCompareCommits200GithubPatchResponseSchema"
                 },
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/patch-media-type"
                   }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposCompareCommits200GithubPatchResponseSchema"
                 }
               }
             }
@@ -54470,27 +56046,9 @@
           "200": {
             "description": "Response",
             "content": {
-              "application/vnd.github.object": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "examples": {
-                  "response-if-content-is-a-file-github-object": {
-                    "$ref": "#/components/examples/content-file-response-if-content-is-a-file"
-                  },
-                  "response-if-content-is-a-directory-github-object": {
-                    "$ref": "#/components/examples/content-file-response-if-content-is-a-directory-object"
-                  }
-                },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ContentTree"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/ReposGetContent200Response"
                 },
                 "examples": {
                   "response-if-content-is-a-file": {
@@ -54505,9 +56063,21 @@
                   "response-if-content-is-a-submodule": {
                     "$ref": "#/components/examples/content-file-response-if-content-is-a-submodule"
                   }
+                }
+              }
+            },
+            "x-client-original-non-json-content": {
+              "application/vnd.github.object": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentTree"
                 },
-                "x-client-original-success-schema": {
-                  "$ref": "#/components/schemas/ReposGetContent200Response"
+                "examples": {
+                  "response-if-content-is-a-file-github-object": {
+                    "$ref": "#/components/examples/content-file-response-if-content-is-a-file"
+                  },
+                  "response-if-content-is-a-directory-github-object": {
+                    "$ref": "#/components/examples/content-file-response-if-content-is-a-directory-object"
+                  }
                 }
               }
             }
@@ -55553,6 +57123,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -55893,6 +57479,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DependencyGraphGenerateSbomReport201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/dependency-graph-generate-sbom-report-response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -55964,6 +57566,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DependencyGraphCreateRepositorySnapshot201Response"
+                },
+                "examples": {
+                  "example-of-a-dependency-submission": {
+                    "$ref": "#/components/examples/dependency-graph-create-snapshot-success"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -56186,6 +57804,25 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposCreateDeploymentSuccessResponse"
+                },
+                "examples": {
+                  "simple-example": {
+                    "$ref": "#/components/examples/deployment-simple-example"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/Deployment"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -56492,6 +58129,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/example/deployments/42/statuses/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeploymentStatus"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/deployment-status"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -57511,6 +59172,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "The enabled custom deployment protection rule",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeploymentProtectionRule"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/deployment-protection-rule"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -58033,6 +59710,22 @@
           },
           "204": {
             "description": "Response when updating a secret"
+          },
+          "200": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -58253,6 +59946,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -58695,6 +60404,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -58797,6 +60522,30 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShortBlob"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/short-blob"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -58975,6 +60724,30 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitCommit"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/git-commit"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -59287,6 +61060,30 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitRef"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/git-ref"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -59535,6 +61332,30 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitTag"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/git-tag"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -59708,6 +61529,30 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/trees/cd8274d15fa3ae2ab983129fb037999f264ba9a7"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitTree"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/git-tree"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -60029,6 +61874,30 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/hooks/12345678"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hook"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/hook"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -60630,6 +62499,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -61059,6 +62944,30 @@
           },
           "503": {
             "$ref": "#/components/responses/porter_maintenance"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/spraints/socm/import"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Import"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/import-2"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -62664,6 +64573,30 @@
           },
           "410": {
             "$ref": "#/components/responses/gone"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Issue"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -64018,6 +65951,41 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "The created artifact.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueArtifact"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 42,
+                      "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
+                      "number": 1,
+                      "type": "generic",
+                      "name": "Research notes",
+                      "body": "## Findings\n\nThe API supports issue artifacts.",
+                      "body_html": "\u003Ch2\u003EFindings\u003C/h2\u003E\n\u003Cp\u003EThe API supports issue artifacts.\u003C/p\u003E",
+                      "description": "The API supports issue artifacts.",
+                      "creator": {
+                        "login": "octocat",
+                        "id": 1
+                      },
+                      "updated_by_actor": {
+                        "login": "octocat",
+                        "id": 1
+                      },
+                      "created_at": "2026-09-21T15:00:00Z",
+                      "updated_at": "2026-09-21T15:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -64470,6 +66438,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Issue"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -64812,6 +66796,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/issues/comments/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-comment"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -65003,6 +67011,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/issues/1/dependencies/blocked_by"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Issue"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -66752,6 +68784,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/issues/1/relates_to"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Issue"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -67130,6 +69186,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/issues/sub-issues/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Issue"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -67738,6 +69818,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/keys/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeployKey"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/deploy-key"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -68020,6 +70124,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/labels/bug"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Label"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/label"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -68511,6 +70639,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Successful Response (The resulting merge commit)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Commit"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/commit"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -68695,6 +70839,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/milestones/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Milestone"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/milestone"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -69135,6 +71303,24 @@
           },
           "205": {
             "description": "Reset Content"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityMarkRepoNotificationsAsRead202Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Unread notifications couldn\u0027t be marked in a single request. Notifications are being marked as read in the background."
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -69276,6 +71462,22 @@
           },
           "409": {
             "$ref": "#/components/responses/conflict"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/page"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -69524,6 +71726,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageBuildStatus"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/page-build-status"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -70447,6 +72665,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequest"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/pull-request"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -71283,6 +73525,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Response when the codespace was successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Codespace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/codespace"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -71476,6 +73734,30 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestReviewComment"
+                },
+                "examples": {
+                  "example-for-a-multi-line-comment": {
+                    "$ref": "#/components/examples/pull-request-review-comment-example-for-a-multi-line-comment"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -71581,6 +73863,30 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestReviewComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/pull-request-review-comment"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -72417,6 +74723,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestSimple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/pull-request-review-request"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -72604,6 +74926,22 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestSimple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/pull-request-review-request"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -73415,6 +75753,25 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullsUpdateBranch202Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Updating pull request branch.",
+                      "url": "https://github.com/repos/octocat/Hello-World/pulls/53"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -73740,6 +76097,30 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/releases/1"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Release"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/release"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -74559,6 +76940,22 @@
           },
           "422": {
             "description": "Response if you upload an asset with the same filename as another uploaded asset"
+          },
+          "200": {
+            "description": "Response for successful upload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleaseAsset"
+                },
+                "examples": {
+                  "response-for-successful-upload": {
+                    "$ref": "#/components/examples/release-asset-response-for-successful-upload"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "servers": [
@@ -75084,6 +77481,22 @@
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryRuleset"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-ruleset"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -75884,7 +78297,7 @@
           "secret-scanning"
         ],
         "summary": "Update a secret scanning alert",
-        "description": "Updates the status of a secret scanning alert in an eligible repository.\n\nYou can also use this endpoint to assign or unassign an alert to a user who has write access to the repository.\n\nThe authenticated user must be an administrator for the repository or for the organization that owns the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.",
+        "description": "Updates the status of a secret scanning alert in an eligible repository.\n\nYou can also use this endpoint to assign or unassign an alert to a user who has write access to the repository.\n\nThe authenticated user must be an administrator for the repository or for the organization that owns the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.\n\n\u003E [!NOTE]\n\u003E If [delegated alert dismissal](https://docs.github.com/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal) is enabled, resolving or reopening an alert also requires write access to the \u0022Secret scanning alert dismissal requests\u0022 permission. Granting the permission to the app alone is not sufficient if the token\u0027s permissions exclude it.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/secret-scanning/secret-scanning#update-a-secret-scanning-alert"
@@ -76241,6 +78654,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "All patterns created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatterns201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-response"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -76823,6 +79252,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisory"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-advisory"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -76962,6 +79407,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisory"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-advisory-pvr"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -77404,6 +79865,52 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisoryComment"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "node_id": "MDEzOlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+                      "body": "Thanks for the report. We are working on a fix.",
+                      "user": {
+                        "login": "octocat",
+                        "id": 1,
+                        "node_id": "MDQ6VXNlcjE=",
+                        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/octocat",
+                        "html_url": "https://github.com/octocat",
+                        "followers_url": "https://api.github.com/users/octocat/followers",
+                        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                        "organizations_url": "https://api.github.com/users/octocat/orgs",
+                        "repos_url": "https://api.github.com/users/octocat/repos",
+                        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/octocat/received_events",
+                        "type": "User",
+                        "site_admin": false
+                      },
+                      "author_association": "OWNER",
+                      "created_at": "2022-01-01T00:00:00Z",
+                      "updated_at": "2022-01-01T00:00:00Z",
+                      "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh/comments/1",
+                      "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-abcd-1234-efgh#advisory-comment-1",
+                      "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -77659,6 +80166,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -77737,6 +80260,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -78082,6 +80621,134 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksCreate201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 9876543,
+                      "number": 42,
+                      "node_id": "S_kwDOABCDEF4AAAAA",
+                      "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                      "base": {
+                        "ref": "main"
+                      },
+                      "open": true,
+                      "created_at": "2026-04-15T10:00:00Z",
+                      "pull_requests": [
+                        {
+                          "id": 100001,
+                          "node_id": "PR_kwDOABCDEF4AAAAA",
+                          "title": "Add user model",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": false,
+                          "html_url": "https://github.com/octocat/hello-world/pull/101",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 101,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/101",
+                          "head": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "main",
+                            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        },
+                        {
+                          "id": 100002,
+                          "node_id": "PR_kwDOABCDEF4AAAAB",
+                          "title": "Add user API",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": true,
+                          "html_url": "https://github.com/octocat/hello-world/pull/102",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 102,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/102",
+                          "head": {
+                            "ref": "user-api",
+                            "sha": "bbb2222bbb2222bbb2222bbb2222bbb2222bbb22",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -79397,6 +82064,30 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/status"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -80318,6 +83009,22 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MinimalRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/minimal-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -80600,6 +83307,30 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -82693,6 +85424,22 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          },
+          "200": {
+            "description": "Response when the codespace was successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Codespace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/codespace"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -82905,6 +85652,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Response after successfully creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -83360,6 +86123,22 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponseContent"
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -83423,6 +86202,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodespaceExportDetails"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/user-export-details"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "x-github": {
@@ -83624,6 +86419,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodespaceWithFullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/codespace-with-full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -84002,6 +86813,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersAddEmailForAuthenticatedUser201ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/email-items"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -84458,6 +87285,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GpgKey"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/gpg-key"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -85163,6 +88006,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Key"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/key"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -85723,6 +88582,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Migration"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/migration-2"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -86860,6 +89735,30 @@
           },
           "400": {
             "$ref": "#/components/responses/bad_request"
+          },
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://api.github.com/repos/octocat/Hello-World"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullRepository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/full-repository"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -87177,6 +90076,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersAddSocialAccountForAuthenticatedUser201ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/social-account-items"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -87367,6 +90282,22 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SshSigningKey"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/ssh-signing-key"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -87888,7 +90819,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersGetAuthenticated200Response"
+                  "$ref": "#/components/schemas/UsersGetById200Response"
                 },
                 "examples": {
                   "default-response": {
@@ -87998,6 +90929,25 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2ItemSimple"
+                },
+                "examples": {
+                  "title": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  },
+                  "body": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -88196,6 +91146,37 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Response for creating a view in a user-owned project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2View"
+                },
+                "examples": {
+                  "table_view": {
+                    "summary": "Response for creating a table view",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  },
+                  "board_view": {
+                    "summary": "Response for creating a board view with filter",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  },
+                  "roadmap_view": {
+                    "summary": "Response for creating a roadmap view",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-view"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -88235,7 +91216,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersGetAuthenticated200Response"
+                  "$ref": "#/components/schemas/UsersGetByUsername200Response"
                 },
                 "examples": {
                   "default-response": {
@@ -88842,6 +91823,22 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-user"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -89312,6 +92309,58 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "writer",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -91639,6 +94688,34 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2Field"
+                },
+                "examples": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-field-text"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-field-number"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-field-date"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-field-single-select"
+                  },
+                  "iteration_field": {
+                    "$ref": "#/components/examples/projects-v2-field-iteration"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -91945,6 +95022,31 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsV2ItemSimple"
+                },
+                "examples": {
+                  "issue_with_id": {
+                    "$ref": "#/components/examples/projects-v2-item-issue"
+                  },
+                  "pull_request_with_id": {
+                    "$ref": "#/components/examples/projects-v2-item-pull-request"
+                  },
+                  "issue_with_nwo": {
+                    "$ref": "#/components/examples/projects-v2-item-issue"
+                  },
+                  "pull_request_with_nwo": {
+                    "$ref": "#/components/examples/projects-v2-item-pull-request"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-github": {
@@ -142433,26 +145535,17 @@
         ]
       },
       "RuleSuiteRuleEvaluationsItemMetadata": {
-        "required": [
-          "rule_type"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/RuleSuitePullRequest"
+            "$ref": "#/components/schemas/RuleSuiteRuleEvaluationsItemMetadataOneOf1"
           },
           {
-            "$ref": "#/components/schemas/RuleSuiteRequiredStatusChecks"
+            "$ref": "#/components/schemas/RuleSuiteRuleEvaluationsItemMetadataOneOf2"
           }
         ],
-        "properties": {
-          "rule_type": {
-            "type": "string"
-          }
-        },
         "description": "Additional metadata about the rule evaluation.",
         "nullable": true,
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "rule_type",
           "mapping": {
             "pull_request": "#/components/schemas/RuleSuitePullRequest",
@@ -291813,56 +294906,14 @@
         }
       },
       "ChecksUpdateRequest": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/ChecksUpdateRequestAnyOf1"
+            "$ref": "#/components/schemas/ChecksUpdateRequestAnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/ChecksUpdateRequestAnyOf2"
+            "$ref": "#/components/schemas/ChecksUpdateRequestAnyOf2Branch"
           }
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the check. For example, \u0022code-coverage\u0022."
-          },
-          "details_url": {
-            "type": "string",
-            "description": "The URL of the integrator\u0027s site that has the full details of the check."
-          },
-          "external_id": {
-            "type": "string",
-            "description": "A reference for the run on the integrator\u0027s system."
-          },
-          "started_at": {
-            "type": "string",
-            "description": "This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
-            "format": "date-time"
-          },
-          "status": {
-            "$ref": "#/components/schemas/ChecksUpdateRequestStatus"
-          },
-          "conclusion": {
-            "$ref": "#/components/schemas/ChecksUpdateRequestConclusion"
-          },
-          "completed_at": {
-            "type": "string",
-            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
-            "format": "date-time"
-          },
-          "output": {
-            "$ref": "#/components/schemas/ChecksUpdateRequestOutput"
-          },
-          "actions": {
-            "maxItems": 3,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChecksUpdateRequestActionsItem"
-            },
-            "description": "Possible further actions the integrator can perform, which a user may trigger. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
-          }
-        }
+        ]
       },
       "ChecksListAnnotations200Response": {
         "type": "array",
@@ -295715,23 +298766,15 @@
         }
       },
       "UsersGetAuthenticated200Response": {
-        "required": [
-          "user_view_type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PrivateUser"
+            "$ref": "#/components/schemas/UsersGetAuthenticated200ResponseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PublicUser"
+            "$ref": "#/components/schemas/UsersGetAuthenticated200ResponseOneOf2"
           }
         ],
-        "properties": {
-          "user_view_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "user_view_type",
           "mapping": {
             "public": "#/components/schemas/PublicUser",
@@ -296416,23 +299459,15 @@
         }
       },
       "UsersGetById200Response": {
-        "required": [
-          "user_view_type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PrivateUser"
+            "$ref": "#/components/schemas/UsersGetById200ResponseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PublicUser"
+            "$ref": "#/components/schemas/UsersGetById200ResponseOneOf2"
           }
         ],
-        "properties": {
-          "user_view_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "user_view_type",
           "mapping": {
             "public": "#/components/schemas/PublicUser",
@@ -296549,23 +299584,15 @@
         "additionalProperties": false
       },
       "UsersGetByUsername200Response": {
-        "required": [
-          "user_view_type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PrivateUser"
+            "$ref": "#/components/schemas/UsersGetByUsername200ResponseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PublicUser"
+            "$ref": "#/components/schemas/UsersGetByUsername200ResponseOneOf2"
           }
         ],
-        "properties": {
-          "user_view_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "user_view_type",
           "mapping": {
             "public": "#/components/schemas/PublicUser",
@@ -406963,6 +409990,38 @@
           ]
         }
       },
+      "RuleSuiteRuleEvaluationsItemMetadataOneOf1": {
+        "type": "object",
+        "properties": {
+          "pull_request": {
+            "$ref": "#/components/schemas/RuleSuitePullRequestPullRequest"
+          },
+          "rule_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_type"
+        ]
+      },
+      "RuleSuiteRuleEvaluationsItemMetadataOneOf2": {
+        "type": "object",
+        "properties": {
+          "checks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RuleSuiteRequiredStatusChecksChecksItem"
+            },
+            "description": "The status checks associated with the rule evaluation."
+          },
+          "rule_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_type"
+        ]
+      },
       "ChecksCreateRequestOneOf1Branch": {
         "type": "object",
         "properties": {
@@ -407100,6 +410159,1394 @@
           "head_sha",
           "status"
         ]
+      },
+      "ChecksUpdateRequestAnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "completed"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Status",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "completed",
+                  "name": "Completed"
+                }
+              ]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the check. For example, \u0022code-coverage\u0022."
+          },
+          "details_url": {
+            "type": "string",
+            "description": "The URL of the integrator\u0027s site that has the full details of the check."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A reference for the run on the integrator\u0027s system."
+          },
+          "started_at": {
+            "type": "string",
+            "description": "This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "conclusion": {
+            "$ref": "#/components/schemas/ChecksUpdateRequestConclusion"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ChecksUpdateRequestOutput"
+          },
+          "actions": {
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChecksUpdateRequestActionsItem"
+            },
+            "description": "Possible further actions the integrator can perform, which a user may trigger. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
+          }
+        },
+        "required": [
+          "conclusion"
+        ]
+      },
+      "ChecksUpdateRequestAnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "queued",
+              "in_progress"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Status",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "queued",
+                  "name": "Queued"
+                },
+                {
+                  "value": "in_progress",
+                  "name": "InProgress"
+                }
+              ]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the check. For example, \u0022code-coverage\u0022."
+          },
+          "details_url": {
+            "type": "string",
+            "description": "The URL of the integrator\u0027s site that has the full details of the check."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A reference for the run on the integrator\u0027s system."
+          },
+          "started_at": {
+            "type": "string",
+            "description": "This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "conclusion": {
+            "$ref": "#/components/schemas/ChecksUpdateRequestConclusion"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "format": "date-time"
+          },
+          "output": {
+            "$ref": "#/components/schemas/ChecksUpdateRequestOutput"
+          },
+          "actions": {
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChecksUpdateRequestActionsItem"
+            },
+            "description": "Possible further actions the integrator can perform, which a user may trigger. Each action includes a \u0060label\u0060, \u0060identifier\u0060 and \u0060description\u0060. A maximum of three actions are accepted. To learn more about check runs and requested actions, see \u0022[Check runs and requested actions](https://docs.github.com/rest/guides/using-the-rest-api-to-interact-with-checks#check-runs-and-requested-actions).\u0022"
+          }
+        }
+      },
+      "UsersGetAuthenticated200ResponseOneOf1": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa octocat"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true,
+            "example": "GitHub"
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://github.com/blog"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true,
+            "example": "San Francisco"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true,
+            "example": "There once was..."
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa"
+          },
+          "public_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "public_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "followers": {
+            "type": "integer",
+            "example": 20
+          },
+          "following": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 81
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 10000
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 8
+          },
+          "two_factor_authentication": {
+            "type": "boolean",
+            "example": true
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PrivateUserPlan"
+          },
+          "business_plus": {
+            "type": "boolean"
+          },
+          "ldap_dn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "collaborators",
+          "disk_usage",
+          "owned_private_repos",
+          "private_gists",
+          "total_private_repos",
+          "two_factor_authentication",
+          "user_view_type"
+        ]
+      },
+      "UsersGetAuthenticated200ResponseOneOf2": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string"
+          },
+          "gists_url": {
+            "type": "string"
+          },
+          "starred_url": {
+            "type": "string"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true
+          },
+          "public_repos": {
+            "type": "integer"
+          },
+          "public_gists": {
+            "type": "integer"
+          },
+          "followers": {
+            "type": "integer"
+          },
+          "following": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PublicUserPlan"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 1
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 3
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "user_view_type"
+        ],
+        "additionalProperties": false
+      },
+      "UsersGetById200ResponseOneOf1": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa octocat"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true,
+            "example": "GitHub"
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://github.com/blog"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true,
+            "example": "San Francisco"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true,
+            "example": "There once was..."
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa"
+          },
+          "public_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "public_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "followers": {
+            "type": "integer",
+            "example": 20
+          },
+          "following": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 81
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 10000
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 8
+          },
+          "two_factor_authentication": {
+            "type": "boolean",
+            "example": true
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PrivateUserPlan"
+          },
+          "business_plus": {
+            "type": "boolean"
+          },
+          "ldap_dn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "collaborators",
+          "disk_usage",
+          "owned_private_repos",
+          "private_gists",
+          "total_private_repos",
+          "two_factor_authentication",
+          "user_view_type"
+        ]
+      },
+      "UsersGetById200ResponseOneOf2": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string"
+          },
+          "gists_url": {
+            "type": "string"
+          },
+          "starred_url": {
+            "type": "string"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true
+          },
+          "public_repos": {
+            "type": "integer"
+          },
+          "public_gists": {
+            "type": "integer"
+          },
+          "followers": {
+            "type": "integer"
+          },
+          "following": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PublicUserPlan"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 1
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 3
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "user_view_type"
+        ],
+        "additionalProperties": false
+      },
+      "UsersGetByUsername200ResponseOneOf1": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa octocat"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true,
+            "example": "GitHub"
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://github.com/blog"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true,
+            "example": "San Francisco"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "octocat@github.com"
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true,
+            "example": "There once was..."
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true,
+            "example": "monalisa"
+          },
+          "public_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "public_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "followers": {
+            "type": "integer",
+            "example": 20
+          },
+          "following": {
+            "type": "integer",
+            "example": 0
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2008-01-14T04:33:35Z"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 81
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 100
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 10000
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 8
+          },
+          "two_factor_authentication": {
+            "type": "boolean",
+            "example": true
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PrivateUserPlan"
+          },
+          "business_plus": {
+            "type": "boolean"
+          },
+          "ldap_dn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "collaborators",
+          "disk_usage",
+          "owned_private_repos",
+          "private_gists",
+          "total_private_repos",
+          "two_factor_authentication",
+          "user_view_type"
+        ]
+      },
+      "UsersGetByUsername200ResponseOneOf2": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "user_view_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string"
+          },
+          "gists_url": {
+            "type": "string"
+          },
+          "starred_url": {
+            "type": "string"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "blog": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "notification_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "hireable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitter_username": {
+            "type": "string",
+            "nullable": true
+          },
+          "public_repos": {
+            "type": "integer"
+          },
+          "public_gists": {
+            "type": "integer"
+          },
+          "followers": {
+            "type": "integer"
+          },
+          "following": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PublicUserPlan"
+          },
+          "private_gists": {
+            "type": "integer",
+            "example": 1
+          },
+          "total_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "owned_private_repos": {
+            "type": "integer",
+            "example": 2
+          },
+          "disk_usage": {
+            "type": "integer",
+            "example": 1
+          },
+          "collaborators": {
+            "type": "integer",
+            "example": 3
+          }
+        },
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url",
+          "bio",
+          "blog",
+          "company",
+          "email",
+          "followers",
+          "following",
+          "hireable",
+          "location",
+          "name",
+          "public_gists",
+          "public_repos",
+          "created_at",
+          "updated_at",
+          "user_view_type"
+        ],
+        "additionalProperties": false
       },
       "OrgsUpdate422ResponseError": {
         "type": "object",

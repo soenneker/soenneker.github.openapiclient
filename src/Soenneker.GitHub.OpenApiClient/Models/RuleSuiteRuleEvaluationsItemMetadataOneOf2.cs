@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// Metadata for a required status checks rule evaluation result.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RuleSuiteRequiredStatusChecks : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class RuleSuiteRuleEvaluationsItemMetadataOneOf2 : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -20,6 +19,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("checks") is null) { _explicitNullValueChecks = default!; _explicitNullProperties?.Remove("checks"); }
             else if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
+            if (parseNode.GetChildNode("rule_type") is null) { _explicitNullValueRuleType = default!; _explicitNullProperties?.Remove("rule_type"); }
+            else if (parseNode.GetChildNode("rule_type") is { } nullNodeRuleType && nullNodeRuleType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,22 +35,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecksChecksItem> Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; AdditionalData?.Remove("checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecksChecksItem> _explicitNullValueChecks = default!;
 #endif
+        /// <summary>The rule_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; AdditionalData?.Remove("rule_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
+        private string? _explicitNullValueRuleType = default!;
+#nullable restore
+#else
+        public string RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; AdditionalData?.Remove("rule_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
+        private string _explicitNullValueRuleType = default!;
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadataOneOf2"/> and sets the default values.
         /// </summary>
-        public RuleSuiteRequiredStatusChecks()
+        public RuleSuiteRuleEvaluationsItemMetadataOneOf2()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadataOneOf2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadataOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecks(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadataOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecksChecksItem>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecksChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "rule_type", n => { RuleType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -70,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRequiredStatusChecksChecksItem>("checks", Checks);
+            writer.WriteStringValue("rule_type", RuleType);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

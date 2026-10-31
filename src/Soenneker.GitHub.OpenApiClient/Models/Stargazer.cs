@@ -60,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "starred_at", n => { StarredAt = n.GetDateTimeOffsetValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+
             };
         }
         /// <summary>

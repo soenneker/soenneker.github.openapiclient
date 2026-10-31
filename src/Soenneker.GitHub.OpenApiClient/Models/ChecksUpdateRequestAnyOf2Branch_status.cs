@@ -5,12 +5,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CompletedStatus
+    public enum ChecksUpdateRequestAnyOf2Branch_status
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "completed")]
+        [EnumMember(Value = "queued")]
         #pragma warning disable CS1591
-        Completed,
+        Queued,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "in_progress")]
+        #pragma warning disable CS1591
+        InProgress,
         #pragma warning restore CS1591
     }
 }
