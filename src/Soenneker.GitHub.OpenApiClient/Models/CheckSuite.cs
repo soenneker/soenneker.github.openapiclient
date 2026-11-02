@@ -101,8 +101,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         private string _explicitNullValueCheckRunsUrl = default!;
 #endif
         /// <summary>The conclusion property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion? Conclusion { get => _explicitNullValueConclusion; set { _explicitNullValueConclusion = value; AdditionalData?.Remove("conclusion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conclusion"); else _explicitNullProperties?.Remove("conclusion"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion? _explicitNullValueConclusion = default!;
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion Conclusion { get => _explicitNullValueConclusion; set { _explicitNullValueConclusion = value; AdditionalData?.Remove("conclusion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conclusion"); else _explicitNullProperties?.Remove("conclusion"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion _explicitNullValueConclusion = default!;
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
@@ -223,7 +230,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "before", n => { Before = n.GetStringValue(); } },
                 { "check_runs_url", n => { CheckRunsUrl = n.GetStringValue(); } },
-                { "conclusion", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConclusion = default; _explicitNullProperties?.Remove("conclusion"); AdditionalData["conclusion"] = unknown; } else { Conclusion = parsed; AdditionalData.Remove("conclusion"); } } },
+                { "conclusion", n => { Conclusion = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>(global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_commit", n => { HeadCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit.CreateFromDiscriminatorValue); } },
@@ -251,7 +258,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("app", App);
             writer.WriteStringValue("before", Before);
             writer.WriteStringValue("check_runs_url", CheckRunsUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>("conclusion", Conclusion);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>("conclusion", Conclusion);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>("head_commit", HeadCommit);
