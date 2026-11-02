@@ -47,14 +47,259 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("ref") && shapeMembers1.ContainsKey("commit_sha") && shapeMembers1.ContainsKey("analysis_key") && shapeMembers1.ContainsKey("environment") && shapeMembers1.ContainsKey("error") && shapeMembers1.ContainsKey("created_at") && shapeMembers1.ContainsKey("results_count") && shapeMembers1.ContainsKey("rules_count") && shapeMembers1.ContainsKey("id") && shapeMembers1.ContainsKey("url") && shapeMembers1.ContainsKey("sarif_id") && shapeMembers1.ContainsKey("tool") && shapeMembers1.ContainsKey("deletable") && shapeMembers1.ContainsKey("warning") && (!shapeMembers1.ContainsKey("ref") || (((shapeMembers1["ref"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("commit_sha") || (((shapeMembers1["commit_sha"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("analysis_key") || (((shapeMembers1["analysis_key"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("environment") || (((shapeMembers1["environment"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("category") || (((shapeMembers1["category"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("error") || (((shapeMembers1["error"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("created_at") || (((shapeMembers1["created_at"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("results_count") || ((((shapeMembers1["results_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["results_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral16 && integral16.GetValue() % 1 == 0) || (shapeMembers1["results_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral17 && integral17.GetValue() % 1 == 0) || (shapeMembers1["results_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral18 && integral18.GetValue() % 1 == 0)))))) && (!shapeMembers1.ContainsKey("rules_count") || ((((shapeMembers1["rules_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["rules_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral21 && integral21.GetValue() % 1 == 0) || (shapeMembers1["rules_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral22 && integral22.GetValue() % 1 == 0) || (shapeMembers1["rules_count"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral23 && integral23.GetValue() % 1 == 0)))))) && (!shapeMembers1.ContainsKey("id") || ((((shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong || (shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble integral26 && integral26.GetValue() % 1 == 0) || (shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal integral27 && integral27.GetValue() % 1 == 0) || (shapeMembers1["id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat integral28 && integral28.GetValue() % 1 == 0)))))) && (!shapeMembers1.ContainsKey("url") || (((shapeMembers1["url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("sarif_id") || (((shapeMembers1["sarif_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("tool") || (((shapeMembers1["tool"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["tool"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject35 || (shapeObject35.GetValue() is var shapeMembers36 && ((!shapeMembers36.ContainsKey("name") || (((shapeMembers36["name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers36.ContainsKey("version") || (((shapeMembers36["version"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString) || ((shapeMembers36["version"] == null || shapeMembers36["version"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull))))) && (!shapeMembers36.ContainsKey("guid") || (((shapeMembers36["guid"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString) || ((shapeMembers36["guid"] == null || shapeMembers36["guid"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)))))))))) && (!shapeMembers1.ContainsKey("deletable") || (((shapeMembers1["deletable"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("warning") || (((shapeMembers1["warning"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))))();
+            bool? matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? ((global::System.Func<bool?>)(() => { int remaining = 10000;
+bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
+int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
+bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
+bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
+bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
+decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
+    try { return node switch {
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
+    catch (global::System.OverflowException) { return null; }
+}
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
+if (result == false) return false;
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("ref")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("commit_sha")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("analysis_key")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("environment")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("error")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("created_at")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("results_count")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("rules_count")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("id")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("url")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("sarif_id")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("tool")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("deletable")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("warning")))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("ref") ? (bool?)true : MatchSchema1(fields["ref"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("commit_sha") ? (bool?)true : MatchSchema2(fields["commit_sha"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("analysis_key") ? (bool?)true : MatchSchema3(fields["analysis_key"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("environment") ? (bool?)true : MatchSchema4(fields["environment"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("category") ? (bool?)true : MatchSchema5(fields["category"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("error") ? (bool?)true : MatchSchema6(fields["error"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("created_at") ? (bool?)true : MatchSchema7(fields["created_at"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("results_count") ? (bool?)true : MatchSchema8(fields["results_count"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("rules_count") ? (bool?)true : MatchSchema9(fields["rules_count"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("id") ? (bool?)true : MatchSchema10(fields["id"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("url") ? (bool?)true : MatchSchema11(fields["url"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("sarif_id") ? (bool?)true : MatchSchema12(fields["sarif_id"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("tool") ? (bool?)true : MatchSchema13(fields["tool"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("deletable") ? (bool?)true : MatchSchema14(fields["deletable"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("warning") ? (bool?)true : MatchSchema15(fields["warning"], depth + 1)))();
+if (result == false) return false;
+}
+return result;
+}
+bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema2(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result = null;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => node is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text || StringLength(text.GetValue()) >= 40m))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => node is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text || StringLength(text.GetValue()) <= 64m))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema3(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema4(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema5(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema6(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema7(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema8(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => Number(node) is decimal integer ? integer % 1 == 0 : IsNumber(node) ? (bool?)null : false))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema9(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => Number(node) is decimal integer ? integer % 1 == 0 : IsNumber(node) ? (bool?)null : false))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema10(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => Number(node) is decimal integer ? integer % 1 == 0 : IsNumber(node) ? (bool?)null : false))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema11(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema12(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema13(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
+if (result == false) return false;
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("name") ? (bool?)true : MatchSchema16(fields["name"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("version") ? (bool?)true : MatchSchema17(fields["version"], depth + 1)))();
+if (result == false) return false;
+result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("guid") ? (bool?)true : MatchSchema18(fields["guid"], depth + 1)))();
+if (result == false) return false;
+}
+return result;
+}
+bool? MatchSchema14(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema15(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema16(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema17(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+if (node == null || node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+bool? MatchSchema18(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+if (node == null || node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
+if (result == false) return false;
+return result;
+}
+return MatchSchema0(unionPayload, 0); }))() : (bool?)false;
+            bool? matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? ((global::System.Func<bool?>)(() => { int remaining = 10000;
+bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
+int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
+bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
+bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
+bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
+decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
+    try { return node switch {
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
+        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
+    catch (global::System.OverflowException) { return null; }
+}
+bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
+if (result == false) return false;
+return result;
+}
+return MatchSchema0(unionPayload, 0); }))() : (bool?)false;
             int matchingUnionBranches = 0;
-            if (matchesUnionBranch0) matchingUnionBranches++;
-            if (matchesUnionBranch1) matchingUnionBranches++;
+            if (matchesUnionBranch0 != false) matchingUnionBranches++;
+            if (matchesUnionBranch1 != false) matchingUnionBranches++;
             bool noSelectedUnionBranch = result.CodeScanningAnalysis == null && result.CodeScanningGetAnalysis200SarifJsonResponseSchema == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.CodeScanningAnalysis = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.CodeScanningGetAnalysis200SarifJsonResponseSchema = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningGetAnalysis200SarifJsonResponseSchema(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch0 == true && matchingUnionBranches == 1) result.CodeScanningAnalysis = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysis(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 == true && matchingUnionBranches == 1) result.CodeScanningGetAnalysis200SarifJsonResponseSchema = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningGetAnalysis200SarifJsonResponseSchema(), parseNode);
             if (result.CodeScanningAnalysis == null && result.CodeScanningGetAnalysis200SarifJsonResponseSchema == null) result.UnrecognizedValue = unionPayload;
 return result;
         }

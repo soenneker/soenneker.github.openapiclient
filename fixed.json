@@ -97502,7 +97502,7 @@
             "example": "MDExOkludGVncmF0aW9uMQ=="
           },
           "account": {
-            "$ref": "#/components/schemas/InstallationAccount"
+            "$ref": "#/components/schemas/IntegrationInstallationRequestAccount"
           },
           "requester": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -100833,7 +100833,8 @@
                 "type": "string"
               }
             ],
-            "description": "The value of the issue field"
+            "description": "The value of the issue field",
+            "nullable": true
           },
           "single_select_option": {
             "$ref": "#/components/schemas/IssueFieldValueSingleSelectOption"
@@ -112556,7 +112557,8 @@
             "$ref": "#/components/schemas/SecretScanningLocationPullRequestReviewComment"
           }
         ],
-        "description": "Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.\n"
+        "description": "Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.\n",
+        "nullable": true
       },
       "OrganizationSecretScanningAlert": {
         "type": "object",
@@ -119591,7 +119593,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "nullable": true
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -129594,7 +129597,9 @@
         ],
         "type": "object",
         "properties": {
-          "conclusion": {},
+          "conclusion": {
+            "nullable": true
+          },
           "created_at": {
             "type": "string"
           },
@@ -129608,7 +129613,9 @@
             "type": "integer",
             "format": "int64"
           },
-          "name": {},
+          "name": {
+            "nullable": true
+          },
           "status": {
             "type": "string"
           },
@@ -129752,7 +129759,9 @@
           "node_id": {
             "type": "string"
           },
-          "parent_id": {},
+          "parent_id": {
+            "nullable": true
+          },
           "reactions": {
             "$ref": "#/components/schemas/WebhooksAnswerReactions"
           },
@@ -130655,7 +130664,9 @@
           "billing_cycle": {
             "type": "string"
           },
-          "free_trial_ends_on": {},
+          "free_trial_ends_on": {
+            "nullable": true
+          },
           "next_billing_date": {
             "type": "string",
             "nullable": true
@@ -135938,7 +135949,9 @@
           "repository": {
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
-          "requester": {},
+          "requester": {
+            "nullable": true
+          },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
           }
@@ -135975,7 +135988,9 @@
           "repository": {
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
-          "requester": {},
+          "requester": {
+            "nullable": true
+          },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
           }
@@ -136118,7 +136133,9 @@
           "repository": {
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
-          "requester": {},
+          "requester": {
+            "nullable": true
+          },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
           }
@@ -136194,7 +136211,9 @@
           "repository": {
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
-          "requester": {},
+          "requester": {
+            "nullable": true
+          },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
           }
@@ -143214,7 +143233,8 @@
             "$ref": "#/components/schemas/SimpleUser"
           },
           "starred_at": {
-            "description": "The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action."
+            "description": "The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action.",
+            "nullable": true
           }
         }
       },
@@ -144870,7 +144890,8 @@
           {
             "$ref": "#/components/schemas/Enterprise"
           }
-        ]
+        ],
+        "nullable": true
       },
       "LabelArchivedBy": {
         "required": [
@@ -144993,7 +145014,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "NullableIntegrationOwner": {
         "oneOf": [
@@ -145116,7 +145138,8 @@
             "$ref": "#/components/schemas/ActionsPolicyEnterpriseConditions"
           }
         ],
-        "description": "When workflow path targeting is available, detailed responses represent an omitted stored\nworkflow condition as \u0060workflow_path\u0060 with \u0060include\u0060 set to \u0060[\u0022~ALL\u0022]\u0060 and \u0060exclude\u0060 set to \u0060[]\u0060.\nWhen workflow path targeting is unavailable, an omitted stored condition remains omitted."
+        "description": "When workflow path targeting is available, detailed responses represent an omitted stored\nworkflow condition as \u0060workflow_path\u0060 with \u0060include\u0060 set to \u0060[\u0022~ALL\u0022]\u0060 and \u0060exclude\u0060 set to \u0060[]\u0060.\nWhen workflow path targeting is unavailable, an omitted stored condition remains omitted.",
+        "nullable": true
       },
       "CopilotSpaceOwner": {
         "anyOf": [
@@ -145207,7 +145230,9 @@
             "type": "integer",
             "format": "int64"
           },
-          "parent": {}
+          "parent": {
+            "nullable": true
+          }
         }
       },
       "CopilotSeatDetailsAssigningTeam": {
@@ -145219,7 +145244,8 @@
             "$ref": "#/components/schemas/EnterpriseTeam"
           }
         ],
-        "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable."
+        "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable.",
+        "nullable": true
       },
       "PullRequestSimpleLabelsItemArchivedBy": {
         "required": [
@@ -145342,7 +145368,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "ProjectsV2ItemSimpleContent": {
         "oneOf": [
@@ -145493,7 +145520,8 @@
             }
           }
         ],
-        "description": "The value assigned to the property"
+        "description": "The value assigned to the property",
+        "nullable": true
       },
       "CustomPropertyDefaultValue": {
         "oneOf": [
@@ -145507,7 +145535,8 @@
             }
           }
         ],
-        "description": "Default value of the property"
+        "description": "Default value of the property",
+        "nullable": true
       },
       "CustomPropertySetPayloadDefaultValue": {
         "oneOf": [
@@ -145522,7 +145551,8 @@
             }
           }
         ],
-        "description": "Default value of the property"
+        "description": "Default value of the property",
+        "nullable": true
       },
       "RepositoryRulesetConditionsComposed": {
         "anyOf": [
@@ -145532,7 +145562,8 @@
           {
             "$ref": "#/components/schemas/OrgRulesetConditions"
           }
-        ]
+        ],
+        "nullable": true
       },
       "RuleSuiteRuleEvaluationsItemMetadata": {
         "oneOf": [
@@ -145686,7 +145717,8 @@
           }
         },
         "description": "The author of the advisory.",
-        "readOnly": true
+        "readOnly": true,
+        "nullable": true
       },
       "RepositoryAdvisoryPublisher": {
         "required": [
@@ -145810,7 +145842,8 @@
           }
         },
         "description": "The publisher of the advisory.",
-        "readOnly": true
+        "readOnly": true,
+        "nullable": true
       },
       "RepositoryAdvisoryPrivateFork": {
         "required": [
@@ -146108,7 +146141,8 @@
           }
         },
         "description": "A temporary private fork of the advisory\u0027s repository for collaborating on a fix.",
-        "readOnly": true
+        "readOnly": true,
+        "nullable": true
       },
       "PendingDeploymentReviewersItemReviewer": {
         "anyOf": [
@@ -146128,7 +146162,8 @@
           {
             "$ref": "#/components/schemas/EmptyObject"
           }
-        ]
+        ],
+        "nullable": true
       },
       "CommitCommitter": {
         "oneOf": [
@@ -146138,7 +146173,8 @@
           {
             "$ref": "#/components/schemas/EmptyObject"
           }
-        ]
+        ],
+        "nullable": true
       },
       "EnvironmentProtectionRulesItem": {
         "anyOf": [
@@ -146181,7 +146217,8 @@
             }
           }
         ],
-        "description": "The proposed value, when applicable. An array for multi-select field suggestions."
+        "description": "The proposed value, when applicable. An array for multi-select field suggestions.",
+        "nullable": true
       },
       "PullRequestLabelsItemArchivedBy": {
         "required": [
@@ -146304,7 +146341,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "PullRequestMergeAsyncResultDetails": {
         "anyOf": [
@@ -146576,7 +146614,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "LabelSearchResultItemArchivedBy": {
         "required": [
@@ -146699,7 +146738,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhooksLabelArchivedBy": {
         "required": [
@@ -146822,7 +146862,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhooksLabelArchivedAllOf2": {
         "required": [
@@ -146915,7 +146956,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhooksPullRequest5HeadRepoCreatedAt": {
         "oneOf": [
@@ -146937,7 +146979,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhooksPullRequest5RequestedReviewersItem": {
         "oneOf": [
@@ -148398,7 +148441,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhookIssuesOpenedChangesOldRepositoryCreatedAt": {
         "oneOf": [
@@ -148420,7 +148464,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookIssuesReopenedIssueLabelsItemArchivedBy": {
         "required": [
@@ -148543,7 +148588,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhookIssuesTransferredChangesNewRepositoryCreatedAt": {
         "oneOf": [
@@ -148565,7 +148611,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPackagePublishedPackagePackageVersionNugetMetadataItemValue": {
         "oneOf": [
@@ -148683,7 +148730,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAssignedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148705,7 +148753,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAssignedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -148737,7 +148786,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148759,7 +148809,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -148791,7 +148842,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148813,7 +148865,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -148845,7 +148898,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestDequeuedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148867,7 +148921,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestDequeuedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -148899,7 +148954,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestEnqueuedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148921,7 +148977,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestEnqueuedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -148953,7 +149010,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestLabeledPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -148975,7 +149033,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestLabeledPullRequestLabelsItemArchivedBy": {
         "required": [
@@ -149098,7 +149157,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhookPullRequestLabeledPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149130,7 +149190,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestLockedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149152,7 +149213,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestLockedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149184,7 +149246,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149206,7 +149269,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149238,7 +149302,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149260,7 +149325,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149292,7 +149358,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentEditedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149314,7 +149381,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewCommentEditedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149346,7 +149414,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewDismissedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149368,7 +149437,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewDismissedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149400,7 +149470,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewEditedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149422,7 +149493,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewEditedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149618,7 +149690,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewSubmittedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149640,7 +149713,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewSubmittedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149672,7 +149746,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149694,7 +149769,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149726,7 +149802,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149748,7 +149825,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149780,7 +149858,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestStackedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149802,7 +149881,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestStackedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149834,7 +149914,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestSynchronizePullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149856,7 +149937,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestSynchronizePullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149888,7 +149970,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnassignedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149910,7 +149993,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnassignedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149942,7 +150026,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnlabeledPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -149964,7 +150049,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnlabeledPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -149996,7 +150082,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnlockedPullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -150018,7 +150105,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestUnlockedPullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -150050,7 +150138,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemValue": {
         "oneOf": [
@@ -150136,7 +150225,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookTeamCreatedRepositoryCreatedAt": {
         "oneOf": [
@@ -150158,7 +150248,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookTeamDeletedRepositoryCreatedAt": {
         "oneOf": [
@@ -150180,7 +150271,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookTeamEditedRepositoryCreatedAt": {
         "oneOf": [
@@ -150202,7 +150294,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookTeamRemovedFromRepositoryRepositoryCreatedAt": {
         "oneOf": [
@@ -150224,7 +150317,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookWorkflowJobCompletedWorkflowJob": {
         "required": [
@@ -151075,7 +151169,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label. This is \u0060null\u0060 after the label is unarchived."
+        "description": "The user who archived the label. This is \u0060null\u0060 after the label is unarchived.",
+        "nullable": true
       },
       "WebhooksPullRequest5RequestedReviewersItemUser": {
         "title": "User",
@@ -151574,7 +151669,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -151796,7 +151891,9 @@
           "labels_url": {
             "type": "string"
           },
-          "language": {},
+          "language": {
+            "nullable": true
+          },
           "languages_url": {
             "type": "string"
           },
@@ -151809,7 +151906,9 @@
           "milestones_url": {
             "type": "string"
           },
-          "mirror_url": {},
+          "mirror_url": {
+            "nullable": true
+          },
           "name": {
             "type": "string"
           },
@@ -151875,7 +151974,9 @@
           },
           "topics": {
             "type": "array",
-            "items": {}
+            "items": {
+              "nullable": true
+            }
           },
           "trees_url": {
             "type": "string"
@@ -155501,7 +155602,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -155523,7 +155625,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -155555,7 +155658,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -155577,7 +155681,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -155609,7 +155714,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -155631,7 +155737,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -155663,7 +155770,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestHeadRepoCreatedAt": {
         "oneOf": [
@@ -155685,7 +155793,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestRequestedReviewersItem": {
         "oneOf": [
@@ -157650,7 +157759,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer": {
         "anyOf": [
@@ -157783,7 +157893,8 @@
             "example": "public"
           }
         },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived.",
+        "nullable": true
       },
       "WebhookForkForkeeRepositoryCreatedAt": {
         "oneOf": [
@@ -157805,7 +157916,8 @@
             "type": "string",
             "format": "date-time"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookIssuesClosedIssueAllOf2LabelsItem": {
         "required": [
@@ -157873,7 +157985,8 @@
           {
             "$ref": "#/components/schemas/ProjectsV2IterationSetting"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookProjectsV2ItemEditedChangesOneOf1FieldValueTo": {
         "oneOf": [
@@ -157889,7 +158002,8 @@
           {
             "$ref": "#/components/schemas/ProjectsV2IterationSetting"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestRequestedReviewersItemUser": {
         "title": "User",
@@ -171036,7 +171150,8 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertAppearedInBranchAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171107,7 +171222,8 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertClosedByUserAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171162,17 +171278,22 @@
             "nullable": true
           },
           "dismissed_at": {
-            "description": "The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
-          "dismissed_by": {},
+          "dismissed_by": {
+            "nullable": true
+          },
           "dismissed_comment": {
             "$ref": "#/components/schemas/CodeScanningAlertDismissedComment"
           },
           "dismissed_reason": {
-            "description": "The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, \u0060used in tests\u0060, and \u0060mitigated\u0060."
+            "description": "The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, \u0060used in tests\u0060, and \u0060mitigated\u0060.",
+            "nullable": true
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171206,7 +171327,9 @@
             "type": "string",
             "format": "uri"
           },
-          "dismissal_approved_by": {},
+          "dismissal_approved_by": {
+            "nullable": true
+          },
           "assignees": {
             "type": "array",
             "items": {
@@ -171258,7 +171381,8 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertFixedAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171335,7 +171459,8 @@
             "nullable": true
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171369,7 +171494,9 @@
             "type": "string",
             "format": "uri"
           },
-          "dismissal_approved_by": {}
+          "dismissal_approved_by": {
+            "nullable": true
+          }
         },
         "description": "The code scanning alert involved in the event."
       },
@@ -171400,17 +171527,22 @@
             "format": "date-time"
           },
           "dismissed_at": {
-            "description": "The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
-          "dismissed_by": {},
+          "dismissed_by": {
+            "nullable": true
+          },
           "dismissed_comment": {
             "$ref": "#/components/schemas/CodeScanningAlertDismissedComment"
           },
           "dismissed_reason": {
-            "description": "The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, \u0060used in tests\u0060, and \u0060mitigated\u0060."
+            "description": "The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, \u0060used in tests\u0060, and \u0060mitigated\u0060.",
+            "nullable": true
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171482,7 +171614,8 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertUpdatedAssignmentAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060."
+            "description": "The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+            "nullable": true
           },
           "html_url": {
             "type": "string",
@@ -171746,7 +171879,9 @@
           "head_branch": {
             "type": "string"
           },
-          "head_commit": {},
+          "head_commit": {
+            "nullable": true
+          },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunHeadRepository"
           },
@@ -171776,7 +171911,9 @@
           "path": {
             "type": "string"
           },
-          "previous_attempt_url": {},
+          "previous_attempt_url": {
+            "nullable": true
+          },
           "pull_requests": {
             "type": "array",
             "items": {
@@ -171833,7 +171970,9 @@
       "WebhookDeploymentReviewApprovedWorkflowJobRunsItem": {
         "type": "object",
         "properties": {
-          "conclusion": {},
+          "conclusion": {
+            "nullable": true
+          },
           "created_at": {
             "type": "string"
           },
@@ -172221,7 +172360,9 @@
         ],
         "type": "object",
         "properties": {
-          "conclusion": {},
+          "conclusion": {
+            "nullable": true
+          },
           "created_at": {
             "type": "string"
           },
@@ -172511,7 +172652,7 @@
             "type": "string"
           },
           "payload": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "performed_via_github_app": {
             "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPerformedViaGithubApp"
@@ -172687,7 +172828,9 @@
           "head_branch": {
             "type": "string"
           },
-          "head_commit": {},
+          "head_commit": {
+            "nullable": true
+          },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunHeadRepository"
           },
@@ -172717,7 +172860,9 @@
           "path": {
             "type": "string"
           },
-          "previous_attempt_url": {},
+          "previous_attempt_url": {
+            "nullable": true
+          },
           "pull_requests": {
             "type": "array",
             "items": {
@@ -172930,7 +173075,9 @@
           "created_at": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "events_url": {
             "type": "string"
           },
@@ -173025,7 +173172,9 @@
           "url": {
             "type": "string"
           },
-          "website_url": {},
+          "website_url": {
+            "nullable": true
+          },
           "user_view_type": {
             "type": "string"
           }
@@ -173652,7 +173801,8 @@
                 "type": "string"
               }
             ],
-            "description": "The value of the field. Present for text, date, and number field types."
+            "description": "The value of the field. Present for text, date, and number field types.",
+            "nullable": true
           },
           "value_id": {
             "type": "integer",
@@ -173731,7 +173881,8 @@
                 "type": "string"
               }
             ],
-            "description": "The value of the field. Present for text, date, and number field types."
+            "description": "The value of the field. Present for text, date, and number field types.",
+            "nullable": true
           },
           "value_id": {
             "type": "integer",
@@ -174866,7 +175017,9 @@
           "billing_cycle": {
             "type": "string"
           },
-          "free_trial_ends_on": {},
+          "free_trial_ends_on": {
+            "nullable": true
+          },
           "next_billing_date": {
             "type": "string",
             "nullable": true
@@ -180634,7 +180787,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -180797,7 +180950,9 @@
           "created_at": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "ecosystem": {
             "type": "string"
           },
@@ -181692,7 +181847,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -182123,7 +182278,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -182554,7 +182709,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -183006,7 +183161,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -183437,7 +183592,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -195526,7 +195681,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -196080,7 +196235,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -198879,7 +199034,9 @@
           "deployments_url": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "downloads_url": {
             "type": "string"
           },
@@ -199069,7 +199226,9 @@
           "deployments_url": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "downloads_url": {
             "type": "string"
           },
@@ -201027,7 +201186,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookDeploymentStatusCreatedDeploymentPerformedViaGithubApp": {
         "title": "App",
@@ -201389,7 +201549,9 @@
           "deployments_url": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "downloads_url": {
             "type": "string"
           },
@@ -201579,7 +201741,9 @@
           "deployments_url": {
             "type": "string"
           },
-          "description": {},
+          "description": {
+            "nullable": true
+          },
           "downloads_url": {
             "type": "string"
           },
@@ -205844,7 +206008,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -207554,7 +207718,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -236240,7 +236404,8 @@
                 "type": "string"
               }
             ],
-            "description": "The previous value. Present for text, date, and number field types."
+            "description": "The previous value. Present for text, date, and number field types.",
+            "nullable": true
           },
           "value_id": {
             "type": "integer",
@@ -240582,7 +240747,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -241136,7 +241301,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -242040,7 +242205,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -242594,7 +242759,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -243497,7 +243662,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -244051,7 +244216,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -244954,7 +245119,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -245508,7 +245673,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -246433,7 +246598,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -246987,7 +247152,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -247890,7 +248055,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -248444,7 +248609,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -249348,7 +249513,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -249902,7 +250067,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -250845,7 +251010,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -251398,7 +251563,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -252302,7 +252467,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -252856,7 +253021,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -253760,7 +253925,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -254314,7 +254479,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -255218,7 +255383,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -255772,7 +255937,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -256682,7 +256847,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -257201,7 +257366,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -258090,7 +258255,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -258644,7 +258809,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -259542,7 +259707,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -260079,7 +260244,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -261125,7 +261290,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -261662,7 +261827,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -262713,7 +262878,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -263267,7 +263432,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -264171,7 +264336,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -264725,7 +264890,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -265628,7 +265793,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -266182,7 +266347,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -267086,7 +267251,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -267640,7 +267805,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -268544,7 +268709,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -269098,7 +269263,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -269573,10 +269738,10 @@
             "type": "string"
           },
           "author": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "bugs": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "dependencies": {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDependenciesProperty"
@@ -269594,7 +269759,7 @@
             "type": "string"
           },
           "dist": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "git_head": {
             "type": "string"
@@ -269609,7 +269774,7 @@
             "type": "string"
           },
           "repository": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "scripts": {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataScriptsProperty"
@@ -269660,7 +269825,7 @@
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataManProperty"
           },
           "directories": {
-            "$ref": "#/components/schemas/DeploymentPayload"
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
           },
           "os": {
             "type": "array",
@@ -271654,7 +271819,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -272208,7 +272373,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -273111,7 +273276,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -273665,7 +273830,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -274568,7 +274733,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -275122,7 +275287,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -276025,7 +276190,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -276579,7 +276744,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           "releases_url": {
             "type": "string",
@@ -284126,7 +284291,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugs": {
         "anyOf": [
@@ -284136,7 +284302,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDependencies": {
         "type": "object"
@@ -284158,7 +284325,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepository": {
         "anyOf": [
@@ -284168,7 +284336,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataScripts": {
         "type": "object"
@@ -284190,7 +284359,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemId": {
         "anyOf": [
@@ -284203,7 +284373,8 @@
           {
             "type": "object"
           }
-        ]
+        ],
+        "nullable": true
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionReleaseAuthor": {
         "type": "object",
@@ -296380,7 +296551,8 @@
                 "type": "string"
               }
             ],
-            "description": "The title of the issue."
+            "description": "The title of the issue.",
+            "nullable": true
           },
           "body": {
             "type": "string",
@@ -304465,125 +304637,13 @@
         ]
       },
       "WebhooksLabelUnarchivedArchivedBy": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WebhooksLabelArchivedBy"
           },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "\u00222020-07-09T00:17:55Z\u0022"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
+          {
+            "$ref": "#/components/schemas/WebhooksLabelUnarchivedAllOf2ArchivedBy"
           }
-        },
-        "required": [
-          "avatar_url",
-          "events_url",
-          "followers_url",
-          "following_url",
-          "gists_url",
-          "gravatar_id",
-          "html_url",
-          "id",
-          "node_id",
-          "login",
-          "organizations_url",
-          "received_events_url",
-          "repos_url",
-          "site_admin",
-          "starred_url",
-          "subscriptions_url",
-          "type",
-          "url"
         ]
       },
       "WebhookForkForkeeCreatedAt": {
@@ -304724,7 +304784,7 @@
       "WebhookForkForkeePushedAt": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
           },
           {
             "type": "string"
@@ -307631,7 +307691,8 @@
             "type": "integer",
             "description": "The \u0060number\u0060 of the milestone to associate this issue with. _NOTE: Only users with push access can set the milestone for new issues. The milestone is silently dropped otherwise._"
           }
-        ]
+        ],
+        "nullable": true
       },
       "IssuesCreateRequestLabelsItem": {
         "oneOf": [
@@ -307669,7 +307730,8 @@
             "type": "integer",
             "description": "The \u0060number\u0060 of the milestone to associate this issue with or use \u0060null\u0060 to remove the current milestone. Only users with push access can set the milestone for issues. Without push access to the repository, milestone changes are silently dropped."
           }
-        ]
+        ],
+        "nullable": true
       },
       "IssuesUpdateRequestLabelsItem": {
         "oneOf": [
@@ -307719,7 +307781,8 @@
             "$ref": "#/components/schemas/IssuesUpdateRequestTypeOneOf2"
           }
         ],
-        "description": "The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped."
+        "description": "The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.",
+        "nullable": true
       },
       "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemValue": {
         "oneOf": [
@@ -308790,7 +308853,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "nullable": true
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -308809,7 +308873,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "nullable": true
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -308835,7 +308900,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "nullable": true
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -313015,7 +313081,8 @@
                 "type": "string"
               }
             ],
-            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
+            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
+            "nullable": true
           }
         }
       },
@@ -314658,7 +314725,8 @@
                 "type": "string"
               }
             ],
-            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
+            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
+            "nullable": true
           }
         }
       },

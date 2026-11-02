@@ -33,12 +33,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The account property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; AdditionalData?.Remove("account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
-        private global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount? _explicitNullValueAccount = default!;
+        public global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; AdditionalData?.Remove("account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount? _explicitNullValueAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; AdditionalData?.Remove("account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
-        private global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount _explicitNullValueAccount = default!;
+        public global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; AdditionalData?.Remove("account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount _explicitNullValueAccount = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account", n => { Account = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount>(global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount.CreateFromDiscriminatorValue); } },
+                { "account", n => { Account = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount>(global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.InstallationAccount>("account", Account);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IntegrationInstallationRequestAccount>("account", Account);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
