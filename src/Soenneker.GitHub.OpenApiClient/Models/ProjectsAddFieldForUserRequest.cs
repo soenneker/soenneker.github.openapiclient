@@ -51,11 +51,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("data_type")?.GetStringValue();
             return mappingValue switch
             {
-                "date" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1(),
-                "iteration" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf3(),
-                "number" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1(),
-                "single_select" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf2(),
-                "text" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1(),
+                "date" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1Variant(),
+                "iteration" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3Variant(),
+                "number" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1Variant(),
+                "single_select" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2Variant(),
+                "text" => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1Variant(),
                 _ => new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest(),
             };
         }

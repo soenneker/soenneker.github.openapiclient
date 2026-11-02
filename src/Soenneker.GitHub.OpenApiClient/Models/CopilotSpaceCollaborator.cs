@@ -52,8 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("actor_type")?.GetStringValue();
             return mappingValue switch
             {
-                "Team" => new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf2(),
-                "User" => new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf1(),
+                "Team" => new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Variant(),
+                "User" => new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1Variant(),
                 _ => new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator(),
             };
         }

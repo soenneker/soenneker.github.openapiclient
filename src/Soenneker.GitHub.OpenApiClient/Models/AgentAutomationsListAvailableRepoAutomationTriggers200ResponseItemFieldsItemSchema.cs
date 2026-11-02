@@ -52,9 +52,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "array" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2(),
-                "integer" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3(),
-                "string" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1(),
+                "array" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Variant(),
+                "integer" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3Variant(),
+                "string" => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1Variant(),
                 _ => new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchema(),
             };
         }

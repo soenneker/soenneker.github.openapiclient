@@ -52,8 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "restrict_actions_actors" => new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleActionsRuleRestrictActionsActors(),
-                "restrict_action_events" => new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleActionsRuleRestrictActionEvents(),
+                "restrict_actions_actors" => new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionsActorsVariant(),
+                "restrict_action_events" => new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsVariant(),
                 _ => new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule(),
             };
         }

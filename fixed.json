@@ -104572,8 +104572,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "restrict_actions_actors": "#/components/schemas/ActionsRuleActionsRuleRestrictActionsActors",
-            "restrict_action_events": "#/components/schemas/ActionsRuleActionsRuleRestrictActionEvents"
+            "restrict_actions_actors": "#/components/schemas/ActionsRuleRestrictActionsActorsVariant",
+            "restrict_action_events": "#/components/schemas/ActionsRuleRestrictActionEventsVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -106188,8 +106188,8 @@
         "discriminator": {
           "propertyName": "actor_type",
           "mapping": {
-            "User": "#/components/schemas/CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf1",
-            "Team": "#/components/schemas/CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf2"
+            "User": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1Variant",
+            "Team": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -111380,31 +111380,31 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "creation": "#/components/schemas/RepositoryRuleRepositoryRuleCreation",
-            "update": "#/components/schemas/RepositoryRuleRepositoryRuleUpdate",
-            "deletion": "#/components/schemas/RepositoryRuleRepositoryRuleDeletion",
-            "required_linear_history": "#/components/schemas/RepositoryRuleRepositoryRuleRequiredLinearHistory",
-            "merge_queue": "#/components/schemas/RepositoryRuleRepositoryRuleMergeQueue",
-            "required_deployments": "#/components/schemas/RepositoryRuleRepositoryRuleRequiredDeployments",
-            "required_signatures": "#/components/schemas/RepositoryRuleRepositoryRuleRequiredSignatures",
-            "pull_request": "#/components/schemas/RepositoryRuleRepositoryRulePullRequest",
-            "required_status_checks": "#/components/schemas/RepositoryRuleRepositoryRuleRequiredStatusChecks",
-            "non_fast_forward": "#/components/schemas/RepositoryRuleRepositoryRuleNonFastForward",
-            "commit_message_pattern": "#/components/schemas/RepositoryRuleRepositoryRuleCommitMessagePattern",
-            "commit_author_email_pattern": "#/components/schemas/RepositoryRuleRepositoryRuleCommitAuthorEmailPattern",
-            "committer_email_pattern": "#/components/schemas/RepositoryRuleRepositoryRuleCommitterEmailPattern",
-            "branch_name_pattern": "#/components/schemas/RepositoryRuleRepositoryRuleBranchNamePattern",
-            "tag_name_pattern": "#/components/schemas/RepositoryRuleRepositoryRuleTagNamePattern",
-            "workflows": "#/components/schemas/RepositoryRuleRepositoryRuleWorkflows",
-            "code_scanning": "#/components/schemas/RepositoryRuleRepositoryRuleCodeScanning",
-            "code_quality": "#/components/schemas/RepositoryRuleRepositoryRuleCodeQuality",
-            "code_coverage": "#/components/schemas/RepositoryRuleRepositoryRuleCodeCoverage",
-            "copilot_code_review": "#/components/schemas/RepositoryRuleRepositoryRuleCopilotCodeReview",
-            "license_compliance_scanning": "#/components/schemas/RepositoryRuleRepositoryRuleLicenseComplianceScanning",
-            "file_path_restriction": "#/components/schemas/RepositoryRuleRepositoryRuleFilePathRestriction",
-            "max_file_path_length": "#/components/schemas/RepositoryRuleRepositoryRuleMaxFilePathLength",
-            "file_extension_restriction": "#/components/schemas/RepositoryRuleRepositoryRuleFileExtensionRestriction",
-            "max_file_size": "#/components/schemas/RepositoryRuleRepositoryRuleMaxFileSize"
+            "creation": "#/components/schemas/RepositoryRuleCreationVariant",
+            "update": "#/components/schemas/RepositoryRuleUpdateVariant",
+            "deletion": "#/components/schemas/RepositoryRuleDeletionVariant",
+            "required_linear_history": "#/components/schemas/RepositoryRuleRequiredLinearHistoryVariant",
+            "merge_queue": "#/components/schemas/RepositoryRuleMergeQueueVariant",
+            "required_deployments": "#/components/schemas/RepositoryRuleRequiredDeploymentsVariant",
+            "required_signatures": "#/components/schemas/RepositoryRuleRequiredSignaturesVariant",
+            "pull_request": "#/components/schemas/RepositoryRulePullRequestVariant",
+            "required_status_checks": "#/components/schemas/RepositoryRuleRequiredStatusChecksVariant",
+            "non_fast_forward": "#/components/schemas/RepositoryRuleNonFastForwardVariant",
+            "commit_message_pattern": "#/components/schemas/RepositoryRuleCommitMessagePatternVariant",
+            "commit_author_email_pattern": "#/components/schemas/RepositoryRuleCommitAuthorEmailPatternVariant",
+            "committer_email_pattern": "#/components/schemas/RepositoryRuleCommitterEmailPatternVariant",
+            "branch_name_pattern": "#/components/schemas/RepositoryRuleBranchNamePatternVariant",
+            "tag_name_pattern": "#/components/schemas/RepositoryRuleTagNamePatternVariant",
+            "workflows": "#/components/schemas/RepositoryRuleWorkflowsVariant",
+            "code_scanning": "#/components/schemas/RepositoryRuleCodeScanningVariant",
+            "code_quality": "#/components/schemas/RepositoryRuleCodeQualityVariant",
+            "code_coverage": "#/components/schemas/RepositoryRuleCodeCoverageVariant",
+            "copilot_code_review": "#/components/schemas/RepositoryRuleCopilotCodeReviewVariant",
+            "license_compliance_scanning": "#/components/schemas/RepositoryRuleLicenseComplianceScanningVariant",
+            "file_path_restriction": "#/components/schemas/RepositoryRuleFilePathRestrictionVariant",
+            "max_file_path_length": "#/components/schemas/RepositoryRuleMaxFilePathLengthVariant",
+            "file_extension_restriction": "#/components/schemas/RepositoryRuleFileExtensionRestrictionVariant",
+            "max_file_size": "#/components/schemas/RepositoryRuleMaxFileSizeVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -124172,31 +124172,31 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "creation": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf1",
-            "update": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf2",
-            "deletion": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf3",
-            "required_linear_history": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf4",
-            "merge_queue": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf5",
-            "required_deployments": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf6",
-            "required_signatures": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf7",
-            "pull_request": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf8",
-            "required_status_checks": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf9",
-            "non_fast_forward": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf10",
-            "commit_message_pattern": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf11",
-            "commit_author_email_pattern": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf12",
-            "committer_email_pattern": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf13",
-            "branch_name_pattern": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf14",
-            "tag_name_pattern": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf15",
-            "workflows": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf16",
-            "code_scanning": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf17",
-            "code_quality": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf18",
-            "code_coverage": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf19",
-            "copilot_code_review": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf20",
-            "license_compliance_scanning": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf21",
-            "file_path_restriction": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf22",
-            "max_file_path_length": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf23",
-            "file_extension_restriction": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf24",
-            "max_file_size": "#/components/schemas/RepositoryRuleDetailedRepositoryRuleDetailedOneOf25"
+            "creation": "#/components/schemas/RepositoryRuleDetailedOneOf1Variant",
+            "update": "#/components/schemas/RepositoryRuleDetailedOneOf2Variant",
+            "deletion": "#/components/schemas/RepositoryRuleDetailedOneOf3Variant",
+            "required_linear_history": "#/components/schemas/RepositoryRuleDetailedOneOf4Variant",
+            "merge_queue": "#/components/schemas/RepositoryRuleDetailedOneOf5Variant",
+            "required_deployments": "#/components/schemas/RepositoryRuleDetailedOneOf6Variant",
+            "required_signatures": "#/components/schemas/RepositoryRuleDetailedOneOf7Variant",
+            "pull_request": "#/components/schemas/RepositoryRuleDetailedOneOf8Variant",
+            "required_status_checks": "#/components/schemas/RepositoryRuleDetailedOneOf9Variant",
+            "non_fast_forward": "#/components/schemas/RepositoryRuleDetailedOneOf10Variant",
+            "commit_message_pattern": "#/components/schemas/RepositoryRuleDetailedOneOf11Variant",
+            "commit_author_email_pattern": "#/components/schemas/RepositoryRuleDetailedOneOf12Variant",
+            "committer_email_pattern": "#/components/schemas/RepositoryRuleDetailedOneOf13Variant",
+            "branch_name_pattern": "#/components/schemas/RepositoryRuleDetailedOneOf14Variant",
+            "tag_name_pattern": "#/components/schemas/RepositoryRuleDetailedOneOf15Variant",
+            "workflows": "#/components/schemas/RepositoryRuleDetailedOneOf16Variant",
+            "code_scanning": "#/components/schemas/RepositoryRuleDetailedOneOf17Variant",
+            "code_quality": "#/components/schemas/RepositoryRuleDetailedOneOf18Variant",
+            "code_coverage": "#/components/schemas/RepositoryRuleDetailedOneOf19Variant",
+            "copilot_code_review": "#/components/schemas/RepositoryRuleDetailedOneOf20Variant",
+            "license_compliance_scanning": "#/components/schemas/RepositoryRuleDetailedOneOf21Variant",
+            "file_path_restriction": "#/components/schemas/RepositoryRuleDetailedOneOf22Variant",
+            "max_file_path_length": "#/components/schemas/RepositoryRuleDetailedOneOf23Variant",
+            "file_extension_restriction": "#/components/schemas/RepositoryRuleDetailedOneOf24Variant",
+            "max_file_size": "#/components/schemas/RepositoryRuleDetailedOneOf25Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -148263,9 +148263,9 @@
         "discriminator": {
           "propertyName": "status",
           "mapping": {
-            "completed": "#/components/schemas/ChecksCreateRequestChecksCreateRequestOneOf1Branch",
-            "queued": "#/components/schemas/ChecksCreateRequestChecksCreateRequestOneOf2Branch",
-            "in_progress": "#/components/schemas/ChecksCreateRequestChecksCreateRequestOneOf2Branch"
+            "completed": "#/components/schemas/ChecksCreateRequestOneOf1BranchVariant",
+            "queued": "#/components/schemas/ChecksCreateRequestOneOf2BranchVariant",
+            "in_progress": "#/components/schemas/ChecksCreateRequestOneOf2BranchVariant"
           }
         },
         "x-client-original-tagged-union": {
@@ -152384,11 +152384,11 @@
         "discriminator": {
           "propertyName": "data_type",
           "mapping": {
-            "text": "#/components/schemas/ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1",
-            "number": "#/components/schemas/ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1",
-            "date": "#/components/schemas/ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1",
-            "single_select": "#/components/schemas/ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf2",
-            "iteration": "#/components/schemas/ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf3"
+            "text": "#/components/schemas/ProjectsAddFieldForUserRequestOneOf1Variant",
+            "number": "#/components/schemas/ProjectsAddFieldForUserRequestOneOf1Variant",
+            "date": "#/components/schemas/ProjectsAddFieldForUserRequestOneOf1Variant",
+            "single_select": "#/components/schemas/ProjectsAddFieldForUserRequestOneOf2Variant",
+            "iteration": "#/components/schemas/ProjectsAddFieldForUserRequestOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -156043,9 +156043,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "string": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1",
-            "array": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2",
-            "integer": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3"
+            "string": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1Variant",
+            "array": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Variant",
+            "integer": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -206417,7 +206417,7 @@
           }
         ]
       },
-      "ActionsRuleActionsRuleRestrictActionsActors": {
+      "ActionsRuleRestrictActionsActorsVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ActionsRule"
@@ -206440,7 +206440,7 @@
           }
         ]
       },
-      "ActionsRuleActionsRuleRestrictActionEvents": {
+      "ActionsRuleRestrictActionEventsVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ActionsRule"
@@ -206463,7 +206463,7 @@
           }
         ]
       },
-      "CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf1": {
+      "CopilotSpaceCollaboratorAnyOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CopilotSpaceCollaborator"
@@ -206600,7 +206600,7 @@
           }
         ]
       },
-      "CopilotSpaceCollaboratorCopilotSpaceCollaboratorAnyOf2": {
+      "CopilotSpaceCollaboratorAnyOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/CopilotSpaceCollaborator"
@@ -206675,7 +206675,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCreation": {
+      "RepositoryRuleCreationVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206695,7 +206695,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleUpdate": {
+      "RepositoryRuleUpdateVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206718,7 +206718,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleDeletion": {
+      "RepositoryRuleDeletionVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206738,7 +206738,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleRequiredLinearHistory": {
+      "RepositoryRuleRequiredLinearHistoryVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206758,7 +206758,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleMergeQueue": {
+      "RepositoryRuleMergeQueueVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206781,7 +206781,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleRequiredDeployments": {
+      "RepositoryRuleRequiredDeploymentsVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206804,7 +206804,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleRequiredSignatures": {
+      "RepositoryRuleRequiredSignaturesVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206824,7 +206824,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRulePullRequest": {
+      "RepositoryRulePullRequestVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206847,7 +206847,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleRequiredStatusChecks": {
+      "RepositoryRuleRequiredStatusChecksVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206870,7 +206870,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleNonFastForward": {
+      "RepositoryRuleNonFastForwardVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206890,7 +206890,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCommitMessagePattern": {
+      "RepositoryRuleCommitMessagePatternVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206913,7 +206913,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCommitAuthorEmailPattern": {
+      "RepositoryRuleCommitAuthorEmailPatternVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206936,7 +206936,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCommitterEmailPattern": {
+      "RepositoryRuleCommitterEmailPatternVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206959,7 +206959,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleBranchNamePattern": {
+      "RepositoryRuleBranchNamePatternVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -206982,7 +206982,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleTagNamePattern": {
+      "RepositoryRuleTagNamePatternVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207005,7 +207005,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleWorkflows": {
+      "RepositoryRuleWorkflowsVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207028,7 +207028,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCodeScanning": {
+      "RepositoryRuleCodeScanningVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207051,7 +207051,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCodeQuality": {
+      "RepositoryRuleCodeQualityVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207074,7 +207074,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCodeCoverage": {
+      "RepositoryRuleCodeCoverageVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207097,7 +207097,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleCopilotCodeReview": {
+      "RepositoryRuleCopilotCodeReviewVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207120,7 +207120,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleLicenseComplianceScanning": {
+      "RepositoryRuleLicenseComplianceScanningVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207140,7 +207140,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleFilePathRestriction": {
+      "RepositoryRuleFilePathRestrictionVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207163,7 +207163,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleMaxFilePathLength": {
+      "RepositoryRuleMaxFilePathLengthVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207186,7 +207186,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleFileExtensionRestriction": {
+      "RepositoryRuleFileExtensionRestrictionVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207209,7 +207209,7 @@
           }
         ]
       },
-      "RepositoryRuleRepositoryRuleMaxFileSize": {
+      "RepositoryRuleMaxFileSizeVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRule"
@@ -207232,7 +207232,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf1": {
+      "RepositoryRuleDetailedOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207262,7 +207262,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf2": {
+      "RepositoryRuleDetailedOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207295,7 +207295,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf3": {
+      "RepositoryRuleDetailedOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207325,7 +207325,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf4": {
+      "RepositoryRuleDetailedOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207355,7 +207355,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf5": {
+      "RepositoryRuleDetailedOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207388,7 +207388,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf6": {
+      "RepositoryRuleDetailedOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207421,7 +207421,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf7": {
+      "RepositoryRuleDetailedOneOf7Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207451,7 +207451,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf8": {
+      "RepositoryRuleDetailedOneOf8Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207484,7 +207484,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf9": {
+      "RepositoryRuleDetailedOneOf9Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207517,7 +207517,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf10": {
+      "RepositoryRuleDetailedOneOf10Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207547,7 +207547,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf11": {
+      "RepositoryRuleDetailedOneOf11Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207580,7 +207580,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf12": {
+      "RepositoryRuleDetailedOneOf12Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207613,7 +207613,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf13": {
+      "RepositoryRuleDetailedOneOf13Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207646,7 +207646,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf14": {
+      "RepositoryRuleDetailedOneOf14Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207679,7 +207679,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf15": {
+      "RepositoryRuleDetailedOneOf15Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207712,7 +207712,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf16": {
+      "RepositoryRuleDetailedOneOf16Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207745,7 +207745,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf17": {
+      "RepositoryRuleDetailedOneOf17Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207778,7 +207778,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf18": {
+      "RepositoryRuleDetailedOneOf18Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207811,7 +207811,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf19": {
+      "RepositoryRuleDetailedOneOf19Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207844,7 +207844,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf20": {
+      "RepositoryRuleDetailedOneOf20Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207877,7 +207877,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf21": {
+      "RepositoryRuleDetailedOneOf21Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207907,7 +207907,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf22": {
+      "RepositoryRuleDetailedOneOf22Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207940,7 +207940,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf23": {
+      "RepositoryRuleDetailedOneOf23Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -207973,7 +207973,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf24": {
+      "RepositoryRuleDetailedOneOf24Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -208006,7 +208006,7 @@
           }
         ]
       },
-      "RepositoryRuleDetailedRepositoryRuleDetailedOneOf25": {
+      "RepositoryRuleDetailedOneOf25Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/RepositoryRuleDetailed"
@@ -208039,7 +208039,7 @@
           }
         ]
       },
-      "ChecksCreateRequestChecksCreateRequestOneOf1Branch": {
+      "ChecksCreateRequestOneOf1BranchVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ChecksCreateRequest"
@@ -208113,7 +208113,7 @@
           }
         ]
       },
-      "ChecksCreateRequestChecksCreateRequestOneOf2Branch": {
+      "ChecksCreateRequestOneOf2BranchVariant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ChecksCreateRequest"
@@ -208191,7 +208191,7 @@
           }
         ]
       },
-      "ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf1": {
+      "ProjectsAddFieldForUserRequestOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ProjectsAddFieldForUserRequest"
@@ -208215,7 +208215,7 @@
           }
         ]
       },
-      "ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf2": {
+      "ProjectsAddFieldForUserRequestOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ProjectsAddFieldForUserRequest"
@@ -208247,7 +208247,7 @@
           }
         ]
       },
-      "ProjectsAddFieldForUserRequestProjectsAddFieldForUserRequestOneOf3": {
+      "ProjectsAddFieldForUserRequestOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ProjectsAddFieldForUserRequest"
@@ -208275,7 +208275,7 @@
           }
         ]
       },
-      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1": {
+      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchema"
@@ -208306,7 +208306,7 @@
           }
         ]
       },
-      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2": {
+      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchema"
@@ -208343,7 +208343,7 @@
           }
         ]
       },
-      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaAgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3": {
+      "AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AgentAutomationsListAvailableRepoAutomationTriggers200ResponseItemFieldsItemSchema"

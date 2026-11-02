@@ -51,9 +51,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "completed" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestChecksCreateRequestOneOf1Branch(),
-                "in_progress" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestChecksCreateRequestOneOf2Branch(),
-                "queued" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestChecksCreateRequestOneOf2Branch(),
+                "completed" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf1BranchVariant(),
+                "in_progress" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2BranchVariant(),
+                "queued" => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOneOf2BranchVariant(),
                 _ => new global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest(),
             };
         }
