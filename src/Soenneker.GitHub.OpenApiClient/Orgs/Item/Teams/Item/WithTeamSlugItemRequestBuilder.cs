@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Copilot;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Invitations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships;
@@ -22,6 +23,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithTeamSlugItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The copilot property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Copilot.CopilotRequestBuilder Copilot
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Copilot.CopilotRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The invitations property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Invitations.InvitationsRequestBuilder Invitations
         {

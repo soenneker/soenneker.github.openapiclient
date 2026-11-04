@@ -34,6 +34,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("reasoning_effort") is { } nullNodeReasoningEffort && nullNodeReasoningEffort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasoningEffort = null;
             if (parseNode.GetChildNode("require_actor_write_permission") is null) { _explicitNullValueRequireActorWritePermission = default!; _explicitNullProperties?.Remove("require_actor_write_permission"); }
             else if (parseNode.GetChildNode("require_actor_write_permission") is { } nullNodeRequireActorWritePermission && nullNodeRequireActorWritePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireActorWritePermission = null;
+            if (parseNode.GetChildNode("tools") is null) { _explicitNullValueTools = default!; _explicitNullProperties?.Remove("tools"); }
+            else if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
             if (parseNode.GetChildNode("triggers") is null) { _explicitNullValueTriggers = default!; _explicitNullProperties?.Remove("triggers"); }
             else if (parseNode.GetChildNode("triggers") is { } nullNodeTriggers && nullNodeTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggers = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -101,6 +103,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>When true, event-triggered runs require the event actor to have repo write permission, even when the org&apos;s allow_read_access_triggers policy is enabled. Does not apply to interval-scheduled runs, which always run as the automation owner.</summary>
         public bool? RequireActorWritePermission { get => _explicitNullValueRequireActorWritePermission; set { _explicitNullValueRequireActorWritePermission = value; AdditionalData?.Remove("require_actor_write_permission"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_actor_write_permission"); else _explicitNullProperties?.Remove("require_actor_write_permission"); } }
         private bool? _explicitNullValueRequireActorWritePermission = default!;
+        /// <summary>The tools available to the automation. Omitted when no tools are configured.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<string>? _explicitNullValueTools = default!;
+#nullable restore
+#else
+        public List<string> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; AdditionalData?.Remove("tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<string> _explicitNullValueTools = default!;
+#endif
         /// <summary>Trigger configuration for the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,6 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetStringValue(); } },
                 { "require_actor_write_permission", n => { RequireActorWritePermission = n.GetBoolValue(); } },
+                { "tools", n => { Tools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "triggers", n => { Triggers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -170,6 +183,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reasoning_effort", ReasoningEffort);
             writer.WriteBoolValue("require_actor_write_permission", RequireActorWritePermission);
+            writer.WriteCollectionOfPrimitiveValues<string>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers>("triggers", Triggers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

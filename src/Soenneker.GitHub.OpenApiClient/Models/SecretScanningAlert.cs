@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
+        /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request, or Actions job log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation? FirstLocationDetected { get => _explicitNullValueFirstLocationDetected; set { _explicitNullValueFirstLocationDetected = value; AdditionalData?.Remove("first_location_detected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_location_detected"); else _explicitNullProperties?.Remove("first_location_detected"); } }

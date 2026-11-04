@@ -59,5 +59,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         PullRequestReviewComment,
         #pragma warning restore CS1591
+        [EnumMember(Value = "actions_log")]
+        #pragma warning disable CS1591
+        ActionsLog,
+        #pragma warning restore CS1591
     }
 }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReview"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReviewComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationWikiCommit"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestBody"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReview"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReviewComment"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestTitle"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationWikiCommit"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NullableSecretScanningFirstDetectedLocation : IComposedTypeWrapper, IParsable
@@ -18,6 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog? SecretScanningLocationActionsLog { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog SecretScanningLocationActionsLog { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,60 +138,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation();
-            if("SecretScanningLocationCommit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationDiscussionBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationDiscussionComment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationDiscussionTitle".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationIssueBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationIssueComment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationIssueTitle".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationPullRequestBody".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationPullRequestComment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationPullRequestReview".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationPullRequestReviewComment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationPullRequestTitle".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("SecretScanningLocationWikiCommit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
             var unionBranchMatches = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? ((global::System.Func<bool?[]>)(() => { int remaining = 10000;
@@ -202,16 +171,16 @@ if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj
 { result &= (fields.ContainsKey("blob_url")); if (result == false) return false; }
 { result &= (fields.ContainsKey("commit_sha")); if (result == false) return false; }
 { result &= (fields.ContainsKey("commit_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("path") ? (bool?)true : MatchSchema13(fields["path"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("start_line") ? (bool?)true : MatchSchema14(fields["start_line"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("end_line") ? (bool?)true : MatchSchema15(fields["end_line"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("start_column") ? (bool?)true : MatchSchema16(fields["start_column"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("end_column") ? (bool?)true : MatchSchema17(fields["end_column"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("blob_sha") ? (bool?)true : MatchSchema18(fields["blob_sha"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("blob_url") ? (bool?)true : MatchSchema19(fields["blob_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("commit_sha") ? (bool?)true : MatchSchema20(fields["commit_sha"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("commit_url") ? (bool?)true : MatchSchema21(fields["commit_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema22(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("path") ? (bool?)true : MatchSchema14(fields["path"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_line") ? (bool?)true : MatchSchema15(fields["start_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_line") ? (bool?)true : MatchSchema16(fields["end_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_column") ? (bool?)true : MatchSchema17(fields["start_column"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_column") ? (bool?)true : MatchSchema18(fields["end_column"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("blob_sha") ? (bool?)true : MatchSchema19(fields["blob_sha"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("blob_url") ? (bool?)true : MatchSchema20(fields["blob_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("commit_sha") ? (bool?)true : MatchSchema21(fields["commit_sha"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("commit_url") ? (bool?)true : MatchSchema22(fields["commit_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema23(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -229,15 +198,15 @@ if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj
 { result &= (fields.ContainsKey("page_url")); if (result == false) return false; }
 { result &= (fields.ContainsKey("commit_sha")); if (result == false) return false; }
 { result &= (fields.ContainsKey("commit_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("path") ? (bool?)true : MatchSchema23(fields["path"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("start_line") ? (bool?)true : MatchSchema24(fields["start_line"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("end_line") ? (bool?)true : MatchSchema25(fields["end_line"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("start_column") ? (bool?)true : MatchSchema26(fields["start_column"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("end_column") ? (bool?)true : MatchSchema27(fields["end_column"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("blob_sha") ? (bool?)true : MatchSchema28(fields["blob_sha"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("page_url") ? (bool?)true : MatchSchema29(fields["page_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("commit_sha") ? (bool?)true : MatchSchema30(fields["commit_sha"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("commit_url") ? (bool?)true : MatchSchema31(fields["commit_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("path") ? (bool?)true : MatchSchema24(fields["path"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_line") ? (bool?)true : MatchSchema25(fields["start_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_line") ? (bool?)true : MatchSchema26(fields["end_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_column") ? (bool?)true : MatchSchema27(fields["start_column"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_column") ? (bool?)true : MatchSchema28(fields["end_column"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("blob_sha") ? (bool?)true : MatchSchema29(fields["blob_sha"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("page_url") ? (bool?)true : MatchSchema30(fields["page_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("commit_sha") ? (bool?)true : MatchSchema31(fields["commit_sha"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("commit_url") ? (bool?)true : MatchSchema32(fields["commit_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -247,8 +216,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("issue_title_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("issue_title_url") ? (bool?)true : MatchSchema32(fields["issue_title_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema33(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("issue_title_url") ? (bool?)true : MatchSchema33(fields["issue_title_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema34(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -258,8 +227,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("issue_body_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("issue_body_url") ? (bool?)true : MatchSchema34(fields["issue_body_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema35(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("issue_body_url") ? (bool?)true : MatchSchema35(fields["issue_body_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema36(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -269,8 +238,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("issue_comment_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("issue_comment_url") ? (bool?)true : MatchSchema36(fields["issue_comment_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema37(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("issue_comment_url") ? (bool?)true : MatchSchema37(fields["issue_comment_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema38(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -280,7 +249,7 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("discussion_title_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("discussion_title_url") ? (bool?)true : MatchSchema38(fields["discussion_title_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("discussion_title_url") ? (bool?)true : MatchSchema39(fields["discussion_title_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -290,7 +259,7 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("discussion_body_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("discussion_body_url") ? (bool?)true : MatchSchema39(fields["discussion_body_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("discussion_body_url") ? (bool?)true : MatchSchema40(fields["discussion_body_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -300,7 +269,7 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("discussion_comment_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("discussion_comment_url") ? (bool?)true : MatchSchema40(fields["discussion_comment_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("discussion_comment_url") ? (bool?)true : MatchSchema41(fields["discussion_comment_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -310,8 +279,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("pull_request_title_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("pull_request_title_url") ? (bool?)true : MatchSchema41(fields["pull_request_title_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema42(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("pull_request_title_url") ? (bool?)true : MatchSchema42(fields["pull_request_title_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema43(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -321,8 +290,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("pull_request_body_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("pull_request_body_url") ? (bool?)true : MatchSchema43(fields["pull_request_body_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema44(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("pull_request_body_url") ? (bool?)true : MatchSchema44(fields["pull_request_body_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema45(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -332,8 +301,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("pull_request_comment_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("pull_request_comment_url") ? (bool?)true : MatchSchema45(fields["pull_request_comment_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema46(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("pull_request_comment_url") ? (bool?)true : MatchSchema46(fields["pull_request_comment_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema47(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -343,8 +312,8 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("pull_request_review_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("pull_request_review_url") ? (bool?)true : MatchSchema47(fields["pull_request_review_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema48(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("pull_request_review_url") ? (bool?)true : MatchSchema48(fields["pull_request_review_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema49(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
@@ -354,21 +323,33 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
 if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
 { result &= (fields.ContainsKey("pull_request_review_comment_url")); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("pull_request_review_comment_url") ? (bool?)true : MatchSchema49(fields["pull_request_review_comment_url"], depth + 1)); if (result == false) return false; }
-{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema50(fields["html_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("pull_request_review_comment_url") ? (bool?)true : MatchSchema50(fields["pull_request_review_comment_url"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("html_url") ? (bool?)true : MatchSchema51(fields["html_url"], depth + 1)); if (result == false) return false; }
 }
 return result;
 }
 bool? MatchSchema13(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject); if (result == false) return false; }
+if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
+{ result &= (fields.ContainsKey("path")); if (result == false) return false; }
+{ result &= (fields.ContainsKey("start_line")); if (result == false) return false; }
+{ result &= (fields.ContainsKey("end_line")); if (result == false) return false; }
+{ result &= (fields.ContainsKey("start_column")); if (result == false) return false; }
+{ result &= (fields.ContainsKey("end_column")); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("path") ? (bool?)true : MatchSchema52(fields["path"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_line") ? (bool?)true : MatchSchema53(fields["start_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_line") ? (bool?)true : MatchSchema54(fields["end_line"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("start_column") ? (bool?)true : MatchSchema55(fields["start_column"], depth + 1)); if (result == false) return false; }
+{ result &= (!fields.ContainsKey("end_column") ? (bool?)true : MatchSchema56(fields["end_column"], depth + 1)); if (result == false) return false; }
+}
 return result;
 }
 bool? MatchSchema14(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
 return result;
 }
 bool? MatchSchema15(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
@@ -392,7 +373,7 @@ return result;
 bool? MatchSchema18(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
 return result;
 }
 bool? MatchSchema19(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
@@ -428,7 +409,7 @@ return result;
 bool? MatchSchema24(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
 return result;
 }
 bool? MatchSchema25(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
@@ -452,7 +433,7 @@ return result;
 bool? MatchSchema28(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
 if (depth > 64 || --remaining < 0) return null;
 bool? result = true;
-{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
 return result;
 }
 bool? MatchSchema29(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
@@ -587,7 +568,43 @@ bool? result = true;
 { result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
 return result;
 }
-var matches = new bool?[13];
+bool? MatchSchema51(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema52(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema53(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema54(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema55(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+return result;
+}
+bool? MatchSchema56(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? node, int depth) {
+if (depth > 64 || --remaining < 0) return null;
+bool? result = true;
+{ result &= (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal); if (result == false) return false; }
+return result;
+}
+var matches = new bool?[14];
 remaining = 10000; matches[0] = MatchSchema0(unionPayload, 0);
 remaining = 10000; matches[1] = MatchSchema1(unionPayload, 0);
 remaining = 10000; matches[2] = MatchSchema2(unionPayload, 0);
@@ -601,6 +618,7 @@ remaining = 10000; matches[9] = MatchSchema9(unionPayload, 0);
 remaining = 10000; matches[10] = MatchSchema10(unionPayload, 0);
 remaining = 10000; matches[11] = MatchSchema11(unionPayload, 0);
 remaining = 10000; matches[12] = MatchSchema12(unionPayload, 0);
+remaining = 10000; matches[13] = MatchSchema13(unionPayload, 0);
 return matches; }))() : null;
             bool? matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![0] : (bool?)false;
             bool? matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![1] : (bool?)false;
@@ -615,6 +633,7 @@ return matches; }))() : null;
             bool? matchesUnionBranch10 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![10] : (bool?)false;
             bool? matchesUnionBranch11 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![11] : (bool?)false;
             bool? matchesUnionBranch12 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![12] : (bool?)false;
+            bool? matchesUnionBranch13 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![13] : (bool?)false;
             int matchingUnionBranches = 0;
             if (matchesUnionBranch0 != false) matchingUnionBranches++;
             if (matchesUnionBranch1 != false) matchingUnionBranches++;
@@ -629,7 +648,8 @@ return matches; }))() : null;
             if (matchesUnionBranch10 != false) matchingUnionBranches++;
             if (matchesUnionBranch11 != false) matchingUnionBranches++;
             if (matchesUnionBranch12 != false) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.SecretScanningLocationCommit == null && result.SecretScanningLocationDiscussionBody == null && result.SecretScanningLocationDiscussionComment == null && result.SecretScanningLocationDiscussionTitle == null && result.SecretScanningLocationIssueBody == null && result.SecretScanningLocationIssueComment == null && result.SecretScanningLocationIssueTitle == null && result.SecretScanningLocationPullRequestBody == null && result.SecretScanningLocationPullRequestComment == null && result.SecretScanningLocationPullRequestReview == null && result.SecretScanningLocationPullRequestReviewComment == null && result.SecretScanningLocationPullRequestTitle == null && result.SecretScanningLocationWikiCommit == null;
+            if (matchesUnionBranch13 != false) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.SecretScanningLocationActionsLog == null && result.SecretScanningLocationCommit == null && result.SecretScanningLocationDiscussionBody == null && result.SecretScanningLocationDiscussionComment == null && result.SecretScanningLocationDiscussionTitle == null && result.SecretScanningLocationIssueBody == null && result.SecretScanningLocationIssueComment == null && result.SecretScanningLocationIssueTitle == null && result.SecretScanningLocationPullRequestBody == null && result.SecretScanningLocationPullRequestComment == null && result.SecretScanningLocationPullRequestReview == null && result.SecretScanningLocationPullRequestReviewComment == null && result.SecretScanningLocationPullRequestTitle == null && result.SecretScanningLocationWikiCommit == null;
             if (noSelectedUnionBranch && matchesUnionBranch0 == true && matchingUnionBranches == 1) result.SecretScanningLocationCommit = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch1 == true && matchingUnionBranches == 1) result.SecretScanningLocationWikiCommit = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationWikiCommit(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch2 == true && matchingUnionBranches == 1) result.SecretScanningLocationIssueTitle = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueTitle(), parseNode);
@@ -643,7 +663,8 @@ return matches; }))() : null;
             if (noSelectedUnionBranch && matchesUnionBranch10 == true && matchingUnionBranches == 1) result.SecretScanningLocationPullRequestComment = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestComment(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch11 == true && matchingUnionBranches == 1) result.SecretScanningLocationPullRequestReview = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReview(), parseNode);
             if (noSelectedUnionBranch && matchesUnionBranch12 == true && matchingUnionBranches == 1) result.SecretScanningLocationPullRequestReviewComment = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReviewComment(), parseNode);
-            if (result.SecretScanningLocationCommit == null && result.SecretScanningLocationDiscussionBody == null && result.SecretScanningLocationDiscussionComment == null && result.SecretScanningLocationDiscussionTitle == null && result.SecretScanningLocationIssueBody == null && result.SecretScanningLocationIssueComment == null && result.SecretScanningLocationIssueTitle == null && result.SecretScanningLocationPullRequestBody == null && result.SecretScanningLocationPullRequestComment == null && result.SecretScanningLocationPullRequestReview == null && result.SecretScanningLocationPullRequestReviewComment == null && result.SecretScanningLocationPullRequestTitle == null && result.SecretScanningLocationWikiCommit == null) result.UnrecognizedValue = unionPayload;
+            if (noSelectedUnionBranch && matchesUnionBranch13 == true && matchingUnionBranches == 1) result.SecretScanningLocationActionsLog = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog(), parseNode);
+            if (result.SecretScanningLocationActionsLog == null && result.SecretScanningLocationCommit == null && result.SecretScanningLocationDiscussionBody == null && result.SecretScanningLocationDiscussionComment == null && result.SecretScanningLocationDiscussionTitle == null && result.SecretScanningLocationIssueBody == null && result.SecretScanningLocationIssueComment == null && result.SecretScanningLocationIssueTitle == null && result.SecretScanningLocationPullRequestBody == null && result.SecretScanningLocationPullRequestComment == null && result.SecretScanningLocationPullRequestReview == null && result.SecretScanningLocationPullRequestReviewComment == null && result.SecretScanningLocationPullRequestTitle == null && result.SecretScanningLocationWikiCommit == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -654,57 +675,9 @@ return result;
         {
             if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
 
-            if(SecretScanningLocationCommit != null)
+            if(SecretScanningLocationActionsLog != null || SecretScanningLocationCommit != null || SecretScanningLocationDiscussionBody != null || SecretScanningLocationDiscussionComment != null || SecretScanningLocationDiscussionTitle != null || SecretScanningLocationIssueBody != null || SecretScanningLocationIssueComment != null || SecretScanningLocationIssueTitle != null || SecretScanningLocationPullRequestBody != null || SecretScanningLocationPullRequestComment != null || SecretScanningLocationPullRequestReview != null || SecretScanningLocationPullRequestReviewComment != null || SecretScanningLocationPullRequestTitle != null || SecretScanningLocationWikiCommit != null)
             {
-                return SecretScanningLocationCommit.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationDiscussionBody != null)
-            {
-                return SecretScanningLocationDiscussionBody.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationDiscussionComment != null)
-            {
-                return SecretScanningLocationDiscussionComment.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationDiscussionTitle != null)
-            {
-                return SecretScanningLocationDiscussionTitle.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationIssueBody != null)
-            {
-                return SecretScanningLocationIssueBody.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationIssueComment != null)
-            {
-                return SecretScanningLocationIssueComment.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationIssueTitle != null)
-            {
-                return SecretScanningLocationIssueTitle.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationPullRequestBody != null)
-            {
-                return SecretScanningLocationPullRequestBody.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationPullRequestComment != null)
-            {
-                return SecretScanningLocationPullRequestComment.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationPullRequestReview != null)
-            {
-                return SecretScanningLocationPullRequestReview.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationPullRequestReviewComment != null)
-            {
-                return SecretScanningLocationPullRequestReviewComment.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationPullRequestTitle != null)
-            {
-                return SecretScanningLocationPullRequestTitle.GetFieldDeserializers();
-            }
-            else if(SecretScanningLocationWikiCommit != null)
-            {
-                return SecretScanningLocationWikiCommit.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SecretScanningLocationActionsLog, SecretScanningLocationCommit, SecretScanningLocationDiscussionBody, SecretScanningLocationDiscussionComment, SecretScanningLocationDiscussionTitle, SecretScanningLocationIssueBody, SecretScanningLocationIssueComment, SecretScanningLocationIssueTitle, SecretScanningLocationPullRequestBody, SecretScanningLocationPullRequestComment, SecretScanningLocationPullRequestReview, SecretScanningLocationPullRequestReviewComment, SecretScanningLocationPullRequestTitle, SecretScanningLocationWikiCommit);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -715,8 +688,9 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (SecretScanningLocationCommit == null && SecretScanningLocationDiscussionBody == null && SecretScanningLocationDiscussionComment == null && SecretScanningLocationDiscussionTitle == null && SecretScanningLocationIssueBody == null && SecretScanningLocationIssueComment == null && SecretScanningLocationIssueTitle == null && SecretScanningLocationPullRequestBody == null && SecretScanningLocationPullRequestComment == null && SecretScanningLocationPullRequestReview == null && SecretScanningLocationPullRequestReviewComment == null && SecretScanningLocationPullRequestTitle == null && SecretScanningLocationWikiCommit == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SecretScanningLocationActionsLog == null && SecretScanningLocationCommit == null && SecretScanningLocationDiscussionBody == null && SecretScanningLocationDiscussionComment == null && SecretScanningLocationDiscussionTitle == null && SecretScanningLocationIssueBody == null && SecretScanningLocationIssueComment == null && SecretScanningLocationIssueTitle == null && SecretScanningLocationPullRequestBody == null && SecretScanningLocationPullRequestComment == null && SecretScanningLocationPullRequestReview == null && SecretScanningLocationPullRequestReviewComment == null && SecretScanningLocationPullRequestTitle == null && SecretScanningLocationWikiCommit == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
             int selectedUnionBranches = 0;
+            if (SecretScanningLocationActionsLog != null) selectedUnionBranches++;
             if (SecretScanningLocationCommit != null) selectedUnionBranches++;
             if (SecretScanningLocationDiscussionBody != null) selectedUnionBranches++;
             if (SecretScanningLocationDiscussionComment != null) selectedUnionBranches++;
@@ -730,6 +704,7 @@ return result;
             if (SecretScanningLocationPullRequestReviewComment != null) selectedUnionBranches++;
             if (SecretScanningLocationPullRequestTitle != null) selectedUnionBranches++;
             if (SecretScanningLocationWikiCommit != null) selectedUnionBranches++;
+            if (SecretScanningLocationActionsLog != null && selectedUnionBranches == 1) { if (SecretScanningLocationActionsLog is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecretScanningLocationActionsLog); return; }
             if (SecretScanningLocationCommit != null && selectedUnionBranches == 1) { if (SecretScanningLocationCommit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecretScanningLocationCommit); return; }
             if (SecretScanningLocationDiscussionBody != null && selectedUnionBranches == 1) { if (SecretScanningLocationDiscussionBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecretScanningLocationDiscussionBody); return; }
             if (SecretScanningLocationDiscussionComment != null && selectedUnionBranches == 1) { if (SecretScanningLocationDiscussionComment is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecretScanningLocationDiscussionComment); return; }
@@ -745,71 +720,7 @@ return result;
             if (SecretScanningLocationWikiCommit != null && selectedUnionBranches == 1) { if (SecretScanningLocationWikiCommit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SecretScanningLocationWikiCommit); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(SecretScanningLocationCommit != null)
-            {
-                if (SecretScanningLocationCommit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit>(null, SecretScanningLocationCommit);
-            }
-            else if(SecretScanningLocationDiscussionBody != null)
-            {
-                if (SecretScanningLocationDiscussionBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionBody>(null, SecretScanningLocationDiscussionBody);
-            }
-            else if(SecretScanningLocationDiscussionComment != null)
-            {
-                if (SecretScanningLocationDiscussionComment is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionComment>(null, SecretScanningLocationDiscussionComment);
-            }
-            else if(SecretScanningLocationDiscussionTitle != null)
-            {
-                if (SecretScanningLocationDiscussionTitle is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationDiscussionTitle>(null, SecretScanningLocationDiscussionTitle);
-            }
-            else if(SecretScanningLocationIssueBody != null)
-            {
-                if (SecretScanningLocationIssueBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueBody>(null, SecretScanningLocationIssueBody);
-            }
-            else if(SecretScanningLocationIssueComment != null)
-            {
-                if (SecretScanningLocationIssueComment is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueComment>(null, SecretScanningLocationIssueComment);
-            }
-            else if(SecretScanningLocationIssueTitle != null)
-            {
-                if (SecretScanningLocationIssueTitle is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationIssueTitle>(null, SecretScanningLocationIssueTitle);
-            }
-            else if(SecretScanningLocationPullRequestBody != null)
-            {
-                if (SecretScanningLocationPullRequestBody is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestBody>(null, SecretScanningLocationPullRequestBody);
-            }
-            else if(SecretScanningLocationPullRequestComment != null)
-            {
-                if (SecretScanningLocationPullRequestComment is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestComment>(null, SecretScanningLocationPullRequestComment);
-            }
-            else if(SecretScanningLocationPullRequestReview != null)
-            {
-                if (SecretScanningLocationPullRequestReview is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReview>(null, SecretScanningLocationPullRequestReview);
-            }
-            else if(SecretScanningLocationPullRequestReviewComment != null)
-            {
-                if (SecretScanningLocationPullRequestReviewComment is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestReviewComment>(null, SecretScanningLocationPullRequestReviewComment);
-            }
-            else if(SecretScanningLocationPullRequestTitle != null)
-            {
-                if (SecretScanningLocationPullRequestTitle is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationPullRequestTitle>(null, SecretScanningLocationPullRequestTitle);
-            }
-            else if(SecretScanningLocationWikiCommit != null)
-            {
-                if (SecretScanningLocationWikiCommit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationWikiCommit>(null, SecretScanningLocationWikiCommit);
-            }
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationActionsLog>(null, SecretScanningLocationActionsLog, SecretScanningLocationCommit, SecretScanningLocationDiscussionBody, SecretScanningLocationDiscussionComment, SecretScanningLocationDiscussionTitle, SecretScanningLocationIssueBody, SecretScanningLocationIssueComment, SecretScanningLocationIssueTitle, SecretScanningLocationPullRequestBody, SecretScanningLocationPullRequestComment, SecretScanningLocationPullRequestReview, SecretScanningLocationPullRequestReviewComment, SecretScanningLocationPullRequestTitle, SecretScanningLocationWikiCommit);
         }
     }
 }

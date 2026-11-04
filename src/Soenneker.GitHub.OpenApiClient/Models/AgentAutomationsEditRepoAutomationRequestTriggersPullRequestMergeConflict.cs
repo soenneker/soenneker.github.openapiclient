@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private string _explicitNullValueQuery = default!;
 #endif
-        /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
+        /// <summary>Sets the write scope for this trigger&apos;s runs. Omit to inherit the automation&apos;s effective scope (default `trigger`). Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomationRequestTriggersPullRequestMergeConflictWriteScope? WriteScope { get => _explicitNullValueWriteScope; set { _explicitNullValueWriteScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write_scope"); else _explicitNullProperties?.Remove("write_scope"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsEditRepoAutomationRequestTriggersPullRequestMergeConflictWriteScope? _explicitNullValueWriteScope = default!;
         /// <summary>
