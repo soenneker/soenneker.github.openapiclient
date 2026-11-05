@@ -26,12 +26,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The array of custom properties to create or update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty>? Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
-        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty>? _explicitNullValueProperties = default!;
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload>? Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload>? _explicitNullValueProperties = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty> Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
-        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty> _explicitNullValueProperties = default!;
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload> Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; AdditionalData?.Remove("properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload> _explicitNullValueProperties = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsCustomPropertiesForReposCreateOrUpdateOrganizationDefinitionsRequest"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "properties", n => { Properties = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty>(global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "properties", n => { Properties = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty>("properties", Properties);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyBatchItemPayload>("properties", Properties);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

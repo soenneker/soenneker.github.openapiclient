@@ -57450,6 +57450,157 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/dependabot/runner-settings": {
+      "get": {
+        "tags": [
+          "dependabot"
+        ],
+        "summary": "Get repository Dependabot runner settings",
+        "description": "Gets the runner Dependabot uses for this repository: standard GitHub-hosted\nrunners, or labeled runners with their labels and optional runner group. The\nresponse matches the repository\u0027s code security settings page.\n\nLabeled runners take effect only for private and internal repositories with\nGitHub Actions enabled. Otherwise, the response shows \u0060standard\u0060.\n\nRepository administrators and users who can manage security products for the\nrepository can use this endpoint. OAuth app tokens and personal access tokens\n(classic) require the \u0060repo\u0060 scope for both public and private repositories.\nGitHub App tokens and fine-grained personal access tokens require repository\nAdministration read permission. Workflow \u0060GITHUB_TOKEN\u0060 access is not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/runner-settings#get-repository-dependabot-runner-settings"
+        },
+        "operationId": "DependabotGetRepositoryRunnerSettings",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DependabotRunnerSettings"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/dependabot-runner-settings"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "dependabot",
+          "subcategory": "runner-settings"
+        }
+      },
+      "put": {
+        "tags": [
+          "dependabot"
+        ],
+        "summary": "Set repository Dependabot runner settings",
+        "description": "Sets the runner Dependabot uses for this repository. This is the same setting\nas on the repository\u0027s code security settings page.\n\n\u0060labeled\u0060 turns on labeled runners with exactly one runner label and an optional\nrunner group. \u0060standard\u0060 turns them off and clears the label and group.\n\nLabeled runners are only available for private and internal repositories with\nGitHub Actions enabled. The response returns the settings after the change.\n\nRepository administrators and users who can manage security products for the\nrepository can use this endpoint, subject to enterprise policy. OAuth app tokens\nand personal access tokens (classic) require the \u0060repo\u0060 scope. GitHub App tokens\nand fine-grained personal access tokens require repository Administration write\npermission. Workflow \u0060GITHUB_TOKEN\u0060 access is not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/runner-settings#set-repository-dependabot-runner-settings"
+        },
+        "operationId": "DependabotSetRepositoryRunnerSettings",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DependabotRunnerSettingsUpdate"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/dependabot-runner-settings-update"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DependabotRunnerSettings"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/dependabot-runner-settings"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "dependabot",
+          "subcategory": "runner-settings"
+        }
+      }
+    },
     "/repos/{owner}/{repo}/dependabot/secrets": {
       "get": {
         "tags": [
@@ -110174,12 +110325,70 @@
           "values_editable_by": {
             "$ref": "#/components/schemas/CustomPropertyValuesEditableBy"
           },
+          "regex": {
+            "type": "string",
+            "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly present for properties with a \u0060value_type\u0060 of \u0060string\u0060 that define a regular expression.",
+            "nullable": true,
+            "example": "^[a-z0-9-]\u002B$"
+          },
           "require_explicit_values": {
             "type": "boolean",
             "description": "Whether setting properties values is mandatory"
           }
         },
         "description": "Custom property defined on an organization"
+      },
+      "CustomPropertyBatchItemPayload": {
+        "title": "Custom Property Batch Item Payload",
+        "required": [
+          "property_name",
+          "value_type"
+        ],
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the property"
+          },
+          "value_type": {
+            "$ref": "#/components/schemas/CustomPropertyBatchItemPayloadValueType"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether the property is required."
+          },
+          "default_value": {
+            "$ref": "#/components/schemas/CustomPropertyBatchItemPayloadDefaultValue"
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description of the property",
+            "nullable": true
+          },
+          "allowed_values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values.",
+            "nullable": true
+          },
+          "values_editable_by": {
+            "$ref": "#/components/schemas/CustomPropertyBatchItemPayloadValuesEditableBy"
+          },
+          "regex": {
+            "type": "string",
+            "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a \u0060value_type\u0060 of \u0060string\u0060.",
+            "nullable": true,
+            "example": "^[a-z0-9-]\u002B$"
+          },
+          "require_explicit_values": {
+            "type": "boolean",
+            "description": "Whether setting properties values is mandatory"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Payload for a single custom property definition when creating or updating custom properties in a batch"
       },
       "CustomPropertySetPayload": {
         "title": "Custom Property Set Payload",
@@ -110196,7 +110405,7 @@
             "description": "Whether the property is required."
           },
           "default_value": {
-            "$ref": "#/components/schemas/CustomPropertySetPayloadDefaultValue"
+            "$ref": "#/components/schemas/CustomPropertyBatchItemPayloadDefaultValue"
           },
           "description": {
             "type": "string",
@@ -110213,6 +110422,12 @@
           },
           "values_editable_by": {
             "$ref": "#/components/schemas/CustomPropertySetPayloadValuesEditableBy"
+          },
+          "regex": {
+            "type": "string",
+            "description": "A regular expression (RE2 syntax) that values of the property must match.\nOnly supported for properties with a \u0060value_type\u0060 of \u0060string\u0060.",
+            "nullable": true,
+            "example": "^[a-z0-9-]\u002B$"
           },
           "require_explicit_values": {
             "type": "boolean",
@@ -119620,6 +119835,61 @@
         },
         "additionalProperties": false,
         "description": "A Dependabot alert."
+      },
+      "DependabotRunnerSettings": {
+        "title": "Dependabot runner settings",
+        "required": [
+          "runner_type",
+          "runner_labels",
+          "runner_group"
+        ],
+        "type": "object",
+        "properties": {
+          "runner_type": {
+            "$ref": "#/components/schemas/DependabotRunnerSettingsRunnerType"
+          },
+          "runner_labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Runner labels Dependabot uses. Empty for \u0060standard\u0060."
+          },
+          "runner_group": {
+            "type": "string",
+            "description": "Runner group Dependabot uses, or \u0060null\u0060 for no group.",
+            "nullable": true
+          }
+        },
+        "description": "The runner Dependabot uses for this repository, as shown in the repository settings."
+      },
+      "DependabotRunnerSettingsUpdate": {
+        "title": "Dependabot runner settings update",
+        "required": [
+          "runner_type"
+        ],
+        "type": "object",
+        "properties": {
+          "runner_type": {
+            "$ref": "#/components/schemas/DependabotRunnerSettingsUpdateRunnerType"
+          },
+          "runner_labels": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Required for \u0060labeled\u0060. Exactly one non-blank runner label. Not allowed for \u0060standard\u0060."
+          },
+          "runner_group": {
+            "type": "string",
+            "description": "Optional for \u0060labeled\u0060. Omitted, \u0060null\u0060 or blank means no group. Not allowed for \u0060standard\u0060.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The runner Dependabot uses for this repository. \u0060standard\u0060 accepts only \u0060runner_type\u0060."
       },
       "DependabotSecret": {
         "title": "Dependabot Secret",
@@ -129598,7 +129868,7 @@
         "description": "Default value of the property",
         "nullable": true
       },
-      "CustomPropertySetPayloadDefaultValue": {
+      "CustomPropertyBatchItemPayloadDefaultValue": {
         "oneOf": [
           {
             "type": "string",
@@ -147874,7 +148144,7 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CustomProperty"
+              "$ref": "#/components/schemas/CustomPropertyBatchItemPayload"
             },
             "description": "The array of custom properties to create or update."
           }
@@ -148403,7 +148673,7 @@
         "properties": {
           "permission": {
             "type": "string",
-            "description": "The permission to grant the team on this repository. We accept the following permissions to be set: \u0060pull\u0060, \u0060triage\u0060, \u0060push\u0060, \u0060maintain\u0060, \u0060admin\u0060 and you can also specify a custom repository role name, if the owning organization has defined any. If no permission is specified, the team\u0027s \u0060permission\u0060 attribute will be used to determine what permission to grant the team on this repository."
+            "description": "The permission to grant the team on this repository. We accept the following permissions to be set: \u0060pull\u0060, \u0060triage\u0060, \u0060moderate\u0060, \u0060push\u0060, \u0060maintain\u0060, \u0060admin\u0060 and you can also specify a custom repository role name, if the owning organization has defined any. If no permission is specified, the team\u0027s \u0060permission\u0060 attribute will be used to determine what permission to grant the team on this repository."
           }
         }
       },
@@ -149621,7 +149891,7 @@
         "properties": {
           "permission": {
             "type": "string",
-            "description": "The permission to grant the collaborator. **Only valid on organization-owned repositories.** We accept the following permissions to be set: \u0060pull\u0060, \u0060triage\u0060, \u0060triage_plus\u0060, \u0060push\u0060, \u0060maintain\u0060, \u0060admin\u0060 and you can also specify a custom repository role name, if the owning organization has defined any.",
+            "description": "The permission to grant the collaborator. **Only valid on organization-owned repositories.** We accept the following permissions to be set: \u0060pull\u0060, \u0060triage\u0060, \u0060moderate\u0060, \u0060push\u0060, \u0060maintain\u0060, \u0060admin\u0060 and you can also specify a custom repository role name, if the owning organization has defined any.",
             "default": "push"
           }
         }
@@ -179434,6 +179704,68 @@
           ]
         }
       },
+      "CustomPropertyBatchItemPayloadValueType": {
+        "enum": [
+          "string",
+          "single_select",
+          "multi_select",
+          "true_false",
+          "url"
+        ],
+        "type": "string",
+        "description": "The type of the value for the property",
+        "example": "single_select",
+        "x-ms-enum": {
+          "name": "CustomPropertyBatchItemPayloadValueType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "string",
+              "name": "StringValue"
+            },
+            {
+              "value": "single_select",
+              "name": "SingleSelect"
+            },
+            {
+              "value": "multi_select",
+              "name": "MultiSelect"
+            },
+            {
+              "value": "true_false",
+              "name": "TrueFalse"
+            },
+            {
+              "value": "url",
+              "name": "Url"
+            }
+          ]
+        }
+      },
+      "CustomPropertyBatchItemPayloadValuesEditableBy": {
+        "enum": [
+          "org_actors",
+          "org_and_repo_actors"
+        ],
+        "type": "string",
+        "description": "Who can edit the values of the property",
+        "nullable": true,
+        "example": "org_actors",
+        "x-ms-enum": {
+          "name": "CustomPropertyBatchItemPayloadValuesEditableBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "org_actors",
+              "name": "OrgActors"
+            },
+            {
+              "value": "org_and_repo_actors",
+              "name": "OrgAndRepoActors"
+            }
+          ]
+        }
+      },
       "CustomPropertySetPayloadValueType": {
         "enum": [
           "string",
@@ -182263,7 +182595,7 @@
           "write",
           "admin",
           "triage",
-          "triage_plus",
+          "moderate",
           "maintain"
         ],
         "type": "string",
@@ -182290,8 +182622,8 @@
               "name": "Triage"
             },
             {
-              "value": "triage_plus",
-              "name": "TriagePlus"
+              "value": "moderate",
+              "name": "Moderate"
             },
             {
               "value": "maintain",
@@ -182500,6 +182832,50 @@
             {
               "value": "tolerable_risk",
               "name": "TolerableRisk"
+            }
+          ]
+        }
+      },
+      "DependabotRunnerSettingsRunnerType": {
+        "enum": [
+          "standard",
+          "labeled"
+        ],
+        "type": "string",
+        "description": "\u0060labeled\u0060 when Dependabot runs on labeled runners. Otherwise \u0060standard\u0060.",
+        "x-ms-enum": {
+          "name": "DependabotRunnerSettingsRunnerType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "labeled",
+              "name": "Labeled"
+            }
+          ]
+        }
+      },
+      "DependabotRunnerSettingsUpdateRunnerType": {
+        "enum": [
+          "standard",
+          "labeled"
+        ],
+        "type": "string",
+        "description": "\u0060labeled\u0060 for labeled runners, \u0060standard\u0060 for standard GitHub-hosted runners.",
+        "x-ms-enum": {
+          "name": "DependabotRunnerSettingsUpdateRunnerType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "labeled",
+              "name": "Labeled"
             }
           ]
         }
@@ -191161,10 +191537,11 @@
           "write",
           "maintain",
           "triage",
+          "moderate",
           "admin"
         ],
         "type": "string",
-        "description": "The permissions that the associated user will have on the repository. Valid values are \u0060read\u0060, \u0060write\u0060, \u0060maintain\u0060, \u0060triage\u0060, and \u0060admin\u0060.",
+        "description": "The permissions that the associated user will have on the repository. Valid values are \u0060read\u0060, \u0060write\u0060, \u0060maintain\u0060, \u0060triage\u0060, \u0060moderate\u0060, and \u0060admin\u0060.",
         "x-ms-enum": {
           "name": "ReposUpdateInvitationRequestPermissions",
           "modelAsString": false,
@@ -191184,6 +191561,10 @@
             {
               "value": "triage",
               "name": "Triage"
+            },
+            {
+              "value": "moderate",
+              "name": "Moderate"
             },
             {
               "value": "admin",
@@ -192134,6 +192515,7 @@
       "TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission": {
         "enum": [
           "pull",
+          "moderate",
           "push",
           "admin"
         ],
@@ -192146,6 +192528,10 @@
             {
               "value": "pull",
               "name": "Pull"
+            },
+            {
+              "value": "moderate",
+              "name": "Moderate"
             },
             {
               "value": "push",
@@ -208477,7 +208863,7 @@
         "enum": [
           "pull",
           "triage",
-          "triage_plus",
+          "moderate",
           "push",
           "maintain",
           "admin"
@@ -208496,8 +208882,8 @@
               "name": "Triage"
             },
             {
-              "value": "triage_plus",
-              "name": "TriagePlus"
+              "value": "moderate",
+              "name": "Moderate"
             },
             {
               "value": "push",
@@ -214138,6 +214524,26 @@
           }
         }
       },
+      "requires_authentication": {
+        "description": "Requires authentication",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
+      "service_unavailable": {
+        "description": "Service unavailable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ServiceUnavailableResponse"
+            }
+          }
+        }
+      },
       "bad_request": {
         "description": "Bad Request",
         "content": {
@@ -214181,16 +214587,6 @@
       "not_modified": {
         "description": "Not modified"
       },
-      "requires_authentication": {
-        "description": "Requires authentication",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/BasicError"
-            }
-          }
-        }
-      },
       "forbidden": {
         "description": "Forbidden",
         "content": {
@@ -214230,16 +214626,6 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/BasicError"
-            }
-          }
-        }
-      },
-      "service_unavailable": {
-        "description": "Service unavailable",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ServiceUnavailableResponse"
             }
           }
         }
@@ -237720,6 +238106,26 @@
           "dismissed_comment": "This alert is accurate but we use a sanitizer.",
           "fixed_at": null,
           "assignees": []
+        }
+      },
+      "dependabot-runner-settings": {
+        "summary": "Labeled runner with a runner group",
+        "value": {
+          "runner_type": "labeled",
+          "runner_labels": [
+            "dependabot"
+          ],
+          "runner_group": "dependabot-runners"
+        }
+      },
+      "dependabot-runner-settings-update": {
+        "summary": "Select labeled runners in a runner group",
+        "value": {
+          "runner_type": "labeled",
+          "runner_labels": [
+            "dependabot"
+          ],
+          "runner_group": "dependabot-runners"
         }
       },
       "dependabot-secret-paginated": {
@@ -293731,6 +294137,22 @@
           "nullable": true
         }
       }
+    },
+    "CustomPropertySetPayloadDefaultValue": {
+      "oneOf": [
+        {
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ],
+      "description": "Default value of the property",
+      "nullable": true
     },
     "RulesetVersionWithStateAllOf2": {
       "required": [
