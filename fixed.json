@@ -38463,7 +38463,7 @@
             }
           },
           "204": {
-            "description": "Response if team has permission for the repository. This is the response when the repository media type hasn\u0027t been provded in the Accept header."
+            "description": "Response if team has permission for the repository. This is the response when the repository media type hasn\u0027t been provided in the Accept header."
           },
           "404": {
             "description": "Not Found if team does not have permission for the repository"
@@ -66788,6 +66788,12 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
           }
         ],
         "responses": {
@@ -66820,6 +66826,8 @@
                         "created_at": "2026-09-21T15:00:00Z",
                         "updated_at": "2026-09-21T15:30:00Z"
                       },
+                      "has_next_page": false,
+                      "total_count": 2,
                       "versions": [
                         {
                           "version": 2,
@@ -85156,7 +85164,7 @@
             "description": "Response"
           },
           "404": {
-            "description": "Not Found if team synchronization is setup"
+            "description": "Not Found if team synchronization is set up"
           }
         },
         "deprecated": true,
@@ -157943,12 +157951,23 @@
       "IssuesGetIssueArtifact200ResponseOneOf2": {
         "required": [
           "artifact",
-          "versions"
+          "versions",
+          "has_next_page",
+          "total_count"
         ],
         "type": "object",
         "properties": {
           "artifact": {
             "$ref": "#/components/schemas/IssueArtifact"
+          },
+          "has_next_page": {
+            "type": "boolean",
+            "description": "Whether another page of retained versions is available."
+          },
+          "total_count": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of retained artifact versions."
           },
           "versions": {
             "type": "array",
@@ -216395,7 +216414,7 @@
       "team-type": {
         "name": "team_type",
         "in": "query",
-        "description": "Filter team results by their type. For more information, see \u0022[What kind of team should I use?](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)\u0022",
+        "description": "Filter team results by their type. For more information, see \u0022[What kind of team should I use?](https://docs.github.com/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)\u0022",
         "schema": {
           "$ref": "#/components/schemas/TeamTypeEnum"
         }

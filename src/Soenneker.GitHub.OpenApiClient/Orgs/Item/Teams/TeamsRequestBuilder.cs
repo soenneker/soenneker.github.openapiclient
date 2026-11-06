@@ -165,7 +165,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Filter team results by their type. For more information, see &quot;[What kind of team should I use?](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)&quot;</summary>
+            /// <summary>Filter team results by their type. For more information, see &quot;[What kind of team should I use?](https://docs.github.com/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)&quot;</summary>
             [QueryParameter("team_type")]
             public global::Soenneker.GitHub.OpenApiClient.Models.TeamTypeEnum? TeamType { get; set; }
         }

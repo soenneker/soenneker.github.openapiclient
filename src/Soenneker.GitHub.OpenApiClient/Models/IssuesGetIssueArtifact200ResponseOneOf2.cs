@@ -19,6 +19,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("artifact") is null) { _explicitNullValueArtifact = default!; _explicitNullProperties?.Remove("artifact"); }
             else if (parseNode.GetChildNode("artifact") is { } nullNodeArtifact && nullNodeArtifact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifact = null;
+            if (parseNode.GetChildNode("has_next_page") is null) { _explicitNullValueHasNextPage = default!; _explicitNullProperties?.Remove("has_next_page"); }
+            else if (parseNode.GetChildNode("has_next_page") is { } nullNodeHasNextPage && nullNodeHasNextPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasNextPage = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
             if (parseNode.GetChildNode("versions") is null) { _explicitNullValueVersions = default!; _explicitNullProperties?.Remove("versions"); }
             else if (parseNode.GetChildNode("versions") is { } nullNodeVersions && nullNodeVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Versions = null;
         }
@@ -35,6 +39,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact Artifact { get => _explicitNullValueArtifact; set { _explicitNullValueArtifact = value; AdditionalData?.Remove("artifact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact"); else _explicitNullProperties?.Remove("artifact"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact _explicitNullValueArtifact = default!;
 #endif
+        /// <summary>Whether another page of retained versions is available.</summary>
+        public bool? HasNextPage { get => _explicitNullValueHasNextPage; set { _explicitNullValueHasNextPage = value; AdditionalData?.Remove("has_next_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_next_page"); else _explicitNullProperties?.Remove("has_next_page"); } }
+        private bool? _explicitNullValueHasNextPage = default!;
+        /// <summary>The number of retained artifact versions.</summary>
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>The artifact version history, ordered from newest to oldest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +81,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "artifact", n => { Artifact = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue); } },
+                { "has_next_page", n => { HasNextPage = n.GetBoolValue(); } },
+                { "total_count", n => { TotalCount = n.GetIntValue(); } },
                 { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -82,6 +94,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>("artifact", Artifact);
+            writer.WriteBoolValue("has_next_page", HasNextPage);
+            writer.WriteIntValue("total_count", TotalCount);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem>("versions", Versions);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
