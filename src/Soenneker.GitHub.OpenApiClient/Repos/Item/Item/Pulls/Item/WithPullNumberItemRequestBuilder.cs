@@ -7,6 +7,7 @@ using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Codespaces;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Comments;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Commits;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.CopilotCodeReview;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Files;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Merge;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.MergeAsync;
@@ -40,6 +41,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Commits.CommitsRequestBuilder Commits
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Commits.CommitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copilotCodeReview property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.CopilotCodeReview.CopilotCodeReviewRequestBuilder CopilotCodeReview
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.CopilotCodeReview.CopilotCodeReviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The files property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Files.FilesRequestBuilder Files

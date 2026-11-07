@@ -6725,6 +6725,129 @@
         }
       }
     },
+    "/enterprises/{enterprise}/copilot/policies/code-review": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get the Copilot code review policy for an enterprise",
+        "description": "Gets the configured Copilot code review policy for an enterprise.\nThis does not return a user\u0027s effective access, preview approval controls, or automatic-review rulesets.\n\nEnterprise owners and users with the \u0060read_enterprise_ai_controls\u0060 permission can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need the \u0060read:enterprise\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#get-the-copilot-code-review-policy-for-an-enterprise"
+        },
+        "operationId": "CopilotGetEnterpriseCodeReviewPolicy",
+        "parameters": [
+          {
+            "name": "enterprise",
+            "in": "path",
+            "description": "The slug version of the enterprise name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configured enterprise policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseCopilotCodeReviewPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "policy_state": "enabled_for_all_organizations"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Set the Copilot code review policy for an enterprise",
+        "description": "Sets the configured Copilot code review policy for an enterprise, using the same\nasynchronous propagation and notifications as enterprise settings. Policies that\ndepend on Copilot code review keep their values.\n\nEnterprise owners and users with the \u0060write_enterprise_ai_controls\u0060 permission can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.\n\nStandalone enterprises support enabled and disabled policies, but cannot delegate\npolicy to organization administrators. Invalid or unsupported input does not change any policy.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#set-the-copilot-code-review-policy-for-an-enterprise"
+        },
+        "operationId": "CopilotSetEnterpriseCodeReviewPolicy",
+        "parameters": [
+          {
+            "name": "enterprise",
+            "in": "path",
+            "description": "The slug version of the enterprise name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSetEnterpriseCodeReviewPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "policy_state": "enabled_for_all_organizations"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      }
+    },
     "/enterprises/{enterprise}/copilot/policies/coding_agent": {
       "put": {
         "tags": [
@@ -23944,6 +24067,360 @@
         }
       }
     },
+    "/orgs/{org}/copilot/code-review/runner": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get the Copilot code review runner configuration for an organization",
+        "description": "Gets the runner configuration that Copilot code review uses for an organization.\nUntil the organization saves a Copilot code review runner configuration, the response reports the values\ninherited from the organization\u0027s Copilot coding agent runner configuration, with \u0060configured_by\u0060 set to \u0060coding_agent\u0060.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060read:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#get-the-copilot-code-review-runner-configuration-for-an-organization"
+        },
+        "operationId": "CopilotGetOrganizationCodeReviewRunner",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The organization runner configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCopilotCodeReviewRunner"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "runner_type": "standard",
+                      "runner_labels": [],
+                      "runner_group_name": null,
+                      "allow_repository_customization": true,
+                      "configured_by": "coding_agent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Set the Copilot code review runner configuration for an organization",
+        "description": "Sets the runner configuration that Copilot code review uses for an organization. After a successful\nupdate, Copilot code review uses its own runner configuration and \u0060configured_by\u0060 is \u0060code_review\u0060.\n\nA \u0060labeled\u0060 runner requires at least one label in \u0060runner_labels\u0060 or a \u0060runner_group_name\u0060. A \u0060standard\u0060\nrunner does not accept labels or a runner group. When \u0060allow_repository_customization\u0060 is omitted, the current\neffective value is kept. The whole request is validated before any change is made, so invalid input does not\nchange the configuration.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060admin:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#set-the-copilot-code-review-runner-configuration-for-an-organization"
+        },
+        "operationId": "CopilotSetOrganizationCodeReviewRunner",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSetOrganizationCodeReviewRunnerRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "runner_type": "labeled",
+                    "runner_labels": [
+                      "copilot-review"
+                    ],
+                    "runner_group_name": "copilot-runners",
+                    "allow_repository_customization": false
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated organization runner configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCopilotCodeReviewRunner"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "runner_type": "labeled",
+                      "runner_labels": [
+                        "copilot-review"
+                      ],
+                      "runner_group_name": "copilot-runners",
+                      "allow_repository_customization": false,
+                      "configured_by": "code_review"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      }
+    },
+    "/orgs/{org}/copilot/code-review/settings": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot code review settings for an organization",
+        "description": "Gets the Copilot code review settings for an organization. Currently this is the default review effort\nthat repositories in the organization use when they do not choose their own.\nFor each setting, the response includes the configured value, the effective value, the default inherited\nwhen nothing is configured, whether organization administrators can edit it, and whether the enterprise\nor the organization manages it.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060read:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#get-copilot-code-review-settings-for-an-organization"
+        },
+        "operationId": "CopilotGetOrganizationCodeReviewSettings",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The organization settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCopilotCodeReviewSettings"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "default_review_effort": {
+                        "configured": null,
+                        "effective": "balanced",
+                        "github_default": "balanced",
+                        "editable": true,
+                        "managed_by": "organization"
+                      },
+                      "available_review_efforts": [
+                        "lite",
+                        "balanced"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      },
+      "patch": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Update Copilot code review settings for an organization",
+        "description": "Updates the Copilot code review settings for an organization. Omitted settings are not changed.\nSet \u0060default_review_effort\u0060 to \u0060inherit\u0060 to clear the organization\u0027s value so repositories use the\ninherited default again. Changes use the same audit logging and telemetry as organization settings.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060admin:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.\n\nWhen a submitted setting cannot be changed by the organization, the request fails with \u0060409\u0060 and the\ncode \u0060SETTING_NOT_EDITABLE\u0060. The whole request is validated before any change is made, so invalid input\nand conflicts do not change any setting.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#update-copilot-code-review-settings-for-an-organization"
+        },
+        "operationId": "CopilotUpdateOrganizationCodeReviewSettings",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotUpdateOrganizationCodeReviewSettingsRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "default_review_effort": "balanced"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated organization settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCopilotCodeReviewSettings"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "default_review_effort": {
+                        "configured": "balanced",
+                        "effective": "balanced",
+                        "github_default": "balanced",
+                        "editable": true,
+                        "managed_by": "organization"
+                      },
+                      "available_review_efforts": [
+                        "lite",
+                        "balanced"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "The organization cannot change a submitted setting.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotUpdateOrganizationCodeReviewSettings409Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "The Copilot code review default review effort cannot be changed by this organization.",
+                      "documentation_url": "https://docs.github.com/rest",
+                      "status": "409",
+                      "code": "SETTING_NOT_EDITABLE",
+                      "settings": {
+                        "default_review_effort": {
+                          "configured": null,
+                          "effective": "balanced",
+                          "github_default": "balanced",
+                          "editable": false,
+                          "managed_by": "enterprise"
+                        },
+                        "available_review_efforts": [
+                          "lite",
+                          "balanced"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      }
+    },
     "/orgs/{org}/copilot/coding-agent/permissions": {
       "get": {
         "tags": [
@@ -24860,6 +25337,158 @@
           "enabledForGitHubApps": true,
           "category": "copilot",
           "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/orgs/{org}/copilot/policies/code-review": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get the Copilot code review policy for an organization",
+        "description": "Gets the configured and effective Copilot code review policy for an organization,\nwhether organization administrators can edit it, and whether the enterprise or the organization manages it.\nThis does not return review effort, repository settings, preview approval controls, or automatic-review rulesets.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060read:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#get-the-copilot-code-review-policy-for-an-organization"
+        },
+        "operationId": "CopilotGetOrganizationCodeReviewPolicy",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The organization policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCopilotCodeReviewPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "configured_state": "enabled",
+                      "effective_state": "enabled",
+                      "editable": true,
+                      "managed_by": "organization"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Set the Copilot code review policy for an organization",
+        "description": "Sets the Copilot code review policy for an organization, using the same\nuser settings propagation and notifications as organization settings. Policies that\ndepend on Copilot code review keep their values.\n\nOrganization owners can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need either the\n\u0060manage_billing:copilot\u0060 or \u0060admin:org\u0060 scope.\nGitHub App tokens and fine-grained personal access tokens are not supported.\n\nWhen the enterprise manages the policy, the request fails with \u0060409\u0060 and the code\n\u0060POLICY_MANAGED_BY_ENTERPRISE\u0060, even if the requested state matches the effective state.\nInvalid input and conflicts do not change any policy.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#set-the-copilot-code-review-policy-for-an-organization"
+        },
+        "operationId": "CopilotSetOrganizationCodeReviewPolicy",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organization name. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSetOrganizationCodeReviewPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "state": "enabled"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "The enterprise manages the policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSetOrganizationCodeReviewPolicy409Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Copilot code review policy is managed by the enterprise.",
+                      "documentation_url": "https://docs.github.com/rest",
+                      "status": "409",
+                      "code": "POLICY_MANAGED_BY_ENTERPRISE",
+                      "policy": {
+                        "configured_state": "enabled",
+                        "effective_state": "disabled",
+                        "editable": false,
+                        "managed_by": "enterprise"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": false,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
         }
       }
     },
@@ -42831,6 +43460,9 @@
                 }
               }
             }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
           }
         },
         "x-github": {
@@ -57141,6 +57773,182 @@
           "enabledForGitHubApps": true,
           "category": "copilot",
           "subcategory": "copilot-cloud-agent-management"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/copilot/code-review/settings": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot code review settings for a repository",
+        "description": "Gets the Copilot code review settings for a repository. These settings tune how Copilot code review\nreviews pull requests in the repository. They do not enable Copilot code review.\n\n\u0060review_effort.configured\u0060 is \u0060null\u0060 when the repository inherits its review effort from the organization,\nthe enterprise, or GitHub\u0027s default. \u0060review_effort.effective\u0060 is the review effort that reviews use when the\nrequester and the pull request do not choose one. Only review efforts available for the repository are reported;\nwhen reviews would use an unavailable effort, \u0060review_effort.effective\u0060 is the review effort they would use without it.\n\nRepository administrators can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#get-copilot-code-review-settings-for-a-repository"
+        },
+        "operationId": "CopilotGetRepositoryCodeReviewSettings",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The repository settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryCopilotCodeReviewSettings"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "review_effort": {
+                        "configured": null,
+                        "effective": "balanced"
+                      },
+                      "available_review_efforts": [
+                        "lite",
+                        "balanced"
+                      ],
+                      "severity_filter": "no_filter",
+                      "custom_instructions_enabled": true,
+                      "mcp_enabled": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
+        }
+      },
+      "patch": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Update Copilot code review settings for a repository",
+        "description": "Updates the Copilot code review settings for a repository. These settings tune how Copilot code review\nreviews pull requests in the repository. They do not enable Copilot code review, and they can be stored\nwhile an enterprise or organization policy disables Copilot code review.\n\nOmitted settings are not changed. Set \u0060review_effort\u0060 to \u0060inherit\u0060 to clear the repository\u0027s review effort\nso it inherits the effort from the organization, the enterprise, or GitHub\u0027s default. The whole request is\nvalidated before any change is made, so invalid input does not change any setting. Changes use the same\naudit logging and telemetry as the repository settings page.\n\nRepository administrators can use this endpoint.\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-code-review#update-copilot-code-review-settings-for-a-repository"
+        },
+        "operationId": "CopilotUpdateRepositoryCodeReviewSettings",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotUpdateRepositoryCodeReviewSettingsRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "review_effort": "balanced",
+                    "severity_filter": "low"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated repository settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryCopilotCodeReviewSettings"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "review_effort": {
+                        "configured": "balanced",
+                        "effective": "balanced"
+                      },
+                      "available_review_efforts": [
+                        "lite",
+                        "balanced"
+                      ],
+                      "severity_filter": "low",
+                      "custom_instructions_enabled": true,
+                      "mcp_enabled": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-code-review"
         }
       }
     },
@@ -74732,6 +75540,170 @@
           "enabledForGitHubApps": true,
           "category": "pulls",
           "subcategory": "pulls"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/pulls/{pullNumber}/copilot-code-review": {
+      "post": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Request a Copilot code review for a pull request",
+        "description": "Requests a Copilot code review for a pull request. Every call expresses intent to start a\nnew review: if no Copilot review has been requested yet, an initial request is created; if\nthe most recent Copilot review has already completed (including if it was later dismissed or\nsuperseded), a new request is created automatically to continue the review lifecycle. If a\nCopilot code review request is already pending for the pull request, no new request is\ncreated and the response is \u0060409\u0060.\n\nIf the actor or repository is not eligible for Copilot code review, the actor has no quota\nremaining, or the licensing organization is unavailable, no request is created and the\nresponse is \u0060422\u0060 with a stable \u0060failure_reason\u0060. A \u0060review_effort\u0060 is accepted only when that\neffort level is available for the repository and actor; an unrecognized or unavailable\n\u0060review_effort\u0060 returns \u0060422\u0060 with \u0060failure_reason\u0060 \u0060INVALID_REVIEW_EFFORT\u0060. If\nthe actor, repository owner, or requesting application owner has been flagged, the response\nis \u0060403\u0060 with \u0060failure_reason\u0060 \u0060ACTOR_FLAGGED\u0060. If the per-actor or per-owner request rate\nlimit is exceeded, the response is \u0060429\u0060 with \u0060failure_reason\u0060 \u0060RATE_LIMITED\u0060. If Copilot\ncode review cannot be serviced right now, the response is \u0060503\u0060.\n\nExisting human and team review requests on the pull request are left unchanged.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/copilot-code-review#request-a-copilot-code-review-for-a-pull-request"
+        },
+        "operationId": "PullsRequestCopilotCodeReview",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pullNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PullsRequestCopilotCodeReviewRequest"
+              },
+              "examples": {
+                "default": {
+                  "summary": "Request a review with a specific effort level",
+                  "value": {
+                    "review_effort": "balanced"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequest"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "A Copilot code review request was created",
+                    "value": {
+                      "node_id": "RRR_kwDOAA",
+                      "state": "PENDING"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "description": "Forbidden. \u0060failure_reason\u0060 is \u0060ACTOR_FLAGGED\u0060 when the actor, repository owner, or requesting application owner has been flagged; it is absent for other authorization failures.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequestDenied"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "Conflict, a Copilot code review request is already pending for this pull request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequestDenied"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed. \u0060failure_reason\u0060 is present for a stable business denial (the actor or repository is not eligible, the actor has no quota remaining, or the licensing organization is unavailable) and absent when the request body fails generic request validation. \u0060failure_reason\u0060 is \u0060INVALID_REVIEW_EFFORT\u0060 when the requested \u0060review_effort\u0060 is unrecognized or not available for the repository and actor, and \u0060message\u0060 lists the available effort levels.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequestDenied"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. The per-actor or per-owner Copilot code review request rate limit has been exceeded. \u0060failure_reason\u0060 is \u0060RATE_LIMITED\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequestDenied"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable, Copilot code review cannot be serviced right now",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequestDenied"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotCodeReviewRequest"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "A Copilot code review request was created",
+                    "value": {
+                      "node_id": "RRR_kwDOAA",
+                      "state": "PENDING"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-github": {
+          "triggersNotification": false,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "copilot-code-review"
         }
       }
     },
@@ -100136,6 +101108,19 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
+      "EnterpriseCopilotCodeReviewPolicy": {
+        "title": "Enterprise Copilot Code Review Policy",
+        "required": [
+          "policy_state"
+        ],
+        "type": "object",
+        "properties": {
+          "policy_state": {
+            "$ref": "#/components/schemas/EnterpriseCopilotCodeReviewPolicyPolicyState"
+          }
+        },
+        "description": "The configured enterprise policy, rather than a user\u0027s effective Copilot code review access."
+      },
       "DependabotAlertPackage": {
         "required": [
           "ecosystem",
@@ -107290,6 +108275,89 @@
         },
         "additionalProperties": false,
         "description": "Information about a Copilot Business seat assignment for a user, team, or organization."
+      },
+      "OrganizationCopilotCodeReviewRunner": {
+        "title": "Organization Copilot Code Review Runner Configuration",
+        "required": [
+          "runner_type",
+          "runner_labels",
+          "runner_group_name",
+          "allow_repository_customization",
+          "configured_by"
+        ],
+        "type": "object",
+        "properties": {
+          "runner_type": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewRunnerRunnerType"
+          },
+          "runner_labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The runner labels used for a labeled runner."
+          },
+          "runner_group_name": {
+            "type": "string",
+            "description": "The runner group used for a labeled runner, or null when none is set.",
+            "nullable": true
+          },
+          "allow_repository_customization": {
+            "type": "boolean",
+            "description": "Whether repositories can use their own runner configuration."
+          },
+          "configured_by": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewRunnerConfiguredBy"
+          }
+        },
+        "description": "The effective runner configuration that Copilot code review uses for the organization."
+      },
+      "OrganizationCopilotCodeReviewSettings": {
+        "title": "Organization Copilot Code Review Settings",
+        "required": [
+          "default_review_effort",
+          "available_review_efforts"
+        ],
+        "type": "object",
+        "properties": {
+          "default_review_effort": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewSettingsDefaultReviewEffort"
+          },
+          "available_review_efforts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The review efforts that can currently be set for this organization, in display order."
+          }
+        },
+        "description": "The organization\u0027s Copilot code review settings."
+      },
+      "OrganizationCopilotCodeReviewPolicy": {
+        "title": "Organization Copilot Code Review Policy",
+        "required": [
+          "configured_state",
+          "effective_state",
+          "editable",
+          "managed_by"
+        ],
+        "type": "object",
+        "properties": {
+          "configured_state": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewPolicyConfiguredState"
+          },
+          "effective_state": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewPolicyEffectiveState"
+          },
+          "editable": {
+            "type": "boolean",
+            "description": "Whether organization administrators can update the policy."
+          },
+          "managed_by": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewPolicyManagedBy"
+          }
+        },
+        "description": "The organization\u0027s configured and effective Copilot code review policy."
       },
       "OrganizationDependabotSecret": {
         "title": "Dependabot Secret for an Organization",
@@ -119745,6 +120813,41 @@
         },
         "description": "Contributor"
       },
+      "RepositoryCopilotCodeReviewSettings": {
+        "title": "Repository Copilot Code Review Settings",
+        "required": [
+          "review_effort",
+          "available_review_efforts",
+          "severity_filter",
+          "custom_instructions_enabled",
+          "mcp_enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "review_effort": {
+            "$ref": "#/components/schemas/RepositoryCopilotCodeReviewSettingsReviewEffort"
+          },
+          "available_review_efforts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The review efforts that can currently be set for this repository, in display order."
+          },
+          "severity_filter": {
+            "$ref": "#/components/schemas/RepositoryCopilotCodeReviewSettingsSeverityFilter"
+          },
+          "custom_instructions_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews use the repository\u0027s custom instructions."
+          },
+          "mcp_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews can use MCP servers."
+          }
+        },
+        "description": "The repository\u0027s Copilot code review settings. These settings tune reviews; they do not enable Copilot code review."
+      },
       "DependabotAlert": {
         "required": [
           "number",
@@ -124805,6 +125908,47 @@
             "version": "2026-03-10"
           }
         ]
+      },
+      "CopilotCodeReviewRequest": {
+        "title": "Copilot Code Review Request",
+        "required": [
+          "node_id",
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "description": "The global node ID of the review request.",
+            "example": "RRR_kwDOAA"
+          },
+          "state": {
+            "$ref": "#/components/schemas/PendingState"
+          }
+        },
+        "description": "A request for Copilot to review a pull request."
+      },
+      "CopilotCodeReviewRequestDenied": {
+        "title": "Copilot Code Review Request Denied",
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "failure_reason": {
+            "$ref": "#/components/schemas/CopilotCodeReviewRequestDeniedFailureReason"
+          }
+        },
+        "description": "A Copilot code review request was denied, conflicted with an existing request, or could not be serviced. The \u0060failure_reason\u0060 field is present for stable, machine-readable denials -- overlapping with the reasons returned by the \u0060failureReason\u0060 field on the \u0060requestCopilotCodeReview\u0060 GraphQL mutation, plus a few additional reasons this REST endpoint reports explicitly rather than as an opaque error -- and is absent for generic validation failures."
       },
       "PullRequestMergeResult": {
         "title": "Pull Request Merge Result",
@@ -133896,6 +135040,39 @@
           }
         }
       },
+      "OrganizationCopilotCodeReviewSettingsDefaultReviewEffort": {
+        "required": [
+          "configured",
+          "effective",
+          "github_default",
+          "editable",
+          "managed_by"
+        ],
+        "type": "object",
+        "properties": {
+          "configured": {
+            "type": "string",
+            "description": "The review effort stored for the organization. Null means the organization inherits the default, or has stored a value that is not currently available.",
+            "nullable": true
+          },
+          "effective": {
+            "type": "string",
+            "description": "The review effort that repositories without their own setting use. When that effort is not currently available for the organization, this reports the fallback effort instead."
+          },
+          "github_default": {
+            "type": "string",
+            "description": "The review effort the organization inherits when it does not configure one. This is the enterprise default when one applies, otherwise GitHub\u0027s default."
+          },
+          "editable": {
+            "type": "boolean",
+            "description": "Whether organization administrators can update the setting."
+          },
+          "managed_by": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewSettingsDefaultReviewEffortManagedBy"
+          }
+        },
+        "description": "The default review effort for repositories in the organization that do not choose their own. For more information, see [Review effort level](https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level)."
+      },
       "NullableMinimalRepositoryPermissions": {
         "type": "object",
         "properties": {
@@ -136582,6 +137759,25 @@
             "$ref": "#/components/schemas/RepositoryRuleViolationErrorMetadataSecretScanning"
           }
         }
+      },
+      "RepositoryCopilotCodeReviewSettingsReviewEffort": {
+        "required": [
+          "configured",
+          "effective"
+        ],
+        "type": "object",
+        "properties": {
+          "configured": {
+            "type": "string",
+            "description": "The review effort stored for the repository. Null means the repository inherits the default, or has stored a value that is not currently available.",
+            "nullable": true
+          },
+          "effective": {
+            "type": "string",
+            "description": "The review effort reviews use when the requester and the pull request do not choose one. When that effort is not currently available for the repository, this reports the effort reviews would use without it."
+          }
+        },
+        "description": "The review effort for the repository. For more information, see [Review effort level](https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level)."
       },
       "DependabotAlertDependency": {
         "type": "object",
@@ -145045,6 +146241,18 @@
           }
         }
       },
+      "CopilotSetEnterpriseCodeReviewPolicyRequest": {
+        "required": [
+          "policy_state"
+        ],
+        "type": "object",
+        "properties": {
+          "policy_state": {
+            "$ref": "#/components/schemas/CopilotSetEnterpriseCodeReviewPolicyRequestPolicyState"
+          }
+        },
+        "additionalProperties": false
+      },
       "CopilotSetEnterpriseCodingAgentPolicyRequest": {
         "required": [
           "policy_state"
@@ -147186,6 +148394,45 @@
         },
         "description": "The total number of seats set to \u0022pending cancellation\u0022 for the specified users."
       },
+      "CopilotSetOrganizationCodeReviewRunnerRequest": {
+        "required": [
+          "runner_type"
+        ],
+        "type": "object",
+        "properties": {
+          "runner_type": {
+            "$ref": "#/components/schemas/CopilotSetOrganizationCodeReviewRunnerRequestRunnerType"
+          },
+          "runner_labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The runner labels for a labeled runner.",
+            "nullable": true
+          },
+          "runner_group_name": {
+            "type": "string",
+            "description": "The runner group for a labeled runner.",
+            "nullable": true
+          },
+          "allow_repository_customization": {
+            "type": "boolean",
+            "description": "Whether repositories can use their own runner configuration."
+          }
+        },
+        "additionalProperties": false
+      },
+      "CopilotUpdateOrganizationCodeReviewSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "default_review_effort": {
+            "type": "string",
+            "description": "The default review effort for repositories that do not choose their own. Use \u0060inherit\u0060 to clear the organization\u0027s value. Only efforts listed in the settings\u0027 \u0060available_review_efforts\u0060 are accepted, and a rejected effort\u0027s error message lists them. For more information, see [Review effort level](https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level)."
+          }
+        },
+        "additionalProperties": false
+      },
       "CopilotGetCopilotCodingAgentPermissionsOrganization200Response": {
         "required": [
           "enabled_repositories"
@@ -147235,6 +148482,18 @@
             "type": "string"
           }
         }
+      },
+      "CopilotSetOrganizationCodeReviewPolicyRequest": {
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/CopilotSetOrganizationCodeReviewPolicyRequestState"
+          }
+        },
+        "additionalProperties": false
       },
       "DependabotUpdateRepositoryAccessForOrgRequest": {
         "type": "object",
@@ -150079,6 +151338,27 @@
           }
         }
       },
+      "CopilotUpdateRepositoryCodeReviewSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "review_effort": {
+            "type": "string",
+            "description": "The review effort for the repository. Use \u0060inherit\u0060 to clear the repository\u0027s value. Only efforts listed in the settings\u0027 \u0060available_review_efforts\u0060 are accepted, and a rejected effort\u0027s error message lists them. For more information, see [Review effort level](https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level)."
+          },
+          "severity_filter": {
+            "$ref": "#/components/schemas/CopilotUpdateRepositoryCodeReviewSettingsRequestSeverityFilter"
+          },
+          "custom_instructions_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews use the repository\u0027s custom instructions."
+          },
+          "mcp_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews can use MCP servers."
+          }
+        },
+        "additionalProperties": false
+      },
       "DependabotUpdateAlertRequest": {
         "type": "object",
         "anyOf": [
@@ -151854,6 +153134,16 @@
             "description": "The text of the review comment."
           }
         }
+      },
+      "PullsRequestCopilotCodeReviewRequest": {
+        "type": "object",
+        "properties": {
+          "review_effort": {
+            "type": "string",
+            "description": "The effort level to use for the Copilot code review. Omit to use the default effort level. Only effort levels available for the repository and actor are accepted. For more information, see [Review effort level](https://docs.github.com/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review#review-effort-level)."
+          }
+        },
+        "nullable": true
       },
       "PullsMergeRequest": {
         "type": "object",
@@ -154702,6 +155992,31 @@
           }
         }
       },
+      "CopilotUpdateOrganizationCodeReviewSettings409Response": {
+        "required": [
+          "message",
+          "code",
+          "settings"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "code": {
+            "$ref": "#/components/schemas/SettingNotEditableCode"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewSettings"
+          }
+        }
+      },
       "CopilotListCopilotCodingAgentSelectedRepositoriesForOrganization200Response": {
         "required": [
           "total_count",
@@ -154738,6 +156053,31 @@
           "type": "array",
           "items": {
             "$ref": "#/components/schemas/CopilotSetCopilotContentExclusionForOrganizationRequestAdditionalPropertiesItem"
+          }
+        }
+      },
+      "CopilotSetOrganizationCodeReviewPolicy409Response": {
+        "required": [
+          "message",
+          "code",
+          "policy"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "code": {
+            "$ref": "#/components/schemas/PolicyManagedByEnterpriseCode"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/OrganizationCopilotCodeReviewPolicy"
           }
         }
       },
@@ -176866,6 +178206,41 @@
           ]
         }
       },
+      "EnterpriseCopilotCodeReviewPolicyPolicyState": {
+        "description": "The configured policy. Null means the enterprise has not configured a policy.",
+        "anyOf": [
+          {
+            "enum": [
+              "enabled_for_all_organizations",
+              "disabled_for_all_organizations",
+              "configured_by_organization_admins"
+            ],
+            "type": "string",
+            "description": "The configured policy. Null means the enterprise has not configured a policy.",
+            "x-ms-enum": {
+              "name": "EnterpriseCopilotCodeReviewPolicyPolicyState",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "enabled_for_all_organizations",
+                  "name": "EnabledForAllOrganizations"
+                },
+                {
+                  "value": "disabled_for_all_organizations",
+                  "name": "DisabledForAllOrganizations"
+                },
+                {
+                  "value": "configured_by_organization_admins",
+                  "name": "ConfiguredByOrganizationAdmins"
+                }
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
+      },
       "DependabotAlertSecurityVulnerabilitySeverity": {
         "enum": [
           "low",
@@ -178437,6 +179812,124 @@
             {
               "value": "access",
               "name": "Access"
+            }
+          ]
+        }
+      },
+      "OrganizationCopilotCodeReviewRunnerRunnerType": {
+        "enum": [
+          "standard",
+          "labeled"
+        ],
+        "type": "string",
+        "description": "The type of runner. \u0060standard\u0060 uses GitHub-hosted runners. \u0060labeled\u0060 uses runners that match the configured labels or runner group.",
+        "x-ms-enum": {
+          "name": "OrganizationCopilotCodeReviewRunnerRunnerType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "labeled",
+              "name": "Labeled"
+            }
+          ]
+        }
+      },
+      "OrganizationCopilotCodeReviewRunnerConfiguredBy": {
+        "enum": [
+          "code_review",
+          "coding_agent"
+        ],
+        "type": "string",
+        "description": "Which configuration the values come from. \u0060code_review\u0060 means the organization has saved a Copilot code review runner configuration. \u0060coding_agent\u0060 means it has not, and the values are inherited from the organization\u0027s Copilot coding agent runner configuration.",
+        "x-ms-enum": {
+          "name": "OrganizationCopilotCodeReviewRunnerConfiguredBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "code_review",
+              "name": "CodeReview"
+            },
+            {
+              "value": "coding_agent",
+              "name": "CodingAgent"
+            }
+          ]
+        }
+      },
+      "OrganizationCopilotCodeReviewPolicyConfiguredState": {
+        "description": "The policy stored for the organization. Null means the organization has not configured a policy.",
+        "anyOf": [
+          {
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "type": "string",
+            "description": "The policy stored for the organization. Null means the organization has not configured a policy.",
+            "x-ms-enum": {
+              "name": "OrganizationCopilotCodeReviewPolicyConfiguredState",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "enabled",
+                  "name": "Enabled"
+                },
+                {
+                  "value": "disabled",
+                  "name": "Disabled"
+                }
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
+      },
+      "OrganizationCopilotCodeReviewPolicyEffectiveState": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "description": "The policy that applies to the organization after enterprise policy is considered.",
+        "x-ms-enum": {
+          "name": "OrganizationCopilotCodeReviewPolicyEffectiveState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "OrganizationCopilotCodeReviewPolicyManagedBy": {
+        "enum": [
+          "enterprise",
+          "organization"
+        ],
+        "type": "string",
+        "description": "Whether the enterprise or the organization controls the policy.",
+        "x-ms-enum": {
+          "name": "OrganizationCopilotCodeReviewPolicyManagedBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enterprise",
+              "name": "Enterprise"
+            },
+            {
+              "value": "organization",
+              "name": "Organization"
             }
           ]
         }
@@ -180804,7 +182297,9 @@
           "name",
           "must_match",
           "must_not_match",
-          "custom_pattern_version_mismatch"
+          "custom_pattern_version_mismatch",
+          "invalid_state",
+          "dry_run_in_progress"
         ],
         "type": "string",
         "description": "A machine-readable code describing the error.",
@@ -180843,6 +182338,14 @@
             {
               "value": "custom_pattern_version_mismatch",
               "name": "CustomPatternVersionMismatch"
+            },
+            {
+              "value": "invalid_state",
+              "name": "InvalidState"
+            },
+            {
+              "value": "dry_run_in_progress",
+              "name": "DryRunInProgress"
             }
           ]
         }
@@ -182784,6 +184287,33 @@
           ]
         }
       },
+      "RepositoryCopilotCodeReviewSettingsSeverityFilter": {
+        "enum": [
+          "no_filter",
+          "low",
+          "low_and_medium"
+        ],
+        "type": "string",
+        "description": "Which review comment severities Copilot code review leaves out. \u0060no_filter\u0060 keeps every comment, \u0060low\u0060 leaves out low-severity comments, and \u0060low_and_medium\u0060 leaves out low- and medium-severity comments.",
+        "x-ms-enum": {
+          "name": "RepositoryCopilotCodeReviewSettingsSeverityFilter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "no_filter",
+              "name": "NoFilter"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "low_and_medium",
+              "name": "LowAndMedium"
+            }
+          ]
+        }
+      },
       "DependabotAlertState": {
         "enum": [
           "auto_dismissed",
@@ -183731,6 +185261,97 @@
             {
               "value": "closed",
               "name": "Closed"
+            }
+          ]
+        }
+      },
+      "PendingState": {
+        "enum": [
+          "PENDING"
+        ],
+        "type": "string",
+        "description": "The current state of the review request.",
+        "example": "PENDING",
+        "x-ms-enum": {
+          "name": "PendingState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING",
+              "name": "Pending"
+            }
+          ]
+        }
+      },
+      "CopilotCodeReviewRequestDeniedFailureReason": {
+        "enum": [
+          "ACTOR_INELIGIBLE",
+          "REPOSITORY_INELIGIBLE",
+          "APP_NOT_INSTALLED",
+          "NO_QUOTA_REMAINING",
+          "LICENSED_ORGANIZATION_UNAVAILABLE",
+          "INVALID_REVIEW_EFFORT",
+          "REQUEST_FAILED",
+          "REQUEST_CONFLICT",
+          "REVIEWER_UNAVAILABLE",
+          "REQUEST_UNAVAILABLE",
+          "ACTOR_FLAGGED",
+          "RATE_LIMITED"
+        ],
+        "type": "string",
+        "description": "The stable reason the request was denied, conflicted with an existing request, or could not be serviced.",
+        "example": "REQUEST_CONFLICT",
+        "x-ms-enum": {
+          "name": "CopilotCodeReviewRequestDeniedFailureReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACTOR_INELIGIBLE",
+              "name": "ActorIneligible"
+            },
+            {
+              "value": "REPOSITORY_INELIGIBLE",
+              "name": "RepositoryIneligible"
+            },
+            {
+              "value": "APP_NOT_INSTALLED",
+              "name": "AppNotInstalled"
+            },
+            {
+              "value": "NO_QUOTA_REMAINING",
+              "name": "NoQuotaRemaining"
+            },
+            {
+              "value": "LICENSED_ORGANIZATION_UNAVAILABLE",
+              "name": "LicensedOrganizationUnavailable"
+            },
+            {
+              "value": "INVALID_REVIEW_EFFORT",
+              "name": "InvalidReviewEffort"
+            },
+            {
+              "value": "REQUEST_FAILED",
+              "name": "RequestFailed"
+            },
+            {
+              "value": "REQUEST_CONFLICT",
+              "name": "RequestConflict"
+            },
+            {
+              "value": "REVIEWER_UNAVAILABLE",
+              "name": "ReviewerUnavailable"
+            },
+            {
+              "value": "REQUEST_UNAVAILABLE",
+              "name": "RequestUnavailable"
+            },
+            {
+              "value": "ACTOR_FLAGGED",
+              "name": "ActorFlagged"
+            },
+            {
+              "value": "RATE_LIMITED",
+              "name": "RateLimited"
             }
           ]
         }
@@ -185283,6 +186904,28 @@
             {
               "value": "uploaded_text_file",
               "name": "UploadedTextFile"
+            }
+          ]
+        }
+      },
+      "OrganizationCopilotCodeReviewSettingsDefaultReviewEffortManagedBy": {
+        "enum": [
+          "enterprise",
+          "organization"
+        ],
+        "type": "string",
+        "description": "Whether the enterprise or the organization controls the setting.",
+        "x-ms-enum": {
+          "name": "OrganizationCopilotCodeReviewSettingsDefaultReviewEffortManagedBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enterprise",
+              "name": "Enterprise"
+            },
+            {
+              "value": "organization",
+              "name": "Organization"
             }
           ]
         }
@@ -187901,6 +189544,33 @@
           ]
         }
       },
+      "CopilotSetEnterpriseCodeReviewPolicyRequestPolicyState": {
+        "enum": [
+          "enabled_for_all_organizations",
+          "disabled_for_all_organizations",
+          "configured_by_organization_admins"
+        ],
+        "type": "string",
+        "description": "The enterprise\u0027s Copilot code review policy.",
+        "x-ms-enum": {
+          "name": "CopilotSetEnterpriseCodeReviewPolicyRequestPolicyState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled_for_all_organizations",
+              "name": "EnabledForAllOrganizations"
+            },
+            {
+              "value": "disabled_for_all_organizations",
+              "name": "DisabledForAllOrganizations"
+            },
+            {
+              "value": "configured_by_organization_admins",
+              "name": "ConfiguredByOrganizationAdmins"
+            }
+          ]
+        }
+      },
       "CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState": {
         "enum": [
           "enabled_for_all_orgs",
@@ -189937,6 +191607,28 @@
           ]
         }
       },
+      "CopilotSetOrganizationCodeReviewRunnerRequestRunnerType": {
+        "enum": [
+          "standard",
+          "labeled"
+        ],
+        "type": "string",
+        "description": "The type of runner. \u0060standard\u0060 uses GitHub-hosted runners. \u0060labeled\u0060 uses runners that match the labels or runner group.",
+        "x-ms-enum": {
+          "name": "CopilotSetOrganizationCodeReviewRunnerRequestRunnerType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "labeled",
+              "name": "Labeled"
+            }
+          ]
+        }
+      },
       "CopilotGetCopilotCodingAgentPermissionsOrganization200ResponseEnabledRepositories": {
         "enum": [
           "all",
@@ -189987,6 +191679,28 @@
             {
               "value": "none",
               "name": "None"
+            }
+          ]
+        }
+      },
+      "CopilotSetOrganizationCodeReviewPolicyRequestState": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "description": "The organization\u0027s Copilot code review policy.",
+        "x-ms-enum": {
+          "name": "CopilotSetOrganizationCodeReviewPolicyRequestState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
             }
           ]
         }
@@ -191326,6 +193040,33 @@
             {
               "value": "eyes",
               "name": "Eyes"
+            }
+          ]
+        }
+      },
+      "CopilotUpdateRepositoryCodeReviewSettingsRequestSeverityFilter": {
+        "enum": [
+          "no_filter",
+          "low",
+          "low_and_medium"
+        ],
+        "type": "string",
+        "description": "Which review comment severities Copilot code review leaves out. Can only be set when the severity filter is available for the repository.",
+        "x-ms-enum": {
+          "name": "CopilotUpdateRepositoryCodeReviewSettingsRequestSeverityFilter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "no_filter",
+              "name": "NoFilter"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "low_and_medium",
+              "name": "LowAndMedium"
             }
           ]
         }
@@ -192944,6 +194685,38 @@
             {
               "value": "public",
               "name": "PublicValue"
+            }
+          ]
+        }
+      },
+      "SettingNotEditableCode": {
+        "enum": [
+          "SETTING_NOT_EDITABLE"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "SettingNotEditableCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "SETTING_NOT_EDITABLE",
+              "name": "SettingNotEditable"
+            }
+          ]
+        }
+      },
+      "PolicyManagedByEnterpriseCode": {
+        "enum": [
+          "POLICY_MANAGED_BY_ENTERPRISE"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PolicyManagedByEnterpriseCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "POLICY_MANAGED_BY_ENTERPRISE",
+              "name": "PolicyManagedByEnterprise"
             }
           ]
         }
@@ -294204,6 +295977,14 @@
         }
       ],
       "nullable": true
+    },
+    "CopilotCodeReviewRequestDeniedAllOf2": {
+      "type": "object",
+      "properties": {
+        "failure_reason": {
+          "$ref": "#/components/schemas/CopilotCodeReviewRequestDeniedFailureReason"
+        }
+      }
     },
     "PullRequestStackPullRequestAllOf2": {
       "required": [

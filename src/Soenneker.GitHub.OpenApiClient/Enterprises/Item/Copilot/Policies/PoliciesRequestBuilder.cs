@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.CodeReview;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Coding_agent;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PoliciesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The codeReview property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.CodeReview.CodeReviewRequestBuilder CodeReview
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.CodeReview.CodeReviewRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The coding_agent property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Coding_agent.Coding_agentRequestBuilder Coding_agent
         {

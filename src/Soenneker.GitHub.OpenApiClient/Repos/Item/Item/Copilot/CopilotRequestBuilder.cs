@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CloudAgent;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CodeReview;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CloudAgent.CloudAgentRequestBuilder CloudAgent
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CloudAgent.CloudAgentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The codeReview property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CodeReview.CodeReviewRequestBuilder CodeReview
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CodeReview.CodeReviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CopilotRequestBuilder"/> and sets the default values.
