@@ -20,11 +20,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("pr_scan") is null) { _explicitNullValuePrScan = default!; _explicitNullProperties?.Remove("pr_scan"); }
             else if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
+            if (parseNode.GetChildNode("repository_scan") is null) { _explicitNullValueRepositoryScan = default!; _explicitNullProperties?.Remove("repository_scan"); }
+            else if (parseNode.GetChildNode("repository_scan") is { } nullNodeRepositoryScan && nullNodeRepositoryScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryScan = null;
         }
 
-        /// <summary>Whether AI Scan is enabled for the organization. Organization respects enterprise policy. Disabled organizations prevent repositories from enabling AI Scan. Enabled organizations enable AI Scan for their repositories, but individual repositories can opt out.</summary>
+        /// <summary>Whether AI Scan on pull requests is enabled for the organization. Organization respects enterprise policy. Disabled organizations prevent repositories from enabling AI Scan. Enabled organizations enable AI Scan for their repositories, but individual repositories can opt out.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan? PrScan { get => _explicitNullValuePrScan; set { _explicitNullValuePrScan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pr_scan"); else _explicitNullProperties?.Remove("pr_scan"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan? _explicitNullValuePrScan = default!;
+        /// <summary>Whether the full repository AI Scan is enabled for the organization. Organization respects enterprise policy. Disabled organizations prevent repositories from enabling the full repository AI Scan. Enabled organizations enable it for their repositories, but individual repositories can opt out.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdateRepositoryScan? RepositoryScan { get => _explicitNullValueRepositoryScan; set { _explicitNullValueRepositoryScan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_scan"); else _explicitNullProperties?.Remove("repository_scan"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdateRepositoryScan? _explicitNullValueRepositoryScan = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,6 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "pr_scan", n => { PrScan = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan>(); } },
+                { "repository_scan", n => { RepositoryScan = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdateRepositoryScan>(); } },
             };
         }
         /// <summary>
@@ -53,7 +59,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan>("pr_scan", PrScan);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdatePrScan>("pr_scan", PrScan);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgEnablementUpdateRepositoryScan>("repository_scan", RepositoryScan);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

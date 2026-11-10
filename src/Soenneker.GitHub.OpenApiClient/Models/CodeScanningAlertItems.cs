@@ -27,6 +27,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
             if (parseNode.GetChildNode("dismissed_reason") is null) { _explicitNullValueDismissedReason = default!; _explicitNullProperties?.Remove("dismissed_reason"); }
             else if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
+            if (parseNode.GetChildNode("linked_issues") is null) { _explicitNullValueLinkedIssues = default!; _explicitNullProperties?.Remove("linked_issues"); }
+            else if (parseNode.GetChildNode("linked_issues") is { } nullNodeLinkedIssues && nullNodeLinkedIssues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedIssues = null;
+            if (parseNode.GetChildNode("linked_pull_requests") is null) { _explicitNullValueLinkedPullRequests = default!; _explicitNullProperties?.Remove("linked_pull_requests"); }
+            else if (parseNode.GetChildNode("linked_pull_requests") is { } nullNodeLinkedPullRequests && nullNodeLinkedPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedPullRequests = null;
             if (parseNode.GetChildNode("most_recent_instance") is null) { _explicitNullValueMostRecentInstance = default!; _explicitNullProperties?.Remove("most_recent_instance"); }
             else if (parseNode.GetChildNode("most_recent_instance") is { } nullNodeMostRecentInstance && nullNodeMostRecentInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentInstance = null;
             if (parseNode.GetChildNode("rule") is null) { _explicitNullValueRule = default!; _explicitNullProperties?.Remove("rule"); }
@@ -103,6 +107,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public string InstancesUrl { get; private set; }
+#endif
+        /// <summary>Issues linked to this alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue>? LinkedIssues { get => _explicitNullValueLinkedIssues; set { _explicitNullValueLinkedIssues = value; AdditionalData?.Remove("linked_issues"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_issues"); else _explicitNullProperties?.Remove("linked_issues"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue>? _explicitNullValueLinkedIssues = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue> LinkedIssues { get => _explicitNullValueLinkedIssues; set { _explicitNullValueLinkedIssues = value; AdditionalData?.Remove("linked_issues"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_issues"); else _explicitNullProperties?.Remove("linked_issues"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue> _explicitNullValueLinkedIssues = default!;
+#endif
+        /// <summary>Pull requests linked to this alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts>? LinkedPullRequests { get => _explicitNullValueLinkedPullRequests; set { _explicitNullValueLinkedPullRequests = value; AdditionalData?.Remove("linked_pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_pull_requests"); else _explicitNullProperties?.Remove("linked_pull_requests"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts>? _explicitNullValueLinkedPullRequests = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts> LinkedPullRequests { get => _explicitNullValueLinkedPullRequests; set { _explicitNullValueLinkedPullRequests = value; AdditionalData?.Remove("linked_pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linked_pull_requests"); else _explicitNullProperties?.Remove("linked_pull_requests"); } }
+        private List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts> _explicitNullValueLinkedPullRequests = default!;
 #endif
         /// <summary>The most_recent_instance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -184,6 +208,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "fixed_at", n => { FixedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "instances_url", n => { InstancesUrl = n.GetStringValue(); } },
+                { "linked_issues", n => { LinkedIssues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "linked_pull_requests", n => { LinkedPullRequests = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "most_recent_instance", n => { MostRecentInstance = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance.CreateFromDiscriminatorValue); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "rule", n => { Rule = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary.CreateFromDiscriminatorValue); } },
@@ -205,6 +231,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("dismissed_by", DismissedBy);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>("dismissed_reason", DismissedReason);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLinkedIssue>("linked_issues", LinkedIssues);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestsOnAlerts>("linked_pull_requests", LinkedPullRequests);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>("most_recent_instance", MostRecentInstance);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary>("rule", Rule);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>("state", State);
