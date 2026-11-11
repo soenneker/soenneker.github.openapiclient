@@ -182,7 +182,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.</summary>
         public long? TeamId { get => _explicitNullValueTeamId; set { _explicitNullValueTeamId = value; AdditionalData?.Remove("team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_id"); else _explicitNullProperties?.Remove("team_id"); } }
         private long? _explicitNullValueTeamId = default!;
-        /// <summary>Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property is closing down. Please use `squash_merge_commit_title` instead.</summary>
+        /// <summary>Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property is closing down. Please use `squash_merge_commit_title` instead.**</summary>
         [Obsolete("")]
         public bool? UseSquashPrTitleAsDefault { get => _explicitNullValueUseSquashPrTitleAsDefault; set { _explicitNullValueUseSquashPrTitleAsDefault = value; AdditionalData?.Remove("use_squash_pr_title_as_default"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_squash_pr_title_as_default"); else _explicitNullProperties?.Remove("use_squash_pr_title_as_default"); } }
         private bool? _explicitNullValueUseSquashPrTitleAsDefault = default!;

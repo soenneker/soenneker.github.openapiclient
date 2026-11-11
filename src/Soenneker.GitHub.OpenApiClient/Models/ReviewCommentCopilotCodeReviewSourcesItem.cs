@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The kind of contributing source.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSourcesItemKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSourcesItemKind? _explicitNullValueKind = default!;
-        /// <summary>The reported source name, or &quot;custom instructions&quot; for CUSTOM_INSTRUCTIONS.</summary>
+        /// <summary>The reported source name, or &quot;custom instructions&quot; for CUSTOM_INSTRUCTIONS. Copilot Dreaming&apos;s reviewer agent and checks skill are reported as one SKILL source named &quot;Copilot dreaming&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }

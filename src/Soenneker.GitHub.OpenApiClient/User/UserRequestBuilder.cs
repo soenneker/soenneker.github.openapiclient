@@ -14,6 +14,8 @@ using Soenneker.GitHub.OpenApiClient.User.Following;
 using Soenneker.GitHub.OpenApiClient.User.Gpg_keys;
 using Soenneker.GitHub.OpenApiClient.User.Installations;
 using Soenneker.GitHub.OpenApiClient.User.InteractionLimits;
+using Soenneker.GitHub.OpenApiClient.User.IssueFields;
+using Soenneker.GitHub.OpenApiClient.User.IssueTypes;
 using Soenneker.GitHub.OpenApiClient.User.Issues;
 using Soenneker.GitHub.OpenApiClient.User.Item;
 using Soenneker.GitHub.OpenApiClient.User.Keys;
@@ -93,10 +95,20 @@ namespace Soenneker.GitHub.OpenApiClient.User
         {
             get => new global::Soenneker.GitHub.OpenApiClient.User.InteractionLimits.InteractionLimitsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The issueFields property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.User.IssueFields.IssueFieldsRequestBuilder IssueFields
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.User.IssueFields.IssueFieldsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The issues property</summary>
         public global::Soenneker.GitHub.OpenApiClient.User.Issues.IssuesRequestBuilder Issues
         {
             get => new global::Soenneker.GitHub.OpenApiClient.User.Issues.IssuesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The issueTypes property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.User.IssueTypes.IssueTypesRequestBuilder IssueTypes
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.User.IssueTypes.IssueTypesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The keys property</summary>
         public global::Soenneker.GitHub.OpenApiClient.User.Keys.KeysRequestBuilder Keys
