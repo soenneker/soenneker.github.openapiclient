@@ -54,6 +54,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Merges;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Notifications;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PlanningStatuses;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PrivateVulnerabilityReporting;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Properties;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls;
@@ -340,6 +341,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesRequestBuilder Pages
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The planningStatuses property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PlanningStatuses.PlanningStatusesRequestBuilder PlanningStatuses
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PlanningStatuses.PlanningStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The privateVulnerabilityReporting property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PrivateVulnerabilityReporting.PrivateVulnerabilityReportingRequestBuilder PrivateVulnerabilityReporting

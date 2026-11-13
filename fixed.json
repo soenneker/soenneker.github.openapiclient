@@ -28216,7 +28216,8 @@
                     "summary": "Response when cap is enabled",
                     "value": {
                       "enabled": true,
-                      "max_open_pull_requests": 1
+                      "max_open_pull_requests": 1,
+                      "include_drafts": true
                     }
                   }
                 }
@@ -28302,7 +28303,8 @@
                     "summary": "Response",
                     "value": {
                       "enabled": true,
-                      "max_open_pull_requests": 1
+                      "max_open_pull_requests": 1,
+                      "include_drafts": true
                     }
                   }
                 }
@@ -65488,7 +65490,8 @@
                     "summary": "Response when cap is enabled",
                     "value": {
                       "enabled": true,
-                      "max_open_pull_requests": 1
+                      "max_open_pull_requests": 1,
+                      "include_drafts": true
                     }
                   }
                 }
@@ -65583,7 +65586,8 @@
                     "summary": "Response",
                     "value": {
                       "enabled": true,
-                      "max_open_pull_requests": 1
+                      "max_open_pull_requests": 1,
+                      "include_drafts": true
                     }
                   }
                 }
@@ -73757,6 +73761,102 @@
           "enabledForGitHubApps": true,
           "category": "pages",
           "subcategory": "pages"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/planning-statuses": {
+      "get": {
+        "tags": [
+          "repos"
+        ],
+        "summary": "List planning statuses for a repository",
+        "description": "Lists the selectable planning statuses available.\nPlanning statuses are returned in deterministic display order:\nBacklog, Todo, In progress, In review, Done, Not planned, and Duplicate.\nClients should expect new keys to be added.\nReturns \u0060404 Not Found\u0060 when issue statuses aren\u0027t available in the repository.\n\n\u003E [!NOTE]\n\u003E Issue statuses are in preview and subject to change. They\u0027re only available to accounts enrolled in the preview.\n\nYou need read access to the repository\u0027s issues to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope\nto use this endpoint with a private repository.\n\nFine-grained access tokens require the \u0022Issues\u0022 repository permission (read).",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/repos/planning-statuses#list-planning-statuses-for-a-repository"
+        },
+        "operationId": "ReposListPlanningStatuses",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available planning statuses in display order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReposListPlanningStatuses200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "id": 2,
+                        "name": "Backlog",
+                        "category": "backlog"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Todo",
+                        "category": "planned"
+                      },
+                      {
+                        "id": 4,
+                        "name": "In progress",
+                        "category": "started"
+                      },
+                      {
+                        "id": 8,
+                        "name": "In review",
+                        "category": "started"
+                      },
+                      {
+                        "id": 5,
+                        "name": "Done",
+                        "category": "completed"
+                      },
+                      {
+                        "id": 6,
+                        "name": "Not planned",
+                        "category": "not_planned"
+                      },
+                      {
+                        "id": 7,
+                        "name": "Duplicate",
+                        "category": "duplicate"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "repos",
+          "subcategory": "planning-statuses"
         }
       }
     },
@@ -103104,6 +103204,9 @@
             "description": "State of the issue; either \u0027open\u0027 or \u0027closed\u0027",
             "example": "open"
           },
+          "status": {
+            "$ref": "#/components/schemas/IssueStatus"
+          },
           "state_reason": {
             "$ref": "#/components/schemas/IssueStateReason"
           },
@@ -122669,6 +122772,9 @@
             "description": "State of the issue; either \u0027open\u0027 or \u0027closed\u0027",
             "example": "open"
           },
+          "status": {
+            "$ref": "#/components/schemas/NullableIssueStatus"
+          },
           "state_reason": {
             "$ref": "#/components/schemas/NullableIssueStateReason"
           },
@@ -126137,6 +126243,34 @@
         },
         "description": "Pages Health Check Status"
       },
+      "PlanningStatus": {
+        "title": "Planning status",
+        "required": [
+          "id",
+          "name",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The stable identifier of the planning status.",
+            "format": "int64",
+            "example": 4
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the planning status, which may change in the future.",
+            "example": "In progress"
+          },
+          "category": {
+            "type": "string",
+            "description": "A stable identifier for the category, such as \u0060backlog\u0060, \u0060planned\u0060, \u0060started\u0060, \u0060completed\u0060, \u0060not_planned\u0060 or \u0060duplicate\u0060. Clients should expect new keys to be added.",
+            "example": "started"
+          }
+        },
+        "description": "A planning status and its lifecycle category."
+      },
       "PullRequest": {
         "title": "Pull Request",
         "required": [
@@ -128396,6 +128530,9 @@
         ],
         "type": "object",
         "properties": {
+          "status": {
+            "$ref": "#/components/schemas/IssueSearchResultItemStatus"
+          },
           "url": {
             "type": "string",
             "x-client-original-format": "uri"
@@ -134344,6 +134481,34 @@
           }
         }
       },
+      "IssueStatus": {
+        "required": [
+          "id",
+          "name",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The stable identifier of the planning status.",
+            "format": "int64",
+            "example": 4
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the planning status, which may change in the future.",
+            "example": "In progress"
+          },
+          "category": {
+            "type": "string",
+            "description": "A stable identifier for the category, such as \u0060backlog\u0060, \u0060planned\u0060, \u0060started\u0060, \u0060completed\u0060, \u0060not_planned\u0060 or \u0060duplicate\u0060. Clients should expect new keys to be added.",
+            "example": "started"
+          }
+        },
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "nullable": true
+      },
       "IssuePullRequest": {
         "required": [
           "diff_url",
@@ -138907,6 +139072,34 @@
           }
         }
       },
+      "NullableIssueStatus": {
+        "required": [
+          "id",
+          "name",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The stable identifier of the planning status.",
+            "format": "int64",
+            "example": 4
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the planning status, which may change in the future.",
+            "example": "In progress"
+          },
+          "category": {
+            "type": "string",
+            "description": "A stable identifier for the category, such as \u0060backlog\u0060, \u0060planned\u0060, \u0060started\u0060, \u0060completed\u0060, \u0060not_planned\u0060 or \u0060duplicate\u0060. Clients should expect new keys to be added.",
+            "example": "started"
+          }
+        },
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "nullable": true
+      },
       "NullableIssuePullRequest": {
         "required": [
           "diff_url",
@@ -140151,6 +140344,34 @@
             "type": "string"
           }
         }
+      },
+      "IssueSearchResultItemStatus": {
+        "required": [
+          "id",
+          "name",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The stable identifier of the planning status.",
+            "format": "int64",
+            "example": 4
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the planning status, which may change in the future.",
+            "example": "In progress"
+          },
+          "category": {
+            "type": "string",
+            "description": "A stable identifier for the category, such as \u0060backlog\u0060, \u0060planned\u0060, \u0060started\u0060, \u0060completed\u0060, \u0060not_planned\u0060 or \u0060duplicate\u0060. Clients should expect new keys to be added.",
+            "example": "started"
+          }
+        },
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "nullable": true
       },
       "IssueSearchResultItemLabelsItem": {
         "type": "object",
@@ -149479,7 +149700,8 @@
       "InteractionsGetPullRequestCreationCapForOrg200Response": {
         "required": [
           "enabled",
-          "max_open_pull_requests"
+          "max_open_pull_requests",
+          "include_drafts"
         ],
         "type": "object",
         "properties": {
@@ -149524,7 +149746,8 @@
       "InteractionsUpdatePullRequestCreationCapForOrg200Response": {
         "required": [
           "enabled",
-          "max_open_pull_requests"
+          "max_open_pull_requests",
+          "include_drafts"
         ],
         "type": "object",
         "properties": {
@@ -152781,7 +153004,8 @@
       "InteractionsGetPullRequestCreationCapForRepo200Response": {
         "required": [
           "enabled",
-          "max_open_pull_requests"
+          "max_open_pull_requests",
+          "include_drafts"
         ],
         "type": "object",
         "properties": {
@@ -152826,7 +153050,8 @@
       "InteractionsUpdatePullRequestCreationCapForRepo200Response": {
         "required": [
           "enabled",
-          "max_open_pull_requests"
+          "max_open_pull_requests",
+          "include_drafts"
         ],
         "type": "object",
         "properties": {
@@ -152874,6 +153099,11 @@
           "body": {
             "type": "string",
             "description": "The contents of the issue."
+          },
+          "status": {
+            "type": "string",
+            "description": "The initial status of the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, or \u0060In review\u0060. If omitted, the issue starts in \u0060Backlog\u0060. If you do not have permission to set the status, the supplied value is ignored and the issue starts in \u0060Backlog\u0060. Cannot be \u0060null\u0060 or an empty string. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+            "example": "In progress"
           },
           "assignee": {
             "type": "string",
@@ -152967,6 +153197,11 @@
           },
           "state": {
             "$ref": "#/components/schemas/IssuesUpdateRequestState"
+          },
+          "status": {
+            "type": "string",
+            "description": "The status to give the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, \u0060In review\u0060, \u0060Done\u0060, \u0060Not planned\u0060, or \u0060Duplicate\u0060. If omitted, the current status is preserved unless \u0060state\u0060 or \u0060state_reason\u0060 changes. Setting a status also updates \u0060state\u0060 and \u0060state_reason\u0060 as needed. If provided, \u0060state\u0060 and \u0060state_reason\u0060 must be consistent with the requested status. Changing the status to \u0060Duplicate\u0060 requires \u0060duplicate_issue_id\u0060. Cannot be \u0060null\u0060 or an empty string. The status and other applied field changes are saved together. If the status cannot be saved, those field changes are rolled back. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+            "example": "In progress"
           },
           "state_reason": {
             "$ref": "#/components/schemas/IssuesUpdateRequestStateReason"
@@ -153071,6 +153306,9 @@
             "type": "string",
             "description": "State of the issue; either \u0027open\u0027 or \u0027closed\u0027",
             "example": "open"
+          },
+          "status": {
+            "$ref": "#/components/schemas/IssueStatus"
           },
           "state_reason": {
             "$ref": "#/components/schemas/IssueStateReason"
@@ -158408,6 +158646,12 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/PageBuild"
+        }
+      },
+      "ReposListPlanningStatuses200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PlanningStatus"
         }
       },
       "ReposCustomPropertiesForReposGetRepositoryValues200ResponseSchema": {
@@ -428386,6 +428630,12 @@
       "type": "array",
       "items": {
         "$ref": "#/components/schemas/PageBuild"
+      }
+    },
+    "ReposListPlanningStatuses200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlanningStatus"
       }
     },
     "ReposCustomPropertiesForReposGetRepositoryValues200Response": {

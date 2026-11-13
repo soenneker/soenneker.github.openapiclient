@@ -31,6 +31,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("milestone") is { } nullNodeMilestone && nullNodeMilestone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Milestone = null;
             if (parseNode.GetChildNode("parent_issue_id") is null) { _explicitNullValueParentIssueId = default!; _explicitNullProperties?.Remove("parent_issue_id"); }
             else if (parseNode.GetChildNode("parent_issue_id") is { } nullNodeParentIssueId && nullNodeParentIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentIssueId = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
             else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
@@ -102,6 +104,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The id of the parent issue to add this issue to as a sub-issue. _NOTE: Only users with triage access to both the parent issue&apos;s repository and this repository can set the parent issue._</summary>
         public long? ParentIssueId { get => _explicitNullValueParentIssueId; set { _explicitNullValueParentIssueId = value; AdditionalData?.Remove("parent_issue_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_issue_id"); else _explicitNullProperties?.Remove("parent_issue_id"); } }
         private long? _explicitNullValueParentIssueId = default!;
+        /// <summary>The initial status of the issue. Can be `Backlog`, `Todo`, `In progress`, or `In review`. If omitted, the issue starts in `Backlog`. If you do not have permission to set the status, the supplied value is ignored and the issue starts in `Backlog`. Cannot be `null` or an empty string. Ignored when issue statuses aren&apos;t available in the repository. Issue statuses are in preview and only available to accounts enrolled in the preview.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
+#nullable restore
+#else
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
+#endif
         /// <summary>The title of the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,6 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone.CreateFromDiscriminatorValue); } },
                 { "parent_issue_id", n => { ParentIssueId = n.GetLongValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -172,6 +185,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>("milestone", Milestone);
             writer.WriteLongValue("parent_issue_id", ParentIssueId);
+            writer.WriteStringValue("status", Status);
             writer.WriteObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>("title", Title);
             writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -82,6 +82,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
             if (parseNode.GetChildNode("state_reason") is null) { _explicitNullValueStateReason = default!; _explicitNullProperties?.Remove("state_reason"); }
             else if (parseNode.GetChildNode("state_reason") is { } nullNodeStateReason && nullNodeStateReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateReason = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("sub_issues_summary") is null) { _explicitNullValueSubIssuesSummary = default!; _explicitNullProperties?.Remove("sub_issues_summary"); }
             else if (parseNode.GetChildNode("sub_issues_summary") is { } nullNodeSubIssuesSummary && nullNodeSubIssuesSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIssuesSummary = null;
             if (parseNode.GetChildNode("text_matches") is null) { _explicitNullValueTextMatches = default!; _explicitNullProperties?.Remove("text_matches"); }
@@ -359,6 +361,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; AdditionalData?.Remove("state_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
         private string _explicitNullValueStateReason = default!;
 #endif
+        /// <summary>The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus? _explicitNullValueStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus _explicitNullValueStatus = default!;
+#endif
         /// <summary>The sub_issues_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -489,6 +501,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "score", n => { Score = n.GetDoubleValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "state_reason", n => { StateReason = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus.CreateFromDiscriminatorValue); } },
                 { "sub_issues_summary", n => { SubIssuesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary.CreateFromDiscriminatorValue); } },
                 { "text_matches", n => { TextMatches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem>(global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timeline_url", n => { TimelineUrl = n.GetStringValue(); } },
@@ -538,6 +551,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDoubleValue("score", Score);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("state_reason", StateReason);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>("sub_issues_summary", SubIssuesSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem>("text_matches", TextMatches);
             writer.WriteStringValue("timeline_url", TimelineUrl);
