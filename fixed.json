@@ -18330,7 +18330,7 @@
           "orgs"
         ],
         "summary": "Create an artifact deployment record",
-        "description": "Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be uniqe within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.",
+        "description": "Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be unique within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/artifact-metadata#create-an-artifact-deployment-record"
@@ -19299,7 +19299,7 @@
           "orgs"
         ],
         "summary": "List attestation repositories",
-        "description": "List repositories owned by the provided organization that have created at least one attested artifact\nResults will be sorted in ascending order by repository ID",
+        "description": "List repositories owned by the provided organization that have created at least one attested artifact.\nResults will be sorted in ascending order by repository ID.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/attestations#list-attestation-repositories"
@@ -79003,7 +79003,7 @@
           "reactions"
         ],
         "summary": "Delete a release reaction",
-        "description": "\u003E [!NOTE]\n\u003E You can also specify a repository by \u0060repository_id\u0060 using the route \u0060DELETE delete /repositories/:repository_id/releases/:release_id/reactions/:reaction_id\u0060.\n\nDelete a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release).",
+        "description": "\u003E [!NOTE]\n\u003E You can also specify a repository by \u0060repository_id\u0060 using the route \u0060DELETE /repositories/:repository_id/releases/:release_id/reactions/:reaction_id\u0060.\n\nDelete a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release).",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/reactions/reactions#delete-a-release-reaction"

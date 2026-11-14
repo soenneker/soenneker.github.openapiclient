@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories
         {
         }
         /// <summary>
-        /// List repositories owned by the provided organization that have created at least one attested artifactResults will be sorted in ascending order by repository ID
+        /// List repositories owned by the provided organization that have created at least one attested artifact.Results will be sorted in ascending order by repository ID.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/attestations#list-attestation-repositories" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationRepositories200ResponseSchemaItem&gt;</returns>
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// List repositories owned by the provided organization that have created at least one attested artifactResults will be sorted in ascending order by repository ID
+        /// List repositories owned by the provided organization that have created at least one attested artifact.Results will be sorted in ascending order by repository ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories.RepositoriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List repositories owned by the provided organization that have created at least one attested artifactResults will be sorted in ascending order by repository ID
+        /// List repositories owned by the provided organization that have created at least one attested artifact.Results will be sorted in ascending order by repository ID.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RepositoriesRequestBuilderGetQueryParameters 
