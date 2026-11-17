@@ -5167,7 +5167,7 @@
           "actions"
         ],
         "summary": "Get GitHub Actions cache retention limit for an enterprise",
-        "description": "Gets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Gets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-retention-limit-for-an-enterprise"
@@ -5209,7 +5209,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "category": "actions",
           "subcategory": "cache"
         }
@@ -5219,7 +5219,7 @@
           "actions"
         ],
         "summary": "Set GitHub Actions cache retention limit for an enterprise",
-        "description": "Sets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Sets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-retention-limit-for-an-enterprise"
@@ -5267,7 +5267,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "category": "actions",
           "subcategory": "cache"
         }
@@ -5279,7 +5279,7 @@
           "actions"
         ],
         "summary": "Get GitHub Actions cache storage limit for an enterprise",
-        "description": "Gets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Gets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-storage-limit-for-an-enterprise"
@@ -5321,7 +5321,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "category": "actions",
           "subcategory": "cache"
         }
@@ -5331,7 +5331,7 @@
           "actions"
         ],
         "summary": "Set GitHub Actions cache storage limit for an enterprise",
-        "description": "Sets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Sets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-storage-limit-for-an-enterprise"
@@ -5379,7 +5379,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "category": "actions",
           "subcategory": "cache"
         }
@@ -5391,7 +5391,7 @@
           "oidc"
         ],
         "summary": "List OIDC custom property inclusions for an enterprise",
-        "description": "Lists the repository custom properties that are included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Lists the repository custom properties that are included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/oidc#list-oidc-custom-property-inclusions-for-an-enterprise"
@@ -5441,7 +5441,7 @@
           }
         },
         "x-github": {
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "githubCloudOnly": false,
           "category": "actions",
           "subcategory": "oidc"
@@ -5452,7 +5452,7 @@
           "oidc"
         ],
         "summary": "Create an OIDC custom property inclusion for an enterprise",
-        "description": "Adds a repository custom property to be included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Adds a repository custom property to be included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/oidc#create-an-oidc-custom-property-inclusion-for-an-enterprise"
@@ -5527,7 +5527,7 @@
           }
         },
         "x-github": {
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "githubCloudOnly": false,
           "category": "actions",
           "subcategory": "oidc"
@@ -5540,7 +5540,7 @@
           "oidc"
         ],
         "summary": "Delete an OIDC custom property inclusion for an enterprise",
-        "description": "Removes a repository custom property from being included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Removes a repository custom property from being included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:enterprise\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/actions/oidc#delete-an-oidc-custom-property-inclusion-for-an-enterprise"
@@ -5581,7 +5581,7 @@
           }
         },
         "x-github": {
-          "enabledForGitHubApps": true,
+          "enabledForGitHubApps": false,
           "githubCloudOnly": false,
           "category": "actions",
           "subcategory": "oidc"
@@ -7153,7 +7153,7 @@
           "dependabot"
         ],
         "summary": "Lists the repositories Dependabot can access in an enterprise",
-        "description": "Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependabot/repository-access#lists-the-repositories-dependabot-can-access-in-an-enterprise"
@@ -7226,7 +7226,7 @@
           "dependabot"
         ],
         "summary": "Updates Dependabot\u0027s repository access list for an enterprise",
-        "description": "Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they\u0027ve updated dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.\n\n**Example request body:**\n\u0060\u0060\u0060json\n{\n  \u0022repository_ids_to_add\u0022: [123, 456],\n  \u0022repository_ids_to_remove\u0022: [789]\n}\n\u0060\u0060\u0060\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they\u0027ve updated dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.\n\n**Example request body:**\n\u0060\u0060\u0060json\n{\n  \u0022repository_ids_to_add\u0022: [123, 456],\n  \u0022repository_ids_to_remove\u0022: [789]\n}\n\u0060\u0060\u0060",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-enterprise"
@@ -7300,7 +7300,7 @@
           "dependabot"
         ],
         "summary": "Set the default repository access level for Dependabot in an enterprise",
-        "description": "Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:\n- \u0027public\u0027 - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- \u0027internal\u0027 - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nThe authenticated user must be an enterprise owner to use this endpoint.\n\n\u003E [!NOTE]\n\u003E The \u0022Enterprise administration\u0022 fine-grained permission is not available to callers. To use this API, you must use an OAuth app token or a personal access token (classic).",
+        "description": "Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:\n- \u0027public\u0027 - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- \u0027internal\u0027 - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nThe authenticated user must be an enterprise owner to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot-in-an-enterprise"
@@ -37275,7 +37275,7 @@
           "orgs"
         ],
         "summary": "Get immutable releases settings for an organization",
-        "description": "Gets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Gets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#get-immutable-releases-settings-for-an-organization"
@@ -37323,7 +37323,7 @@
           "orgs"
         ],
         "summary": "Set immutable releases settings for an organization",
-        "description": "Sets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Sets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#set-immutable-releases-settings-for-an-organization"
@@ -37376,7 +37376,7 @@
           "orgs"
         ],
         "summary": "List selected repositories for immutable releases enforcement",
-        "description": "List all of the repositories that have been selected for immutable releases enforcement in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "List all of the repositories that have been selected for immutable releases enforcement in an organization.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#list-selected-repositories-for-immutable-releases-enforcement"
@@ -37428,7 +37428,7 @@
           "orgs"
         ],
         "summary": "Set selected repositories for immutable releases enforcement",
-        "description": "Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#set-selected-repositories-for-immutable-releases-enforcement"
@@ -37483,7 +37483,7 @@
           "orgs"
         ],
         "summary": "Enable a selected repository for immutable releases in an organization",
-        "description": "Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization"
@@ -37527,7 +37527,7 @@
           "orgs"
         ],
         "summary": "Disable a selected repository for immutable releases in an organization",
-        "description": "Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for \u0060enforced_repositories\u0060 must be configured to \u0060selected\u0060.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060repo\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization"
@@ -57835,7 +57835,8 @@
                       ],
                       "severity_filter": "no_filter",
                       "custom_instructions_enabled": true,
-                      "mcp_enabled": true
+                      "mcp_enabled": true,
+                      "cross_repo_context_enabled": true
                     }
                   }
                 }
@@ -57928,7 +57929,8 @@
                       ],
                       "severity_filter": "low",
                       "custom_instructions_enabled": true,
-                      "mcp_enabled": true
+                      "mcp_enabled": true,
+                      "cross_repo_context_enabled": true
                     }
                   }
                 }
@@ -114908,7 +114910,7 @@
         "description": "The version of the entity. This is used to confirm you\u0027re updating the current version of the entity and mitigate unintentionally overriding someone else\u0027s update.",
         "nullable": true
       },
-      "SecretScanningCustomPattern": {
+      "SecretScanningCustomPatternWithDryRun": {
         "title": "Secret Scanning Custom Pattern",
         "required": [
           "id",
@@ -114938,7 +114940,7 @@
             "description": "A URL-friendly identifier for the custom pattern, derived from its name."
           },
           "state": {
-            "$ref": "#/components/schemas/SecretScanningCustomPatternState"
+            "$ref": "#/components/schemas/SecretScanningCustomPatternWithDryRunState"
           },
           "push_protection_enabled": {
             "type": "boolean",
@@ -115028,6 +115030,84 @@
           }
         },
         "description": "A custom pattern to create in a bulk operation."
+      },
+      "SecretScanningCustomPattern": {
+        "title": "Secret Scanning Custom Pattern",
+        "required": [
+          "id",
+          "name",
+          "pattern",
+          "slug",
+          "state",
+          "push_protection_enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the custom pattern.",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the custom pattern."
+          },
+          "pattern": {
+            "type": "string",
+            "description": "The regular expression of the custom pattern."
+          },
+          "slug": {
+            "type": "string",
+            "description": "A URL-friendly identifier for the custom pattern, derived from its name."
+          },
+          "state": {
+            "$ref": "#/components/schemas/SecretScanningCustomPatternState"
+          },
+          "push_protection_enabled": {
+            "type": "boolean",
+            "description": "Whether push protection is enabled for this custom pattern."
+          },
+          "start_delimiter": {
+            "type": "string",
+            "description": "The start delimiter regex for the custom pattern.",
+            "nullable": true
+          },
+          "end_delimiter": {
+            "type": "string",
+            "description": "The end delimiter regex for the custom pattern.",
+            "nullable": true
+          },
+          "must_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must match.",
+            "nullable": true
+          },
+          "must_not_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must not match.",
+            "nullable": true
+          },
+          "custom_pattern_version": {
+            "$ref": "#/components/schemas/SecretScanningRowVersion"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date and time the custom pattern was created in ISO 8601 format.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The date and time the custom pattern was last updated in ISO 8601 format.",
+            "format": "date-time"
+          }
+        },
+        "description": "A custom pattern for secret scanning."
       },
       "SecretScanningCustomPatternValidationError": {
         "title": "Secret Scanning Custom Pattern Validation Error",
@@ -121524,7 +121604,8 @@
           "available_review_efforts",
           "severity_filter",
           "custom_instructions_enabled",
-          "mcp_enabled"
+          "mcp_enabled",
+          "cross_repo_context_enabled"
         ],
         "type": "object",
         "properties": {
@@ -121548,6 +121629,10 @@
           "mcp_enabled": {
             "type": "boolean",
             "description": "Whether reviews can use MCP servers."
+          },
+          "cross_repo_context_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews can use public repository search."
           }
         },
         "description": "The repository\u0027s Copilot code review settings. These settings tune reviews; they do not enable Copilot code review."
@@ -152389,6 +152474,10 @@
           "mcp_enabled": {
             "type": "boolean",
             "description": "Whether reviews can use MCP servers."
+          },
+          "cross_repo_context_enabled": {
+            "type": "boolean",
+            "description": "Whether reviews can use public repository search. Can only be set when the public repository search setting is available for the repository."
           }
         },
         "additionalProperties": false
@@ -157519,7 +157608,7 @@
       "SecretScanningListOrgCustomPatterns200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+          "$ref": "#/components/schemas/SecretScanningCustomPatternWithDryRun"
         }
       },
       "SecretScanningBulkCreateOrgCustomPatterns201Response": {
@@ -158773,7 +158862,7 @@
       "SecretScanningListRepoCustomPatterns200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+          "$ref": "#/components/schemas/SecretScanningCustomPatternWithDryRun"
         }
       },
       "SecretScanningBulkCreateRepoCustomPatterns201Response": {
@@ -183342,6 +183431,28 @@
             {
               "value": "unknown",
               "name": "Unknown"
+            }
+          ]
+        }
+      },
+      "SecretScanningCustomPatternWithDryRunState": {
+        "enum": [
+          "published",
+          "unpublished"
+        ],
+        "type": "string",
+        "description": "The state of the custom pattern.",
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternWithDryRunState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "published",
+              "name": "Published"
+            },
+            {
+              "value": "unpublished",
+              "name": "Unpublished"
             }
           ]
         }
@@ -428062,7 +428173,7 @@
     "SecretScanningListOrgCustomPatterns200Response": {
       "type": "array",
       "items": {
-        "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        "$ref": "#/components/schemas/SecretScanningCustomPatternWithDryRun"
       }
     },
     "SecurityAdvisoriesListOrgRepositoryAdvisories200Response": {
@@ -428749,7 +428860,7 @@
     "SecretScanningListRepoCustomPatterns200Response": {
       "type": "array",
       "items": {
-        "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        "$ref": "#/components/schemas/SecretScanningCustomPatternWithDryRun"
       }
     },
     "SecurityAdvisoriesListRepositoryAdvisories200Response": {

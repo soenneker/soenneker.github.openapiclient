@@ -20,6 +20,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("available_review_efforts") is null) { _explicitNullValueAvailableReviewEfforts = default!; _explicitNullProperties?.Remove("available_review_efforts"); }
             else if (parseNode.GetChildNode("available_review_efforts") is { } nullNodeAvailableReviewEfforts && nullNodeAvailableReviewEfforts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableReviewEfforts = null;
+            if (parseNode.GetChildNode("cross_repo_context_enabled") is null) { _explicitNullValueCrossRepoContextEnabled = default!; _explicitNullProperties?.Remove("cross_repo_context_enabled"); }
+            else if (parseNode.GetChildNode("cross_repo_context_enabled") is { } nullNodeCrossRepoContextEnabled && nullNodeCrossRepoContextEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrossRepoContextEnabled = null;
             if (parseNode.GetChildNode("custom_instructions_enabled") is null) { _explicitNullValueCustomInstructionsEnabled = default!; _explicitNullProperties?.Remove("custom_instructions_enabled"); }
             else if (parseNode.GetChildNode("custom_instructions_enabled") is { } nullNodeCustomInstructionsEnabled && nullNodeCustomInstructionsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomInstructionsEnabled = null;
             if (parseNode.GetChildNode("mcp_enabled") is null) { _explicitNullValueMcpEnabled = default!; _explicitNullProperties?.Remove("mcp_enabled"); }
@@ -42,6 +44,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> AvailableReviewEfforts { get => _explicitNullValueAvailableReviewEfforts; set { _explicitNullValueAvailableReviewEfforts = value; AdditionalData?.Remove("available_review_efforts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_review_efforts"); else _explicitNullProperties?.Remove("available_review_efforts"); } }
         private List<string> _explicitNullValueAvailableReviewEfforts = default!;
 #endif
+        /// <summary>Whether reviews can use public repository search.</summary>
+        public bool? CrossRepoContextEnabled { get => _explicitNullValueCrossRepoContextEnabled; set { _explicitNullValueCrossRepoContextEnabled = value; AdditionalData?.Remove("cross_repo_context_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cross_repo_context_enabled"); else _explicitNullProperties?.Remove("cross_repo_context_enabled"); } }
+        private bool? _explicitNullValueCrossRepoContextEnabled = default!;
         /// <summary>Whether reviews use the repository&apos;s custom instructions.</summary>
         public bool? CustomInstructionsEnabled { get => _explicitNullValueCustomInstructionsEnabled; set { _explicitNullValueCustomInstructionsEnabled = value; AdditionalData?.Remove("custom_instructions_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_instructions_enabled"); else _explicitNullProperties?.Remove("custom_instructions_enabled"); } }
         private bool? _explicitNullValueCustomInstructionsEnabled = default!;
@@ -87,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_review_efforts", n => { AvailableReviewEfforts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "cross_repo_context_enabled", n => { CrossRepoContextEnabled = n.GetBoolValue(); } },
                 { "custom_instructions_enabled", n => { CustomInstructionsEnabled = n.GetBoolValue(); } },
                 { "mcp_enabled", n => { McpEnabled = n.GetBoolValue(); } },
                 { "review_effort", n => { ReviewEffort = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCopilotCodeReviewSettingsReviewEffort>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCopilotCodeReviewSettingsReviewEffort.CreateFromDiscriminatorValue); } },
@@ -101,6 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("available_review_efforts", AvailableReviewEfforts);
+            writer.WriteBoolValue("cross_repo_context_enabled", CrossRepoContextEnabled);
             writer.WriteBoolValue("custom_instructions_enabled", CustomInstructionsEnabled);
             writer.WriteBoolValue("mcp_enabled", McpEnabled);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCopilotCodeReviewSettingsReviewEffort>("review_effort", ReviewEffort);

@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
         {
         }
         /// <summary>
-        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` or `repo` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/orgs#list-selected-repositories-for-immutable-releases-enforcement" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response"/></returns>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsGetImmutableReleasesSettingsRepositories200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.OAuth tokens and personal access tokens (classic) need the `admin:org` or `repo` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/orgs#set-selected-repositories-for-immutable-releases-enforcement" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
             await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` or `repo` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
             return requestInfo;
         }
         /// <summary>
-        /// Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.OAuth tokens and personal access tokens (classic) need the `admin:org` or `repo` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Re
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.Repositories.RepositoriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// List all of the repositories that have been selected for immutable releases enforcement in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` or `repo` scope to use this endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RepositoriesRequestBuilderGetQueryParameters 
