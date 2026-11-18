@@ -177,7 +177,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor>(global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor.CreateFromDiscriminatorValue); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },

@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "allowed_actions", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAllowedActions = default; _explicitNullProperties?.Remove("allowed_actions"); AdditionalData["allowed_actions"] = unknown; } else { AllowedActions = parsed; AdditionalData.Remove("allowed_actions"); } } },
                 { "enabled_repositories", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnabledRepositories = default; _explicitNullProperties?.Remove("enabled_repositories"); AdditionalData["enabled_repositories"] = unknown; } else { EnabledRepositories = parsed; AdditionalData.Remove("enabled_repositories"); } } },

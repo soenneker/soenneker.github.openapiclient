@@ -128,7 +128,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "code_of_conduct", n => { CodeOfConduct = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple.CreateFromDiscriminatorValue); } },
                 { "code_of_conduct_file", n => { CodeOfConductFile = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },

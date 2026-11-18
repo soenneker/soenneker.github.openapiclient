@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "properties", n => { Properties = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "repository_full_name", n => { RepositoryFullName = n.GetStringValue(); } },

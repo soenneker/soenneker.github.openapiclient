@@ -432,7 +432,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(33)
             {
                 { "automation_completed", n => { AutomationCompleted = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationRevisions200ResponseRevisionsItemSnapshotTriggersAutomationCompleted>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationRevisions200ResponseRevisionsItemSnapshotTriggersAutomationCompleted.CreateFromDiscriminatorValue); } },
                 { "automation_failed", n => { AutomationFailed = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationRevisions200ResponseRevisionsItemSnapshotTriggersAutomationFailed>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationRevisions200ResponseRevisionsItemSnapshotTriggersAutomationFailed.CreateFromDiscriminatorValue); } },

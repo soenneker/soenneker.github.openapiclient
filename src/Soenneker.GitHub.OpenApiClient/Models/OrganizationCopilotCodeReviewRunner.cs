@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "allow_repository_customization", n => { AllowRepositoryCustomization = n.GetBoolValue(); } },
                 { "configured_by", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCopilotCodeReviewRunnerConfiguredBy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConfiguredBy = default; _explicitNullProperties?.Remove("configured_by"); AdditionalData["configured_by"] = unknown; } else { ConfiguredBy = parsed; AdditionalData.Remove("configured_by"); } } },

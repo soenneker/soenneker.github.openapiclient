@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "confidence", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestTypeOneOf2Confidence>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConfidence = default; _explicitNullProperties?.Remove("confidence"); AdditionalData["confidence"] = unknown; } else { Confidence = parsed; AdditionalData.Remove("confidence"); } } },
                 { "rationale", n => { Rationale = n.GetStringValue(); } },

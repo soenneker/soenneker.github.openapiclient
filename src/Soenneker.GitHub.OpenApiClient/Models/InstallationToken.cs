@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "has_multiple_single_files", n => { HasMultipleSingleFiles = n.GetBoolValue(); } },

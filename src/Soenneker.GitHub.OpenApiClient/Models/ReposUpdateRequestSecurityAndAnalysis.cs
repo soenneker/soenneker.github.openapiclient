@@ -155,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "advanced_security", n => { AdvancedSecurity = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity>(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity.CreateFromDiscriminatorValue); } },
                 { "code_security", n => { CodeSecurity = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity>(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequestSecurityAndAnalysisCodeSecurity.CreateFromDiscriminatorValue); } },

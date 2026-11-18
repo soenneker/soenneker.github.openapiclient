@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "commit", n => { Commit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchWithProtectionLinks>(global::Soenneker.GitHub.OpenApiClient.Models.BranchWithProtectionLinks.CreateFromDiscriminatorValue); } },

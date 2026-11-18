@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "insecure_ssl", n => { InsecureSsl = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfigInsecureSsl>(global::Soenneker.GitHub.OpenApiClient.Models.WebhookConfigInsecureSsl.CreateFromDiscriminatorValue); } },

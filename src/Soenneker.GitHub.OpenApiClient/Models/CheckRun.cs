@@ -214,7 +214,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "check_suite", n => { CheckSuite = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite.CreateFromDiscriminatorValue); } },

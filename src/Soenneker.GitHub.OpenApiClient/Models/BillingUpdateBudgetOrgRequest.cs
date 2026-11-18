@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "budget_alerting", n => { BudgetAlerting = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetAlerting>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetAlerting.CreateFromDiscriminatorValue); } },
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },

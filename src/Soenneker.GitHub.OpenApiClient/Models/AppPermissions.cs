@@ -330,7 +330,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(57)
             {
                 { "actions", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsActions>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActions = default; _explicitNullProperties?.Remove("actions"); AdditionalData["actions"] = unknown; } else { Actions = parsed; AdditionalData.Remove("actions"); } } },
                 { "administration", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAdministration>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAdministration = default; _explicitNullProperties?.Remove("administration"); AdditionalData["administration"] = unknown; } else { Administration = parsed; AdditionalData.Remove("administration"); } } },

@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "check_response_timeout_minutes", n => { CheckResponseTimeoutMinutes = n.GetIntValue(); } },
                 { "grouping_strategy", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGroupingStrategy = default; _explicitNullProperties?.Remove("grouping_strategy"); AdditionalData["grouping_strategy"] = unknown; } else { GroupingStrategy = parsed; AdditionalData.Remove("grouping_strategy"); } } },

@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "ai_findings_option", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAiFindingsOption = default; _explicitNullProperties?.Remove("ai_findings_option"); AdditionalData["ai_findings_option"] = unknown; } else { AiFindingsOption = parsed; AdditionalData.Remove("ai_findings_option"); } } },
                 { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>()?.AsList(); } },

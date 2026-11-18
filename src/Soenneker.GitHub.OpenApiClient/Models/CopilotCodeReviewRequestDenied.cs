@@ -101,7 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "documentation_url", n => { DocumentationUrl = n.GetStringValue(); } },
                 { "failure_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCodeReviewRequestDeniedFailureReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFailureReason = default; _explicitNullProperties?.Remove("failure_reason"); AdditionalData["failure_reason"] = unknown; } else { FailureReason = parsed; AdditionalData.Remove("failure_reason"); } } },

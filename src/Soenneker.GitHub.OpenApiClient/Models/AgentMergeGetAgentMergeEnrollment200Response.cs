@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "allowed_actions", n => { AllowedActions = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

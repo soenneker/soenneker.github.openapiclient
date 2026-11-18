@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "configured_state", n => { ConfiguredState = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCopilotCodeReviewPolicyConfiguredState>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCopilotCodeReviewPolicyConfiguredState.CreateFromDiscriminatorValue); } },
                 { "editable", n => { Editable = n.GetBoolValue(); } },

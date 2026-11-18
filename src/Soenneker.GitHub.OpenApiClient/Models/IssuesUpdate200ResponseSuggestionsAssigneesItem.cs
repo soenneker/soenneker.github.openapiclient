@@ -88,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "confidence", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConfidence = default; _explicitNullProperties?.Remove("confidence"); AdditionalData["confidence"] = unknown; } else { Confidence = parsed; AdditionalData.Remove("confidence"); } } },
                 { "ignored", n => { Ignored = n.GetBoolValue(); } },

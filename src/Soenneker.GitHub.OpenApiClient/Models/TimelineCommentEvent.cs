@@ -233,7 +233,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(18)
             {
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "author_association", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthorAssociation = default; _explicitNullProperties?.Remove("author_association"); AdditionalData["author_association"] = unknown; } else { AuthorAssociation = parsed; AdditionalData.Remove("author_association"); } } },

@@ -197,7 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorizationApp>(global::Soenneker.GitHub.OpenApiClient.Models.AuthorizationApp.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "annotation_level", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequestOutputAnnotationsItemAnnotationLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnnotationLevel = default; _explicitNullProperties?.Remove("annotation_level"); AdditionalData["annotation_level"] = unknown; } else { AnnotationLevel = parsed; AdditionalData.Remove("annotation_level"); } } },
                 { "end_column", n => { EndColumn = n.GetIntValue(); } },

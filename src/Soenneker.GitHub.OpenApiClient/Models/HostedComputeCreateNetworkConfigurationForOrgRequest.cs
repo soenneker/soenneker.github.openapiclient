@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "compute_service", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrgRequestComputeService>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueComputeService = default; _explicitNullProperties?.Remove("compute_service"); AdditionalData["compute_service"] = unknown; } else { ComputeService = parsed; AdditionalData.Remove("compute_service"); } } },
                 { "failover_network_enabled", n => { FailoverNetworkEnabled = n.GetBoolValue(); } },

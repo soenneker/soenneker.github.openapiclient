@@ -104,7 +104,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "backfill_scans", n => { BackfillScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "custom_pattern_backfill_scans", n => { CustomPatternBackfillScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistoryCustomPatternBackfillScansItem.CreateFromDiscriminatorValue)?.AsList(); } },

@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "current_user", n => { CurrentUser = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
                 { "current_user_actor", n => { CurrentUserActor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },

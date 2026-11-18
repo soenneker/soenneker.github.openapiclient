@@ -261,7 +261,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(32)
             {
                 { "advanced_security", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationAdvancedSecurity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAdvancedSecurity = default; _explicitNullProperties?.Remove("advanced_security"); AdditionalData["advanced_security"] = unknown; } else { AdvancedSecurity = parsed; AdditionalData.Remove("advanced_security"); } } },
                 { "code_scanning_default_setup", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetup>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCodeScanningDefaultSetup = default; _explicitNullProperties?.Remove("code_scanning_default_setup"); AdditionalData["code_scanning_default_setup"] = unknown; } else { CodeScanningDefaultSetup = parsed; AdditionalData.Remove("code_scanning_default_setup"); } } },

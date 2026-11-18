@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>(global::Soenneker.GitHub.OpenApiClient.Models.Budget.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "effective_budget", n => { EffectiveBudget = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget>(global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget.CreateFromDiscriminatorValue); } },

@@ -101,7 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "bypass_pull_request_allowances", n => { BypassPullRequestAllowances = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviewsBypassPullRequestAllowances.CreateFromDiscriminatorValue); } },
                 { "dismiss_stale_reviews", n => { DismissStaleReviews = n.GetBoolValue(); } },

@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "cli", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCli = default; _explicitNullProperties?.Remove("cli"); AdditionalData["cli"] = unknown; } else { Cli = parsed; AdditionalData.Remove("cli"); } } },
                 { "ide_chat", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIdeChat = default; _explicitNullProperties?.Remove("ide_chat"); AdditionalData["ide_chat"] = unknown; } else { IdeChat = parsed; AdditionalData.Remove("ide_chat"); } } },

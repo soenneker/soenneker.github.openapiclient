@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "bypass_actors", n => { BypassActors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed.CreateFromDiscriminatorValue); } },

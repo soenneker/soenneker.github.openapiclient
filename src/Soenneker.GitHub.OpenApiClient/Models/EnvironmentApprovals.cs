@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
                 { "environments", n => { Environments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },

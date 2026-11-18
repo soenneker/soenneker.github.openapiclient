@@ -97,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "base_role", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBaseRole = default; _explicitNullProperties?.Remove("base_role"); AdditionalData["base_role"] = unknown; } else { BaseRole = parsed; AdditionalData.Remove("base_role"); } } },
                 { "description", n => { Description = n.GetStringValue(); } },

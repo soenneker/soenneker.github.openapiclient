@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "allowed_merge_methods", n => { AllowedMergeMethods = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem>()?.AsList(); } },
                 { "dismiss_stale_reviews_on_push", n => { DismissStaleReviewsOnPush = n.GetBoolValue(); } },

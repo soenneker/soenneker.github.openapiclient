@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "current_user_can_approve", n => { CurrentUserCanApprove = n.GetBoolValue(); } },
                 { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment>(global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment.CreateFromDiscriminatorValue); } },

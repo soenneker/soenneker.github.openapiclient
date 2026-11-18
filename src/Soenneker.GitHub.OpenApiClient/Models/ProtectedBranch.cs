@@ -201,7 +201,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "allow_deletions", n => { AllowDeletions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions.CreateFromDiscriminatorValue); } },
                 { "allow_force_pushes", n => { AllowForcePushes = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes.CreateFromDiscriminatorValue); } },
