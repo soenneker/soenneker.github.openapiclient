@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.
+        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#get-an-issue-artifact" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200Response"/></returns>
@@ -154,7 +154,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             return requestInfo;
         }
         /// <summary>
-        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.
+        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +204,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.Item.WithArtifactNumberItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.
+        /// Returns an artifact attached to an issue by its per-issue artifact number,along with its version history ordered from newest to oldest.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithArtifactNumberItemRequestBuilderGetQueryParameters 

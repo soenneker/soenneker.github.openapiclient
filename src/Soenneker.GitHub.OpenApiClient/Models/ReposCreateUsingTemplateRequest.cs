@@ -17,6 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("custom_properties") is null) { _explicitNullValueCustomProperties = default!; _explicitNullProperties?.Remove("custom_properties"); }
+            else if (parseNode.GetChildNode("custom_properties") is { } nullNodeCustomProperties && nullNodeCustomProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomProperties = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
             else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
             if (parseNode.GetChildNode("include_all_branches") is null) { _explicitNullValueIncludeAllBranches = default!; _explicitNullProperties?.Remove("include_all_branches"); }
@@ -31,6 +33,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The custom properties for the new repository. The keys are the custom property names, and the values are the corresponding custom property values.During rollout, this parameter is available only for organization-owned repositories when template repository custom properties support has been enabled for the destination organization. Otherwise, providing this parameter returns HTTP 422.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties? CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; AdditionalData?.Remove("custom_properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties? _explicitNullValueCustomProperties = default!;
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; AdditionalData?.Remove("custom_properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties _explicitNullValueCustomProperties = default!;
+#endif
         /// <summary>A short description of the new repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,8 +104,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(5)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
+                { "custom_properties", n => { CustomProperties = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties>(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "include_all_branches", n => { IncludeAllBranches = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -108,6 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateUsingTemplateRequestCustomProperties>("custom_properties", CustomProperties);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("include_all_branches", IncludeAllBranches);
             writer.WriteStringValue("name", Name);

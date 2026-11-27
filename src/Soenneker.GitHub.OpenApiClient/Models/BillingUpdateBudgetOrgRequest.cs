@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAt ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAt _explicitNullValueExpiresAt = default!;
 #endif
-        /// <summary>Whether to prevent additional spending once the budget is exceeded. For budgets with `user` or `multi_user_customer` scope, this must remain `true`.</summary>
+        /// <summary>Whether to prevent additional spending once the budget is exceeded. Set to `false` for an alerting-only budget, including user-level scopes.</summary>
         public bool? PreventFurtherUsage { get => _explicitNullValuePreventFurtherUsage; set { _explicitNullValuePreventFurtherUsage = value; AdditionalData?.Remove("prevent_further_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_further_usage"); else _explicitNullProperties?.Remove("prevent_further_usage"); } }
         private bool? _explicitNullValuePreventFurtherUsage = default!;
         /// <summary>

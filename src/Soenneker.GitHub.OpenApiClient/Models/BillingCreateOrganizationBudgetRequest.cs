@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
         public Date? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private Date? _explicitNullValueExpiresAt = default!;
-        /// <summary>Whether to prevent additional spending once the budget is exceeded. For `user` and `multi_user_customer` scopes, this must be `true`.</summary>
+        /// <summary>Whether to prevent additional spending once the budget is exceeded. Set to `false` for an alerting-only budget, including user-level scopes.</summary>
         public bool? PreventFurtherUsage { get => _explicitNullValuePreventFurtherUsage; set { _explicitNullValuePreventFurtherUsage = value; AdditionalData?.Remove("prevent_further_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_further_usage"); else _explicitNullProperties?.Remove("prevent_further_usage"); } }
         private bool? _explicitNullValuePreventFurtherUsage = default!;
         /// <summary>The username of the user for `user` scope budgets. This field is required when `budget_scope` is `user`.</summary>

@@ -372,7 +372,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The reason for the current state</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.IssueStateReason? StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; AdditionalData?.Remove("state_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueStateReason? _explicitNullValueStateReason = default!;
-        /// <summary>The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</summary>
+        /// <summary>The status of the issue, or `null` if it has none. Issue statuses are in public preview and subject to change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.IssueStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }

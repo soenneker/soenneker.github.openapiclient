@@ -64,6 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
             if (parseNode.GetChildNode("number") is null) { _explicitNullValueNumber = default!; _explicitNullProperties?.Remove("number"); }
             else if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("parent_issue_url") is null) { _explicitNullValueParentIssueUrl = default!; _explicitNullProperties?.Remove("parent_issue_url"); }
+            else if (parseNode.GetChildNode("parent_issue_url") is { } nullNodeParentIssueUrl && nullNodeParentIssueUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentIssueUrl = null;
             if (parseNode.GetChildNode("performed_via_github_app") is null) { _explicitNullValuePerformedViaGithubApp = default!; _explicitNullProperties?.Remove("performed_via_github_app"); }
             else if (parseNode.GetChildNode("performed_via_github_app") is { } nullNodePerformedViaGithubApp && nullNodePerformedViaGithubApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformedViaGithubApp = null;
             if (parseNode.GetChildNode("pinned_comment") is null) { _explicitNullValuePinnedComment = default!; _explicitNullProperties?.Remove("pinned_comment"); }
@@ -278,6 +280,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The number property</summary>
         public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; AdditionalData?.Remove("number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
         private int? _explicitNullValueNumber = default!;
+        /// <summary>URL to get the parent issue of this issue, if it is a sub-issue</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentIssueUrl { get => _explicitNullValueParentIssueUrl; set { _explicitNullValueParentIssueUrl = value; AdditionalData?.Remove("parent_issue_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_issue_url"); else _explicitNullProperties?.Remove("parent_issue_url"); } }
+        private string? _explicitNullValueParentIssueUrl = default!;
+#nullable restore
+#else
+        public string ParentIssueUrl { get => _explicitNullValueParentIssueUrl; set { _explicitNullValueParentIssueUrl = value; AdditionalData?.Remove("parent_issue_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_issue_url"); else _explicitNullProperties?.Remove("parent_issue_url"); } }
+        private string _explicitNullValueParentIssueUrl = default!;
+#endif
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -361,7 +373,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; AdditionalData?.Remove("state_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
         private string _explicitNullValueStateReason = default!;
 #endif
-        /// <summary>The status of the issue, or `null` if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.</summary>
+        /// <summary>The status of the issue, or `null` if it has none. Issue statuses are in public preview and subject to change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -467,7 +479,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(41)
+            return new Dictionary<string, Action<IParseNode>>(42)
             {
                 { "active_lock_reason", n => { ActiveLockReason = n.GetStringValue(); } },
                 { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
@@ -492,6 +504,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
+                { "parent_issue_url", n => { ParentIssueUrl = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "pinned_comment", n => { PinnedComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment.CreateFromDiscriminatorValue); } },
                 { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemPullRequest>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemPullRequest.CreateFromDiscriminatorValue); } },
@@ -542,6 +555,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>("milestone", Milestone);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("number", Number);
+            writer.WriteStringValue("parent_issue_url", ParentIssueUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>("pinned_comment", PinnedComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemPullRequest>("pull_request", PullRequest);

@@ -151,7 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgSortParameter? Sort { get; set; }
-            /// <summary>Specifies the types of repositories you want returned.</summary>
+            /// <summary>Specifies the types of repositories you want returned.- `all`: All repositories the caller can access in the organization.- `public`: Public repositories.- `private`: Private repositories.- `forks`: Repositories that are forks of another repository.- `sources`: Repositories that are not forks.- `member`: Repositories that the authenticated user has access to through direct collaboration or organization permissions, such as team membership or organization ownership.These filters can overlap. For example, a fork can be public or private, and either a fork or a source repository can be returned by `member`. Only one `type` value can be specified per request. All results are subject to the caller&apos;s access permissions.For more information, see &quot;[Repository terminology](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories#repository-terminology).&quot;</summary>
             [QueryParameter("type")]
             public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgTypeParameter? Type { get; set; }
         }

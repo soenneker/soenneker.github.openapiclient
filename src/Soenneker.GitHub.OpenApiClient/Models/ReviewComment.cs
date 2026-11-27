@@ -28,6 +28,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("body_text") is { } nullNodeBodyText && nullNodeBodyText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BodyText = null;
             if (parseNode.GetChildNode("commit_id") is null) { _explicitNullValueCommitId = default!; _explicitNullProperties?.Remove("commit_id"); }
             else if (parseNode.GetChildNode("commit_id") is { } nullNodeCommitId && nullNodeCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitId = null;
+            if (parseNode.GetChildNode("copilot_code_review_severity") is null) { _explicitNullValueCopilotCodeReviewSeverity = default!; _explicitNullProperties?.Remove("copilot_code_review_severity"); }
+            else if (parseNode.GetChildNode("copilot_code_review_severity") is { } nullNodeCopilotCodeReviewSeverity && nullNodeCopilotCodeReviewSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotCodeReviewSeverity = null;
             if (parseNode.GetChildNode("copilot_code_review_sources") is null) { _explicitNullValueCopilotCodeReviewSources = default!; _explicitNullProperties?.Remove("copilot_code_review_sources"); }
             else if (parseNode.GetChildNode("copilot_code_review_sources") is { } nullNodeCopilotCodeReviewSources && nullNodeCopilotCodeReviewSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotCodeReviewSources = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
@@ -126,6 +128,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string CommitId { get => _explicitNullValueCommitId; set { _explicitNullValueCommitId = value; AdditionalData?.Remove("commit_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_id"); else _explicitNullProperties?.Remove("commit_id"); } }
         private string _explicitNullValueCommitId = default!;
+#endif
+        /// <summary>The Copilot code review severity of this comment, or null if unavailable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity? CopilotCodeReviewSeverity { get => _explicitNullValueCopilotCodeReviewSeverity; set { _explicitNullValueCopilotCodeReviewSeverity = value; AdditionalData?.Remove("copilot_code_review_severity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_code_review_severity"); else _explicitNullProperties?.Remove("copilot_code_review_severity"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity? _explicitNullValueCopilotCodeReviewSeverity = default!;
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity CopilotCodeReviewSeverity { get => _explicitNullValueCopilotCodeReviewSeverity; set { _explicitNullValueCopilotCodeReviewSeverity = value; AdditionalData?.Remove("copilot_code_review_severity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_code_review_severity"); else _explicitNullProperties?.Remove("copilot_code_review_severity"); } }
+        private global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity _explicitNullValueCopilotCodeReviewSeverity = default!;
 #endif
         /// <summary>Sources reported as contributing to this comment; may be incomplete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -305,13 +317,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(31)
+            return new Dictionary<string, Action<IParseNode>>(32)
             {
                 { "author_association", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthorAssociation = default; _explicitNullProperties?.Remove("author_association"); AdditionalData["author_association"] = unknown; } else { AuthorAssociation = parsed; AdditionalData.Remove("author_association"); } } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "body_html", n => { BodyHtml = n.GetStringValue(); } },
                 { "body_text", n => { BodyText = n.GetStringValue(); } },
                 { "commit_id", n => { CommitId = n.GetStringValue(); } },
+                { "copilot_code_review_severity", n => { CopilotCodeReviewSeverity = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity>(global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity.CreateFromDiscriminatorValue); } },
                 { "copilot_code_review_sources", n => { CopilotCodeReviewSources = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSourcesItem>(global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "diff_hunk", n => { DiffHunk = n.GetStringValue(); } },
@@ -352,6 +365,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("body_html", BodyHtml);
             writer.WriteStringValue("body_text", BodyText);
             writer.WriteStringValue("commit_id", CommitId);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSeverity>("copilot_code_review_severity", CopilotCodeReviewSeverity);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentCopilotCodeReviewSourcesItem>("copilot_code_review_sources", CopilotCodeReviewSources);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("diff_hunk", DiffHunk);

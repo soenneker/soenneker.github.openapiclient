@@ -35550,7 +35550,7 @@
           {
             "name": "type",
             "in": "query",
-            "description": "Specifies the types of repositories you want returned.",
+            "description": "Specifies the types of repositories you want returned.\n\n- \u0060all\u0060: All repositories the caller can access in the organization.\n- \u0060public\u0060: Public repositories.\n- \u0060private\u0060: Private repositories.\n- \u0060forks\u0060: Repositories that are forks of another repository.\n- \u0060sources\u0060: Repositories that are not forks.\n- \u0060member\u0060: Repositories that the authenticated user has access to through direct collaboration or organization permissions, such as team membership or organization ownership.\n\nThese filters can overlap. For example, a fork can be public or private, and either a fork or a source repository can be returned by \u0060member\u0060. Only one \u0060type\u0060 value can be specified per request. All results are subject to the caller\u0027s access permissions.\n\nFor more information, see \u0022[Repository terminology](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories#repository-terminology).\u0022",
             "schema": {
               "$ref": "#/components/schemas/ReposListForOrgTypeParameter"
             }
@@ -38336,7 +38336,7 @@
           "copilot"
         ],
         "summary": "Get Copilot customizations for a team",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets the GitHub-managed Copilot customizations of a team.\n\nThe authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return \u0060409\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Gets the GitHub-managed Copilot customization document for an organization team.\nReturns \u0060404\u0060 if the team has no customization document. Enterprise teams are not supported.\n\nThe authenticated user must be an organization owner or a team maintainer.\nFor an organization team managed by an enterprise team or SCIM-backed identity provider group, the authenticated user must be an organization owner.\nToken permissions do not grant access to teams the authenticated user cannot administer.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 or \u0060read:org\u0060 scope to use this endpoint.\nFine-grained personal access tokens and GitHub App user access tokens need the organization\u0027s\n\u0022Copilot agent settings\u0022 permission with read access. GitHub App installation access tokens are not supported.\n\nReturns \u0060422\u0060 if the stored customization document cannot be read.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-team-customizations#get-copilot-customizations-for-a-team"
@@ -38426,7 +38426,7 @@
           "copilot"
         ],
         "summary": "Set Copilot customizations for a team",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nReplaces the GitHub-managed Copilot customizations of a team, creating them on the first write.\n\nThe authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return \u0060409\u0060. Documents that fail validation return \u0060422\u0060 with the reason.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Replaces the entire GitHub-managed Copilot customization document for an organization team,\ncreating it on the first write. The request body is the customization document itself.\nInclude every plugin assignment and marketplace you want to keep. Entries omitted from the request\nare removed from the stored document; this endpoint does not merge changes with existing customizations.\nReading a document before replacing it does not prevent another edit between requests.\n\nThe authenticated user must be an organization owner or a team maintainer.\nFor an organization team managed by an enterprise team or SCIM-backed identity provider group, the authenticated user must be an organization owner.\nToken permissions do not grant access to teams the authenticated user cannot administer.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.\nFine-grained personal access tokens and GitHub App user access tokens need the organization\u0027s\n\u0022Copilot agent settings\u0022 permission with write access. GitHub App installation access tokens are not supported.\n\nEnterprise teams are not supported.\n\nReturns \u0060200\u0060 with the submitted document after a successful write, including the first write.\nDocuments that fail validation return \u0060422\u0060 with the reason. A concurrent edit can return \u0060409\u0060.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-team-customizations#set-copilot-customizations-for-a-team"
@@ -38545,7 +38545,7 @@
           "copilot"
         ],
         "summary": "Delete Copilot customizations for a team",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nDeletes the GitHub-managed Copilot customizations of a team. Deleting customizations that don\u0027t exist succeeds.\n\nThe authenticated user must be an organization owner or a team maintainer. Teams that keep their\ncustomizations in a repository return \u0060409\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "description": "Deletes the GitHub-managed Copilot customization document for an organization team. Enterprise teams are not supported.\nReturns \u0060204\u0060 with no response body, including when the team has no customization document.\n\nThe authenticated user must be an organization owner or a team maintainer.\nFor an organization team managed by an enterprise team or SCIM-backed identity provider group, the authenticated user must be an organization owner.\nToken permissions do not grant access to teams the authenticated user cannot administer.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.\nFine-grained personal access tokens and GitHub App user access tokens need the organization\u0027s\n\u0022Copilot agent settings\u0022 permission with write access. GitHub App installation access tokens are not supported.\n\nA concurrent edit can return \u0060409\u0060.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-team-customizations#delete-copilot-customizations-for-a-team"
@@ -58255,6 +58255,9 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed_simple"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
           }
         },
         "x-github": {
@@ -67254,7 +67257,7 @@
           "issues"
         ],
         "summary": "List issue artifacts",
-        "description": "Lists artifacts attached to an issue. Results are ordered by artifact number.\n\nThe \u0060type\u0060 parameter filters the response to artifacts of one type.\nResults can be requested by page. The page defaults to \u00601\u0060; the page size\ndefaults to \u006030\u0060 and can be set from \u00601\u0060 to \u0060100\u0060.\n\nThe response is a bare array and does not include pagination metadata such as\na \u0060Link\u0060 header, a total count, or the service\u0027s \u0060has_next_page\u0060 signal.",
+        "description": "Lists artifacts attached to an issue. Results are ordered by artifact number.\n\nThis endpoint can be used without authentication for public repositories.\nUnauthenticated requests are subject to the standard unauthenticated rate limit.\n\nThe \u0060type\u0060 parameter filters the response to artifacts of one type.\nResults can be requested by page. The page defaults to \u00601\u0060; the page size\ndefaults to \u006030\u0060 and can be set from \u00601\u0060 to \u0060100\u0060.\n\nThe response is a bare array and does not include pagination metadata such as\na \u0060Link\u0060 header, a total count, or the service\u0027s \u0060has_next_page\u0060 signal.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#list-issue-artifacts"
@@ -67564,7 +67567,7 @@
           "issues"
         ],
         "summary": "Get an issue artifact",
-        "description": "Returns an artifact attached to an issue by its per-issue artifact number,\nalong with its version history ordered from newest to oldest.",
+        "description": "Returns an artifact attached to an issue by its per-issue artifact number,\nalong with its version history ordered from newest to oldest.\n\nThis endpoint can be used without authentication for public repositories.\nUnauthenticated requests are subject to the standard unauthenticated rate limit.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#get-an-issue-artifact"
@@ -73772,7 +73775,7 @@
           "repos"
         ],
         "summary": "List planning statuses for a repository",
-        "description": "Lists the selectable planning statuses available.\nPlanning statuses are returned in deterministic display order:\nBacklog, Todo, In progress, In review, Done, Not planned, and Duplicate.\nClients should expect new keys to be added.\nReturns \u0060404 Not Found\u0060 when issue statuses aren\u0027t available in the repository.\n\n\u003E [!NOTE]\n\u003E Issue statuses are in preview and subject to change. They\u0027re only available to accounts enrolled in the preview.\n\nYou need read access to the repository\u0027s issues to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope\nto use this endpoint with a private repository.\n\nFine-grained access tokens require the \u0022Issues\u0022 repository permission (read).",
+        "description": "Lists the selectable planning statuses available.\nPlanning statuses are returned in deterministic display order:\nBacklog, Todo, In progress, In review, Done, Not planned, and Duplicate.\nClients should expect new keys to be added.\nReturns \u0060404 Not Found\u0060 when issue statuses aren\u0027t available in the repository.\n\n\u003E [!NOTE]\n\u003E Issue statuses are in public preview and subject to change.\n\nYou need read access to the repository\u0027s issues to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope\nto use this endpoint with a private repository.\n\nFine-grained access tokens require the \u0022Issues\u0022 repository permission (read).",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/repos/planning-statuses#list-planning-statuses-for-a-repository"
@@ -81347,7 +81350,7 @@
           "security-advisories"
         ],
         "summary": "Update a repository security advisory",
-        "description": "Update a repository security advisory using its GitHub Security Advisory (GHSA) identifier.\n\nIn order to update any security advisory, the authenticated user must be a security manager or administrator of that repository,\nor a collaborator on the repository security advisory.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:write\u0060 scope to use this endpoint.",
+        "description": "Update a repository security advisory using its GitHub Security Advisory (GHSA) identifier.\n\nIn order to update any security advisory, the authenticated user must be a security manager or administrator of that repository,\nor a collaborator on the repository security advisory. Users with a custom repository role that includes permission to create, edit, and manage security advisories can also update it.\n\nTo change the \u0060state\u0060, the authenticated user must be a security manager or administrator of that repository, or have a custom repository role with the relevant permissions. To accept, close, or reopen, the role must include permission to accept private vulnerability reports and close or reopen security advisories. To publish, the role must include permission to publish security advisories. Both paths also require permission to view or manage security advisories (Read or Write). Users with these custom-role permissions but without permission to create, edit, and manage security advisories can update the \u0060state\u0060 field and no other fields.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:write\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/security-advisories/repository-advisories#update-a-repository-security-advisory"
@@ -81954,7 +81957,7 @@
           "security-advisories"
         ],
         "summary": "Request a CVE for a repository security advisory",
-        "description": "If you want a CVE identification number for the security vulnerability in your project, and don\u0027t already have one, you can request a CVE identification number from GitHub. For more information see \u0022[Requesting a CVE identification number](https://docs.github.com/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory#requesting-a-cve-identification-number-optional).\u0022\n\nYou may request a CVE for public repositories, but cannot do so for private repositories.\n\nIn order to request a CVE for a repository security advisory, the authenticated user must be a security manager or administrator of that repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:write\u0060 scope to use this endpoint.",
+        "description": "If you want a CVE identification number for the security vulnerability in your project, and don\u0027t already have one, you can request a CVE identification number from GitHub. For more information see \u0022[Requesting a CVE identification number](https://docs.github.com/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory#requesting-a-cve-identification-number-optional).\u0022\n\nYou may request a CVE for public repositories, but cannot do so for private repositories.\n\nIn order to request a CVE for a repository security advisory, the authenticated user must be a security manager or administrator of that repository, or have a custom repository role that includes permission to publish security advisories together with permission to view or manage security advisories.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:write\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/security-advisories/repository-advisories#request-a-cve-for-a-repository-security-advisory"
@@ -82036,7 +82039,7 @@
           "security-advisories"
         ],
         "summary": "Create a temporary private fork",
-        "description": "Create a temporary private fork to collaborate on fixing a security vulnerability in a repository.\n\nRepository administrators, organization owners, and security managers can create a temporary private fork. The original reporter of a privately reported vulnerability can also create one while they remain a collaborator on the security advisory.\n\n\u003E [!NOTE]\n\u003E Forking a repository happens asynchronously. You may have to wait up to 5 minutes before you can access the fork.",
+        "description": "Create a temporary private fork to collaborate on fixing a security vulnerability in a repository.\n\nRepository administrators, organization owners, and security managers can create a temporary private fork. The original reporter of a privately reported vulnerability can also create one while they remain a collaborator on the security advisory.\n\nUsers with a custom repository role that includes permission to create, edit, and manage security advisories can also create a temporary private fork. If they aren\u0027t already a collaborator on the security advisory, they are added as one so they can access the fork.\n\n\u003E [!NOTE]\n\u003E Forking a repository happens asynchronously. You may have to wait up to 5 minutes before you can access the fork.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/security-advisories/repository-advisories#create-a-temporary-private-fork"
@@ -125275,6 +125278,9 @@
             "description": "Whether this comment was produced by Copilot code review. Not returned for issue timeline events.",
             "example": false
           },
+          "copilot_code_review_severity": {
+            "$ref": "#/components/schemas/PullRequestReviewCommentCopilotCodeReviewSeverity"
+          },
           "copilot_code_review_sources": {
             "maxItems": 16,
             "type": "array",
@@ -126944,6 +126950,9 @@
             "type": "boolean",
             "description": "Whether this comment was produced by Copilot code review.",
             "example": false
+          },
+          "copilot_code_review_severity": {
+            "$ref": "#/components/schemas/ReviewCommentCopilotCodeReviewSeverity"
           },
           "copilot_code_review_sources": {
             "maxItems": 16,
@@ -128679,6 +128688,12 @@
           },
           "sub_issues_summary": {
             "$ref": "#/components/schemas/SubIssuesSummary"
+          },
+          "parent_issue_url": {
+            "type": "string",
+            "description": "URL to get the parent issue of this issue, if it is a sub-issue",
+            "nullable": true,
+            "x-client-original-format": "uri"
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/IssueDependenciesSummary"
@@ -134591,7 +134606,7 @@
             "example": "started"
           }
         },
-        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
         "nullable": true
       },
       "IssuePullRequest": {
@@ -135326,6 +135341,16 @@
             "type": "string",
             "description": "The name of the entity to apply the budget to",
             "example": "example-repository-name"
+          },
+          "user": {
+            "type": "string",
+            "description": "The user login when the budget is scoped to a single user (\u0060user\u0060 scope).",
+            "example": "octocat"
+          },
+          "consumed_amount": {
+            "type": "number",
+            "description": "The consumed amount for the specified user within the budget. Only included for \u0060user\u0060-scoped budgets.",
+            "example": 42.5
           },
           "budget_amount": {
             "minimum": 0,
@@ -139182,7 +139207,7 @@
             "example": "started"
           }
         },
-        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
         "nullable": true
       },
       "NullableIssuePullRequest": {
@@ -140455,7 +140480,7 @@
             "example": "started"
           }
         },
-        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+        "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
         "nullable": true
       },
       "IssueSearchResultItemLabelsItem": {
@@ -147605,7 +147630,7 @@
           },
           "prevent_further_usage": {
             "type": "boolean",
-            "description": "Whether to prevent additional spending once the budget is exceeded. For \u0060user\u0060 and \u0060multi_user_customer\u0060 scopes, this must be \u0060true\u0060."
+            "description": "Whether to prevent additional spending once the budget is exceeded. Set to \u0060false\u0060 for an alerting-only budget, including user-level scopes."
           },
           "budget_alerting": {
             "$ref": "#/components/schemas/BillingCreateOrganizationBudgetRequestBudgetAlerting"
@@ -147645,7 +147670,7 @@
           },
           "prevent_further_usage": {
             "type": "boolean",
-            "description": "Whether to prevent additional spending once the budget is exceeded. For budgets with \u0060user\u0060 or \u0060multi_user_customer\u0060 scope, this must remain \u0060true\u0060."
+            "description": "Whether to prevent additional spending once the budget is exceeded. Set to \u0060false\u0060 for an alerting-only budget, including user-level scopes."
           },
           "budget_alerting": {
             "$ref": "#/components/schemas/BillingUpdateBudgetOrgRequestBudgetAlerting"
@@ -153191,7 +153216,7 @@
           },
           "status": {
             "type": "string",
-            "description": "The initial status of the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, or \u0060In review\u0060. If omitted, the issue starts in \u0060Backlog\u0060. If you do not have permission to set the status, the supplied value is ignored and the issue starts in \u0060Backlog\u0060. Cannot be \u0060null\u0060 or an empty string. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+            "description": "The initial status of the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, or \u0060In review\u0060. If omitted, the issue starts in \u0060Backlog\u0060. If you do not have permission to set the status, the supplied value is ignored and the issue starts in \u0060Backlog\u0060. Cannot be \u0060null\u0060 or an empty string. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in public preview and subject to change.",
             "example": "In progress"
           },
           "assignee": {
@@ -153289,7 +153314,7 @@
           },
           "status": {
             "type": "string",
-            "description": "The status to give the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, \u0060In review\u0060, \u0060Done\u0060, \u0060Not planned\u0060, or \u0060Duplicate\u0060. If omitted, the current status is preserved unless \u0060state\u0060 or \u0060state_reason\u0060 changes. Setting a status also updates \u0060state\u0060 and \u0060state_reason\u0060 as needed. If provided, \u0060state\u0060 and \u0060state_reason\u0060 must be consistent with the requested status. Changing the status to \u0060Duplicate\u0060 requires \u0060duplicate_issue_id\u0060. Cannot be \u0060null\u0060 or an empty string. The status and other applied field changes are saved together. If the status cannot be saved, those field changes are rolled back. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+            "description": "The status to give the issue. Can be \u0060Backlog\u0060, \u0060Todo\u0060, \u0060In progress\u0060, \u0060In review\u0060, \u0060Done\u0060, \u0060Not planned\u0060, or \u0060Duplicate\u0060. If omitted, the current status is preserved unless \u0060state\u0060 or \u0060state_reason\u0060 changes. Setting a status also updates \u0060state\u0060 and \u0060state_reason\u0060 as needed. If provided, \u0060state\u0060 and \u0060state_reason\u0060 must be consistent with the requested status. Changing the status to \u0060Duplicate\u0060 requires \u0060duplicate_issue_id\u0060. Cannot be \u0060null\u0060 or an empty string. The status and other applied field changes are saved together. If the status cannot be saved, those field changes are rolled back. Ignored when issue statuses aren\u0027t available in the repository. Issue statuses are in public preview and subject to change.",
             "example": "In progress"
           },
           "state_reason": {
@@ -155248,6 +155273,9 @@
             "type": "boolean",
             "description": "Either \u0060true\u0060 to create a new private repository or \u0060false\u0060 to create a new public one.",
             "default": false
+          },
+          "custom_properties": {
+            "$ref": "#/components/schemas/ReposCreateUsingTemplateRequestCustomProperties"
           }
         }
       },
@@ -166333,6 +166361,10 @@
             "type": "string"
           }
         }
+      },
+      "ReposCreateUsingTemplateRequestCustomProperties": {
+        "type": "object",
+        "description": "The custom properties for the new repository. The keys are the custom property names, and the values are the corresponding custom property values.\nDuring rollout, this parameter is available only for organization-owned repositories when template repository custom properties support has been enabled for the destination organization. Otherwise, providing this parameter returns HTTP 422."
       },
       "AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem": {
         "required": [
@@ -186167,6 +186199,43 @@
           ]
         }
       },
+      "PullRequestReviewCommentCopilotCodeReviewSeverity": {
+        "description": "The Copilot code review severity of this comment, or null if unavailable.",
+        "example": null,
+        "anyOf": [
+          {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "type": "string",
+            "description": "The Copilot code review severity of this comment, or null if unavailable.",
+            "example": null,
+            "x-ms-enum": {
+              "name": "PullRequestReviewCommentCopilotCodeReviewSeverity",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "low",
+                  "name": "Low"
+                },
+                {
+                  "value": "medium",
+                  "name": "Medium"
+                },
+                {
+                  "value": "high",
+                  "name": "High"
+                }
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
+      },
       "PullRequestReviewCommentStartSide": {
         "enum": [
           "LEFT",
@@ -186648,6 +186717,43 @@
             }
           ]
         }
+      },
+      "ReviewCommentCopilotCodeReviewSeverity": {
+        "description": "The Copilot code review severity of this comment, or null if unavailable.",
+        "example": null,
+        "anyOf": [
+          {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "type": "string",
+            "description": "The Copilot code review severity of this comment, or null if unavailable.",
+            "example": null,
+            "x-ms-enum": {
+              "name": "ReviewCommentCopilotCodeReviewSeverity",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "low",
+                  "name": "Low"
+                },
+                {
+                  "value": "medium",
+                  "name": "Medium"
+                },
+                {
+                  "value": "high",
+                  "name": "High"
+                }
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
       },
       "ReviewCommentSide": {
         "enum": [
@@ -264213,7 +264319,7 @@
     "issues-status-changed": {
       "post": {
         "summary": "This event occurs when there is activity relating to an issue. For more information about issues, see \u0022[About issues](https://docs.github.com/issues/tracking-your-work-with-issues/about-issues).\u0022 For information about the APIs to manage issues, see [the GraphQL documentation](https://docs.github.com/graphql/reference/objects#issue) or \u0022[Issues](https://docs.github.com/rest/issues)\u0022 in the REST API documentation.\n\nFor activity relating to a comment on an issue, use the \u0060issue_comment\u0060 event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \u0022Issues\u0022 repository permission.",
-        "description": "The status of an issue was changed. When the change also closes or reopens the issue, the \u0060closed\u0060 or \u0060reopened\u0060 action is sent too.\n\n\u003E [!NOTE]\n\u003E Issue statuses are in preview and subject to change. They\u0027re only available to accounts enrolled in the preview.",
+        "description": "The status of an issue was changed. When the change also closes or reopens the issue, the \u0060closed\u0060 or \u0060reopened\u0060 action is sent too.\n\n\u003E [!NOTE]\n\u003E Issue statuses are in public preview and subject to change.",
         "operationId": "issues/status-changed",
         "externalDocs": {
           "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issues"
@@ -310443,7 +310549,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhooksIssueUser": {
@@ -311069,7 +311175,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhooksIssue2User": {
@@ -333786,7 +333892,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesClosedIssueIssueUser": {
@@ -344187,7 +344293,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesDeletedIssueUser": {
@@ -344759,7 +344865,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesDemilestonedIssueUser": {
@@ -345315,7 +345421,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesEditedIssueUser": {
@@ -345990,7 +346096,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesLabeledIssueUser": {
@@ -346568,7 +346674,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesLockedIssueUser": {
@@ -347140,7 +347246,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesMilestonedIssueUser": {
@@ -348310,7 +348416,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesOpenedIssueUser": {
@@ -348891,7 +348997,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesReopenedIssueUser": {
@@ -350117,7 +350223,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesUnlockedIssueUser": {
@@ -379343,7 +379449,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesOpenedChangesOldIssueUser": {
@@ -380680,7 +380786,7 @@
           "example": "started"
         }
       },
-      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in preview and only available to accounts enrolled in the preview.",
+      "description": "The status of the issue, or \u0060null\u0060 if it has none. Issue statuses are in public preview and subject to change.",
       "nullable": true
     },
     "WebhookIssuesTransferredChangesNewIssueUser": {

@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
         {
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#list-issue-artifacts" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact&gt;</returns>
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -168,7 +168,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.ArtifactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.This endpoint can be used without authentication for public repositories.Unauthenticated requests are subject to the standard unauthenticated rate limit.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ArtifactsRequestBuilderGetQueryParameters 

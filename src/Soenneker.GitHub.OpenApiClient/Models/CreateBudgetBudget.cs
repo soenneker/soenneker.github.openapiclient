@@ -30,12 +30,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if (parseNode.GetChildNode("budget_scope") is { } nullNodeBudgetScope && nullNodeBudgetScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetScope = null;
             if (parseNode.GetChildNode("budget_type") is null) { _explicitNullValueBudgetType = default!; _explicitNullProperties?.Remove("budget_type"); }
             else if (parseNode.GetChildNode("budget_type") is { } nullNodeBudgetType && nullNodeBudgetType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BudgetType = null;
+            if (parseNode.GetChildNode("consumed_amount") is null) { _explicitNullValueConsumedAmount = default!; _explicitNullProperties?.Remove("consumed_amount"); }
+            else if (parseNode.GetChildNode("consumed_amount") is { } nullNodeConsumedAmount && nullNodeConsumedAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumedAmount = null;
             if (parseNode.GetChildNode("expires_at") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expires_at"); }
             else if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("prevent_further_usage") is null) { _explicitNullValuePreventFurtherUsage = default!; _explicitNullProperties?.Remove("prevent_further_usage"); }
             else if (parseNode.GetChildNode("prevent_further_usage") is { } nullNodePreventFurtherUsage && nullNodePreventFurtherUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreventFurtherUsage = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -79,6 +83,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of pricing for the budget</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType? BudgetType { get => _explicitNullValueBudgetType; set { _explicitNullValueBudgetType = value; AdditionalData?.Remove("budget_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("budget_type"); else _explicitNullProperties?.Remove("budget_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType? _explicitNullValueBudgetType = default!;
+        /// <summary>The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets.</summary>
+        public double? ConsumedAmount { get => _explicitNullValueConsumedAmount; set { _explicitNullValueConsumedAmount = value; AdditionalData?.Remove("consumed_amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumed_amount"); else _explicitNullProperties?.Remove("consumed_amount"); } }
+        private double? _explicitNullValueConsumedAmount = default!;
         /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
         public Date? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private Date? _explicitNullValueExpiresAt = default!;
@@ -95,6 +102,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether to prevent additional spending once the budget is exceeded</summary>
         public bool? PreventFurtherUsage { get => _explicitNullValuePreventFurtherUsage; set { _explicitNullValuePreventFurtherUsage = value; AdditionalData?.Remove("prevent_further_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prevent_further_usage"); else _explicitNullProperties?.Remove("prevent_further_usage"); } }
         private bool? _explicitNullValuePreventFurtherUsage = default!;
+        /// <summary>The user login when the budget is scoped to a single user (`user` scope).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
+#nullable restore
+#else
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudget"/> and sets the default values.
         /// </summary>
@@ -118,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(9)
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "budget_alerting", n => { BudgetAlerting = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetAlerting>(global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetAlerting.CreateFromDiscriminatorValue); } },
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },
@@ -126,9 +143,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBudgetScope = default; _explicitNullProperties?.Remove("budget_scope"); AdditionalData["budget_scope"] = unknown; } else { BudgetScope = parsed; AdditionalData.Remove("budget_scope"); } } },
                 { "budget_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBudgetType = default; _explicitNullProperties?.Remove("budget_type"); AdditionalData["budget_type"] = unknown; } else { BudgetType = parsed; AdditionalData.Remove("budget_type"); } } },
+                { "consumed_amount", n => { ConsumedAmount = n.GetDoubleValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -144,9 +163,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetScope>("budget_scope", BudgetScope);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>("budget_type", BudgetType);
+            writer.WriteDoubleValue("consumed_amount", ConsumedAmount);
             writer.WriteDateValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
+            writer.WriteStringValue("user", User);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
